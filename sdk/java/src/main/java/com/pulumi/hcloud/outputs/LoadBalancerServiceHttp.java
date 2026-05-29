@@ -39,6 +39,11 @@ public final class LoadBalancerServiceHttp {
      * 
      */
     private @Nullable Boolean stickySessions;
+    /**
+     * @return Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     * 
+     */
+    private @Nullable Integer timeoutIdle;
 
     private LoadBalancerServiceHttp() {}
     /**
@@ -76,6 +81,13 @@ public final class LoadBalancerServiceHttp {
     public Optional<Boolean> stickySessions() {
         return Optional.ofNullable(this.stickySessions);
     }
+    /**
+     * @return Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     * 
+     */
+    public Optional<Integer> timeoutIdle() {
+        return Optional.ofNullable(this.timeoutIdle);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -91,6 +103,7 @@ public final class LoadBalancerServiceHttp {
         private @Nullable String cookieName;
         private @Nullable Boolean redirectHttp;
         private @Nullable Boolean stickySessions;
+        private @Nullable Integer timeoutIdle;
         public Builder() {}
         public Builder(LoadBalancerServiceHttp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,6 +112,7 @@ public final class LoadBalancerServiceHttp {
     	      this.cookieName = defaults.cookieName;
     	      this.redirectHttp = defaults.redirectHttp;
     	      this.stickySessions = defaults.stickySessions;
+    	      this.timeoutIdle = defaults.timeoutIdle;
         }
 
         @CustomType.Setter
@@ -134,6 +148,12 @@ public final class LoadBalancerServiceHttp {
             this.stickySessions = stickySessions;
             return this;
         }
+        @CustomType.Setter
+        public Builder timeoutIdle(@Nullable Integer timeoutIdle) {
+
+            this.timeoutIdle = timeoutIdle;
+            return this;
+        }
         public LoadBalancerServiceHttp build() {
             final var _resultValue = new LoadBalancerServiceHttp();
             _resultValue.certificates = certificates;
@@ -141,6 +161,7 @@ public final class LoadBalancerServiceHttp {
             _resultValue.cookieName = cookieName;
             _resultValue.redirectHttp = redirectHttp;
             _resultValue.stickySessions = stickySessions;
+            _resultValue.timeoutIdle = timeoutIdle;
             return _resultValue;
         }
     }

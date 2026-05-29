@@ -93,6 +93,21 @@ public final class LoadBalancerServiceHttpArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.stickySessions);
     }
 
+    /**
+     * Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     * 
+     */
+    @Import(name="timeoutIdle")
+    private @Nullable Output<Integer> timeoutIdle;
+
+    /**
+     * @return Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+     * 
+     */
+    public Optional<Output<Integer>> timeoutIdle() {
+        return Optional.ofNullable(this.timeoutIdle);
+    }
+
     private LoadBalancerServiceHttpArgs() {}
 
     private LoadBalancerServiceHttpArgs(LoadBalancerServiceHttpArgs $) {
@@ -101,6 +116,7 @@ public final class LoadBalancerServiceHttpArgs extends com.pulumi.resources.Reso
         this.cookieName = $.cookieName;
         this.redirectHttp = $.redirectHttp;
         this.stickySessions = $.stickySessions;
+        this.timeoutIdle = $.timeoutIdle;
     }
 
     public static Builder builder() {
@@ -234,6 +250,27 @@ public final class LoadBalancerServiceHttpArgs extends com.pulumi.resources.Reso
          */
         public Builder stickySessions(Boolean stickySessions) {
             return stickySessions(Output.of(stickySessions));
+        }
+
+        /**
+         * @param timeoutIdle Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeoutIdle(@Nullable Output<Integer> timeoutIdle) {
+            $.timeoutIdle = timeoutIdle;
+            return this;
+        }
+
+        /**
+         * @param timeoutIdle Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeoutIdle(Integer timeoutIdle) {
+            return timeoutIdle(Output.of(timeoutIdle));
         }
 
         public LoadBalancerServiceHttpArgs build() {

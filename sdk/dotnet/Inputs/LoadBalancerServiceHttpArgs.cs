@@ -48,6 +48,12 @@ namespace Pulumi.HCloud.Inputs
         [Input("stickySessions")]
         public Input<bool>? StickySessions { get; set; }
 
+        /// <summary>
+        /// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+        /// </summary>
+        [Input("timeoutIdle")]
+        public Input<int>? TimeoutIdle { get; set; }
+
         public LoadBalancerServiceHttpArgs()
         {
         }

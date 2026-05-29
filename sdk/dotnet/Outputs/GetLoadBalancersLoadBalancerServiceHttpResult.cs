@@ -18,6 +18,7 @@ namespace Pulumi.HCloud.Outputs
         public readonly string CookieName;
         public readonly bool RedirectHttp;
         public readonly bool StickySessions;
+        public readonly int TimeoutIdle;
 
         [OutputConstructor]
         private GetLoadBalancersLoadBalancerServiceHttpResult(
@@ -29,13 +30,16 @@ namespace Pulumi.HCloud.Outputs
 
             bool redirectHttp,
 
-            bool stickySessions)
+            bool stickySessions,
+
+            int timeoutIdle)
         {
             Certificates = certificates;
             CookieLifetime = cookieLifetime;
             CookieName = cookieName;
             RedirectHttp = redirectHttp;
             StickySessions = stickySessions;
+            TimeoutIdle = timeoutIdle;
         }
     }
 }

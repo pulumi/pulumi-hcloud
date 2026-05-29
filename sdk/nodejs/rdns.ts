@@ -5,74 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
+ * Provides Hetzner Cloud reverse DNS (rDNS) entries for Servers, Primary IPs, Floating IPs or Load Balancers.
  *
  * ## Example Usage
  *
- * For servers:
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as hcloud from "@pulumi/hcloud";
  *
- * const node1 = new hcloud.Server("node1", {
- *     name: "node1",
- *     image: "debian-12",
- *     serverType: "cx23",
- * });
- * const master = new hcloud.Rdns("master", {
- *     serverId: node1.id.apply(x =>Number(x)),
- *     ipAddress: node1.ipv4Address,
+ * // For Servers
+ * const server1 = new hcloud.Server("server1", {name: "server1"});
+ * const server1Rdns = new hcloud.Rdns("server1", {
+ *     serverId: server1.id.apply(x =>Number(x)),
+ *     ipAddress: server1.ipv4Address,
  *     dnsPtr: "example.com",
  * });
- * ```
- *
- * For Primary IPs:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const primary1 = new hcloud.PrimaryIp("primary1", {
- *     location: "nbg1",
+ * // For Primary IPs
+ * const primaryIp1 = new hcloud.PrimaryIp("primary_ip1", {
+ *     name: "primary_ip1",
  *     type: "ipv4",
  * });
- * const primary1Rdns = new hcloud.Rdns("primary1", {
- *     primaryIpId: primary1.id.apply(x =>Number(x)),
- *     ipAddress: primary1.ipAddress,
+ * const primaryIp1Rdns = new hcloud.Rdns("primary_ip1", {
+ *     primaryIpId: primaryIp1.id.apply(x =>Number(x)),
+ *     ipAddress: primaryIp1.ipAddress,
  *     dnsPtr: "example.com",
  * });
- * ```
- *
- * For Floating IPs:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const floating1 = new hcloud.FloatingIp("floating1", {
- *     homeLocation: "nbg1",
+ * // For Floating IPs
+ * const floatingIp1 = new hcloud.FloatingIp("floating_ip1", {
+ *     name: "floating_ip1",
  *     type: "ipv4",
  * });
- * const floatingMaster = new hcloud.Rdns("floating_master", {
- *     floatingIpId: floating1.id.apply(x =>Number(x)),
- *     ipAddress: floating1.ipAddress,
+ * const floatingIp1Rdns = new hcloud.Rdns("floating_ip1", {
+ *     floatingIpId: floatingIp1.id.apply(x =>Number(x)),
+ *     ipAddress: floatingIp1.ipAddress,
  *     dnsPtr: "example.com",
  * });
- * ```
- *
- * For Load Balancers:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const loadBalancer1 = new hcloud.LoadBalancer("load_balancer1", {
- *     name: "load_balancer1",
- *     loadBalancerType: "lb11",
- *     location: "fsn1",
- * });
- * const loadBalancerMaster = new hcloud.Rdns("load_balancer_master", {
+ * // For Load Balancers
+ * const loadBalancer1 = new hcloud.LoadBalancer("load_balancer1", {name: "load_balancer1"});
+ * const loadBalancer1Rdns = new hcloud.Rdns("load_balancer1", {
  *     loadBalancerId: loadBalancer1.id.apply(x =>Number(x)),
  *     ipAddress: loadBalancer1.ipv4,
  *     dnsPtr: "example.com",
@@ -81,35 +51,34 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Reverse DNS entries can be imported using a compound ID with the following format:
- * `<prefix (s for server/ f for floating ip / l for load balancer)>-<server, floating ip or load balancer ID>-<IP address>`
+ * The `pulumi import` command can be used, for example:
  *
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns example "$PREFIX-$ID-$IP"
+ * $ pulumi import hcloud:index/rdns:Rdns example "$RESOURCE_PREFIX-$ID-$IP"
  * ```
  *
- * import reverse dns entry on server with id 123, ip 192.168.100.1
+ * A Server with id 132022102 and ip 203.0.113.10
  *
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+ * $ pulumi import hcloud:index/rdns:Rdns server1 "s-132022102-203.0.113.10"
  * ```
  *
- * import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+ * A Primary IP with id 582026301 and ip 2001:db8::1
  *
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns primary_ip1 "p-582026301-2001:db8::1"
  * ```
  *
- * import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+ * A Floating IP with id 912300308 and ip 2001:db8::1
  *
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns floating_ip1 "f-912300308-2001:db8::1"
  * ```
  *
- * import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+ * A Load Balancer with id 747590326 and ip 203.0.113.25
  *
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns load_balancer1 "l-747590326-203.0.113.25"
  * ```
  */
 export class Rdns extends pulumi.CustomResource {
@@ -141,27 +110,27 @@ export class Rdns extends pulumi.CustomResource {
     }
 
     /**
-     * The DNS address the `ipAddress` should resolve to.
+     * Domain name `ipAddress` should point to.
      */
     declare public readonly dnsPtr: pulumi.Output<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * ID of the Floating IP the `ipAddress` belongs to.
      */
     declare public readonly floatingIpId: pulumi.Output<number | undefined>;
     /**
-     * The IP address that should point to `dnsPtr`.
+     * IP address that should point to `dnsPtr`.
      */
     declare public readonly ipAddress: pulumi.Output<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to.
+     * ID of the Load Balancer the `ipAddress` belongs to.
      */
     declare public readonly loadBalancerId: pulumi.Output<number | undefined>;
     /**
-     * The Primary IP the `ipAddress` belongs to.
+     * ID of the Primary IP the `ipAddress` belongs to.
      */
     declare public readonly primaryIpId: pulumi.Output<number | undefined>;
     /**
-     * The server the `ipAddress` belongs to.
+     * ID of the Server the `ipAddress` belongs to.
      */
     declare public readonly serverId: pulumi.Output<number | undefined>;
 
@@ -209,27 +178,27 @@ export class Rdns extends pulumi.CustomResource {
  */
 export interface RdnsState {
     /**
-     * The DNS address the `ipAddress` should resolve to.
+     * Domain name `ipAddress` should point to.
      */
     dnsPtr?: pulumi.Input<string | undefined>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * ID of the Floating IP the `ipAddress` belongs to.
      */
     floatingIpId?: pulumi.Input<number | undefined>;
     /**
-     * The IP address that should point to `dnsPtr`.
+     * IP address that should point to `dnsPtr`.
      */
     ipAddress?: pulumi.Input<string | undefined>;
     /**
-     * The Load Balancer the `ipAddress` belongs to.
+     * ID of the Load Balancer the `ipAddress` belongs to.
      */
     loadBalancerId?: pulumi.Input<number | undefined>;
     /**
-     * The Primary IP the `ipAddress` belongs to.
+     * ID of the Primary IP the `ipAddress` belongs to.
      */
     primaryIpId?: pulumi.Input<number | undefined>;
     /**
-     * The server the `ipAddress` belongs to.
+     * ID of the Server the `ipAddress` belongs to.
      */
     serverId?: pulumi.Input<number | undefined>;
 }
@@ -239,27 +208,27 @@ export interface RdnsState {
  */
 export interface RdnsArgs {
     /**
-     * The DNS address the `ipAddress` should resolve to.
+     * Domain name `ipAddress` should point to.
      */
     dnsPtr: pulumi.Input<string>;
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * ID of the Floating IP the `ipAddress` belongs to.
      */
     floatingIpId?: pulumi.Input<number | undefined>;
     /**
-     * The IP address that should point to `dnsPtr`.
+     * IP address that should point to `dnsPtr`.
      */
     ipAddress: pulumi.Input<string>;
     /**
-     * The Load Balancer the `ipAddress` belongs to.
+     * ID of the Load Balancer the `ipAddress` belongs to.
      */
     loadBalancerId?: pulumi.Input<number | undefined>;
     /**
-     * The Primary IP the `ipAddress` belongs to.
+     * ID of the Primary IP the `ipAddress` belongs to.
      */
     primaryIpId?: pulumi.Input<number | undefined>;
     /**
-     * The server the `ipAddress` belongs to.
+     * ID of the Server the `ipAddress` belongs to.
      */
     serverId?: pulumi.Input<number | undefined>;
 }

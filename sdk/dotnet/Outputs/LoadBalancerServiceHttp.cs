@@ -33,6 +33,10 @@ namespace Pulumi.HCloud.Outputs
         /// Enable sticky sessions
         /// </summary>
         public readonly bool? StickySessions;
+        /// <summary>
+        /// Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+        /// </summary>
+        public readonly int? TimeoutIdle;
 
         [OutputConstructor]
         private LoadBalancerServiceHttp(
@@ -44,13 +48,16 @@ namespace Pulumi.HCloud.Outputs
 
             bool? redirectHttp,
 
-            bool? stickySessions)
+            bool? stickySessions,
+
+            int? timeoutIdle)
         {
             Certificates = certificates;
             CookieLifetime = cookieLifetime;
             CookieName = cookieName;
             RedirectHttp = redirectHttp;
             StickySessions = stickySessions;
+            TimeoutIdle = timeoutIdle;
         }
     }
 }

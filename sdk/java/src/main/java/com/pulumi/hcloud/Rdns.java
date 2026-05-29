@@ -16,11 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Hetzner Cloud Reverse DNS Entry to create, modify and reset reverse dns entries for Hetzner Cloud Servers, Primary IPs, Floating IPs or Load Balancers.
+ * Provides Hetzner Cloud reverse DNS (rDNS) entries for Servers, Primary IPs, Floating IPs or Load Balancers.
  * 
  * ## Example Usage
- * 
- * For servers:
  * 
  * <pre>
  * {@code
@@ -33,91 +31,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.hcloud.ServerArgs;
  * import com.pulumi.hcloud.Rdns;
  * import com.pulumi.hcloud.RdnsArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var node1 = new Server("node1", ServerArgs.builder()
- *             .name("node1")
- *             .image("debian-12")
- *             .serverType("cx23")
- *             .build());
- * 
- *         var master = new Rdns("master", RdnsArgs.builder()
- *             .serverId(node1.id())
- *             .ipAddress(node1.ipv4Address())
- *             .dnsPtr("example.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * For Primary IPs:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
  * import com.pulumi.hcloud.PrimaryIp;
  * import com.pulumi.hcloud.PrimaryIpArgs;
- * import com.pulumi.hcloud.Rdns;
- * import com.pulumi.hcloud.RdnsArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary1 = new PrimaryIp("primary1", PrimaryIpArgs.builder()
- *             .location("nbg1")
- *             .type("ipv4")
- *             .build());
- * 
- *         var primary1Rdns = new Rdns("primary1Rdns", RdnsArgs.builder()
- *             .primaryIpId(primary1.id())
- *             .ipAddress(primary1.ipAddress())
- *             .dnsPtr("example.com")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * For Floating IPs:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
  * import com.pulumi.hcloud.FloatingIp;
  * import com.pulumi.hcloud.FloatingIpArgs;
- * import com.pulumi.hcloud.Rdns;
- * import com.pulumi.hcloud.RdnsArgs;
+ * import com.pulumi.hcloud.LoadBalancer;
+ * import com.pulumi.hcloud.LoadBalancerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -131,55 +50,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var floating1 = new FloatingIp("floating1", FloatingIpArgs.builder()
- *             .homeLocation("nbg1")
- *             .type("ipv4")
+ *         // For Servers
+ *         var server1 = new Server("server1", ServerArgs.builder()
+ *             .name("server1")
  *             .build());
  * 
- *         var floatingMaster = new Rdns("floatingMaster", RdnsArgs.builder()
- *             .floatingIpId(floating1.id())
- *             .ipAddress(floating1.ipAddress())
+ *         var server1Rdns = new Rdns("server1Rdns", RdnsArgs.builder()
+ *             .serverId(server1.id())
+ *             .ipAddress(server1.ipv4Address())
  *             .dnsPtr("example.com")
  *             .build());
  * 
- *     }
- * }
- * }
- * </pre>
- * 
- * For Load Balancers:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.hcloud.LoadBalancer;
- * import com.pulumi.hcloud.LoadBalancerArgs;
- * import com.pulumi.hcloud.Rdns;
- * import com.pulumi.hcloud.RdnsArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var loadBalancer1 = new LoadBalancer("loadBalancer1", LoadBalancerArgs.builder()
- *             .name("load_balancer1")
- *             .loadBalancerType("lb11")
- *             .location("fsn1")
+ *         // For Primary IPs
+ *         var primaryIp1 = new PrimaryIp("primaryIp1", PrimaryIpArgs.builder()
+ *             .name("primary_ip1")
+ *             .type("ipv4")
  *             .build());
  * 
- *         var loadBalancerMaster = new Rdns("loadBalancerMaster", RdnsArgs.builder()
+ *         var primaryIp1Rdns = new Rdns("primaryIp1Rdns", RdnsArgs.builder()
+ *             .primaryIpId(primaryIp1.id())
+ *             .ipAddress(primaryIp1.ipAddress())
+ *             .dnsPtr("example.com")
+ *             .build());
+ * 
+ *         // For Floating IPs
+ *         var floatingIp1 = new FloatingIp("floatingIp1", FloatingIpArgs.builder()
+ *             .name("floating_ip1")
+ *             .type("ipv4")
+ *             .build());
+ * 
+ *         var floatingIp1Rdns = new Rdns("floatingIp1Rdns", RdnsArgs.builder()
+ *             .floatingIpId(floatingIp1.id())
+ *             .ipAddress(floatingIp1.ipAddress())
+ *             .dnsPtr("example.com")
+ *             .build());
+ * 
+ *         // For Load Balancers
+ *         var loadBalancer1 = new LoadBalancer("loadBalancer1", LoadBalancerArgs.builder()
+ *             .name("load_balancer1")
+ *             .build());
+ * 
+ *         var loadBalancer1Rdns = new Rdns("loadBalancer1Rdns", RdnsArgs.builder()
  *             .loadBalancerId(loadBalancer1.id())
  *             .ipAddress(loadBalancer1.ipv4())
  *             .dnsPtr("example.com")
@@ -192,119 +103,118 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Reverse DNS entries can be imported using a compound ID with the following format:
- * `&lt;prefix (s for server/ f for floating ip / l for load balancer)&gt;-&lt;server, floating ip or load balancer ID&gt;-&lt;IP address&gt;`
+ * The `pulumi import` command can be used, for example:
  * 
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns example &#34;$PREFIX-$ID-$IP&#34;
+ * $ pulumi import hcloud:index/rdns:Rdns example &#34;$RESOURCE_PREFIX-$ID-$IP&#34;
  * ```
  * 
- * import reverse dns entry on server with id 123, ip 192.168.100.1
+ * A Server with id 132022102 and ip 203.0.113.10
  * 
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns s-123-192.168.100.1
+ * $ pulumi import hcloud:index/rdns:Rdns server1 &#34;s-132022102-203.0.113.10&#34;
  * ```
  * 
- * import reverse dns entry on primary ip with id 123, ip 2001:db8::1
+ * A Primary IP with id 582026301 and ip 2001:db8::1
  * 
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns p-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns primary_ip1 &#34;p-582026301-2001:db8::1&#34;
  * ```
  * 
- * import reverse dns entry on floating ip with id 123, ip 2001:db8::1
+ * A Floating IP with id 912300308 and ip 2001:db8::1
  * 
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns f-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns floating_ip1 &#34;f-912300308-2001:db8::1&#34;
  * ```
  * 
- * import reverse dns entry on load balancer with id 123, ip 2001:db8::1
+ * A Load Balancer with id 747590326 and ip 203.0.113.25
  * 
  * ```sh
- * $ pulumi import hcloud:index/rdns:Rdns myrdns l-123-2001:db8::1
+ * $ pulumi import hcloud:index/rdns:Rdns load_balancer1 &#34;l-747590326-203.0.113.25&#34;
  * ```
  * 
  */
 @ResourceType(type="hcloud:index/rdns:Rdns")
 public class Rdns extends com.pulumi.resources.CustomResource {
     /**
-     * The DNS address the `ipAddress` should resolve to.
+     * Domain name `ipAddress` should point to.
      * 
      */
     @Export(name="dnsPtr", refs={String.class}, tree="[0]")
     private Output<String> dnsPtr;
 
     /**
-     * @return The DNS address the `ipAddress` should resolve to.
+     * @return Domain name `ipAddress` should point to.
      * 
      */
     public Output<String> dnsPtr() {
         return this.dnsPtr;
     }
     /**
-     * The Floating IP the `ipAddress` belongs to.
+     * ID of the Floating IP the `ipAddress` belongs to.
      * 
      */
     @Export(name="floatingIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> floatingIpId;
 
     /**
-     * @return The Floating IP the `ipAddress` belongs to.
+     * @return ID of the Floating IP the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> floatingIpId() {
         return Codegen.optional(this.floatingIpId);
     }
     /**
-     * The IP address that should point to `dnsPtr`.
+     * IP address that should point to `dnsPtr`.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address that should point to `dnsPtr`.
+     * @return IP address that should point to `dnsPtr`.
      * 
      */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
     /**
-     * The Load Balancer the `ipAddress` belongs to.
+     * ID of the Load Balancer the `ipAddress` belongs to.
      * 
      */
     @Export(name="loadBalancerId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> loadBalancerId;
 
     /**
-     * @return The Load Balancer the `ipAddress` belongs to.
+     * @return ID of the Load Balancer the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> loadBalancerId() {
         return Codegen.optional(this.loadBalancerId);
     }
     /**
-     * The Primary IP the `ipAddress` belongs to.
+     * ID of the Primary IP the `ipAddress` belongs to.
      * 
      */
     @Export(name="primaryIpId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> primaryIpId;
 
     /**
-     * @return The Primary IP the `ipAddress` belongs to.
+     * @return ID of the Primary IP the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> primaryIpId() {
         return Codegen.optional(this.primaryIpId);
     }
     /**
-     * The server the `ipAddress` belongs to.
+     * ID of the Server the `ipAddress` belongs to.
      * 
      */
     @Export(name="serverId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> serverId;
 
     /**
-     * @return The server the `ipAddress` belongs to.
+     * @return ID of the Server the `ipAddress` belongs to.
      * 
      */
     public Output<Optional<Integer>> serverId() {

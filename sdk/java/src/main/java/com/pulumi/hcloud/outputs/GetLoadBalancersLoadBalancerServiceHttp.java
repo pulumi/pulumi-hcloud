@@ -18,6 +18,7 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
     private String cookieName;
     private Boolean redirectHttp;
     private Boolean stickySessions;
+    private Integer timeoutIdle;
 
     private GetLoadBalancersLoadBalancerServiceHttp() {}
     public List<String> certificates() {
@@ -35,6 +36,9 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
     public Boolean stickySessions() {
         return this.stickySessions;
     }
+    public Integer timeoutIdle() {
+        return this.timeoutIdle;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,6 +54,7 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
         private String cookieName;
         private Boolean redirectHttp;
         private Boolean stickySessions;
+        private Integer timeoutIdle;
         public Builder() {}
         public Builder(GetLoadBalancersLoadBalancerServiceHttp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,6 +63,7 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
     	      this.cookieName = defaults.cookieName;
     	      this.redirectHttp = defaults.redirectHttp;
     	      this.stickySessions = defaults.stickySessions;
+    	      this.timeoutIdle = defaults.timeoutIdle;
         }
 
         @CustomType.Setter
@@ -103,6 +109,14 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
             this.stickySessions = stickySessions;
             return this;
         }
+        @CustomType.Setter
+        public Builder timeoutIdle(Integer timeoutIdle) {
+            if (timeoutIdle == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancersLoadBalancerServiceHttp", "timeoutIdle");
+            }
+            this.timeoutIdle = timeoutIdle;
+            return this;
+        }
         public GetLoadBalancersLoadBalancerServiceHttp build() {
             final var _resultValue = new GetLoadBalancersLoadBalancerServiceHttp();
             _resultValue.certificates = certificates;
@@ -110,6 +124,7 @@ public final class GetLoadBalancersLoadBalancerServiceHttp {
             _resultValue.cookieName = cookieName;
             _resultValue.redirectHttp = redirectHttp;
             _resultValue.stickySessions = stickySessions;
+            _resultValue.timeoutIdle = timeoutIdle;
             return _resultValue;
         }
     }

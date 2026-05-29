@@ -38,6 +38,7 @@ public final class GetLoadBalancerServiceHttp {
      * 
      */
     private Boolean stickySessions;
+    private Integer timeoutIdle;
 
     private GetLoadBalancerServiceHttp() {}
     /**
@@ -75,6 +76,9 @@ public final class GetLoadBalancerServiceHttp {
     public Boolean stickySessions() {
         return this.stickySessions;
     }
+    public Integer timeoutIdle() {
+        return this.timeoutIdle;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -90,6 +94,7 @@ public final class GetLoadBalancerServiceHttp {
         private String cookieName;
         private Boolean redirectHttp;
         private Boolean stickySessions;
+        private Integer timeoutIdle;
         public Builder() {}
         public Builder(GetLoadBalancerServiceHttp defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,6 +103,7 @@ public final class GetLoadBalancerServiceHttp {
     	      this.cookieName = defaults.cookieName;
     	      this.redirectHttp = defaults.redirectHttp;
     	      this.stickySessions = defaults.stickySessions;
+    	      this.timeoutIdle = defaults.timeoutIdle;
         }
 
         @CustomType.Setter
@@ -143,6 +149,14 @@ public final class GetLoadBalancerServiceHttp {
             this.stickySessions = stickySessions;
             return this;
         }
+        @CustomType.Setter
+        public Builder timeoutIdle(Integer timeoutIdle) {
+            if (timeoutIdle == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerServiceHttp", "timeoutIdle");
+            }
+            this.timeoutIdle = timeoutIdle;
+            return this;
+        }
         public GetLoadBalancerServiceHttp build() {
             final var _resultValue = new GetLoadBalancerServiceHttp();
             _resultValue.certificates = certificates;
@@ -150,6 +164,7 @@ public final class GetLoadBalancerServiceHttp {
             _resultValue.cookieName = cookieName;
             _resultValue.redirectHttp = redirectHttp;
             _resultValue.stickySessions = stickySessions;
+            _resultValue.timeoutIdle = timeoutIdle;
             return _resultValue;
         }
     }

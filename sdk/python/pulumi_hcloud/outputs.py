@@ -432,6 +432,8 @@ class LoadBalancerServiceHttp(dict):
             suggest = "redirect_http"
         elif key == "stickySessions":
             suggest = "sticky_sessions"
+        elif key == "timeoutIdle":
+            suggest = "timeout_idle"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LoadBalancerServiceHttp. Access the value via the '{suggest}' property getter instead.")
@@ -449,13 +451,15 @@ class LoadBalancerServiceHttp(dict):
                  cookie_lifetime: Optional[_builtins.int] = None,
                  cookie_name: Optional[_builtins.str] = None,
                  redirect_http: Optional[_builtins.bool] = None,
-                 sticky_sessions: Optional[_builtins.bool] = None):
+                 sticky_sessions: Optional[_builtins.bool] = None,
+                 timeout_idle: Optional[_builtins.int] = None):
         """
         :param Sequence[_builtins.int] certificates: List of IDs from certificates which the Load Balancer has.
         :param _builtins.int cookie_lifetime: Lifetime of the cookie for sticky session (in seconds). Default: `300`
         :param _builtins.str cookie_name: Name of the cookie for sticky session. Default: `HCLBSTICKY`
         :param _builtins.bool redirect_http: Redirect HTTP to HTTPS traffic. Only supported for services with `protocol` `https` using the default HTTP port `80`.
         :param _builtins.bool sticky_sessions: Enable sticky sessions
+        :param _builtins.int timeout_idle: Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -467,6 +471,8 @@ class LoadBalancerServiceHttp(dict):
             pulumi.set(__self__, "redirect_http", redirect_http)
         if sticky_sessions is not None:
             pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        if timeout_idle is not None:
+            pulumi.set(__self__, "timeout_idle", timeout_idle)
 
     @_builtins.property
     @pulumi.getter
@@ -507,6 +513,14 @@ class LoadBalancerServiceHttp(dict):
         Enable sticky sessions
         """
         return pulumi.get(self, "sticky_sessions")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutIdle")
+    def timeout_idle(self) -> Optional[_builtins.int]:
+        """
+        Idle timeout for HTTP connections in seconds. Must be between `30` and `300`.
+        """
+        return pulumi.get(self, "timeout_idle")
 
 
 @pulumi.output_type
@@ -1877,7 +1891,8 @@ class GetLoadBalancerServiceHttpResult(dict):
                  cookie_lifetime: _builtins.int,
                  cookie_name: _builtins.str,
                  redirect_http: _builtins.bool,
-                 sticky_sessions: _builtins.bool):
+                 sticky_sessions: _builtins.bool,
+                 timeout_idle: _builtins.int):
         """
         :param Sequence[_builtins.str] certificates: (list[int]) List of IDs from certificates which the Load Balancer has.
         :param _builtins.int cookie_lifetime: (int) Lifetime of the cookie for sticky session (in seconds).
@@ -1890,6 +1905,7 @@ class GetLoadBalancerServiceHttpResult(dict):
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "redirect_http", redirect_http)
         pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        pulumi.set(__self__, "timeout_idle", timeout_idle)
 
     @_builtins.property
     @pulumi.getter
@@ -1930,6 +1946,11 @@ class GetLoadBalancerServiceHttpResult(dict):
         (string) Determine if sticky sessions are enabled or not.
         """
         return pulumi.get(self, "sticky_sessions")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutIdle")
+    def timeout_idle(self) -> _builtins.int:
+        return pulumi.get(self, "timeout_idle")
 
 
 @pulumi.output_type
@@ -2313,12 +2334,14 @@ class GetLoadBalancersLoadBalancerServiceHttpResult(dict):
                  cookie_lifetime: _builtins.int,
                  cookie_name: _builtins.str,
                  redirect_http: _builtins.bool,
-                 sticky_sessions: _builtins.bool):
+                 sticky_sessions: _builtins.bool,
+                 timeout_idle: _builtins.int):
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "cookie_lifetime", cookie_lifetime)
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "redirect_http", redirect_http)
         pulumi.set(__self__, "sticky_sessions", sticky_sessions)
+        pulumi.set(__self__, "timeout_idle", timeout_idle)
 
     @_builtins.property
     @pulumi.getter
@@ -2344,6 +2367,11 @@ class GetLoadBalancersLoadBalancerServiceHttpResult(dict):
     @pulumi.getter(name="stickySessions")
     def sticky_sessions(self) -> _builtins.bool:
         return pulumi.get(self, "sticky_sessions")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutIdle")
+    def timeout_idle(self) -> _builtins.int:
+        return pulumi.get(self, "timeout_idle")
 
 
 @pulumi.output_type
