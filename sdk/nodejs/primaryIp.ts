@@ -94,7 +94,7 @@ export class PrimaryIp extends pulumi.CustomResource {
      */
     declare public readonly assigneeType: pulumi.Output<string>;
     /**
-     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      */
     declare public readonly autoDelete: pulumi.Output<boolean>;
     /**
@@ -158,9 +158,6 @@ export class PrimaryIp extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as PrimaryIpArgs | undefined;
-            if (args?.autoDelete === undefined && !opts.urn) {
-                throw new Error("Missing required property 'autoDelete'");
-            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -194,7 +191,7 @@ export interface PrimaryIpState {
      */
     assigneeType?: pulumi.Input<string | undefined>;
     /**
-     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      */
     autoDelete?: pulumi.Input<boolean | undefined>;
     /**
@@ -246,9 +243,9 @@ export interface PrimaryIpArgs {
      */
     assigneeType?: pulumi.Input<string | undefined>;
     /**
-     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      */
-    autoDelete: pulumi.Input<boolean>;
+    autoDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *

@@ -258,14 +258,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="hcloud:index/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
     /**
-     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * Unused attribute, consider removing it from your configuration.
+     * 
+     * @deprecated
+     * Unused attribute, consider removing it from your configuration.
      * 
      */
+    @Deprecated /* Unused attribute, consider removing it from your configuration. */
     @Export(name="allowDeprecatedImages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowDeprecatedImages;
 
     /**
-     * @return Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * @return Unused attribute, consider removing it from your configuration.
      * 
      */
     public Output<Optional<Boolean>> allowDeprecatedImages() {

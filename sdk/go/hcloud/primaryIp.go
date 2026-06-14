@@ -90,7 +90,7 @@ type PrimaryIp struct {
 	AssigneeId pulumi.IntOutput `pulumi:"assigneeId"`
 	// Type of the resource the Primary IP should be assigned to.
 	AssigneeType pulumi.StringOutput `pulumi:"assigneeType"`
-	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+	// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
 	AutoDelete pulumi.BoolOutput `pulumi:"autoDelete"`
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
@@ -119,9 +119,6 @@ func NewPrimaryIp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AutoDelete == nil {
-		return nil, errors.New("invalid value for required argument 'AutoDelete'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -152,7 +149,7 @@ type primaryIpState struct {
 	AssigneeId *int `pulumi:"assigneeId"`
 	// Type of the resource the Primary IP should be assigned to.
 	AssigneeType *string `pulumi:"assigneeType"`
-	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+	// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
 	AutoDelete *bool `pulumi:"autoDelete"`
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
@@ -179,7 +176,7 @@ type PrimaryIpState struct {
 	AssigneeId pulumi.IntPtrInput
 	// Type of the resource the Primary IP should be assigned to.
 	AssigneeType pulumi.StringPtrInput
-	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+	// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
 	AutoDelete pulumi.BoolPtrInput
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
@@ -210,8 +207,8 @@ type primaryIpArgs struct {
 	AssigneeId *int `pulumi:"assigneeId"`
 	// Type of the resource the Primary IP should be assigned to.
 	AssigneeType *string `pulumi:"assigneeType"`
-	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
-	AutoDelete bool `pulumi:"autoDelete"`
+	// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
+	AutoDelete *bool `pulumi:"autoDelete"`
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
 	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
@@ -234,8 +231,8 @@ type PrimaryIpArgs struct {
 	AssigneeId pulumi.IntPtrInput
 	// Type of the resource the Primary IP should be assigned to.
 	AssigneeType pulumi.StringPtrInput
-	// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
-	AutoDelete pulumi.BoolInput
+	// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
+	AutoDelete pulumi.BoolPtrInput
 	// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
 	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
@@ -349,7 +346,7 @@ func (o PrimaryIpOutput) AssigneeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.StringOutput { return v.AssigneeType }).(pulumi.StringOutput)
 }
 
-// Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+// Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
 func (o PrimaryIpOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrimaryIp) pulumi.BoolOutput { return v.AutoDelete }).(pulumi.BoolOutput)
 }

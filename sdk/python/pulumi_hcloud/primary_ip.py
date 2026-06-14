@@ -19,10 +19,10 @@ __all__ = ['PrimaryIpArgs', 'PrimaryIp']
 @pulumi.input_type
 class PrimaryIpArgs:
     def __init__(__self__, *,
-                 auto_delete: pulumi.Input[_builtins.bool],
                  type: pulumi.Input[_builtins.str],
                  assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
                  assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  datacenter: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,22 +31,23 @@ class PrimaryIpArgs:
         """
         The set of arguments for constructing a PrimaryIp resource.
 
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
         :param pulumi.Input[_builtins.str] type: Type of the Primary IP (`ipv4` or `ipv6`).
         :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
         :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] location: Name of the Location for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Primary IP.
         """
-        pulumi.set(__self__, "auto_delete", auto_delete)
         pulumi.set(__self__, "type", type)
         if assignee_id is not None:
             pulumi.set(__self__, "assignee_id", assignee_id)
         if assignee_type is not None:
             pulumi.set(__self__, "assignee_type", assignee_type)
+        if auto_delete is not None:
+            pulumi.set(__self__, "auto_delete", auto_delete)
         if datacenter is not None:
             warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
             pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
@@ -60,18 +61,6 @@ class PrimaryIpArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="autoDelete")
-    def auto_delete(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
-        """
-        return pulumi.get(self, "auto_delete")
-
-    @auto_delete.setter
-    def auto_delete(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "auto_delete", value)
 
     @_builtins.property
     @pulumi.getter
@@ -108,6 +97,18 @@ class PrimaryIpArgs:
     @assignee_type.setter
     def assignee_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignee_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDelete")
+    def auto_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
+        """
+        return pulumi.get(self, "auto_delete")
+
+    @auto_delete.setter
+    def auto_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_delete", value)
 
     @_builtins.property
     @pulumi.getter
@@ -190,7 +191,7 @@ class _PrimaryIpState:
 
         :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
         :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[_builtins.str] ip_address: IP address of the Primary IP.
@@ -254,7 +255,7 @@ class _PrimaryIpState:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
@@ -432,7 +433,7 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
         :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -533,8 +534,6 @@ class PrimaryIp(pulumi.CustomResource):
 
             __props__.__dict__["assignee_id"] = assignee_id
             __props__.__dict__["assignee_type"] = assignee_type
-            if auto_delete is None and not opts.urn:
-                raise TypeError("Missing required property 'auto_delete'")
             __props__.__dict__["auto_delete"] = auto_delete
             __props__.__dict__["datacenter"] = datacenter
             __props__.__dict__["delete_protection"] = delete_protection
@@ -576,7 +575,7 @@ class PrimaryIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] assignee_id: ID of the resource the Primary IP should be assigned to.
         :param pulumi.Input[_builtins.str] assignee_type: Type of the resource the Primary IP should be assigned to.
-        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        :param pulumi.Input[_builtins.bool] auto_delete: Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         :param pulumi.Input[_builtins.str] datacenter: Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[_builtins.str] ip_address: IP address of the Primary IP.
@@ -623,7 +622,7 @@ class PrimaryIp(pulumi.CustomResource):
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether auto delete is enabled. Setting `auto_delete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        Whether auto delete is enabled. Setting `auto_delete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         """
         return pulumi.get(self, "auto_delete")
 
