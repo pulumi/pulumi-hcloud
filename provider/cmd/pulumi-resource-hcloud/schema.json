@@ -4370,7 +4370,7 @@
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                 },
                 "datacenter": {
                     "type": "string",
@@ -4433,7 +4433,7 @@
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                 },
                 "datacenter": {
                     "type": "string",
@@ -4465,7 +4465,6 @@
                 }
             },
             "requiredInputs": [
-                "autoDelete",
                 "type"
             ],
             "stateInputs": {
@@ -4481,7 +4480,7 @@
                     },
                     "autoDelete": {
                         "type": "boolean",
-                        "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                        "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                     },
                     "datacenter": {
                         "type": "string",
@@ -4621,7 +4620,8 @@
             "properties": {
                 "allowDeprecatedImages": {
                     "type": "boolean",
-                    "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                    "description": "Unused attribute, consider removing it from your configuration.\n",
+                    "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                 },
                 "backupWindow": {
                     "type": "string",
@@ -4761,7 +4761,8 @@
             "inputProperties": {
                 "allowDeprecatedImages": {
                     "type": "boolean",
-                    "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                    "description": "Unused attribute, consider removing it from your configuration.\n",
+                    "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                 },
                 "backups": {
                     "type": "boolean",
@@ -4873,7 +4874,8 @@
                 "properties": {
                     "allowDeprecatedImages": {
                         "type": "boolean",
-                        "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                        "description": "Unused attribute, consider removing it from your configuration.\n",
+                        "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                     },
                     "backupWindow": {
                         "type": "string",

@@ -170,7 +170,9 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * Unused attribute, consider removing it from your configuration.
+     *
+     * @deprecated Unused attribute, consider removing it from your configuration.
      */
     declare public readonly allowDeprecatedImages: pulumi.Output<boolean | undefined>;
     /**
@@ -370,7 +372,9 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * Unused attribute, consider removing it from your configuration.
+     *
+     * @deprecated Unused attribute, consider removing it from your configuration.
      */
     allowDeprecatedImages?: pulumi.Input<boolean | undefined>;
     /**
@@ -493,7 +497,9 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * Unused attribute, consider removing it from your configuration.
+     *
+     * @deprecated Unused attribute, consider removing it from your configuration.
      */
     allowDeprecatedImages?: pulumi.Input<boolean | undefined>;
     /**

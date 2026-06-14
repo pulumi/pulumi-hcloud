@@ -46,7 +46,7 @@ class ServerArgs:
         The set of arguments for constructing a Server resource.
 
         :param pulumi.Input[_builtins.str] server_type: Name of the server type this server should be created with.
-        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Unused attribute, consider removing it from your configuration.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
@@ -73,6 +73,9 @@ class ServerArgs:
         :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
         """
         pulumi.set(__self__, "server_type", server_type)
+        if allow_deprecated_images is not None:
+            warnings.warn("""Unused attribute, consider removing it from your configuration.""", DeprecationWarning)
+            pulumi.log.warn("""allow_deprecated_images is deprecated: Unused attribute, consider removing it from your configuration.""")
         if allow_deprecated_images is not None:
             pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
         if backups is not None:
@@ -131,9 +134,10 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
+    @_utilities.deprecated("""Unused attribute, consider removing it from your configuration.""")
     def allow_deprecated_images(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        Unused attribute, consider removing it from your configuration.
         """
         return pulumi.get(self, "allow_deprecated_images")
 
@@ -409,7 +413,7 @@ class _ServerState:
         """
         Input properties used for looking up and filtering Server resources.
 
-        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Unused attribute, consider removing it from your configuration.
         :param pulumi.Input[_builtins.str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -442,6 +446,9 @@ class _ServerState:
         :param pulumi.Input[_builtins.str] status: (string) The status of the server.
         :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
         """
+        if allow_deprecated_images is not None:
+            warnings.warn("""Unused attribute, consider removing it from your configuration.""", DeprecationWarning)
+            pulumi.log.warn("""allow_deprecated_images is deprecated: Unused attribute, consider removing it from your configuration.""")
         if allow_deprecated_images is not None:
             pulumi.set(__self__, "allow_deprecated_images", allow_deprecated_images)
         if backup_window is not None:
@@ -505,9 +512,10 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
+    @_utilities.deprecated("""Unused attribute, consider removing it from your configuration.""")
     def allow_deprecated_images(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        Unused attribute, consider removing it from your configuration.
         """
         return pulumi.get(self, "allow_deprecated_images")
 
@@ -992,7 +1000,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Unused attribute, consider removing it from your configuration.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection (Needs to be the same as `rebuild_protection`). See "Delete Protection" in the Provider Docs for details.
@@ -1270,7 +1278,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        :param pulumi.Input[_builtins.bool] allow_deprecated_images: Unused attribute, consider removing it from your configuration.
         :param pulumi.Input[_builtins.str] backup_window: (string) The backup window of the server, if enabled.
         :param pulumi.Input[_builtins.bool] backups: Enable or disable backups.
         :param pulumi.Input[_builtins.str] datacenter: The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -1338,9 +1346,10 @@ class Server(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
+    @_utilities.deprecated("""Unused attribute, consider removing it from your configuration.""")
     def allow_deprecated_images(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        Unused attribute, consider removing it from your configuration.
         """
         return pulumi.get(self, "allow_deprecated_images")
 
