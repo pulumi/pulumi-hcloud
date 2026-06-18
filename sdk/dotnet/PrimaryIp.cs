@@ -92,7 +92,7 @@ namespace Pulumi.HCloud
         public Output<string> AssigneeType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `True` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
         [Output("autoDelete")]
         public Output<bool> AutoDelete { get; private set; } = null!;
@@ -204,10 +204,10 @@ namespace Pulumi.HCloud
         public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
-        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `True` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
-        [Input("autoDelete", required: true)]
-        public Input<bool> AutoDelete { get; set; } = null!;
+        [Input("autoDelete")]
+        public Input<bool>? AutoDelete { get; set; }
 
         /// <summary>
         /// Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -272,7 +272,7 @@ namespace Pulumi.HCloud
         public Input<string>? AssigneeType { get; set; }
 
         /// <summary>
-        /// Whether auto delete is enabled. Setting `AutoDelete` to `False` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+        /// Whether auto delete is enabled. Setting `AutoDelete` to `True` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
         /// </summary>
         [Input("autoDelete")]
         public Input<bool>? AutoDelete { get; set; }

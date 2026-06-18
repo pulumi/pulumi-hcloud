@@ -22,16 +22,24 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     public static final ServerState Empty = new ServerState();
 
     /**
-     * Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * Unused attribute, consider removing it from your configuration.
+     * 
+     * @deprecated
+     * Unused attribute, consider removing it from your configuration.
      * 
      */
+    @Deprecated /* Unused attribute, consider removing it from your configuration. */
     @Import(name="allowDeprecatedImages")
     private @Nullable Output<Boolean> allowDeprecatedImages;
 
     /**
-     * @return Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+     * @return Unused attribute, consider removing it from your configuration.
+     * 
+     * @deprecated
+     * Unused attribute, consider removing it from your configuration.
      * 
      */
+    @Deprecated /* Unused attribute, consider removing it from your configuration. */
     public Optional<Output<Boolean>> allowDeprecatedImages() {
         return Optional.ofNullable(this.allowDeprecatedImages);
     }
@@ -503,22 +511,30 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowDeprecatedImages Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+         * @param allowDeprecatedImages Unused attribute, consider removing it from your configuration.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Unused attribute, consider removing it from your configuration.
+         * 
          */
+        @Deprecated /* Unused attribute, consider removing it from your configuration. */
         public Builder allowDeprecatedImages(@Nullable Output<Boolean> allowDeprecatedImages) {
             $.allowDeprecatedImages = allowDeprecatedImages;
             return this;
         }
 
         /**
-         * @param allowDeprecatedImages Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+         * @param allowDeprecatedImages Unused attribute, consider removing it from your configuration.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Unused attribute, consider removing it from your configuration.
+         * 
          */
+        @Deprecated /* Unused attribute, consider removing it from your configuration. */
         public Builder allowDeprecatedImages(Boolean allowDeprecatedImages) {
             return allowDeprecatedImages(Output.of(allowDeprecatedImages));
         }
