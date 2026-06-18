@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-hcloud/provider
 
-go 1.25.9
+go 1.26.4
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/hetznercloud/terraform-provider-hcloud v1.64.0
+	github.com/hetznercloud/terraform-provider-hcloud v1.65.0
 	github.com/pulumi/providertest v0.6.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.131.0
 	github.com/pulumi/pulumi/sdk/v3 v3.242.0
@@ -141,7 +141,7 @@ require (
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.2.1 // indirect
 	github.com/hashicorp/yamux v0.1.2 // indirect
-	github.com/hetznercloud/hcloud-go/v2 v2.41.2 // indirect
+	github.com/hetznercloud/hcloud-go/v2 v2.42.0 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
