@@ -16,6 +16,11 @@ namespace Pulumi.HCloud
         /// 
         /// Use this resource to get detailed information about a specific Datacenter.
         /// 
+        /// &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocation` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -47,6 +52,11 @@ namespace Pulumi.HCloud
         /// 
         /// Use this resource to get detailed information about a specific Datacenter.
         /// 
+        /// &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocation` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -77,6 +87,11 @@ namespace Pulumi.HCloud
         /// Provides details about a specific Hetzner Cloud Datacenter.
         /// 
         /// Use this resource to get detailed information about a specific Datacenter.
+        /// 
+        /// &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocation` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
         /// 
         /// ## Example Usage
         /// 

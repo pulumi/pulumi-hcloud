@@ -7,10 +7,11 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides details about multiple Hetzner Cloud Images.
+ * Provides a list of Hetzner Storage Images.
  *
- * When relevant, it is recommended to always provide the image architecture
- * (`withArchitecture`) when fetching images.
+ * It is recommended to always provide the image architecture (using ''with_architecture'').
+ *
+ * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
  *
  * ## Example Usage
  *
@@ -43,23 +44,23 @@ export function getImages(args?: GetImagesArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetImagesArgs {
     /**
-     * Also list images that are marked as deprecated.
+     * Include deprecated images.
      */
     includeDeprecated?: boolean;
     /**
-     * Sorts list by date.
+     * Sort results by created date.
      */
     mostRecent?: boolean;
     /**
-     * List only images with this architecture, could contain `x86` or `arm`.
+     * Filter results by architecture, for example `x86` or `arm`.
      */
     withArchitectures?: string[];
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
     withSelector?: string;
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Filter results by statuses, for example `creating` or `available`.
      */
     withStatuses?: string[];
 }
@@ -69,24 +70,37 @@ export interface GetImagesArgs {
  */
 export interface GetImagesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of this resource.
      */
     readonly id: string;
-    /**
-     * (list) List of all matching images. See `data.hcloud_image` for schema.
-     */
     readonly images: outputs.GetImagesImage[];
+    /**
+     * Include deprecated images.
+     */
     readonly includeDeprecated?: boolean;
+    /**
+     * Sort results by created date.
+     */
     readonly mostRecent?: boolean;
+    /**
+     * Filter results by architecture, for example `x86` or `arm`.
+     */
     readonly withArchitectures?: string[];
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     */
     readonly withSelector?: string;
+    /**
+     * Filter results by statuses, for example `creating` or `available`.
+     */
     readonly withStatuses?: string[];
 }
 /**
- * Provides details about multiple Hetzner Cloud Images.
+ * Provides a list of Hetzner Storage Images.
  *
- * When relevant, it is recommended to always provide the image architecture
- * (`withArchitecture`) when fetching images.
+ * It is recommended to always provide the image architecture (using ''with_architecture'').
+ *
+ * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
  *
  * ## Example Usage
  *
@@ -119,23 +133,23 @@ export function getImagesOutput(args?: GetImagesOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetImagesOutputArgs {
     /**
-     * Also list images that are marked as deprecated.
+     * Include deprecated images.
      */
     includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
-     * Sorts list by date.
+     * Sort results by created date.
      */
     mostRecent?: pulumi.Input<boolean | undefined>;
     /**
-     * List only images with this architecture, could contain `x86` or `arm`.
+     * Filter results by architecture, for example `x86` or `arm`.
      */
     withArchitectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
     withSelector?: pulumi.Input<string | undefined>;
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Filter results by statuses, for example `creating` or `available`.
      */
     withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

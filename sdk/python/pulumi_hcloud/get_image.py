@@ -83,7 +83,7 @@ class GetImageResult:
     @pulumi.getter
     def architecture(self) -> _builtins.str:
         """
-        (string) Architecture of the Image.
+        CPU architecture compatible with the Image.
         """
         return pulumi.get(self, "architecture")
 
@@ -91,7 +91,7 @@ class GetImageResult:
     @pulumi.getter
     def created(self) -> _builtins.str:
         """
-        (string) Date when the Image was created (in ISO-8601 format).
+        Point in time when the Image was created (in RFC3339 format).
         """
         return pulumi.get(self, "created")
 
@@ -99,7 +99,7 @@ class GetImageResult:
     @pulumi.getter
     def deprecated(self) -> _builtins.str:
         """
-        (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+        Point in time when the Image was marked as deprecated (in RFC3339 format).
         """
         return pulumi.get(self, "deprecated")
 
@@ -107,38 +107,47 @@ class GetImageResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        (string) Description of the Image.
+        Description of the Image.
         """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.int:
+    def id(self) -> Optional[_builtins.int]:
         """
-        (int) Unique ID of the Image.
+        ID of the Image.
         """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="includeDeprecated")
     def include_deprecated(self) -> Optional[_builtins.bool]:
+        """
+        Include deprecated images.
+        """
         return pulumi.get(self, "include_deprecated")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[_builtins.bool]:
+        """
+        Sort results by created date, and return the most recent result.
+        """
         return pulumi.get(self, "most_recent")
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> _builtins.str:
+    def name(self) -> Optional[_builtins.str]:
         """
-        (string) Name of the Image, only present when the Image is of type `system`.
+        Name of the Image, only present when the type is `system`.
         """
         return pulumi.get(self, "name")
 
@@ -146,7 +155,7 @@ class GetImageResult:
     @pulumi.getter(name="osFlavor")
     def os_flavor(self) -> _builtins.str:
         """
-        (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+        Flavor of the operating system contained in the Image.
         """
         return pulumi.get(self, "os_flavor")
 
@@ -154,7 +163,7 @@ class GetImageResult:
     @pulumi.getter(name="osVersion")
     def os_version(self) -> _builtins.str:
         """
-        (string) Operating system version.
+        Version of the operating system contained in the Image.
         """
         return pulumi.get(self, "os_version")
 
@@ -162,7 +171,7 @@ class GetImageResult:
     @pulumi.getter(name="rapidDeploy")
     def rapid_deploy(self) -> _builtins.bool:
         """
-        (bool) Indicates that rapid deploy of the image is available.
+        Whether the Image is optimized for a rapid deployment.
         """
         return pulumi.get(self, "rapid_deploy")
 
@@ -170,29 +179,41 @@ class GetImageResult:
     @pulumi.getter
     @_utilities.deprecated("""Please use the with_selector property instead.""")
     def selector(self) -> Optional[_builtins.str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        """
         return pulumi.get(self, "selector")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+        Type of the Image, for example `system`, `backup` or `snapshot`.
         """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="withArchitecture")
     def with_architecture(self) -> Optional[_builtins.str]:
+        """
+        Filter results by architecture, for example `x86` (default) or `arm`.
+        """
         return pulumi.get(self, "with_architecture")
 
     @_builtins.property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+        """
         return pulumi.get(self, "with_selector")
 
     @_builtins.property
     @pulumi.getter(name="withStatuses")
     def with_statuses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Filter results by statuses, for example `creating` or `available`.
+        """
         return pulumi.get(self, "with_statuses")
 
 
@@ -232,10 +253,10 @@ def get_image(id: Optional[_builtins.int] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Provides details about a Hetzner Cloud Image.
-    This resource is useful if you want to use a non-terraform managed image.
 
-    When relevant, it is recommended to always provide the image architecture
-    (`with_architecture`) when fetching images.
+    It is recommended to always provide the image architecture (using ''with_architecture'').
+
+    See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 
     ## Example Usage
 
@@ -248,18 +269,20 @@ def get_image(id: Optional[_builtins.int] = None,
         with_architecture="x86")
     by_name_arm = hcloud.get_image(name="debian-12",
         with_architecture="arm")
-    by_label = hcloud.get_image(with_selector="key=value")
+    by_label = hcloud.get_image(with_selector="key=value",
+        most_recent=True)
     main = hcloud.Server("main", image=by_name["id"])
     ```
 
 
     :param _builtins.int id: ID of the Image.
-    :param _builtins.bool include_deprecated: Also return the image if it is marked as deprecated.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most recent Image.
-    :param _builtins.str name: Name of the Image.
-    :param _builtins.str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
-    :param Sequence[_builtins.str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
+    :param _builtins.bool include_deprecated: Include deprecated images.
+    :param _builtins.bool most_recent: Sort results by created date, and return the most recent result.
+    :param _builtins.str name: Name of the Image, only present when the type is `system`.
+    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+    :param _builtins.str with_architecture: Filter results by architecture, for example `x86` (default) or `arm`.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+    :param Sequence[_builtins.str] with_statuses: Filter results by statuses, for example `creating` or `available`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -302,10 +325,10 @@ def get_image_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Provides details about a Hetzner Cloud Image.
-    This resource is useful if you want to use a non-terraform managed image.
 
-    When relevant, it is recommended to always provide the image architecture
-    (`with_architecture`) when fetching images.
+    It is recommended to always provide the image architecture (using ''with_architecture'').
+
+    See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 
     ## Example Usage
 
@@ -318,18 +341,20 @@ def get_image_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
         with_architecture="x86")
     by_name_arm = hcloud.get_image(name="debian-12",
         with_architecture="arm")
-    by_label = hcloud.get_image(with_selector="key=value")
+    by_label = hcloud.get_image(with_selector="key=value",
+        most_recent=True)
     main = hcloud.Server("main", image=by_name["id"])
     ```
 
 
     :param _builtins.int id: ID of the Image.
-    :param _builtins.bool include_deprecated: Also return the image if it is marked as deprecated.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most recent Image.
-    :param _builtins.str name: Name of the Image.
-    :param _builtins.str with_architecture: Select only images with this architecture, could be `x86` (default) or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
-    :param Sequence[_builtins.str] with_statuses: Select only images with the specified status, could contain `creating` or `available`.
+    :param _builtins.bool include_deprecated: Include deprecated images.
+    :param _builtins.bool most_recent: Sort results by created date, and return the most recent result.
+    :param _builtins.str name: Name of the Image, only present when the type is `system`.
+    :param _builtins.str selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+    :param _builtins.str with_architecture: Filter results by architecture, for example `x86` (default) or `arm`.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+    :param Sequence[_builtins.str] with_statuses: Filter results by statuses, for example `creating` or `available`.
     """
     __args__ = dict()
     __args__['id'] = id

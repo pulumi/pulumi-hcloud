@@ -3503,19 +3503,28 @@ func (o GetFloatingIpsFloatingIpArrayOutput) Index(i pulumi.IntInput) GetFloatin
 }
 
 type GetImagesImage struct {
-	Architecture string            `pulumi:"architecture"`
-	Created      string            `pulumi:"created"`
-	Deprecated   string            `pulumi:"deprecated"`
-	Description  string            `pulumi:"description"`
-	Id           int               `pulumi:"id"`
-	Labels       map[string]string `pulumi:"labels"`
-	Name         string            `pulumi:"name"`
-	OsFlavor     string            `pulumi:"osFlavor"`
-	OsVersion    string            `pulumi:"osVersion"`
-	RapidDeploy  bool              `pulumi:"rapidDeploy"`
-	// Deprecated: Please use the withSelector property instead.
-	Selector *string `pulumi:"selector"`
-	Type     string  `pulumi:"type"`
+	// CPU architecture compatible with the Image.
+	Architecture string `pulumi:"architecture"`
+	// Point in time when the Image was created (in RFC3339 format).
+	Created string `pulumi:"created"`
+	// Point in time when the Image was marked as deprecated (in RFC3339 format).
+	Deprecated string `pulumi:"deprecated"`
+	// Description of the Image.
+	Description string `pulumi:"description"`
+	// ID of the Image.
+	Id int `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Name of the Image, only present when the type is `system`.
+	Name string `pulumi:"name"`
+	// Flavor of the operating system contained in the Image.
+	OsFlavor string `pulumi:"osFlavor"`
+	// Version of the operating system contained in the Image.
+	OsVersion string `pulumi:"osVersion"`
+	// Whether the Image is optimized for a rapid deployment.
+	RapidDeploy bool `pulumi:"rapidDeploy"`
+	// Type of the Image, for example `system`, `backup` or `snapshot`.
+	Type string `pulumi:"type"`
 }
 
 // GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
@@ -3530,19 +3539,28 @@ type GetImagesImageInput interface {
 }
 
 type GetImagesImageArgs struct {
-	Architecture pulumi.StringInput    `pulumi:"architecture"`
-	Created      pulumi.StringInput    `pulumi:"created"`
-	Deprecated   pulumi.StringInput    `pulumi:"deprecated"`
-	Description  pulumi.StringInput    `pulumi:"description"`
-	Id           pulumi.IntInput       `pulumi:"id"`
-	Labels       pulumi.StringMapInput `pulumi:"labels"`
-	Name         pulumi.StringInput    `pulumi:"name"`
-	OsFlavor     pulumi.StringInput    `pulumi:"osFlavor"`
-	OsVersion    pulumi.StringInput    `pulumi:"osVersion"`
-	RapidDeploy  pulumi.BoolInput      `pulumi:"rapidDeploy"`
-	// Deprecated: Please use the withSelector property instead.
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	Type     pulumi.StringInput    `pulumi:"type"`
+	// CPU architecture compatible with the Image.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+	// Point in time when the Image was created (in RFC3339 format).
+	Created pulumi.StringInput `pulumi:"created"`
+	// Point in time when the Image was marked as deprecated (in RFC3339 format).
+	Deprecated pulumi.StringInput `pulumi:"deprecated"`
+	// Description of the Image.
+	Description pulumi.StringInput `pulumi:"description"`
+	// ID of the Image.
+	Id pulumi.IntInput `pulumi:"id"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Name of the Image, only present when the type is `system`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Flavor of the operating system contained in the Image.
+	OsFlavor pulumi.StringInput `pulumi:"osFlavor"`
+	// Version of the operating system contained in the Image.
+	OsVersion pulumi.StringInput `pulumi:"osVersion"`
+	// Whether the Image is optimized for a rapid deployment.
+	RapidDeploy pulumi.BoolInput `pulumi:"rapidDeploy"`
+	// Type of the Image, for example `system`, `backup` or `snapshot`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetImagesImageArgs) ElementType() reflect.Type {
@@ -3596,51 +3614,57 @@ func (o GetImagesImageOutput) ToGetImagesImageOutputWithContext(ctx context.Cont
 	return o
 }
 
+// CPU architecture compatible with the Image.
 func (o GetImagesImageOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
+// Point in time when the Image was created (in RFC3339 format).
 func (o GetImagesImageOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Created }).(pulumi.StringOutput)
 }
 
+// Point in time when the Image was marked as deprecated (in RFC3339 format).
 func (o GetImagesImageOutput) Deprecated() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Deprecated }).(pulumi.StringOutput)
 }
 
+// Description of the Image.
 func (o GetImagesImageOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// ID of the Image.
 func (o GetImagesImageOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImagesImage) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o GetImagesImageOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetImagesImage) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
+// Name of the Image, only present when the type is `system`.
 func (o GetImagesImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Flavor of the operating system contained in the Image.
 func (o GetImagesImageOutput) OsFlavor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.OsFlavor }).(pulumi.StringOutput)
 }
 
+// Version of the operating system contained in the Image.
 func (o GetImagesImageOutput) OsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.OsVersion }).(pulumi.StringOutput)
 }
 
+// Whether the Image is optimized for a rapid deployment.
 func (o GetImagesImageOutput) RapidDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImagesImage) bool { return v.RapidDeploy }).(pulumi.BoolOutput)
 }
 
-// Deprecated: Please use the withSelector property instead.
-func (o GetImagesImageOutput) Selector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetImagesImage) *string { return v.Selector }).(pulumi.StringPtrOutput)
-}
-
+// Type of the Image, for example `system`, `backup` or `snapshot`.
 func (o GetImagesImageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Type }).(pulumi.StringOutput)
 }

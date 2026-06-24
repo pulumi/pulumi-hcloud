@@ -167,20 +167,49 @@ export interface GetFloatingIpsFloatingIp {
 }
 
 export interface GetImagesImage {
+    /**
+     * CPU architecture compatible with the Image.
+     */
     architecture: string;
+    /**
+     * Point in time when the Image was created (in RFC3339 format).
+     */
     created: string;
+    /**
+     * Point in time when the Image was marked as deprecated (in RFC3339 format).
+     */
     deprecated: string;
+    /**
+     * Description of the Image.
+     */
     description: string;
+    /**
+     * ID of the Image.
+     */
     id: number;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
     labels: {[key: string]: string};
+    /**
+     * Name of the Image, only present when the type is `system`.
+     */
     name: string;
+    /**
+     * Flavor of the operating system contained in the Image.
+     */
     osFlavor: string;
+    /**
+     * Version of the operating system contained in the Image.
+     */
     osVersion: string;
+    /**
+     * Whether the Image is optimized for a rapid deployment.
+     */
     rapidDeploy: boolean;
     /**
-     * @deprecated Please use the withSelector property instead.
+     * Type of the Image, for example `system`, `backup` or `snapshot`.
      */
-    selector?: string;
     type: string;
 }
 

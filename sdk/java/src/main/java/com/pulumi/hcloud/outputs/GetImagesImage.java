@@ -10,70 +10,140 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagesImage {
-    private String architecture;
-    private String created;
-    private String deprecated;
-    private String description;
-    private Integer id;
-    private Map<String,String> labels;
-    private String name;
-    private String osFlavor;
-    private String osVersion;
-    private Boolean rapidDeploy;
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @return CPU architecture compatible with the Image.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
-    private @Nullable String selector;
+    private String architecture;
+    /**
+     * @return Point in time when the Image was created (in RFC3339 format).
+     * 
+     */
+    private String created;
+    /**
+     * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
+     * 
+     */
+    private String deprecated;
+    /**
+     * @return Description of the Image.
+     * 
+     */
+    private String description;
+    /**
+     * @return ID of the Image.
+     * 
+     */
+    private Integer id;
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
+    private Map<String,String> labels;
+    /**
+     * @return Name of the Image, only present when the type is `system`.
+     * 
+     */
+    private String name;
+    /**
+     * @return Flavor of the operating system contained in the Image.
+     * 
+     */
+    private String osFlavor;
+    /**
+     * @return Version of the operating system contained in the Image.
+     * 
+     */
+    private String osVersion;
+    /**
+     * @return Whether the Image is optimized for a rapid deployment.
+     * 
+     */
+    private Boolean rapidDeploy;
+    /**
+     * @return Type of the Image, for example `system`, `backup` or `snapshot`.
+     * 
+     */
     private String type;
 
     private GetImagesImage() {}
+    /**
+     * @return CPU architecture compatible with the Image.
+     * 
+     */
     public String architecture() {
         return this.architecture;
     }
+    /**
+     * @return Point in time when the Image was created (in RFC3339 format).
+     * 
+     */
     public String created() {
         return this.created;
     }
+    /**
+     * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
+     * 
+     */
     public String deprecated() {
         return this.deprecated;
     }
+    /**
+     * @return Description of the Image.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return ID of the Image.
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
     public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Name of the Image, only present when the type is `system`.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Flavor of the operating system contained in the Image.
+     * 
+     */
     public String osFlavor() {
         return this.osFlavor;
     }
+    /**
+     * @return Version of the operating system contained in the Image.
+     * 
+     */
     public String osVersion() {
         return this.osVersion;
     }
+    /**
+     * @return Whether the Image is optimized for a rapid deployment.
+     * 
+     */
     public Boolean rapidDeploy() {
         return this.rapidDeploy;
     }
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @return Type of the Image, for example `system`, `backup` or `snapshot`.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
-    public Optional<String> selector() {
-        return Optional.ofNullable(this.selector);
-    }
     public String type() {
         return this.type;
     }
@@ -97,7 +167,6 @@ public final class GetImagesImage {
         private String osFlavor;
         private String osVersion;
         private Boolean rapidDeploy;
-        private @Nullable String selector;
         private String type;
         public Builder() {}
         public Builder(GetImagesImage defaults) {
@@ -112,7 +181,6 @@ public final class GetImagesImage {
     	      this.osFlavor = defaults.osFlavor;
     	      this.osVersion = defaults.osVersion;
     	      this.rapidDeploy = defaults.rapidDeploy;
-    	      this.selector = defaults.selector;
     	      this.type = defaults.type;
         }
 
@@ -197,12 +265,6 @@ public final class GetImagesImage {
             return this;
         }
         @CustomType.Setter
-        public Builder selector(@Nullable String selector) {
-
-            this.selector = selector;
-            return this;
-        }
-        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetImagesImage", "type");
@@ -222,7 +284,6 @@ public final class GetImagesImage {
             _resultValue.osFlavor = osFlavor;
             _resultValue.osVersion = osVersion;
             _resultValue.rapidDeploy = rapidDeploy;
-            _resultValue.selector = selector;
             _resultValue.type = type;
             return _resultValue;
         }

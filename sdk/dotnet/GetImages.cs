@@ -12,10 +12,11 @@ namespace Pulumi.HCloud
     public static class GetImages
     {
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Images.
+        /// Provides a list of Hetzner Storage Images.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -47,10 +48,11 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Images.
+        /// Provides a list of Hetzner Storage Images.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -82,10 +84,11 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("hcloud:index/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Images.
+        /// Provides a list of Hetzner Storage Images.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -121,13 +124,13 @@ namespace Pulumi.HCloud
     public sealed class GetImagesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Also list images that are marked as deprecated.
+        /// Include deprecated images.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// Sorts list by date.
+        /// Sort results by created date.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
@@ -136,7 +139,7 @@ namespace Pulumi.HCloud
         private List<string>? _withArchitectures;
 
         /// <summary>
-        /// List only images with this architecture, could contain `X86` or `Arm`.
+        /// Filter results by architecture, for example `X86` or `Arm`.
         /// </summary>
         public List<string> WithArchitectures
         {
@@ -145,7 +148,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -154,7 +157,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `Creating` or `Available`.
+        /// Filter results by statuses, for example `Creating` or `Available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -171,13 +174,13 @@ namespace Pulumi.HCloud
     public sealed class GetImagesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Also list images that are marked as deprecated.
+        /// Include deprecated images.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// Sorts list by date.
+        /// Sort results by created date.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
@@ -186,7 +189,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withArchitectures;
 
         /// <summary>
-        /// List only images with this architecture, could contain `X86` or `Arm`.
+        /// Filter results by architecture, for example `X86` or `Arm`.
         /// </summary>
         public InputList<string> WithArchitectures
         {
@@ -195,7 +198,7 @@ namespace Pulumi.HCloud
         }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -204,7 +207,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// List only images with the specified status, could contain `Creating` or `Available`.
+        /// Filter results by statuses, for example `Creating` or `Available`.
         /// </summary>
         public InputList<string> WithStatuses
         {
@@ -223,17 +226,29 @@ namespace Pulumi.HCloud
     public sealed class GetImagesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of this resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// (list) List of all matching images. See `data.hcloud_image` for schema.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageResult> Images;
+        /// <summary>
+        /// Include deprecated images.
+        /// </summary>
         public readonly bool? IncludeDeprecated;
+        /// <summary>
+        /// Sort results by created date.
+        /// </summary>
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Filter results by architecture, for example `X86` or `Arm`.
+        /// </summary>
         public readonly ImmutableArray<string> WithArchitectures;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+        /// </summary>
         public readonly string? WithSelector;
+        /// <summary>
+        /// Filter results by statuses, for example `Creating` or `Available`.
+        /// </summary>
         public readonly ImmutableArray<string> WithStatuses;
 
         [OutputConstructor]

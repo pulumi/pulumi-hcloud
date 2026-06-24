@@ -13,10 +13,10 @@ namespace Pulumi.HCloud
     {
         /// <summary>
         /// Provides details about a Hetzner Cloud Image.
-        /// This resource is useful if you want to use a non-terraform managed image.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -48,6 +48,7 @@ namespace Pulumi.HCloud
         ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
+        ///         MostRecent = true,
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
@@ -63,10 +64,10 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a Hetzner Cloud Image.
-        /// This resource is useful if you want to use a non-terraform managed image.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -98,6 +99,7 @@ namespace Pulumi.HCloud
         ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
+        ///         MostRecent = true,
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
@@ -113,10 +115,10 @@ namespace Pulumi.HCloud
 
         /// <summary>
         /// Provides details about a Hetzner Cloud Image.
-        /// This resource is useful if you want to use a non-terraform managed image.
         /// 
-        /// When relevant, it is recommended to always provide the image architecture
-        /// (`WithArchitecture`) when fetching images.
+        /// It is recommended to always provide the image architecture (using ''with_architecture'').
+        /// 
+        /// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -148,6 +150,7 @@ namespace Pulumi.HCloud
         ///     var byLabel = HCloud.GetImage.Invoke(new()
         ///     {
         ///         WithSelector = "key=value",
+        ///         MostRecent = true,
         ///     });
         /// 
         ///     var main = new HCloud.Server("main", new()
@@ -172,34 +175,37 @@ namespace Pulumi.HCloud
         public int? Id { get; set; }
 
         /// <summary>
-        /// Also return the image if it is marked as deprecated.
+        /// Include deprecated images.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// If more than one result is returned, use the most recent Image.
+        /// Sort results by created date, and return the most recent result.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the Image.
+        /// Name of the Image, only present when the type is `System`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        /// </summary>
         [Input("selector")]
         public string? Selector { get; set; }
 
         /// <summary>
-        /// Select only images with this architecture, could be `X86` (default) or `Arm`.
+        /// Filter results by architecture, for example `X86` (default) or `Arm`.
         /// </summary>
         [Input("withArchitecture")]
         public string? WithArchitecture { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -208,7 +214,7 @@ namespace Pulumi.HCloud
         private List<string>? _withStatuses;
 
         /// <summary>
-        /// Select only images with the specified status, could contain `Creating` or `Available`.
+        /// Filter results by statuses, for example `Creating` or `Available`.
         /// </summary>
         public List<string> WithStatuses
         {
@@ -231,34 +237,37 @@ namespace Pulumi.HCloud
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// Also return the image if it is marked as deprecated.
+        /// Include deprecated images.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// If more than one result is returned, use the most recent Image.
+        /// Sort results by created date, and return the most recent result.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the Image.
+        /// Name of the Image, only present when the type is `System`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// Select only images with this architecture, could be `X86` (default) or `Arm`.
+        /// Filter results by architecture, for example `X86` (default) or `Arm`.
         /// </summary>
         [Input("withArchitecture")]
         public Input<string>? WithArchitecture { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -267,7 +276,7 @@ namespace Pulumi.HCloud
         private InputList<string>? _withStatuses;
 
         /// <summary>
-        /// Select only images with the specified status, could contain `Creating` or `Available`.
+        /// Filter results by statuses, for example `Creating` or `Available`.
         /// </summary>
         public InputList<string> WithStatuses
         {
@@ -286,51 +295,72 @@ namespace Pulumi.HCloud
     public sealed class GetImageResult
     {
         /// <summary>
-        /// (string) Architecture of the Image.
+        /// CPU architecture compatible with the Image.
         /// </summary>
         public readonly string Architecture;
         /// <summary>
-        /// (string) Date when the Image was created (in ISO-8601 format).
+        /// Point in time when the Image was created (in RFC3339 format).
         /// </summary>
         public readonly string Created;
         /// <summary>
-        /// (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+        /// Point in time when the Image was marked as deprecated (in RFC3339 format).
         /// </summary>
         public readonly string Deprecated;
         /// <summary>
-        /// (string) Description of the Image.
+        /// Description of the Image.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (int) Unique ID of the Image.
+        /// ID of the Image.
         /// </summary>
-        public readonly int Id;
+        public readonly int? Id;
+        /// <summary>
+        /// Include deprecated images.
+        /// </summary>
         public readonly bool? IncludeDeprecated;
+        /// <summary>
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Sort results by created date, and return the most recent result.
+        /// </summary>
         public readonly bool? MostRecent;
         /// <summary>
-        /// (string) Name of the Image, only present when the Image is of type `System`.
+        /// Name of the Image, only present when the type is `System`.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// (string) Flavor of operating system contained in the image, could be `Ubuntu`, `Centos`, `Debian`, `Fedora` or `Unknown`.
+        /// Flavor of the operating system contained in the Image.
         /// </summary>
         public readonly string OsFlavor;
         /// <summary>
-        /// (string) Operating system version.
+        /// Version of the operating system contained in the Image.
         /// </summary>
         public readonly string OsVersion;
         /// <summary>
-        /// (bool) Indicates that rapid deploy of the image is available.
+        /// Whether the Image is optimized for a rapid deployment.
         /// </summary>
         public readonly bool RapidDeploy;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        /// </summary>
         public readonly string? Selector;
         /// <summary>
-        /// (string) Type of the Image, could be `System`, `Backup` or `Snapshot`.
+        /// Type of the Image, for example `System`, `Backup` or `Snapshot`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Filter results by architecture, for example `X86` (default) or `Arm`.
+        /// </summary>
         public readonly string? WithArchitecture;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+        /// </summary>
         public readonly string? WithSelector;
+        /// <summary>
+        /// Filter results by statuses, for example `Creating` or `Available`.
+        /// </summary>
         public readonly ImmutableArray<string> WithStatuses;
 
         [OutputConstructor]
@@ -343,7 +373,7 @@ namespace Pulumi.HCloud
 
             string description,
 
-            int id,
+            int? id,
 
             bool? includeDeprecated,
 
@@ -351,7 +381,7 @@ namespace Pulumi.HCloud
 
             bool? mostRecent,
 
-            string name,
+            string? name,
 
             string osFlavor,
 

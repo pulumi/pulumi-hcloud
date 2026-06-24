@@ -203,7 +203,7 @@ namespace Pulumi.HCloud
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// Unused attribute, consider removing it from your configuration.
         /// </summary>
         [Output("allowDeprecatedImages")]
         public Output<bool?> AllowDeprecatedImages { get; private set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.HCloud
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// Unused attribute, consider removing it from your configuration.
         /// </summary>
         [Input("allowDeprecatedImages")]
         public Input<bool>? AllowDeprecatedImages { get; set; }
@@ -585,7 +585,7 @@ namespace Pulumi.HCloud
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+        /// Unused attribute, consider removing it from your configuration.
         /// </summary>
         [Input("allowDeprecatedImages")]
         public Input<bool>? AllowDeprecatedImages { get; set; }

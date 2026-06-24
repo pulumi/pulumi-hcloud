@@ -1580,8 +1580,20 @@ class GetImagesImageResult(dict):
                  os_flavor: _builtins.str,
                  os_version: _builtins.str,
                  rapid_deploy: _builtins.bool,
-                 type: _builtins.str,
-                 selector: Optional[_builtins.str] = None):
+                 type: _builtins.str):
+        """
+        :param _builtins.str architecture: CPU architecture compatible with the Image.
+        :param _builtins.str created: Point in time when the Image was created (in RFC3339 format).
+        :param _builtins.str deprecated: Point in time when the Image was marked as deprecated (in RFC3339 format).
+        :param _builtins.str description: Description of the Image.
+        :param _builtins.int id: ID of the Image.
+        :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        :param _builtins.str name: Name of the Image, only present when the type is `system`.
+        :param _builtins.str os_flavor: Flavor of the operating system contained in the Image.
+        :param _builtins.str os_version: Version of the operating system contained in the Image.
+        :param _builtins.bool rapid_deploy: Whether the Image is optimized for a rapid deployment.
+        :param _builtins.str type: Type of the Image, for example `system`, `backup` or `snapshot`.
+        """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "deprecated", deprecated)
@@ -1593,69 +1605,94 @@ class GetImagesImageResult(dict):
         pulumi.set(__self__, "os_version", os_version)
         pulumi.set(__self__, "rapid_deploy", rapid_deploy)
         pulumi.set(__self__, "type", type)
-        if selector is not None:
-            pulumi.set(__self__, "selector", selector)
 
     @_builtins.property
     @pulumi.getter
     def architecture(self) -> _builtins.str:
+        """
+        CPU architecture compatible with the Image.
+        """
         return pulumi.get(self, "architecture")
 
     @_builtins.property
     @pulumi.getter
     def created(self) -> _builtins.str:
+        """
+        Point in time when the Image was created (in RFC3339 format).
+        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter
     def deprecated(self) -> _builtins.str:
+        """
+        Point in time when the Image was marked as deprecated (in RFC3339 format).
+        """
         return pulumi.get(self, "deprecated")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
+        """
+        Description of the Image.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.int:
+        """
+        ID of the Image.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the Image, only present when the type is `system`.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="osFlavor")
     def os_flavor(self) -> _builtins.str:
+        """
+        Flavor of the operating system contained in the Image.
+        """
         return pulumi.get(self, "os_flavor")
 
     @_builtins.property
     @pulumi.getter(name="osVersion")
     def os_version(self) -> _builtins.str:
+        """
+        Version of the operating system contained in the Image.
+        """
         return pulumi.get(self, "os_version")
 
     @_builtins.property
     @pulumi.getter(name="rapidDeploy")
     def rapid_deploy(self) -> _builtins.bool:
+        """
+        Whether the Image is optimized for a rapid deployment.
+        """
         return pulumi.get(self, "rapid_deploy")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        Type of the Image, for example `system`, `backup` or `snapshot`.
+        """
         return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""Please use the with_selector property instead.""")
-    def selector(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "selector")
 
 
 @pulumi.output_type

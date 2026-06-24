@@ -9,6 +9,11 @@ import * as utilities from "./utilities";
  *
  * Use this resource to get detailed information about a specific Datacenter.
  *
+ * > The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+ * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+ * Please use the `hcloud.getLocation` data source instead.
+ * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -83,6 +88,11 @@ export interface GetDatacenterResult {
  * Provides details about a specific Hetzner Cloud Datacenter.
  *
  * Use this resource to get detailed information about a specific Datacenter.
+ *
+ * > The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+ * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+ * Please use the `hcloud.getLocation` data source instead.
+ * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
  *
  * ## Example Usage
  *

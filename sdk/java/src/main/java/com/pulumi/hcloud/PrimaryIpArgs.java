@@ -50,18 +50,18 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
-    @Import(name="autoDelete", required=true)
-    private Output<Boolean> autoDelete;
+    @Import(name="autoDelete")
+    private @Nullable Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * @return Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
-    public Output<Boolean> autoDelete() {
-        return this.autoDelete;
+    public Optional<Output<Boolean>> autoDelete() {
+        return Optional.ofNullable(this.autoDelete);
     }
 
     /**
@@ -237,18 +237,18 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
          * 
          * @return builder
          * 
          */
-        public Builder autoDelete(Output<Boolean> autoDelete) {
+        public Builder autoDelete(@Nullable Output<Boolean> autoDelete) {
             $.autoDelete = autoDelete;
             return this;
         }
 
         /**
-         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+         * @param autoDelete Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
          * 
          * @return builder
          * 
@@ -392,9 +392,6 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PrimaryIpArgs build() {
-            if ($.autoDelete == null) {
-                throw new MissingRequiredPropertyException("PrimaryIpArgs", "autoDelete");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("PrimaryIpArgs", "type");
             }

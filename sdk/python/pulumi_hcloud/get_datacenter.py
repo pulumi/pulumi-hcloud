@@ -119,6 +119,11 @@ def get_datacenter(id: Optional[_builtins.int] = None,
 
     Use this resource to get detailed information about a specific Datacenter.
 
+    > The `get_datacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+    After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+    Please use the `get_location` data source instead.
+    See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+
     ## Example Usage
 
     ```python
@@ -153,6 +158,11 @@ def get_datacenter_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = 
     Provides details about a specific Hetzner Cloud Datacenter.
 
     Use this resource to get detailed information about a specific Datacenter.
+
+    > The `get_datacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+    After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+    Please use the `get_location` data source instead.
+    See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
 
     ## Example Usage
 

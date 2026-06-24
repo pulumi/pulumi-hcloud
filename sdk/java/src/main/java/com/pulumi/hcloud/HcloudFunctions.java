@@ -708,6 +708,11 @@ public final class HcloudFunctions {
      * 
      * Use this resource to get detailed information about a specific Datacenter.
      * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -753,6 +758,11 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Datacenter.
      * 
      * Use this resource to get detailed information about a specific Datacenter.
+     * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -800,6 +810,11 @@ public final class HcloudFunctions {
      * 
      * Use this resource to get detailed information about a specific Datacenter.
      * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -845,6 +860,11 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Datacenter.
      * 
      * Use this resource to get detailed information about a specific Datacenter.
+     * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -892,6 +912,11 @@ public final class HcloudFunctions {
      * 
      * Use this resource to get detailed information about a specific Datacenter.
      * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -937,6 +962,11 @@ public final class HcloudFunctions {
      * Provides details about a specific Hetzner Cloud Datacenter.
      * 
      * Use this resource to get detailed information about a specific Datacenter.
+     * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -984,6 +1014,11 @@ public final class HcloudFunctions {
      * 
      * Use this resource to get detailed information about a specific Datacenter.
      * 
+     * &gt; The `hcloud.getDatacenter` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocation` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1029,6 +1064,11 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -1082,6 +1122,11 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1133,6 +1178,11 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -1186,6 +1236,11 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1237,6 +1292,11 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -1290,6 +1350,11 @@ public final class HcloudFunctions {
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
      * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1341,6 +1406,11 @@ public final class HcloudFunctions {
      * Provides a list of available Hetzner Cloud Datacenters.
      * 
      * This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+     * 
+     * &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+     * After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+     * Please use the `hcloud.getLocations` data source instead.
+     * See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
      * 
      * ## Example Usage
      * 
@@ -2693,10 +2763,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -2740,6 +2810,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -2757,10 +2828,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -2804,6 +2875,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -2821,10 +2893,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -2868,6 +2940,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -2885,10 +2958,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -2932,6 +3005,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -2949,10 +3023,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -2996,6 +3070,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -3013,10 +3088,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3060,6 +3135,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -3077,10 +3153,10 @@ public final class HcloudFunctions {
     }
     /**
      * Provides details about a Hetzner Cloud Image.
-     * This resource is useful if you want to use a non-terraform managed image.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3124,6 +3200,7 @@ public final class HcloudFunctions {
      * 
      *         final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()
      *             .withSelector("key=value")
+     *             .mostRecent(true)
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
@@ -3140,10 +3217,11 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3187,10 +3265,11 @@ public final class HcloudFunctions {
         return getImages(GetImagesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3234,10 +3313,11 @@ public final class HcloudFunctions {
         return getImagesPlain(GetImagesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3281,10 +3361,11 @@ public final class HcloudFunctions {
         return getImages(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3328,10 +3409,11 @@ public final class HcloudFunctions {
         return getImagesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3375,10 +3457,11 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 
@@ -3422,10 +3505,11 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Images.
+     * Provides a list of Hetzner Storage Images.
      * 
-     * When relevant, it is recommended to always provide the image architecture
-     * (`withArchitecture`) when fetching images.
+     * It is recommended to always provide the image architecture (using &#39;&#39;with_architecture&#39;&#39;).
+     * 
+     * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
      * 
      * ## Example Usage
      * 

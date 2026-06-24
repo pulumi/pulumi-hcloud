@@ -95,6 +95,11 @@ def get_datacenters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
 
     This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
 
+    > The `get_datacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+    After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+    Please use the `get_locations` data source instead.
+    See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+
     ## Example Usage
 
     ```python
@@ -127,6 +132,11 @@ def get_datacenters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Inv
     Provides a list of available Hetzner Cloud Datacenters.
 
     This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+
+    > The `get_datacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+    After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+    Please use the `get_locations` data source instead.
+    See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
 
     ## Example Usage
 
