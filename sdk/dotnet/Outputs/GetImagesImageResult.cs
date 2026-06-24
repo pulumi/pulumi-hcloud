@@ -13,17 +13,49 @@ namespace Pulumi.HCloud.Outputs
     [OutputType]
     public sealed class GetImagesImageResult
     {
+        /// <summary>
+        /// CPU architecture compatible with the Image.
+        /// </summary>
         public readonly string Architecture;
+        /// <summary>
+        /// Point in time when the Image was created (in RFC3339 format).
+        /// </summary>
         public readonly string Created;
+        /// <summary>
+        /// Point in time when the Image was marked as deprecated (in RFC3339 format).
+        /// </summary>
         public readonly string Deprecated;
+        /// <summary>
+        /// Description of the Image.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// ID of the Image.
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Name of the Image, only present when the type is `System`.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Flavor of the operating system contained in the Image.
+        /// </summary>
         public readonly string OsFlavor;
+        /// <summary>
+        /// Version of the operating system contained in the Image.
+        /// </summary>
         public readonly string OsVersion;
+        /// <summary>
+        /// Whether the Image is optimized for a rapid deployment.
+        /// </summary>
         public readonly bool RapidDeploy;
-        public readonly string? Selector;
+        /// <summary>
+        /// Type of the Image, for example `System`, `Backup` or `Snapshot`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -48,8 +80,6 @@ namespace Pulumi.HCloud.Outputs
 
             bool rapidDeploy,
 
-            string? selector,
-
             string type)
         {
             Architecture = architecture;
@@ -62,7 +92,6 @@ namespace Pulumi.HCloud.Outputs
             OsFlavor = osFlavor;
             OsVersion = osVersion;
             RapidDeploy = rapidDeploy;
-            Selector = selector;
             Type = type;
         }
     }

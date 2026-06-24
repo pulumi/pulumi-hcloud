@@ -6,10 +6,10 @@ import * as utilities from "./utilities";
 
 /**
  * Provides details about a Hetzner Cloud Image.
- * This resource is useful if you want to use a non-terraform managed image.
  *
- * When relevant, it is recommended to always provide the image architecture
- * (`withArchitecture`) when fetching images.
+ * It is recommended to always provide the image architecture (using ''with_architecture'').
+ *
+ * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
  *
  * ## Example Usage
  *
@@ -30,6 +30,7 @@ import * as utilities from "./utilities";
  * });
  * const byLabel = hcloud.getImage({
  *     withSelector: "key=value",
+ *     mostRecent: true,
  * });
  * const main = new hcloud.Server("main", {image: byName.id});
  * ```
@@ -58,31 +59,33 @@ export interface GetImageArgs {
      */
     id?: number;
     /**
-     * Also return the image if it is marked as deprecated.
+     * Include deprecated images.
      */
     includeDeprecated?: boolean;
     /**
-     * If more than one result is returned, use the most recent Image.
+     * Sort results by created date, and return the most recent result.
      */
     mostRecent?: boolean;
     /**
-     * Name of the Image.
+     * Name of the Image, only present when the type is `system`.
      */
     name?: string;
     /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: string;
     /**
-     * Select only images with this architecture, could be `x86` (default) or `arm`.
+     * Filter results by architecture, for example `x86` (default) or `arm`.
      */
     withArchitecture?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
     withSelector?: string;
     /**
-     * Select only images with the specified status, could contain `creating` or `available`.
+     * Filter results by statuses, for example `creating` or `available`.
      */
     withStatuses?: string[];
 }
@@ -92,62 +95,82 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
-     * (string) Architecture of the Image.
+     * CPU architecture compatible with the Image.
      */
     readonly architecture: string;
     /**
-     * (string) Date when the Image was created (in ISO-8601 format).
+     * Point in time when the Image was created (in RFC3339 format).
      */
     readonly created: string;
     /**
-     * (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+     * Point in time when the Image was marked as deprecated (in RFC3339 format).
      */
     readonly deprecated: string;
     /**
-     * (string) Description of the Image.
+     * Description of the Image.
      */
     readonly description: string;
     /**
-     * (int) Unique ID of the Image.
+     * ID of the Image.
      */
-    readonly id: number;
+    readonly id?: number;
+    /**
+     * Include deprecated images.
+     */
     readonly includeDeprecated?: boolean;
+    /**
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     */
     readonly labels: {[key: string]: string};
+    /**
+     * Sort results by created date, and return the most recent result.
+     */
     readonly mostRecent?: boolean;
     /**
-     * (string) Name of the Image, only present when the Image is of type `system`.
+     * Name of the Image, only present when the type is `system`.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+     * Flavor of the operating system contained in the Image.
      */
     readonly osFlavor: string;
     /**
-     * (string) Operating system version.
+     * Version of the operating system contained in the Image.
      */
     readonly osVersion: string;
     /**
-     * (bool) Indicates that rapid deploy of the image is available.
+     * Whether the Image is optimized for a rapid deployment.
      */
     readonly rapidDeploy: boolean;
     /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     readonly selector?: string;
     /**
-     * (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+     * Type of the Image, for example `system`, `backup` or `snapshot`.
      */
     readonly type: string;
+    /**
+     * Filter results by architecture, for example `x86` (default) or `arm`.
+     */
     readonly withArchitecture?: string;
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     */
     readonly withSelector?: string;
+    /**
+     * Filter results by statuses, for example `creating` or `available`.
+     */
     readonly withStatuses?: string[];
 }
 /**
  * Provides details about a Hetzner Cloud Image.
- * This resource is useful if you want to use a non-terraform managed image.
  *
- * When relevant, it is recommended to always provide the image architecture
- * (`withArchitecture`) when fetching images.
+ * It is recommended to always provide the image architecture (using ''with_architecture'').
+ *
+ * See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
  *
  * ## Example Usage
  *
@@ -168,6 +191,7 @@ export interface GetImageResult {
  * });
  * const byLabel = hcloud.getImage({
  *     withSelector: "key=value",
+ *     mostRecent: true,
  * });
  * const main = new hcloud.Server("main", {image: byName.id});
  * ```
@@ -196,31 +220,33 @@ export interface GetImageOutputArgs {
      */
     id?: pulumi.Input<number | undefined>;
     /**
-     * Also return the image if it is marked as deprecated.
+     * Include deprecated images.
      */
     includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
-     * If more than one result is returned, use the most recent Image.
+     * Sort results by created date, and return the most recent result.
      */
     mostRecent?: pulumi.Input<boolean | undefined>;
     /**
-     * Name of the Image.
+     * Name of the Image, only present when the type is `system`.
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     *
      * @deprecated Please use the withSelector property instead.
      */
     selector?: pulumi.Input<string | undefined>;
     /**
-     * Select only images with this architecture, could be `x86` (default) or `arm`.
+     * Filter results by architecture, for example `x86` (default) or `arm`.
      */
     withArchitecture?: pulumi.Input<string | undefined>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      */
     withSelector?: pulumi.Input<string | undefined>;
     /**
-     * Select only images with the specified status, could contain `creating` or `available`.
+     * Filter results by statuses, for example `creating` or `available`.
      */
     withStatuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

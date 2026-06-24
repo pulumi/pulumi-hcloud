@@ -17,54 +17,68 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     /**
-     * @return (string) Architecture of the Image.
+     * @return CPU architecture compatible with the Image.
      * 
      */
     private String architecture;
     /**
-     * @return (string) Date when the Image was created (in ISO-8601 format).
+     * @return Point in time when the Image was created (in RFC3339 format).
      * 
      */
     private String created;
     /**
-     * @return (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+     * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
      */
     private String deprecated;
     /**
-     * @return (string) Description of the Image.
+     * @return Description of the Image.
      * 
      */
     private String description;
     /**
-     * @return (int) Unique ID of the Image.
+     * @return ID of the Image.
      * 
      */
-    private Integer id;
+    private @Nullable Integer id;
+    /**
+     * @return Include deprecated images.
+     * 
+     */
     private @Nullable Boolean includeDeprecated;
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
     private Map<String,String> labels;
+    /**
+     * @return Sort results by created date, and return the most recent result.
+     * 
+     */
     private @Nullable Boolean mostRecent;
     /**
-     * @return (string) Name of the Image, only present when the Image is of type `system`.
+     * @return Name of the Image, only present when the type is `system`.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
-     * @return (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+     * @return Flavor of the operating system contained in the Image.
      * 
      */
     private String osFlavor;
     /**
-     * @return (string) Operating system version.
+     * @return Version of the operating system contained in the Image.
      * 
      */
     private String osVersion;
     /**
-     * @return (bool) Indicates that rapid deploy of the image is available.
+     * @return Whether the Image is optimized for a rapid deployment.
      * 
      */
     private Boolean rapidDeploy;
     /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     * 
      * @deprecated
      * Please use the withSelector property instead.
      * 
@@ -72,88 +86,114 @@ public final class GetImageResult {
     @Deprecated /* Please use the withSelector property instead. */
     private @Nullable String selector;
     /**
-     * @return (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+     * @return Type of the Image, for example `system`, `backup` or `snapshot`.
      * 
      */
     private String type;
+    /**
+     * @return Filter results by architecture, for example `x86` (default) or `arm`.
+     * 
+     */
     private @Nullable String withArchitecture;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     * 
+     */
     private @Nullable String withSelector;
+    /**
+     * @return Filter results by statuses, for example `creating` or `available`.
+     * 
+     */
     private @Nullable List<String> withStatuses;
 
     private GetImageResult() {}
     /**
-     * @return (string) Architecture of the Image.
+     * @return CPU architecture compatible with the Image.
      * 
      */
     public String architecture() {
         return this.architecture;
     }
     /**
-     * @return (string) Date when the Image was created (in ISO-8601 format).
+     * @return Point in time when the Image was created (in RFC3339 format).
      * 
      */
     public String created() {
         return this.created;
     }
     /**
-     * @return (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+     * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
      */
     public String deprecated() {
         return this.deprecated;
     }
     /**
-     * @return (string) Description of the Image.
+     * @return Description of the Image.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return (int) Unique ID of the Image.
+     * @return ID of the Image.
      * 
      */
-    public Integer id() {
-        return this.id;
+    public Optional<Integer> id() {
+        return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Include deprecated images.
+     * 
+     */
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
+    /**
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+     * 
+     */
     public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Sort results by created date, and return the most recent result.
+     * 
+     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return (string) Name of the Image, only present when the Image is of type `system`.
+     * @return Name of the Image, only present when the type is `system`.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
-     * @return (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+     * @return Flavor of the operating system contained in the Image.
      * 
      */
     public String osFlavor() {
         return this.osFlavor;
     }
     /**
-     * @return (string) Operating system version.
+     * @return Version of the operating system contained in the Image.
      * 
      */
     public String osVersion() {
         return this.osVersion;
     }
     /**
-     * @return (bool) Indicates that rapid deploy of the image is available.
+     * @return Whether the Image is optimized for a rapid deployment.
      * 
      */
     public Boolean rapidDeploy() {
         return this.rapidDeploy;
     }
     /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     * 
      * @deprecated
      * Please use the withSelector property instead.
      * 
@@ -163,18 +203,30 @@ public final class GetImageResult {
         return Optional.ofNullable(this.selector);
     }
     /**
-     * @return (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+     * @return Type of the Image, for example `system`, `backup` or `snapshot`.
      * 
      */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Filter results by architecture, for example `x86` (default) or `arm`.
+     * 
+     */
     public Optional<String> withArchitecture() {
         return Optional.ofNullable(this.withArchitecture);
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }
+    /**
+     * @return Filter results by statuses, for example `creating` or `available`.
+     * 
+     */
     public List<String> withStatuses() {
         return this.withStatuses == null ? List.of() : this.withStatuses;
     }
@@ -192,11 +244,11 @@ public final class GetImageResult {
         private String created;
         private String deprecated;
         private String description;
-        private Integer id;
+        private @Nullable Integer id;
         private @Nullable Boolean includeDeprecated;
         private Map<String,String> labels;
         private @Nullable Boolean mostRecent;
-        private String name;
+        private @Nullable String name;
         private String osFlavor;
         private String osVersion;
         private Boolean rapidDeploy;
@@ -260,10 +312,8 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetImageResult", "id");
-            }
+        public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
@@ -288,10 +338,8 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetImageResult", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

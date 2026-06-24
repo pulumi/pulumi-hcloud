@@ -15,6 +15,11 @@ import (
 //
 // This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
 //
+// > The `getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+// Please use the `getLocations` data source instead.
+// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+//
 // ## Example Usage
 //
 // ```go

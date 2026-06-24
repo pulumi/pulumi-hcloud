@@ -228,7 +228,9 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	// Unused attribute, consider removing it from your configuration.
+	//
+	// Deprecated: Unused attribute, consider removing it from your configuration.
 	AllowDeprecatedImages pulumi.BoolPtrOutput `pulumi:"allowDeprecatedImages"`
 	// (string) The backup window of the server, if enabled.
 	//
@@ -326,7 +328,9 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	// Unused attribute, consider removing it from your configuration.
+	//
+	// Deprecated: Unused attribute, consider removing it from your configuration.
 	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// (string) The backup window of the server, if enabled.
 	//
@@ -392,7 +396,9 @@ type serverState struct {
 }
 
 type ServerState struct {
-	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	// Unused attribute, consider removing it from your configuration.
+	//
+	// Deprecated: Unused attribute, consider removing it from your configuration.
 	AllowDeprecatedImages pulumi.BoolPtrInput
 	// (string) The backup window of the server, if enabled.
 	//
@@ -462,7 +468,9 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	// Unused attribute, consider removing it from your configuration.
+	//
+	// Deprecated: Unused attribute, consider removing it from your configuration.
 	AllowDeprecatedImages *bool `pulumi:"allowDeprecatedImages"`
 	// Enable or disable backups.
 	Backups *bool `pulumi:"backups"`
@@ -515,7 +523,9 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+	// Unused attribute, consider removing it from your configuration.
+	//
+	// Deprecated: Unused attribute, consider removing it from your configuration.
 	AllowDeprecatedImages pulumi.BoolPtrInput
 	// Enable or disable backups.
 	Backups pulumi.BoolPtrInput
@@ -653,7 +663,9 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.
+// Unused attribute, consider removing it from your configuration.
+//
+// Deprecated: Unused attribute, consider removing it from your configuration.
 func (o ServerOutput) AllowDeprecatedImages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.AllowDeprecatedImages }).(pulumi.BoolPtrOutput)
 }

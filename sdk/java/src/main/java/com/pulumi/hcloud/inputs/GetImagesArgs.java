@@ -18,14 +18,14 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagesArgs Empty = new GetImagesArgs();
 
     /**
-     * Also list images that are marked as deprecated.
+     * Include deprecated images.
      * 
      */
     @Import(name="includeDeprecated")
     private @Nullable Output<Boolean> includeDeprecated;
 
     /**
-     * @return Also list images that are marked as deprecated.
+     * @return Include deprecated images.
      * 
      */
     public Optional<Output<Boolean>> includeDeprecated() {
@@ -33,14 +33,14 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Sorts list by date.
+     * Sort results by created date.
      * 
      */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
     /**
-     * @return Sorts list by date.
+     * @return Sort results by created date.
      * 
      */
     public Optional<Output<Boolean>> mostRecent() {
@@ -48,14 +48,14 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List only images with this architecture, could contain `x86` or `arm`.
+     * Filter results by architecture, for example `x86` or `arm`.
      * 
      */
     @Import(name="withArchitectures")
     private @Nullable Output<List<String>> withArchitectures;
 
     /**
-     * @return List only images with this architecture, could contain `x86` or `arm`.
+     * @return Filter results by architecture, for example `x86` or `arm`.
      * 
      */
     public Optional<Output<List<String>>> withArchitectures() {
@@ -63,14 +63,14 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      * 
      */
     @Import(name="withSelector")
     private @Nullable Output<String> withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
      * 
      */
     public Optional<Output<String>> withSelector() {
@@ -78,14 +78,14 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List only images with the specified status, could contain `creating` or `available`.
+     * Filter results by statuses, for example `creating` or `available`.
      * 
      */
     @Import(name="withStatuses")
     private @Nullable Output<List<String>> withStatuses;
 
     /**
-     * @return List only images with the specified status, could contain `creating` or `available`.
+     * @return Filter results by statuses, for example `creating` or `available`.
      * 
      */
     public Optional<Output<List<String>>> withStatuses() {
@@ -121,7 +121,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeDeprecated Also list images that are marked as deprecated.
+         * @param includeDeprecated Include deprecated images.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeDeprecated Also list images that are marked as deprecated.
+         * @param includeDeprecated Include deprecated images.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mostRecent Sorts list by date.
+         * @param mostRecent Sort results by created date.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mostRecent Sorts list by date.
+         * @param mostRecent Sort results by created date.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * @param withArchitectures Filter results by architecture, for example `x86` or `arm`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * @param withArchitectures Filter results by architecture, for example `x86` or `arm`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withArchitectures List only images with this architecture, could contain `x86` or `arm`.
+         * @param withArchitectures Filter results by architecture, for example `x86` or `arm`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Filter results by statuses, for example `creating` or `available`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Filter results by statuses, for example `creating` or `available`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class GetImagesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withStatuses List only images with the specified status, could contain `creating` or `available`.
+         * @param withStatuses Filter results by statuses, for example `creating` or `available`.
          * 
          * @return builder
          * 

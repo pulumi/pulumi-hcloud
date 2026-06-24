@@ -12,10 +12,10 @@ import (
 )
 
 // Provides details about a Hetzner Cloud Image.
-// This resource is useful if you want to use a non-terraform managed image.
 //
-// When relevant, it is recommended to always provide the image architecture
-// (`withArchitecture`) when fetching images.
+// It is recommended to always provide the image architecture (using ”with_architecture”).
+//
+// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 //
 // ## Example Usage
 //
@@ -53,6 +53,7 @@ import (
 //			}
 //			_, err = hcloud.GetImage(ctx, &hcloud.GetImageArgs{
 //				WithSelector: pulumi.StringRef("key=value"),
+//				MostRecent:   pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -82,52 +83,62 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 type GetImageArgs struct {
 	// ID of the Image.
 	Id *int `pulumi:"id"`
-	// Also return the image if it is marked as deprecated.
+	// Include deprecated images.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
-	// If more than one result is returned, use the most recent Image.
+	// Sort results by created date, and return the most recent result.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// Name of the Image.
+	// Name of the Image, only present when the type is `system`.
 	Name *string `pulumi:"name"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// Select only images with this architecture, could be `x86` (default) or `arm`.
+	// Filter results by architecture, for example `x86` (default) or `arm`.
 	WithArchitecture *string `pulumi:"withArchitecture"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
-	// Select only images with the specified status, could contain `creating` or `available`.
+	// Filter results by statuses, for example `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// (string) Architecture of the Image.
+	// CPU architecture compatible with the Image.
 	Architecture string `pulumi:"architecture"`
-	// (string) Date when the Image was created (in ISO-8601 format).
+	// Point in time when the Image was created (in RFC3339 format).
 	Created string `pulumi:"created"`
-	// (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+	// Point in time when the Image was marked as deprecated (in RFC3339 format).
 	Deprecated string `pulumi:"deprecated"`
-	// (string) Description of the Image.
+	// Description of the Image.
 	Description string `pulumi:"description"`
-	// (int) Unique ID of the Image.
-	Id                int               `pulumi:"id"`
-	IncludeDeprecated *bool             `pulumi:"includeDeprecated"`
-	Labels            map[string]string `pulumi:"labels"`
-	MostRecent        *bool             `pulumi:"mostRecent"`
-	// (string) Name of the Image, only present when the Image is of type `system`.
-	Name string `pulumi:"name"`
-	// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+	// ID of the Image.
+	Id *int `pulumi:"id"`
+	// Include deprecated images.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
+	Labels map[string]string `pulumi:"labels"`
+	// Sort results by created date, and return the most recent result.
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Name of the Image, only present when the type is `system`.
+	Name *string `pulumi:"name"`
+	// Flavor of the operating system contained in the Image.
 	OsFlavor string `pulumi:"osFlavor"`
-	// (string) Operating system version.
+	// Version of the operating system contained in the Image.
 	OsVersion string `pulumi:"osVersion"`
-	// (bool) Indicates that rapid deploy of the image is available.
+	// Whether the Image is optimized for a rapid deployment.
 	RapidDeploy bool `pulumi:"rapidDeploy"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector *string `pulumi:"selector"`
-	// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
-	Type             string   `pulumi:"type"`
-	WithArchitecture *string  `pulumi:"withArchitecture"`
-	WithSelector     *string  `pulumi:"withSelector"`
-	WithStatuses     []string `pulumi:"withStatuses"`
+	// Type of the Image, for example `system`, `backup` or `snapshot`.
+	Type string `pulumi:"type"`
+	// Filter results by architecture, for example `x86` (default) or `arm`.
+	WithArchitecture *string `pulumi:"withArchitecture"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+	WithSelector *string `pulumi:"withSelector"`
+	// Filter results by statuses, for example `creating` or `available`.
+	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -143,19 +154,21 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 type GetImageOutputArgs struct {
 	// ID of the Image.
 	Id pulumi.IntPtrInput `pulumi:"id"`
-	// Also return the image if it is marked as deprecated.
+	// Include deprecated images.
 	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
-	// If more than one result is returned, use the most recent Image.
+	// Sort results by created date, and return the most recent result.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Name of the Image.
+	// Name of the Image, only present when the type is `system`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+	//
 	// Deprecated: Please use the withSelector property instead.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// Select only images with this architecture, could be `x86` (default) or `arm`.
+	// Filter results by architecture, for example `x86` (default) or `arm`.
 	WithArchitecture pulumi.StringPtrInput `pulumi:"withArchitecture"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
-	// Select only images with the specified status, could contain `creating` or `available`.
+	// Filter results by statuses, for example `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
 }
 
@@ -178,81 +191,89 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// (string) Architecture of the Image.
+// CPU architecture compatible with the Image.
 func (o GetImageResultOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
-// (string) Date when the Image was created (in ISO-8601 format).
+// Point in time when the Image was created (in RFC3339 format).
 func (o GetImageResultOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// (string) Point in time when the image is considered to be deprecated (in ISO-8601 format).
+// Point in time when the Image was marked as deprecated (in RFC3339 format).
 func (o GetImageResultOutput) Deprecated() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Deprecated }).(pulumi.StringOutput)
 }
 
-// (string) Description of the Image.
+// Description of the Image.
 func (o GetImageResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (int) Unique ID of the Image.
-func (o GetImageResultOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v GetImageResult) int { return v.Id }).(pulumi.IntOutput)
+// ID of the Image.
+func (o GetImageResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
+// Include deprecated images.
 func (o GetImageResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o GetImageResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetImageResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
+// Sort results by created date, and return the most recent result.
 func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// (string) Name of the Image, only present when the Image is of type `system`.
-func (o GetImageResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Name }).(pulumi.StringOutput)
+// Name of the Image, only present when the type is `system`.
+func (o GetImageResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (string) Flavor of operating system contained in the image, could be `ubuntu`, `centos`, `debian`, `fedora` or `unknown`.
+// Flavor of the operating system contained in the Image.
 func (o GetImageResultOutput) OsFlavor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.OsFlavor }).(pulumi.StringOutput)
 }
 
-// (string) Operating system version.
+// Version of the operating system contained in the Image.
 func (o GetImageResultOutput) OsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.OsVersion }).(pulumi.StringOutput)
 }
 
-// (bool) Indicates that rapid deploy of the image is available.
+// Whether the Image is optimized for a rapid deployment.
 func (o GetImageResultOutput) RapidDeploy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageResult) bool { return v.RapidDeploy }).(pulumi.BoolOutput)
 }
 
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+//
 // Deprecated: Please use the withSelector property instead.
 func (o GetImageResultOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// (string) Type of the Image, could be `system`, `backup` or `snapshot`.
+// Type of the Image, for example `system`, `backup` or `snapshot`.
 func (o GetImageResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Filter results by architecture, for example `x86` (default) or `arm`.
 func (o GetImageResultOutput) WithArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.WithArchitecture }).(pulumi.StringPtrOutput)
 }
 
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 func (o GetImageResultOutput) WithSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
 }
 
+// Filter results by statuses, for example `creating` or `available`.
 func (o GetImageResultOutput) WithStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
 }

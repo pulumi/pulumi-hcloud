@@ -16,6 +16,11 @@ namespace Pulumi.HCloud
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
         /// 
+        /// &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocations` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -51,6 +56,11 @@ namespace Pulumi.HCloud
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
         /// 
+        /// &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocations` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -85,6 +95,11 @@ namespace Pulumi.HCloud
         /// Provides a list of available Hetzner Cloud Datacenters.
         /// 
         /// This resource may be useful to create highly available infrastructure, distributed across several Datacenters.
+        /// 
+        /// &gt; The `hcloud.getDatacenters` data source is deprecated, and will be removed after 1 Oct. 2026.
+        /// After this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.
+        /// Please use the `hcloud.getLocations` data source instead.
+        /// See the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.
         /// 
         /// ## Example Usage
         /// 

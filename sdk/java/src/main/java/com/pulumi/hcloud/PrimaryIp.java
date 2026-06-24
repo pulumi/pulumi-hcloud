@@ -125,14 +125,14 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
         return this.assigneeType;
     }
     /**
-     * Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     @Export(name="autoDelete", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoDelete;
 
     /**
-     * @return Whether auto delete is enabled. Setting `autoDelete` to `false` is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.
+     * @return Whether auto delete is enabled. Setting `autoDelete` to `true` is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.
      * 
      */
     public Output<Boolean> autoDelete() {

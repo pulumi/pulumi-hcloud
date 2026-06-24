@@ -16,48 +16,80 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImagesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     private String id;
+    private List<GetImagesImage> images;
     /**
-     * @return (list) List of all matching images. See `data.hcloud_image` for schema.
+     * @return Include deprecated images.
      * 
      */
-    private List<GetImagesImage> images;
     private @Nullable Boolean includeDeprecated;
+    /**
+     * @return Sort results by created date.
+     * 
+     */
     private @Nullable Boolean mostRecent;
+    /**
+     * @return Filter results by architecture, for example `x86` or `arm`.
+     * 
+     */
     private @Nullable List<String> withArchitectures;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     * 
+     */
     private @Nullable String withSelector;
+    /**
+     * @return Filter results by statuses, for example `creating` or `available`.
+     * 
+     */
     private @Nullable List<String> withStatuses;
 
     private GetImagesResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of this resource.
      * 
      */
     public String id() {
         return this.id;
     }
-    /**
-     * @return (list) List of all matching images. See `data.hcloud_image` for schema.
-     * 
-     */
     public List<GetImagesImage> images() {
         return this.images;
     }
+    /**
+     * @return Include deprecated images.
+     * 
+     */
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
+    /**
+     * @return Sort results by created date.
+     * 
+     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    /**
+     * @return Filter results by architecture, for example `x86` or `arm`.
+     * 
+     */
     public List<String> withArchitectures() {
         return this.withArchitectures == null ? List.of() : this.withArchitectures;
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }
+    /**
+     * @return Filter results by statuses, for example `creating` or `available`.
+     * 
+     */
     public List<String> withStatuses() {
         return this.withStatuses == null ? List.of() : this.withStatuses;
     }

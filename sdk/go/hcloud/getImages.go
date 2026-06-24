@@ -11,10 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about multiple Hetzner Cloud Images.
+// Provides a list of Hetzner Storage Images.
 //
-// When relevant, it is recommended to always provide the image architecture
-// (`withArchitecture`) when fetching images.
+// It is recommended to always provide the image architecture (using ”with_architecture”).
+//
+// See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 //
 // ## Example Usage
 //
@@ -61,29 +62,33 @@ func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getImages.
 type GetImagesArgs struct {
-	// Also list images that are marked as deprecated.
+	// Include deprecated images.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
-	// Sorts list by date.
+	// Sort results by created date.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// List only images with this architecture, could contain `x86` or `arm`.
+	// Filter results by architecture, for example `x86` or `arm`.
 	WithArchitectures []string `pulumi:"withArchitectures"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
-	// List only images with the specified status, could contain `creating` or `available`.
+	// Filter results by statuses, for example `creating` or `available`.
 	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 // A collection of values returned by getImages.
 type GetImagesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// (list) List of all matching images. See `data.hcloud_image` for schema.
-	Images            []GetImagesImage `pulumi:"images"`
-	IncludeDeprecated *bool            `pulumi:"includeDeprecated"`
-	MostRecent        *bool            `pulumi:"mostRecent"`
-	WithArchitectures []string         `pulumi:"withArchitectures"`
-	WithSelector      *string          `pulumi:"withSelector"`
-	WithStatuses      []string         `pulumi:"withStatuses"`
+	// The ID of this resource.
+	Id     string           `pulumi:"id"`
+	Images []GetImagesImage `pulumi:"images"`
+	// Include deprecated images.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
+	// Sort results by created date.
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Filter results by architecture, for example `x86` or `arm`.
+	WithArchitectures []string `pulumi:"withArchitectures"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+	WithSelector *string `pulumi:"withSelector"`
+	// Filter results by statuses, for example `creating` or `available`.
+	WithStatuses []string `pulumi:"withStatuses"`
 }
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
@@ -97,15 +102,15 @@ func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getImages.
 type GetImagesOutputArgs struct {
-	// Also list images that are marked as deprecated.
+	// Include deprecated images.
 	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
-	// Sorts list by date.
+	// Sort results by created date.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// List only images with this architecture, could contain `x86` or `arm`.
+	// Filter results by architecture, for example `x86` or `arm`.
 	WithArchitectures pulumi.StringArrayInput `pulumi:"withArchitectures"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
-	// List only images with the specified status, could contain `creating` or `available`.
+	// Filter results by statuses, for example `creating` or `available`.
 	WithStatuses pulumi.StringArrayInput `pulumi:"withStatuses"`
 }
 
@@ -128,32 +133,36 @@ func (o GetImagesResultOutput) ToGetImagesResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of this resource.
 func (o GetImagesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (list) List of all matching images. See `data.hcloud_image` for schema.
 func (o GetImagesResultOutput) Images() GetImagesImageArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []GetImagesImage { return v.Images }).(GetImagesImageArrayOutput)
 }
 
+// Include deprecated images.
 func (o GetImagesResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImagesResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
+// Sort results by created date.
 func (o GetImagesResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImagesResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
+// Filter results by architecture, for example `x86` or `arm`.
 func (o GetImagesResultOutput) WithArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []string { return v.WithArchitectures }).(pulumi.StringArrayOutput)
 }
 
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
 func (o GetImagesResultOutput) WithSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImagesResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
 }
 
+// Filter results by statuses, for example `creating` or `available`.
 func (o GetImagesResultOutput) WithStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImagesResult) []string { return v.WithStatuses }).(pulumi.StringArrayOutput)
 }

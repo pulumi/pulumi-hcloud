@@ -54,41 +54,53 @@ class GetImagesResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of this resource.
         """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def images(self) -> Sequence['outputs.GetImagesImageResult']:
-        """
-        (list) List of all matching images. See `data.hcloud_image` for schema.
-        """
         return pulumi.get(self, "images")
 
     @_builtins.property
     @pulumi.getter(name="includeDeprecated")
     def include_deprecated(self) -> Optional[_builtins.bool]:
+        """
+        Include deprecated images.
+        """
         return pulumi.get(self, "include_deprecated")
 
     @_builtins.property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[_builtins.bool]:
+        """
+        Sort results by created date.
+        """
         return pulumi.get(self, "most_recent")
 
     @_builtins.property
     @pulumi.getter(name="withArchitectures")
     def with_architectures(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Filter results by architecture, for example `x86` or `arm`.
+        """
         return pulumi.get(self, "with_architectures")
 
     @_builtins.property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+        """
         return pulumi.get(self, "with_selector")
 
     @_builtins.property
     @pulumi.getter(name="withStatuses")
     def with_statuses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Filter results by statuses, for example `creating` or `available`.
+        """
         return pulumi.get(self, "with_statuses")
 
 
@@ -114,10 +126,11 @@ def get_images(include_deprecated: Optional[_builtins.bool] = None,
                with_statuses: Optional[Sequence[_builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagesResult:
     """
-    Provides details about multiple Hetzner Cloud Images.
+    Provides a list of Hetzner Storage Images.
 
-    When relevant, it is recommended to always provide the image architecture
-    (`with_architecture`) when fetching images.
+    It is recommended to always provide the image architecture (using ''with_architecture'').
+
+    See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 
     ## Example Usage
 
@@ -130,11 +143,11 @@ def get_images(include_deprecated: Optional[_builtins.bool] = None,
     ```
 
 
-    :param _builtins.bool include_deprecated: Also list images that are marked as deprecated.
-    :param _builtins.bool most_recent: Sorts list by date.
-    :param Sequence[_builtins.str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
-    :param Sequence[_builtins.str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    :param _builtins.bool include_deprecated: Include deprecated images.
+    :param _builtins.bool most_recent: Sort results by created date.
+    :param Sequence[_builtins.str] with_architectures: Filter results by architecture, for example `x86` or `arm`.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+    :param Sequence[_builtins.str] with_statuses: Filter results by statuses, for example `creating` or `available`.
     """
     __args__ = dict()
     __args__['includeDeprecated'] = include_deprecated
@@ -160,10 +173,11 @@ def get_images_output(include_deprecated: pulumi.Input[Optional[Optional[_builti
                       with_statuses: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
-    Provides details about multiple Hetzner Cloud Images.
+    Provides a list of Hetzner Storage Images.
 
-    When relevant, it is recommended to always provide the image architecture
-    (`with_architecture`) when fetching images.
+    It is recommended to always provide the image architecture (using ''with_architecture'').
+
+    See the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.
 
     ## Example Usage
 
@@ -176,11 +190,11 @@ def get_images_output(include_deprecated: pulumi.Input[Optional[Optional[_builti
     ```
 
 
-    :param _builtins.bool include_deprecated: Also list images that are marked as deprecated.
-    :param _builtins.bool most_recent: Sorts list by date.
-    :param Sequence[_builtins.str] with_architectures: List only images with this architecture, could contain `x86` or `arm`.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
-    :param Sequence[_builtins.str] with_statuses: List only images with the specified status, could contain `creating` or `available`.
+    :param _builtins.bool include_deprecated: Include deprecated images.
+    :param _builtins.bool most_recent: Sort results by created date.
+    :param Sequence[_builtins.str] with_architectures: Filter results by architecture, for example `x86` or `arm`.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
+    :param Sequence[_builtins.str] with_statuses: Filter results by statuses, for example `creating` or `available`.
     """
     __args__ = dict()
     __args__['includeDeprecated'] = include_deprecated
