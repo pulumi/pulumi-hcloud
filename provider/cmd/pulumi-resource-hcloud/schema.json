@@ -844,44 +844,51 @@
         "hcloud:index/getImagesImage:getImagesImage": {
             "properties": {
                 "architecture": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "CPU architecture compatible with the Image.\n"
                 },
                 "created": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Point in time when the Image was created (in RFC3339 format).\n"
                 },
                 "deprecated": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Point in time when the Image was marked as deprecated (in RFC3339 format).\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of the Image.\n"
                 },
                 "id": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "ID of the Image.\n"
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the Image, only present when the type is \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e.\n"
                 },
                 "osFlavor": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Flavor of the operating system contained in the Image.\n"
                 },
                 "osVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Version of the operating system contained in the Image.\n"
                 },
                 "rapidDeploy": {
-                    "type": "boolean"
-                },
-                "selector": {
-                    "type": "string",
-                    "deprecationMessage": "Please use the\u003cspan pulumi-lang-nodejs=\" withSelector \" pulumi-lang-dotnet=\" WithSelector \" pulumi-lang-go=\" withSelector \" pulumi-lang-python=\" with_selector \" pulumi-lang-yaml=\" withSelector \" pulumi-lang-java=\" withSelector \" pulumi-lang-hcl=\" with_selector \"\u003e withSelector \u003c/span\u003eproperty instead."
+                    "type": "boolean",
+                    "description": "Whether the Image is optimized for a rapid deployment.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of the Image, for example \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`backup`\" pulumi-lang-dotnet=\"`Backup`\" pulumi-lang-go=\"`backup`\" pulumi-lang-python=\"`backup`\" pulumi-lang-yaml=\"`backup`\" pulumi-lang-java=\"`backup`\" pulumi-lang-hcl=\"`backup`\"\u003e`backup`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`snapshot`\" pulumi-lang-dotnet=\"`Snapshot`\" pulumi-lang-go=\"`snapshot`\" pulumi-lang-python=\"`snapshot`\" pulumi-lang-yaml=\"`snapshot`\" pulumi-lang-java=\"`snapshot`\" pulumi-lang-hcl=\"`snapshot`\"\u003e`snapshot`\u003c/span\u003e.\n"
                 }
             },
             "type": "object",
@@ -4370,7 +4377,7 @@
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                 },
                 "datacenter": {
                     "type": "string",
@@ -4433,7 +4440,7 @@
                 },
                 "autoDelete": {
                     "type": "boolean",
-                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                    "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                 },
                 "datacenter": {
                     "type": "string",
@@ -4465,7 +4472,6 @@
                 }
             },
             "requiredInputs": [
-                "autoDelete",
                 "type"
             ],
             "stateInputs": {
@@ -4481,7 +4487,7 @@
                     },
                     "autoDelete": {
                         "type": "boolean",
-                        "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e is recommended, because if a server assigned to the managed ip is getting deleted, it will also delete the primary IP which will break the terraform state.\n"
+                        "description": "Whether auto delete is enabled. Setting \u003cspan pulumi-lang-nodejs=\"`autoDelete`\" pulumi-lang-dotnet=\"`AutoDelete`\" pulumi-lang-go=\"`autoDelete`\" pulumi-lang-python=\"`auto_delete`\" pulumi-lang-yaml=\"`autoDelete`\" pulumi-lang-java=\"`autoDelete`\" pulumi-lang-hcl=\"`auto_delete`\"\u003e`autoDelete`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e is not recommended, because if a server assigned to the managed ip is deleted, it will also delete the primary IP which will break the terraform state.\n"
                     },
                     "datacenter": {
                         "type": "string",
@@ -4621,7 +4627,8 @@
             "properties": {
                 "allowDeprecatedImages": {
                     "type": "boolean",
-                    "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                    "description": "Unused attribute, consider removing it from your configuration.\n",
+                    "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                 },
                 "backupWindow": {
                     "type": "string",
@@ -4761,7 +4768,8 @@
             "inputProperties": {
                 "allowDeprecatedImages": {
                     "type": "boolean",
-                    "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                    "description": "Unused attribute, consider removing it from your configuration.\n",
+                    "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                 },
                 "backups": {
                     "type": "boolean",
@@ -4873,7 +4881,8 @@
                 "properties": {
                     "allowDeprecatedImages": {
                         "type": "boolean",
-                        "description": "Enable the use of deprecated images (default: false). **Note** Deprecated images will be removed after three months. Using them is then no longer possible.\n"
+                        "description": "Unused attribute, consider removing it from your configuration.\n",
+                        "deprecationMessage": "Unused attribute, consider removing it from your configuration."
                     },
                     "backupWindow": {
                         "type": "string",
@@ -6470,7 +6479,7 @@
             }
         },
         "hcloud:index/getDatacenter:getDatacenter": {
-            "description": "Provides details about a specific Hetzner Cloud Datacenter.\n\nUse this resource to get detailed information about a specific Datacenter.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getDatacenter({\n    id: 4,\n});\nconst byName = hcloud.getDatacenter({\n    name: \"fsn1-dc14\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_datacenter(id=4)\nby_name = hcloud.get_datacenter(name=\"fsn1-dc14\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetDatacenter.Invoke(new()\n    {\n        Id = 4,\n    });\n\n    var byName = HCloud.GetDatacenter.Invoke(new()\n    {\n        Name = \"fsn1-dc14\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tId: pulumi.IntRef(4),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1-dc14\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getdatacenter\" \"byId\" {\n  id = 4\n}\ndata \"hcloud_getdatacenter\" \"byName\" {\n  name = \"fsn1-dc14\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetDatacenterArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .id(4)\n            .build());\n\n        final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .name(\"fsn1-dc14\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getDatacenter\n      arguments:\n        id: 4\n  byName:\n    fn::invoke:\n      function: hcloud:getDatacenter\n      arguments:\n        name: fsn1-dc14\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides details about a specific Hetzner Cloud Datacenter.\n\nUse this resource to get detailed information about a specific Datacenter.\n\n\u003e The \u003cspan pulumi-lang-nodejs=\"`hcloud.getDatacenter`\" pulumi-lang-dotnet=\"`hcloud.getDatacenter`\" pulumi-lang-go=\"`getDatacenter`\" pulumi-lang-python=\"`get_datacenter`\" pulumi-lang-yaml=\"`hcloud.getDatacenter`\" pulumi-lang-java=\"`hcloud.getDatacenter`\" pulumi-lang-hcl=\"`data.hcloud_datacenter`\"\u003e`hcloud.getDatacenter`\u003c/span\u003e data source is deprecated, and will be removed after 1 Oct. 2026.\nAfter this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.\nPlease use the \u003cspan pulumi-lang-nodejs=\"`hcloud.getLocation`\" pulumi-lang-dotnet=\"`hcloud.getLocation`\" pulumi-lang-go=\"`getLocation`\" pulumi-lang-python=\"`get_location`\" pulumi-lang-yaml=\"`hcloud.getLocation`\" pulumi-lang-java=\"`hcloud.getLocation`\" pulumi-lang-hcl=\"`data.hcloud_location`\"\u003e`hcloud.getLocation`\u003c/span\u003e data source instead.\nSee the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getDatacenter({\n    id: 4,\n});\nconst byName = hcloud.getDatacenter({\n    name: \"fsn1-dc14\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_datacenter(id=4)\nby_name = hcloud.get_datacenter(name=\"fsn1-dc14\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetDatacenter.Invoke(new()\n    {\n        Id = 4,\n    });\n\n    var byName = HCloud.GetDatacenter.Invoke(new()\n    {\n        Name = \"fsn1-dc14\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tId: pulumi.IntRef(4),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetDatacenter(ctx, \u0026hcloud.GetDatacenterArgs{\n\t\t\tName: pulumi.StringRef(\"fsn1-dc14\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getdatacenter\" \"byId\" {\n  id = 4\n}\ndata \"hcloud_getdatacenter\" \"byName\" {\n  name = \"fsn1-dc14\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetDatacenterArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .id(4)\n            .build());\n\n        final var byName = HcloudFunctions.getDatacenter(GetDatacenterArgs.builder()\n            .name(\"fsn1-dc14\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getDatacenter\n      arguments:\n        id: 4\n  byName:\n    fn::invoke:\n      function: hcloud:getDatacenter\n      arguments:\n        name: fsn1-dc14\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getDatacenter.\n",
                 "properties": {
@@ -6534,7 +6543,7 @@
             }
         },
         "hcloud:index/getDatacenters:getDatacenters": {
-            "description": "Provides a list of available Hetzner Cloud Datacenters.\n\nThis resource may be useful to create highly available infrastructure, distributed across several Datacenters.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst all = hcloud.getDatacenters({});\nconst workers: hcloud.Server[] = [];\nfor (const range = {value: 0}; range.value \u003c 5; range.value++) {\n    workers.push(new hcloud.Server(`workers-${range.value}`, {\n        name: `node${range.value}`,\n        image: \"debian-12\",\n        serverType: \"cx23\",\n        datacenter: all.then(all =\u003e all.datacenters)[range.value].name,\n    }));\n}\n```\n```python\nimport pulumi\nfrom typing import Any\nimport pulumi_hcloud as hcloud\n\nall = hcloud.get_datacenters()\nworkers: list[Any] = []\nfor range in [{\"value\": i} for i in range(0, 5)]:\n    workers.append(hcloud.Server(f\"workers-{range['value']}\",\n        name=f\"node{range['value']}\",\n        image=\"debian-12\",\n        server_type=\"cx23\",\n        datacenter=all.datacenters[range[\"value\"]][\"name\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = HCloud.GetDatacenters.Invoke();\n\n    var workers = new List\u003cHCloud.Server\u003e();\n    for (var rangeIndex = 0; rangeIndex \u003c 5; rangeIndex++)\n    {\n        var range = new { Value = rangeIndex };\n        workers.Add(new HCloud.Server($\"workers-{range.Value}\", new()\n        {\n            Name = $\"node{range.Value}\",\n            Image = \"debian-12\",\n            ServerType = \"cx23\",\n            Datacenter = all.Apply(getDatacentersResult =\u003e getDatacentersResult.Datacenters)[range.Value].Name,\n        }));\n    }\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tall, err := hcloud.GetDatacenters(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar workers []*hcloud.Server\n\t\tfor index := 0; index \u003c 5; index++ {\n\t\t\tkey0 := index\n\t\t\tval0 := index\n\t\t\t__res, err := hcloud.NewServer(ctx, fmt.Sprintf(\"workers-%v\", key0), \u0026hcloud.ServerArgs{\n\t\t\t\tName:       pulumi.Sprintf(\"node%v\", val0),\n\t\t\t\tImage:      pulumi.String(\"debian-12\"),\n\t\t\t\tServerType: pulumi.String(\"cx23\"),\n\t\t\t\tDatacenter: all.Datacenters[val0].Name,\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tworkers = append(workers, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getdatacenters\" \"all\" {\n}\n\nresource \"hcloud_server\" \"workers\" {\n  count       = 5\n  name        =\"node${count.index}\"\n  image       = \"debian-12\"\n  server_type = \"cx23\"\n  datacenter  = element(data.hcloud_getdatacenters.all.datacenters, count.index).name\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.codegen.internal.KeyedValue;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        for (var i = 0; i \u003c 5; i++) {\n            new Server(\"workers-\" + i, ServerArgs.builder()\n                .name(String.format(\"node%s\", range.value()))\n                .image(\"debian-12\")\n                .serverType(\"cx23\")\n                .datacenter(all.datacenters()[range.value()].name())\n                .build());\n\n        \n}\n    }\n}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides a list of available Hetzner Cloud Datacenters.\n\nThis resource may be useful to create highly available infrastructure, distributed across several Datacenters.\n\n\u003e The \u003cspan pulumi-lang-nodejs=\"`hcloud.getDatacenters`\" pulumi-lang-dotnet=\"`hcloud.getDatacenters`\" pulumi-lang-go=\"`getDatacenters`\" pulumi-lang-python=\"`get_datacenters`\" pulumi-lang-yaml=\"`hcloud.getDatacenters`\" pulumi-lang-java=\"`hcloud.getDatacenters`\" pulumi-lang-hcl=\"`data.hcloud_datacenters`\"\u003e`hcloud.getDatacenters`\u003c/span\u003e data source is deprecated, and will be removed after 1 Oct. 2026.\nAfter this date, requests to the datacenters API endpoints will return `HTTP 410 Gone`.\nPlease use the \u003cspan pulumi-lang-nodejs=\"`hcloud.getLocations`\" pulumi-lang-dotnet=\"`hcloud.getLocations`\" pulumi-lang-go=\"`getLocations`\" pulumi-lang-python=\"`get_locations`\" pulumi-lang-yaml=\"`hcloud.getLocations`\" pulumi-lang-java=\"`hcloud.getLocations`\" pulumi-lang-hcl=\"`data.hcloud_locations`\"\u003e`hcloud.getLocations`\u003c/span\u003e data source instead.\nSee the [changelog](https://docs.hetzner.cloud/changelog#2026-06-02-datacenters-deprecated) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst all = hcloud.getDatacenters({});\nconst workers: hcloud.Server[] = [];\nfor (const range = {value: 0}; range.value \u003c 5; range.value++) {\n    workers.push(new hcloud.Server(`workers-${range.value}`, {\n        name: `node${range.value}`,\n        image: \"debian-12\",\n        serverType: \"cx23\",\n        datacenter: all.then(all =\u003e all.datacenters)[range.value].name,\n    }));\n}\n```\n```python\nimport pulumi\nfrom typing import Any\nimport pulumi_hcloud as hcloud\n\nall = hcloud.get_datacenters()\nworkers: list[Any] = []\nfor range in [{\"value\": i} for i in range(0, 5)]:\n    workers.append(hcloud.Server(f\"workers-{range['value']}\",\n        name=f\"node{range['value']}\",\n        image=\"debian-12\",\n        server_type=\"cx23\",\n        datacenter=all.datacenters[range[\"value\"]][\"name\"]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = HCloud.GetDatacenters.Invoke();\n\n    var workers = new List\u003cHCloud.Server\u003e();\n    for (var rangeIndex = 0; rangeIndex \u003c 5; rangeIndex++)\n    {\n        var range = new { Value = rangeIndex };\n        workers.Add(new HCloud.Server($\"workers-{range.Value}\", new()\n        {\n            Name = $\"node{range.Value}\",\n            Image = \"debian-12\",\n            ServerType = \"cx23\",\n            Datacenter = all.Apply(getDatacentersResult =\u003e getDatacentersResult.Datacenters)[range.Value].Name,\n        }));\n    }\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tall, err := hcloud.GetDatacenters(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tvar workers []*hcloud.Server\n\t\tfor index := 0; index \u003c 5; index++ {\n\t\t\tkey0 := index\n\t\t\tval0 := index\n\t\t\t__res, err := hcloud.NewServer(ctx, fmt.Sprintf(\"workers-%v\", key0), \u0026hcloud.ServerArgs{\n\t\t\t\tName:       pulumi.Sprintf(\"node%v\", val0),\n\t\t\t\tImage:      pulumi.String(\"debian-12\"),\n\t\t\t\tServerType: pulumi.String(\"cx23\"),\n\t\t\t\tDatacenter: all.Datacenters[val0].Name,\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tworkers = append(workers, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getdatacenters\" \"all\" {\n}\n\nresource \"hcloud_server\" \"workers\" {\n  count       = 5\n  name        =\"node${count.index}\"\n  image       = \"debian-12\"\n  server_type = \"cx23\"\n  datacenter  = element(data.hcloud_getdatacenters.all.datacenters, count.index).name\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport com.pulumi.codegen.internal.KeyedValue;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        for (var i = 0; i \u003c 5; i++) {\n            new Server(\"workers-\" + i, ServerArgs.builder()\n                .name(String.format(\"node%s\", range.value()))\n                .image(\"debian-12\")\n                .serverType(\"cx23\")\n                .datacenter(all.datacenters()[range.value()].name())\n                .build());\n\n        \n}\n    }\n}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "outputs": {
                 "description": "A collection of values returned by getDatacenters.\n",
                 "properties": {
@@ -6848,7 +6857,7 @@
             }
         },
         "hcloud:index/getImage:getImage": {
-            "description": "Provides details about a Hetzner Cloud Image.\nThis resource is useful if you want to use a non-terraform managed image.\n\nWhen relevant, it is recommended to always provide the image architecture\n(\u003cspan pulumi-lang-nodejs=\"`withArchitecture`\" pulumi-lang-dotnet=\"`WithArchitecture`\" pulumi-lang-go=\"`withArchitecture`\" pulumi-lang-python=\"`with_architecture`\" pulumi-lang-yaml=\"`withArchitecture`\" pulumi-lang-java=\"`withArchitecture`\" pulumi-lang-hcl=\"`with_architecture`\"\u003e`withArchitecture`\u003c/span\u003e) when fetching images.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getImage({\n    id: 114690387,\n});\nconst byNameX86 = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"x86\",\n});\nconst byNameArm = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"arm\",\n});\nconst byLabel = hcloud.getImage({\n    withSelector: \"key=value\",\n});\nconst main = new hcloud.Server(\"main\", {image: byName.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_image(id=114690387)\nby_name_x86 = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"x86\")\nby_name_arm = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"arm\")\nby_label = hcloud.get_image(with_selector=\"key=value\")\nmain = hcloud.Server(\"main\", image=by_name[\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetImage.Invoke(new()\n    {\n        Id = 114690387,\n    });\n\n    var byNameX86 = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"x86\",\n    });\n\n    var byNameArm = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"arm\",\n    });\n\n    var byLabel = HCloud.GetImage.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n    var main = new HCloud.Server(\"main\", new()\n    {\n        Image = byName.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tId: pulumi.IntRef(114690387),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"x86\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"arm\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"main\", \u0026hcloud.ServerArgs{\n\t\t\tImage: pulumi.Any(byName.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getimage\" \"byId\" {\n  id = \"114690387\"\n}\ndata \"hcloud_getimage\" \"byNameX86\" {\n  name              = \"debian-12\"\n  with_architecture = \"x86\"\n}\ndata \"hcloud_getimage\" \"byNameArm\" {\n  name              = \"debian-12\"\n  with_architecture = \"arm\"\n}\ndata \"hcloud_getimage\" \"byLabel\" {\n  with_selector = \"key=value\"\n}\n\nresource \"hcloud_server\" \"main\" {\n  image = byName.id\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImageArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getImage(GetImageArgs.builder()\n            .id(114690387)\n            .build());\n\n        final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"x86\")\n            .build());\n\n        final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"arm\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n        var main = new Server(\"main\", ServerArgs.builder()\n            .image(byName.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:Server\n    properties:\n      image: ${byName.id}\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        id: '114690387'\n  byNameX86:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: x86\n  byNameArm:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: arm\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides details about a Hetzner Cloud Image.\n\nIt is recommended to always provide the image architecture (using ''with_architecture'').\n\nSee the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byId = hcloud.getImage({\n    id: 114690387,\n});\nconst byNameX86 = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"x86\",\n});\nconst byNameArm = hcloud.getImage({\n    name: \"debian-12\",\n    withArchitecture: \"arm\",\n});\nconst byLabel = hcloud.getImage({\n    withSelector: \"key=value\",\n    mostRecent: true,\n});\nconst main = new hcloud.Server(\"main\", {image: byName.id});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_id = hcloud.get_image(id=114690387)\nby_name_x86 = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"x86\")\nby_name_arm = hcloud.get_image(name=\"debian-12\",\n    with_architecture=\"arm\")\nby_label = hcloud.get_image(with_selector=\"key=value\",\n    most_recent=True)\nmain = hcloud.Server(\"main\", image=by_name[\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = HCloud.GetImage.Invoke(new()\n    {\n        Id = 114690387,\n    });\n\n    var byNameX86 = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"x86\",\n    });\n\n    var byNameArm = HCloud.GetImage.Invoke(new()\n    {\n        Name = \"debian-12\",\n        WithArchitecture = \"arm\",\n    });\n\n    var byLabel = HCloud.GetImage.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n        MostRecent = true,\n    });\n\n    var main = new HCloud.Server(\"main\", new()\n    {\n        Image = byName.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tId: pulumi.IntRef(114690387),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"x86\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tName:             pulumi.StringRef(\"debian-12\"),\n\t\t\tWithArchitecture: pulumi.StringRef(\"arm\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImage(ctx, \u0026hcloud.GetImageArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t\tMostRecent:   pulumi.BoolRef(true),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.NewServer(ctx, \"main\", \u0026hcloud.ServerArgs{\n\t\t\tImage: pulumi.Any(byName.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getimage\" \"byId\" {\n  id = 114690387\n}\ndata \"hcloud_getimage\" \"byNameX86\" {\n  name              = \"debian-12\"\n  with_architecture = \"x86\"\n}\ndata \"hcloud_getimage\" \"byNameArm\" {\n  name              = \"debian-12\"\n  with_architecture = \"arm\"\n}\ndata \"hcloud_getimage\" \"byLabel\" {\n  with_selector = \"key=value\"\n  most_recent   = true\n}\n\nresource \"hcloud_server\" \"main\" {\n  image = byName.id\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImageArgs;\nimport com.pulumi.hcloud.Server;\nimport com.pulumi.hcloud.ServerArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = HcloudFunctions.getImage(GetImageArgs.builder()\n            .id(114690387)\n            .build());\n\n        final var byNameX86 = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"x86\")\n            .build());\n\n        final var byNameArm = HcloudFunctions.getImage(GetImageArgs.builder()\n            .name(\"debian-12\")\n            .withArchitecture(\"arm\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImage(GetImageArgs.builder()\n            .withSelector(\"key=value\")\n            .mostRecent(true)\n            .build());\n\n        var main = new Server(\"main\", ServerArgs.builder()\n            .image(byName.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: hcloud:Server\n    properties:\n      image: ${byName.id}\nvariables:\n  byId:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        id: 1.14690387e+08\n  byNameX86:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: x86\n  byNameArm:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        name: debian-12\n        withArchitecture: arm\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImage\n      arguments:\n        withSelector: key=value\n        mostRecent: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getImage.\n",
                 "properties": {
@@ -6858,34 +6867,35 @@
                     },
                     "includeDeprecated": {
                         "type": "boolean",
-                        "description": "Also return the image if it is marked as deprecated.\n"
+                        "description": "Include deprecated images.\n"
                     },
                     "mostRecent": {
                         "type": "boolean",
-                        "description": "If more than one result is returned, use the most recent Image.\n"
+                        "description": "Sort results by created date, and return the most recent result.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the Image.\n"
+                        "description": "Name of the Image, only present when the type is \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e.\n"
                     },
                     "selector": {
                         "type": "string",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
                         "deprecationMessage": "Please use the\u003cspan pulumi-lang-nodejs=\" withSelector \" pulumi-lang-dotnet=\" WithSelector \" pulumi-lang-go=\" withSelector \" pulumi-lang-python=\" with_selector \" pulumi-lang-yaml=\" withSelector \" pulumi-lang-java=\" withSelector \" pulumi-lang-hcl=\" with_selector \"\u003e withSelector \u003c/span\u003eproperty instead."
                     },
                     "withArchitecture": {
                         "type": "string",
-                        "description": "Select only images with this architecture, could be \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e (default) or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n"
+                        "description": "Filter results by architecture, for example \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e (default) or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n"
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Select only images with the specified status, could contain \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n"
+                        "description": "Filter results by statuses, for example \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n"
                     }
                 },
                 "type": "object"
@@ -6894,68 +6904,75 @@
                 "description": "A collection of values returned by getImage.\n",
                 "properties": {
                     "architecture": {
-                        "description": "(string) Architecture of the Image.\n",
+                        "description": "CPU architecture compatible with the Image.\n",
                         "type": "string"
                     },
                     "created": {
-                        "description": "(string) Date when the Image was created (in ISO-8601 format).\n",
+                        "description": "Point in time when the Image was created (in RFC3339 format).\n",
                         "type": "string"
                     },
                     "deprecated": {
-                        "description": "(string) Point in time when the image is considered to be deprecated (in ISO-8601 format).\n",
+                        "description": "Point in time when the Image was marked as deprecated (in RFC3339 format).\n",
                         "type": "string"
                     },
                     "description": {
-                        "description": "(string) Description of the Image.\n",
+                        "description": "Description of the Image.\n",
                         "type": "string"
                     },
                     "id": {
-                        "description": "(int) Unique ID of the Image.\n",
+                        "description": "ID of the Image.\n",
                         "type": "integer"
                     },
                     "includeDeprecated": {
+                        "description": "Include deprecated images.\n",
                         "type": "boolean"
                     },
                     "labels": {
                         "additionalProperties": {
                             "type": "string"
                         },
+                        "description": "User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.\n",
                         "type": "object"
                     },
                     "mostRecent": {
+                        "description": "Sort results by created date, and return the most recent result.\n",
                         "type": "boolean"
                     },
                     "name": {
-                        "description": "(string) Name of the Image, only present when the Image is of type \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e.\n",
+                        "description": "Name of the Image, only present when the type is \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e.\n",
                         "type": "string"
                     },
                     "osFlavor": {
-                        "description": "(string) Flavor of operating system contained in the image, could be \u003cspan pulumi-lang-nodejs=\"`ubuntu`\" pulumi-lang-dotnet=\"`Ubuntu`\" pulumi-lang-go=\"`ubuntu`\" pulumi-lang-python=\"`ubuntu`\" pulumi-lang-yaml=\"`ubuntu`\" pulumi-lang-java=\"`ubuntu`\" pulumi-lang-hcl=\"`ubuntu`\"\u003e`ubuntu`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`centos`\" pulumi-lang-dotnet=\"`Centos`\" pulumi-lang-go=\"`centos`\" pulumi-lang-python=\"`centos`\" pulumi-lang-yaml=\"`centos`\" pulumi-lang-java=\"`centos`\" pulumi-lang-hcl=\"`centos`\"\u003e`centos`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`debian`\" pulumi-lang-dotnet=\"`Debian`\" pulumi-lang-go=\"`debian`\" pulumi-lang-python=\"`debian`\" pulumi-lang-yaml=\"`debian`\" pulumi-lang-java=\"`debian`\" pulumi-lang-hcl=\"`debian`\"\u003e`debian`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`fedora`\" pulumi-lang-dotnet=\"`Fedora`\" pulumi-lang-go=\"`fedora`\" pulumi-lang-python=\"`fedora`\" pulumi-lang-yaml=\"`fedora`\" pulumi-lang-java=\"`fedora`\" pulumi-lang-hcl=\"`fedora`\"\u003e`fedora`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`unknown`\" pulumi-lang-dotnet=\"`Unknown`\" pulumi-lang-go=\"`unknown`\" pulumi-lang-python=\"`unknown`\" pulumi-lang-yaml=\"`unknown`\" pulumi-lang-java=\"`unknown`\" pulumi-lang-hcl=\"`unknown`\"\u003e`unknown`\u003c/span\u003e.\n",
+                        "description": "Flavor of the operating system contained in the Image.\n",
                         "type": "string"
                     },
                     "osVersion": {
-                        "description": "(string) Operating system version.\n",
+                        "description": "Version of the operating system contained in the Image.\n",
                         "type": "string"
                     },
                     "rapidDeploy": {
-                        "description": "(bool) Indicates that rapid deploy of the image is available.\n",
+                        "description": "Whether the Image is optimized for a rapid deployment.\n",
                         "type": "boolean"
                     },
                     "selector": {
                         "deprecationMessage": "Please use the\u003cspan pulumi-lang-nodejs=\" withSelector \" pulumi-lang-dotnet=\" WithSelector \" pulumi-lang-go=\" withSelector \" pulumi-lang-python=\" with_selector \" pulumi-lang-yaml=\" withSelector \" pulumi-lang-java=\" withSelector \" pulumi-lang-hcl=\" with_selector \"\u003e withSelector \u003c/span\u003eproperty instead.",
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).\n",
                         "type": "string"
                     },
                     "type": {
-                        "description": "(string) Type of the Image, could be \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`backup`\" pulumi-lang-dotnet=\"`Backup`\" pulumi-lang-go=\"`backup`\" pulumi-lang-python=\"`backup`\" pulumi-lang-yaml=\"`backup`\" pulumi-lang-java=\"`backup`\" pulumi-lang-hcl=\"`backup`\"\u003e`backup`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`snapshot`\" pulumi-lang-dotnet=\"`Snapshot`\" pulumi-lang-go=\"`snapshot`\" pulumi-lang-python=\"`snapshot`\" pulumi-lang-yaml=\"`snapshot`\" pulumi-lang-java=\"`snapshot`\" pulumi-lang-hcl=\"`snapshot`\"\u003e`snapshot`\u003c/span\u003e.\n",
+                        "description": "Type of the Image, for example \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`backup`\" pulumi-lang-dotnet=\"`Backup`\" pulumi-lang-go=\"`backup`\" pulumi-lang-python=\"`backup`\" pulumi-lang-yaml=\"`backup`\" pulumi-lang-java=\"`backup`\" pulumi-lang-hcl=\"`backup`\"\u003e`backup`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`snapshot`\" pulumi-lang-dotnet=\"`Snapshot`\" pulumi-lang-go=\"`snapshot`\" pulumi-lang-python=\"`snapshot`\" pulumi-lang-yaml=\"`snapshot`\" pulumi-lang-java=\"`snapshot`\" pulumi-lang-hcl=\"`snapshot`\"\u003e`snapshot`\u003c/span\u003e.\n",
                         "type": "string"
                     },
                     "withArchitecture": {
+                        "description": "Filter results by architecture, for example \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e (default) or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n",
                         "type": "string"
                     },
                     "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n",
                         "type": "string"
                     },
                     "withStatuses": {
+                        "description": "Filter results by statuses, for example \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n",
                         "items": {
                             "type": "string"
                         },
@@ -6967,9 +6984,7 @@
                     "created",
                     "deprecated",
                     "description",
-                    "id",
                     "labels",
-                    "name",
                     "osFlavor",
                     "osVersion",
                     "rapidDeploy",
@@ -6979,35 +6994,35 @@
             }
         },
         "hcloud:index/getImages:getImages": {
-            "description": "Provides details about multiple Hetzner Cloud Images.\n\nWhen relevant, it is recommended to always provide the image architecture\n(\u003cspan pulumi-lang-nodejs=\"`withArchitecture`\" pulumi-lang-dotnet=\"`WithArchitecture`\" pulumi-lang-go=\"`withArchitecture`\" pulumi-lang-python=\"`with_architecture`\" pulumi-lang-yaml=\"`withArchitecture`\" pulumi-lang-java=\"`withArchitecture`\" pulumi-lang-hcl=\"`with_architecture`\"\u003e`withArchitecture`\u003c/span\u003e) when fetching images.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byArchitecture = hcloud.getImages({\n    withArchitectures: [\"x86\"],\n});\nconst byLabel = hcloud.getImages({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_architecture = hcloud.get_images(with_architectures=[\"x86\"])\nby_label = hcloud.get_images(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byArchitecture = HCloud.GetImages.Invoke(new()\n    {\n        WithArchitectures = new[]\n        {\n            \"x86\",\n        },\n    });\n\n    var byLabel = HCloud.GetImages.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithArchitectures: []string{\n\t\t\t\t\"x86\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getimages\" \"byArchitecture\" {\n  with_architectures = [\"x86\"]\n}\ndata \"hcloud_getimages\" \"byLabel\" {\n  with_selector = \"key=value\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImagesArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withArchitectures(\"x86\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byArchitecture:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withArchitectures:\n          - x86\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Provides a list of Hetzner Storage Images.\n\nIt is recommended to always provide the image architecture (using ''with_architecture'').\n\nSee the [Image API documentation](https://docs.hetzner.cloud/reference/cloud#images) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\n\nconst byArchitecture = hcloud.getImages({\n    withArchitectures: [\"x86\"],\n});\nconst byLabel = hcloud.getImages({\n    withSelector: \"key=value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\n\nby_architecture = hcloud.get_images(with_architectures=[\"x86\"])\nby_label = hcloud.get_images(with_selector=\"key=value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byArchitecture = HCloud.GetImages.Invoke(new()\n    {\n        WithArchitectures = new[]\n        {\n            \"x86\",\n        },\n    });\n\n    var byLabel = HCloud.GetImages.Invoke(new()\n    {\n        WithSelector = \"key=value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithArchitectures: []string{\n\t\t\t\t\"x86\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = hcloud.GetImages(ctx, \u0026hcloud.GetImagesArgs{\n\t\t\tWithSelector: pulumi.StringRef(\"key=value\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n  }\n}\n\ndata \"hcloud_getimages\" \"byArchitecture\" {\n  with_architectures = [\"x86\"]\n}\ndata \"hcloud_getimages\" \"byLabel\" {\n  with_selector = \"key=value\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.hcloud.HcloudFunctions;\nimport com.pulumi.hcloud.inputs.GetImagesArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byArchitecture = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withArchitectures(\"x86\")\n            .build());\n\n        final var byLabel = HcloudFunctions.getImages(GetImagesArgs.builder()\n            .withSelector(\"key=value\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byArchitecture:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withArchitectures:\n          - x86\n  byLabel:\n    fn::invoke:\n      function: hcloud:getImages\n      arguments:\n        withSelector: key=value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getImages.\n",
                 "properties": {
                     "includeDeprecated": {
                         "type": "boolean",
-                        "description": "Also list images that are marked as deprecated.\n"
+                        "description": "Include deprecated images.\n"
                     },
                     "mostRecent": {
                         "type": "boolean",
-                        "description": "Sorts list by date.\n"
+                        "description": "Sort results by created date.\n"
                     },
                     "withArchitectures": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "List only images with this architecture, could contain \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n"
+                        "description": "Filter results by architecture, for example \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n"
                     },
                     "withSelector": {
                         "type": "string",
-                        "description": "[Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)\n"
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n"
                     },
                     "withStatuses": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "List only images with the specified status, could contain \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n"
+                        "description": "Filter results by statuses, for example \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n"
                     }
                 },
                 "type": "object"
@@ -7016,32 +7031,36 @@
                 "description": "A collection of values returned by getImages.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "description": "The ID of this resource.\n",
                         "type": "string"
                     },
                     "images": {
-                        "description": "(list) List of all matching images. See `data.hcloud_image` for schema.\n",
                         "items": {
                             "$ref": "#/types/hcloud:index/getImagesImage:getImagesImage"
                         },
                         "type": "array"
                     },
                     "includeDeprecated": {
+                        "description": "Include deprecated images.\n",
                         "type": "boolean"
                     },
                     "mostRecent": {
+                        "description": "Sort results by created date.\n",
                         "type": "boolean"
                     },
                     "withArchitectures": {
+                        "description": "Filter results by architecture, for example \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n",
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
                     "withSelector": {
+                        "description": "Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).\n",
                         "type": "string"
                     },
                     "withStatuses": {
+                        "description": "Filter results by statuses, for example \u003cspan pulumi-lang-nodejs=\"`creating`\" pulumi-lang-dotnet=\"`Creating`\" pulumi-lang-go=\"`creating`\" pulumi-lang-python=\"`creating`\" pulumi-lang-yaml=\"`creating`\" pulumi-lang-java=\"`creating`\" pulumi-lang-hcl=\"`creating`\"\u003e`creating`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`available`\" pulumi-lang-dotnet=\"`Available`\" pulumi-lang-go=\"`available`\" pulumi-lang-python=\"`available`\" pulumi-lang-yaml=\"`available`\" pulumi-lang-java=\"`available`\" pulumi-lang-hcl=\"`available`\"\u003e`available`\u003c/span\u003e.\n",
                         "items": {
                             "type": "string"
                         },
@@ -7049,8 +7068,8 @@
                     }
                 },
                 "required": [
-                    "images",
-                    "id"
+                    "id",
+                    "images"
                 ],
                 "type": "object"
             }
