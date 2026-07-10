@@ -103,13 +103,13 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     import pulumi_hcloud as hcloud
 
     all = hcloud.get_locations()
-    workers: list[Any] = []
-    for range in [{"value": i} for i in range(0, 5)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            name=f"node{range['value']}",
+    workers: list[hcloud.Server] = []
+    for workers_range in [{"value": i} for i in range(0, 5)]:
+        workers.append(hcloud.Server(f"workers-{workers_range['value']}",
+            name=f"node{workers_range['value']}",
             image="debian-12",
             server_type="cx23",
-            location=all.locations[range["value"]]["name"]))
+            location=all.locations[workers_range["value"]]["name"]))
     ```
     """
     __args__ = dict()
@@ -136,13 +136,13 @@ def get_locations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
     import pulumi_hcloud as hcloud
 
     all = hcloud.get_locations()
-    workers: list[Any] = []
-    for range in [{"value": i} for i in range(0, 5)]:
-        workers.append(hcloud.Server(f"workers-{range['value']}",
-            name=f"node{range['value']}",
+    workers: list[hcloud.Server] = []
+    for workers_range in [{"value": i} for i in range(0, 5)]:
+        workers.append(hcloud.Server(f"workers-{workers_range['value']}",
+            name=f"node{workers_range['value']}",
             image="debian-12",
             server_type="cx23",
-            location=all.locations[range["value"]]["name"]))
+            location=all.locations[workers_range["value"]]["name"]))
     ```
     """
     __args__ = dict()

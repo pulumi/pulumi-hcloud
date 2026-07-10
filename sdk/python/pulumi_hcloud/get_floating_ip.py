@@ -203,9 +203,9 @@ def get_floating_ip(id: Optional[_builtins.int] = None,
 
     ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
     ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main: list[Any] = []
-    for range in [{"value": i} for i in range(0, counter)]:
-        main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
+    main: list[hcloud.FloatingIpAssignment] = []
+    for main_range in [{"value": i} for i in range(0, counter)]:
+        main.append(hcloud.FloatingIpAssignment(f"main-{main_range['value']}",
             floating_ip_id=ip1.id,
             server_id=int(main_hcloud_server["id"])))
     ```
@@ -265,9 +265,9 @@ def get_floating_ip_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] =
 
     ip1 = hcloud.get_floating_ip(ip_address="1.2.3.4")
     ip2 = hcloud.get_floating_ip(with_selector="key=value")
-    main: list[Any] = []
-    for range in [{"value": i} for i in range(0, counter)]:
-        main.append(hcloud.FloatingIpAssignment(f"main-{range['value']}",
+    main: list[hcloud.FloatingIpAssignment] = []
+    for main_range in [{"value": i} for i in range(0, counter)]:
+        main.append(hcloud.FloatingIpAssignment(f"main-{main_range['value']}",
             floating_ip_id=ip1.id,
             server_id=int(main_hcloud_server["id"])))
     ```

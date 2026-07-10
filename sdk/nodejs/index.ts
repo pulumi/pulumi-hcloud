@@ -240,6 +240,10 @@ export const getZones: typeof import("./getZones").getZones = null as any;
 export const getZonesOutput: typeof import("./getZones").getZonesOutput = null as any;
 utilities.lazyLoad(exports, ["getZones","getZonesOutput"], () => require("./getZones"));
 
+export const idna: typeof import("./idna").idna = null as any;
+export const idnaOutput: typeof import("./idna").idnaOutput = null as any;
+utilities.lazyLoad(exports, ["idna","idnaOutput"], () => require("./idna"));
+
 export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
@@ -332,6 +336,10 @@ export { StorageBoxSubaccountArgs, StorageBoxSubaccountState } from "./storageBo
 export type StorageBoxSubaccount = import("./storageBoxSubaccount").StorageBoxSubaccount;
 export const StorageBoxSubaccount: typeof import("./storageBoxSubaccount").StorageBoxSubaccount = null as any;
 utilities.lazyLoad(exports, ["StorageBoxSubaccount"], () => require("./storageBoxSubaccount"));
+
+export const txtRecord: typeof import("./txtRecord").txtRecord = null as any;
+export const txtRecordOutput: typeof import("./txtRecord").txtRecordOutput = null as any;
+utilities.lazyLoad(exports, ["txtRecord","txtRecordOutput"], () => require("./txtRecord"));
 
 export { UploadedCertificateArgs, UploadedCertificateState } from "./uploadedCertificate";
 export type UploadedCertificate = import("./uploadedCertificate").UploadedCertificate;

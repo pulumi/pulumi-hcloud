@@ -24,12 +24,12 @@ import * as utilities from "./utilities";
  *
  * const all = hcloud.getDatacenters({});
  * const workers: hcloud.Server[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         name: `node${range.value}`,
+ * for (let range = 0; range < 5; range++) {
+ *     workers.push(new hcloud.Server(`workers-${range}`, {
+ *         name: `node${range}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters)[range.value].name,
+ *         datacenter: all.then(all => all.datacenters)[range].name,
  *     }));
  * }
  * ```
@@ -80,12 +80,12 @@ export interface GetDatacentersResult {
  *
  * const all = hcloud.getDatacenters({});
  * const workers: hcloud.Server[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         name: `node${range.value}`,
+ * for (let range = 0; range < 5; range++) {
+ *     workers.push(new hcloud.Server(`workers-${range}`, {
+ *         name: `node${range}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters)[range.value].name,
+ *         datacenter: all.then(all => all.datacenters)[range].name,
  *     }));
  * }
  * ```

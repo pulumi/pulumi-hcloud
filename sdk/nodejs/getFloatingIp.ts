@@ -29,8 +29,8 @@ import * as utilities from "./utilities";
  *     withSelector: "key=value",
  * });
  * const main: hcloud.FloatingIpAssignment[] = [];
- * for (const range = {value: 0}; range.value < counter; range.value++) {
- *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
+ * for (let range = 0; range < counter; range++) {
+ *     main.push(new hcloud.FloatingIpAssignment(`main-${range}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
  *         serverId: Number(mainHcloudServer.id),
  *     }));
@@ -150,8 +150,8 @@ export interface GetFloatingIpResult {
  *     withSelector: "key=value",
  * });
  * const main: hcloud.FloatingIpAssignment[] = [];
- * for (const range = {value: 0}; range.value < counter; range.value++) {
- *     main.push(new hcloud.FloatingIpAssignment(`main-${range.value}`, {
+ * for (let range = 0; range < counter; range++) {
+ *     main.push(new hcloud.FloatingIpAssignment(`main-${range}`, {
  *         floatingIpId: ip1.then(ip1 => ip1.id),
  *         serverId: Number(mainHcloudServer.id),
  *     }));
