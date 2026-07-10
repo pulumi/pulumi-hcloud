@@ -19,12 +19,12 @@ import * as utilities from "./utilities";
  *
  * const all = hcloud.getLocations({});
  * const workers: hcloud.Server[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         name: `node${range.value}`,
+ * for (let range = 0; range < 5; range++) {
+ *     workers.push(new hcloud.Server(`workers-${range}`, {
+ *         name: `node${range}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         location: all.then(all => all.locations)[range.value].name,
+ *         location: all.then(all => all.locations)[range].name,
  *     }));
  * }
  * ```
@@ -70,12 +70,12 @@ export interface GetLocationsResult {
  *
  * const all = hcloud.getLocations({});
  * const workers: hcloud.Server[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     workers.push(new hcloud.Server(`workers-${range.value}`, {
- *         name: `node${range.value}`,
+ * for (let range = 0; range < 5; range++) {
+ *     workers.push(new hcloud.Server(`workers-${range}`, {
+ *         name: `node${range}`,
  *         image: "debian-12",
  *         serverType: "cx23",
- *         location: all.then(all => all.locations)[range.value].name,
+ *         location: all.then(all => all.locations)[range].name,
  *     }));
  * }
  * ```

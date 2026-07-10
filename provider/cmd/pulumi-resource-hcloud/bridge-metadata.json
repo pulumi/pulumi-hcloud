@@ -826,6 +826,55 @@
         }
     },
     "auto-settings": {},
+    "default-resource-schema-fixups": {
+        "resources": {
+            "hcloud_load_balancer_network": {},
+            "hcloud_primary_ip": {
+                "fields": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "hcloud_rdns": {},
+            "hcloud_server_network": {},
+            "hcloud_ssh_key": {},
+            "hcloud_storage_box": {
+                "fields": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "hcloud_storage_box_snapshot": {
+                "fields": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "hcloud_storage_box_subaccount": {
+                "fields": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "hcloud_zone": {
+                "fields": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "hcloud_zone_record": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "hcloud_zone_rrset": {}
+        }
+    },
     "mux": {
         "resources": {
             "hcloud:index/certificate:Certificate": 0,
@@ -900,7 +949,9 @@
             "hcloud:index/getZone:getZone": 1,
             "hcloud:index/getZoneRrset:getZoneRrset": 1,
             "hcloud:index/getZoneRrsets:getZoneRrsets": 1,
-            "hcloud:index/getZones:getZones": 1
+            "hcloud:index/getZones:getZones": 1,
+            "hcloud:index/idna:idna": 1,
+            "hcloud:index/txtRecord:txtRecord": 1
         }
     },
     "renames": {

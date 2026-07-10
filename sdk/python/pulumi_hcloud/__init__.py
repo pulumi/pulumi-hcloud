@@ -53,6 +53,7 @@ from .get_zone import *
 from .get_zone_rrset import *
 from .get_zone_rrsets import *
 from .get_zones import *
+from .idna import *
 from .load_balancer import *
 from .load_balancer_network import *
 from .load_balancer_service import *
@@ -72,6 +73,7 @@ from .ssh_key import *
 from .storage_box import *
 from .storage_box_snapshot import *
 from .storage_box_subaccount import *
+from .txt_record import *
 from .uploaded_certificate import *
 from .volume import *
 from .volume_attachment import *
