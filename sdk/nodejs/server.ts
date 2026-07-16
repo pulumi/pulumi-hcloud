@@ -210,7 +210,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
      */
-    declare public readonly image: pulumi.Output<string | undefined>;
+    declare public readonly image: pulumi.Output<string>;
     /**
      * (string) The IPv4 address.
      */

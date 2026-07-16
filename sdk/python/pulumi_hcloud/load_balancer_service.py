@@ -307,6 +307,31 @@ class LoadBalancerService(pulumi.CustomResource):
             })
         ```
 
+        ### TLS Termination and Passthrough
+
+        The Hetzner Cloud API has no dedicated "TLS passthrough" option. Whether the Load
+        Balancer terminates TLS or passes it through to the targets is determined by the
+        service `protocol`:
+
+        - **TLS termination** — set `protocol = "https"` and attach one or more
+        `certificates`. The Load Balancer terminates the TLS connection, so it can
+        inspect and modify HTTP traffic (sticky sessions, HTTP-to-HTTPS redirects, HTTP
+        health checks, etc.).
+          
+          ```python
+          ```
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        tls_termination = hcloud.LoadBalancerService("tls_termination",
+            load_balancer_id=load_balancer["id"],
+            protocol="https",
+            listen_port=443,
+            destination_port=80,
+            http={
+                "certificates": [cert["id"]],
+            })
+
         ## Import
 
         Load Balancer Service entries can be imported using a compound ID with the following format:
@@ -367,6 +392,31 @@ class LoadBalancerService(pulumi.CustomResource):
                 },
             })
         ```
+
+        ### TLS Termination and Passthrough
+
+        The Hetzner Cloud API has no dedicated "TLS passthrough" option. Whether the Load
+        Balancer terminates TLS or passes it through to the targets is determined by the
+        service `protocol`:
+
+        - **TLS termination** — set `protocol = "https"` and attach one or more
+        `certificates`. The Load Balancer terminates the TLS connection, so it can
+        inspect and modify HTTP traffic (sticky sessions, HTTP-to-HTTPS redirects, HTTP
+        health checks, etc.).
+          
+          ```python
+          ```
+        import pulumi
+        import pulumi_hcloud as hcloud
+
+        tls_termination = hcloud.LoadBalancerService("tls_termination",
+            load_balancer_id=load_balancer["id"],
+            protocol="https",
+            listen_port=443,
+            destination_port=80,
+            http={
+                "certificates": [cert["id"]],
+            })
 
         ## Import
 

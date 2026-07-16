@@ -61,6 +61,43 @@ namespace Pulumi.HCloud
     /// });
     /// ```
     /// 
+    /// ### TLS Termination and Passthrough
+    /// 
+    /// The Hetzner Cloud API has no dedicated "TLS passthrough" option. Whether the Load
+    /// Balancer terminates TLS or passes it through to the targets is determined by the
+    /// service `Protocol`:
+    /// 
+    /// - **TLS termination** — set `protocol = "https"` and attach one or more
+    /// `Certificates`. The Load Balancer terminates the TLS connection, so it can
+    /// inspect and modify HTTP traffic (sticky sessions, HTTP-to-HTTPS redirects, HTTP
+    /// health checks, etc.).
+    ///   
+    ///   ```csharp
+    ///   ```
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using HCloud = Pulumi.HCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt;
+    /// {
+    ///     var tlsTermination = new HCloud.LoadBalancerService("tls_termination", new()
+    ///     {
+    ///         LoadBalancerId = loadBalancer.Id,
+    ///         Protocol = "https",
+    ///         ListenPort = 443,
+    ///         DestinationPort = 80,
+    ///         Http = new HCloud.Inputs.LoadBalancerServiceHttpArgs
+    ///         {
+    ///             Certificates = new[]
+    ///             {
+    ///                 cert.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
     /// ## Import
     /// 
     /// Load Balancer Service entries can be imported using a compound ID with the following format:

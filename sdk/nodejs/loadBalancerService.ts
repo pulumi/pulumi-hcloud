@@ -43,6 +43,32 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### TLS Termination and Passthrough
+ *
+ * The Hetzner Cloud API has no dedicated "TLS passthrough" option. Whether the Load
+ * Balancer terminates TLS or passes it through to the targets is determined by the
+ * service `protocol`:
+ *
+ * - **TLS termination** — set `protocol = "https"` and attach one or more
+ * `certificates`. The Load Balancer terminates the TLS connection, so it can
+ * inspect and modify HTTP traffic (sticky sessions, HTTP-to-HTTPS redirects, HTTP
+ * health checks, etc.).
+ *   
+ *   ```typescript
+ *   ```
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const tlsTermination = new hcloud.LoadBalancerService("tls_termination", {
+ *     loadBalancerId: loadBalancer.id,
+ *     protocol: "https",
+ *     listenPort: 443,
+ *     destinationPort: 80,
+ *     http: {
+ *         certificates: [cert.id],
+ *     },
+ * });
+ *
  * ## Import
  *
  * Load Balancer Service entries can be imported using a compound ID with the following format:
