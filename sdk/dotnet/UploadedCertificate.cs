@@ -12,41 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Upload a TLS certificate to Hetzner Cloud.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sampleCertificate = new HCloud.UploadedCertificate("sample_certificate", new()
-    ///     {
-    ///         Name = "test-certificate-%d",
-    ///         PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
-    /// MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
-    /// ...
-    /// AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
-    /// -----END RSA PRIVATE KEY-----
-    /// ",
-    ///         Certificate = @"-----BEGIN CERTIFICATE-----
-    /// MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
-    /// ...
-    /// TKS8gQ==
-    /// -----END CERTIFICATE-----
-    /// ",
-    ///         Labels = 
-    ///         {
-    ///             { "label_1", "value_1" },
-    ///             { "label_2", "value_2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Uploaded certificates can be imported using their `Id`:

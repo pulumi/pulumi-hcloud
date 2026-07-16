@@ -7,25 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Obtain a Hetzner Cloud managed TLS certificate.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as hcloud from "@pulumi/hcloud";
- *
- * const managedCert = new hcloud.ManagedCertificate("managed_cert", {
- *     name: "managed_cert",
- *     domainNames: [
- *         "*.example.com",
- *         "example.com",
- *     ],
- *     labels: {
- *         label_1: "value_1",
- *         label_2: "value_2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Managed certificates can be imported using their `id`:

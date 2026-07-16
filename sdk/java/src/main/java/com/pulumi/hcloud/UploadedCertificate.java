@@ -19,57 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Upload a TLS certificate to Hetzner Cloud.
  * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.hcloud.UploadedCertificate;
- * import com.pulumi.hcloud.UploadedCertificateArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sampleCertificate = new UploadedCertificate("sampleCertificate", UploadedCertificateArgs.builder()
- *             .name("test-certificate-%d")
- *             .privateKey("""
- * -----BEGIN RSA PRIVATE KEY-----
- * MIIEpQIBAAKCAQEAorPccsHibgGLJIub5Sb1yvDvARifoKzg7MIhyAYLnJkGn9B1
- * ...
- * AHcjLFCNvobInLHTTmCoAxYBmEv2eakas0+n4g/LM2Ukaw1Bz+3VrVo=
- * -----END RSA PRIVATE KEY-----
- *             """)
- *             .certificate("""
- * -----BEGIN CERTIFICATE-----
- * MIIDMDCCAhigAwIBAgIIJgROscP8RRUwDQYJKoZIhvcNAQELBQAwIDEeMBwGA1UE
- * ...
- * TKS8gQ==
- * -----END CERTIFICATE-----
- *             """)
- *             .labels(Map.ofEntries(
- *                 Map.entry("label_1", "value_1"),
- *                 Map.entry("label_2", "value_2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ## Import
  * 
  * Uploaded certificates can be imported using their `id`:

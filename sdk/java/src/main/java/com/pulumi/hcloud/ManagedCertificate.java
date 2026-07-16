@@ -19,46 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Obtain a Hetzner Cloud managed TLS certificate.
  * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.hcloud.ManagedCertificate;
- * import com.pulumi.hcloud.ManagedCertificateArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var managedCert = new ManagedCertificate("managedCert", ManagedCertificateArgs.builder()
- *             .name("managed_cert")
- *             .domainNames(            
- *                 "*.example.com",
- *                 "example.com")
- *             .labels(Map.ofEntries(
- *                 Map.entry("label_1", "value_1"),
- *                 Map.entry("label_2", "value_2")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ## Import
  * 
  * Managed certificates can be imported using their `id`:

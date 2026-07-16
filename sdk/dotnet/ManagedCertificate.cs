@@ -12,34 +12,6 @@ namespace Pulumi.HCloud
     /// <summary>
     /// Obtain a Hetzner Cloud managed TLS certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using HCloud = Pulumi.HCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managedCert = new HCloud.ManagedCertificate("managed_cert", new()
-    ///     {
-    ///         Name = "managed_cert",
-    ///         DomainNames = new[]
-    ///         {
-    ///             "*.example.com",
-    ///             "example.com",
-    ///         },
-    ///         Labels = 
-    ///         {
-    ///             { "label_1", "value_1" },
-    ///             { "label_2", "value_2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Managed certificates can be imported using their `Id`:

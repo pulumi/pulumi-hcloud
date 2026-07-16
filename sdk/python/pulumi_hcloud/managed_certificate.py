@@ -242,24 +242,6 @@ class ManagedCertificate(pulumi.CustomResource):
         """
         Obtain a Hetzner Cloud managed TLS certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        managed_cert = hcloud.ManagedCertificate("managed_cert",
-            name="managed_cert",
-            domain_names=[
-                "*.example.com",
-                "example.com",
-            ],
-            labels={
-                "label_1": "value_1",
-                "label_2": "value_2",
-            })
-        ```
-
         ## Import
 
         Managed certificates can be imported using their `id`:
@@ -285,24 +267,6 @@ class ManagedCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Obtain a Hetzner Cloud managed TLS certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_hcloud as hcloud
-
-        managed_cert = hcloud.ManagedCertificate("managed_cert",
-            name="managed_cert",
-            domain_names=[
-                "*.example.com",
-                "example.com",
-            ],
-            labels={
-                "label_1": "value_1",
-                "label_2": "value_2",
-            })
-        ```
 
         ## Import
 

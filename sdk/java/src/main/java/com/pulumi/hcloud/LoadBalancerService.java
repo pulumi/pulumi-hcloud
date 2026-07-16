@@ -82,6 +82,55 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### TLS Termination and Passthrough
+ * 
+ * The Hetzner Cloud API has no dedicated &#34;TLS passthrough&#34; option. Whether the Load
+ * Balancer terminates TLS or passes it through to the targets is determined by the
+ * service `protocol`:
+ * 
+ * - **TLS termination** — set `protocol = &#34;https&#34;` and attach one or more
+ * `certificates`. The Load Balancer terminates the TLS connection, so it can
+ * inspect and modify HTTP traffic (sticky sessions, HTTP-to-HTTPS redirects, HTTP
+ * health checks, etc.).
+ *   
+ *   <pre>
+ * {@code
+ *   }
+ * </pre>
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.hcloud.LoadBalancerService;
+ * import com.pulumi.hcloud.LoadBalancerServiceArgs;
+ * import com.pulumi.hcloud.inputs.LoadBalancerServiceHttpArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tlsTermination = new LoadBalancerService(&#34;tlsTermination&#34;, LoadBalancerServiceArgs.builder()
+ *             .loadBalancerId(loadBalancer.id())
+ *             .protocol(&#34;https&#34;)
+ *             .listenPort(443)
+ *             .destinationPort(80)
+ *             .http(LoadBalancerServiceHttpArgs.builder()
+ *                 .certificates(cert.id())
+ *                 .build())
+ *             .build());
+ *     
+ *     }
+ * }
+ * 
  * ## Import
  * 
  * Load Balancer Service entries can be imported using a compound ID with the following format:

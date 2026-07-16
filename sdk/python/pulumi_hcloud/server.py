@@ -1409,7 +1409,7 @@ class Server(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def image(self) -> pulumi.Output[_builtins.str]:
         """
         Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
         """

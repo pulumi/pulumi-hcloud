@@ -253,7 +253,7 @@ type Server struct {
 	// argument.
 	IgnoreRemoteFirewallIds pulumi.BoolPtrOutput `pulumi:"ignoreRemoteFirewallIds"`
 	// Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
-	Image pulumi.StringPtrOutput `pulumi:"image"`
+	Image pulumi.StringOutput `pulumi:"image"`
 	// (string) The IPv4 address.
 	Ipv4Address pulumi.StringOutput `pulumi:"ipv4Address"`
 	// (string) The first IPv6 address of the assigned network.
@@ -709,8 +709,8 @@ func (o ServerOutput) IgnoreRemoteFirewallIds() pulumi.BoolPtrOutput {
 }
 
 // Name or ID of the image the server is created from. **Note** the `image` property is only required when using the resource to create servers. As the Hetzner Cloud API may return servers without an image ID set it is not marked as required in the Terraform Provider itself. Thus, users will get an error from the underlying client library if they forget to set the property and try to create a server.
-func (o ServerOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Image }).(pulumi.StringPtrOutput)
+func (o ServerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Image }).(pulumi.StringOutput)
 }
 
 // (string) The IPv4 address.
