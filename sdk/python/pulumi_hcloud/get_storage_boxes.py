@@ -27,24 +27,13 @@ class GetStorageBoxesResult:
     """
     A collection of values returned by getStorageBoxes.
     """
-    def __init__(__self__, id=None, storage_boxes=None, with_selector=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, storage_boxes=None, with_selector=None):
         if storage_boxes and not isinstance(storage_boxes, list):
             raise TypeError("Expected argument 'storage_boxes' to be a list")
         pulumi.set(__self__, "storage_boxes", storage_boxes)
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="storageBoxes")
@@ -66,7 +55,6 @@ class AwaitableGetStorageBoxesResult(GetStorageBoxesResult):
         if False:
             yield self
         return GetStorageBoxesResult(
-            id=self.id,
             storage_boxes=self.storage_boxes,
             with_selector=self.with_selector)
 
@@ -97,7 +85,6 @@ def get_storage_boxes(with_selector: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getStorageBoxes:getStorageBoxes', __args__, opts=opts, typ=GetStorageBoxesResult).value
 
     return AwaitableGetStorageBoxesResult(
-        id=pulumi.get(__ret__, 'id'),
         storage_boxes=pulumi.get(__ret__, 'storage_boxes'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
 def get_storage_boxes_output(with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -125,6 +112,5 @@ def get_storage_boxes_output(with_selector: pulumi.Input[Optional[Optional[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getStorageBoxes:getStorageBoxes', __args__, opts=opts, typ=GetStorageBoxesResult)
     return __ret__.apply(lambda __response__: GetStorageBoxesResult(
-        id=pulumi.get(__response__, 'id'),
         storage_boxes=pulumi.get(__response__, 'storage_boxes'),
         with_selector=pulumi.get(__response__, 'with_selector')))

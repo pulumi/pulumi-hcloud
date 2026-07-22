@@ -27,10 +27,7 @@ class GetStorageBoxSnapshotsResult:
     """
     A collection of values returned by getStorageBoxSnapshots.
     """
-    def __init__(__self__, id=None, snapshots=None, storage_box_id=None, with_selector=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, snapshots=None, storage_box_id=None, with_selector=None):
         if snapshots and not isinstance(snapshots, list):
             raise TypeError("Expected argument 'snapshots' to be a list")
         pulumi.set(__self__, "snapshots", snapshots)
@@ -40,14 +37,6 @@ class GetStorageBoxSnapshotsResult:
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -77,7 +66,6 @@ class AwaitableGetStorageBoxSnapshotsResult(GetStorageBoxSnapshotsResult):
         if False:
             yield self
         return GetStorageBoxSnapshotsResult(
-            id=self.id,
             snapshots=self.snapshots,
             storage_box_id=self.storage_box_id,
             with_selector=self.with_selector)
@@ -115,7 +103,6 @@ def get_storage_box_snapshots(storage_box_id: Optional[_builtins.int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots', __args__, opts=opts, typ=GetStorageBoxSnapshotsResult).value
 
     return AwaitableGetStorageBoxSnapshotsResult(
-        id=pulumi.get(__ret__, 'id'),
         snapshots=pulumi.get(__ret__, 'snapshots'),
         storage_box_id=pulumi.get(__ret__, 'storage_box_id'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
@@ -150,7 +137,6 @@ def get_storage_box_snapshots_output(storage_box_id: pulumi.Input[Optional[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getStorageBoxSnapshots:getStorageBoxSnapshots', __args__, opts=opts, typ=GetStorageBoxSnapshotsResult)
     return __ret__.apply(lambda __response__: GetStorageBoxSnapshotsResult(
-        id=pulumi.get(__response__, 'id'),
         snapshots=pulumi.get(__response__, 'snapshots'),
         storage_box_id=pulumi.get(__response__, 'storage_box_id'),
         with_selector=pulumi.get(__response__, 'with_selector')))

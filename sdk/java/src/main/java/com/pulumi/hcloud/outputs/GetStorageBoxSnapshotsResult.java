@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStorageBoxSnapshotsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private List<GetStorageBoxSnapshotsSnapshot> snapshots;
     /**
      * @return ID of the Storage Box.
@@ -33,13 +28,6 @@ public final class GetStorageBoxSnapshotsResult {
     private @Nullable String withSelector;
 
     private GetStorageBoxSnapshotsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public List<GetStorageBoxSnapshotsSnapshot> snapshots() {
         return this.snapshots;
     }
@@ -67,27 +55,17 @@ public final class GetStorageBoxSnapshotsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetStorageBoxSnapshotsSnapshot> snapshots;
         private Integer storageBoxId;
         private @Nullable String withSelector;
         public Builder() {}
         public Builder(GetStorageBoxSnapshotsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.snapshots = defaults.snapshots;
     	      this.storageBoxId = defaults.storageBoxId;
     	      this.withSelector = defaults.withSelector;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetStorageBoxSnapshotsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder snapshots(List<GetStorageBoxSnapshotsSnapshot> snapshots) {
             if (snapshots == null) {
@@ -115,7 +93,6 @@ public final class GetStorageBoxSnapshotsResult {
         }
         public GetStorageBoxSnapshotsResult build() {
             final var _resultValue = new GetStorageBoxSnapshotsResult();
-            _resultValue.id = id;
             _resultValue.snapshots = snapshots;
             _resultValue.storageBoxId = storageBoxId;
             _resultValue.withSelector = withSelector;

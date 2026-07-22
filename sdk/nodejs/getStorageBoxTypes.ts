@@ -30,10 +30,6 @@ export function getStorageBoxTypes(opts?: pulumi.InvokeOptions): Promise<GetStor
  * A collection of values returned by getStorageBoxTypes.
  */
 export interface GetStorageBoxTypesResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly storageBoxTypes: outputs.GetStorageBoxTypesStorageBoxType[];
 }
 /**

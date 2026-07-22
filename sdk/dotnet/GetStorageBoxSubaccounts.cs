@@ -160,10 +160,6 @@ namespace Pulumi.HCloud
     public sealed class GetStorageBoxSubaccountsResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// ID of the Storage Box.
         /// </summary>
         public readonly int StorageBoxId;
@@ -175,15 +171,12 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetStorageBoxSubaccountsResult(
-            string id,
-
             int storageBoxId,
 
             ImmutableArray<Outputs.GetStorageBoxSubaccountsSubaccountResult> subaccounts,
 
             string? withSelector)
         {
-            Id = id;
             StorageBoxId = storageBoxId;
             Subaccounts = subaccounts;
             WithSelector = withSelector;

@@ -50,8 +50,6 @@ func GetStorageBoxTypes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetS
 
 // A collection of values returned by getStorageBoxTypes.
 type GetStorageBoxTypesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id              string                             `pulumi:"id"`
 	StorageBoxTypes []GetStorageBoxTypesStorageBoxType `pulumi:"storageBoxTypes"`
 }
 
@@ -75,11 +73,6 @@ func (o GetStorageBoxTypesResultOutput) ToGetStorageBoxTypesResultOutput() GetSt
 
 func (o GetStorageBoxTypesResultOutput) ToGetStorageBoxTypesResultOutputWithContext(ctx context.Context) GetStorageBoxTypesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStorageBoxTypesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageBoxTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetStorageBoxTypesResultOutput) StorageBoxTypes() GetStorageBoxTypesStorageBoxTypeArrayOutput {

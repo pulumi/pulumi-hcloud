@@ -71,8 +71,6 @@ type GetStorageBoxSnapshotsArgs struct {
 
 // A collection of values returned by getStorageBoxSnapshots.
 type GetStorageBoxSnapshotsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id        string                           `pulumi:"id"`
 	Snapshots []GetStorageBoxSnapshotsSnapshot `pulumi:"snapshots"`
 	// ID of the Storage Box.
 	StorageBoxId int `pulumi:"storageBoxId"`
@@ -114,11 +112,6 @@ func (o GetStorageBoxSnapshotsResultOutput) ToGetStorageBoxSnapshotsResultOutput
 
 func (o GetStorageBoxSnapshotsResultOutput) ToGetStorageBoxSnapshotsResultOutputWithContext(ctx context.Context) GetStorageBoxSnapshotsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStorageBoxSnapshotsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageBoxSnapshotsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetStorageBoxSnapshotsResultOutput) Snapshots() GetStorageBoxSnapshotsSnapshotArrayOutput {

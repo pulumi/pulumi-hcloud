@@ -129,10 +129,6 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetStorageBoxesResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetStorageBoxesStorageBoxResult> StorageBoxes;
         /// <summary>
         /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
@@ -141,13 +137,10 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetStorageBoxesResult(
-            string id,
-
             ImmutableArray<Outputs.GetStorageBoxesStorageBoxResult> storageBoxes,
 
             string? withSelector)
         {
-            Id = id;
             StorageBoxes = storageBoxes;
             WithSelector = withSelector;
         }

@@ -6,27 +6,14 @@ package com.pulumi.hcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.outputs.GetStorageBoxTypesStorageBoxType;
-import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetStorageBoxTypesResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private List<GetStorageBoxTypesStorageBoxType> storageBoxTypes;
 
     private GetStorageBoxTypesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public List<GetStorageBoxTypesStorageBoxType> storageBoxTypes() {
         return this.storageBoxTypes;
     }
@@ -40,23 +27,13 @@ public final class GetStorageBoxTypesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetStorageBoxTypesStorageBoxType> storageBoxTypes;
         public Builder() {}
         public Builder(GetStorageBoxTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.storageBoxTypes = defaults.storageBoxTypes;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetStorageBoxTypesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder storageBoxTypes(List<GetStorageBoxTypesStorageBoxType> storageBoxTypes) {
             if (storageBoxTypes == null) {
@@ -70,7 +47,6 @@ public final class GetStorageBoxTypesResult {
         }
         public GetStorageBoxTypesResult build() {
             final var _resultValue = new GetStorageBoxTypesResult();
-            _resultValue.id = id;
             _resultValue.storageBoxTypes = storageBoxTypes;
             return _resultValue;
         }

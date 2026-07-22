@@ -16,11 +16,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetStorageBoxSubaccountsResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return ID of the Storage Box.
      * 
      */
@@ -33,13 +28,6 @@ public final class GetStorageBoxSubaccountsResult {
     private @Nullable String withSelector;
 
     private GetStorageBoxSubaccountsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return ID of the Storage Box.
      * 
@@ -67,27 +55,17 @@ public final class GetStorageBoxSubaccountsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private Integer storageBoxId;
         private List<GetStorageBoxSubaccountsSubaccount> subaccounts;
         private @Nullable String withSelector;
         public Builder() {}
         public Builder(GetStorageBoxSubaccountsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.storageBoxId = defaults.storageBoxId;
     	      this.subaccounts = defaults.subaccounts;
     	      this.withSelector = defaults.withSelector;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetStorageBoxSubaccountsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder storageBoxId(Integer storageBoxId) {
             if (storageBoxId == null) {
@@ -115,7 +93,6 @@ public final class GetStorageBoxSubaccountsResult {
         }
         public GetStorageBoxSubaccountsResult build() {
             final var _resultValue = new GetStorageBoxSubaccountsResult();
-            _resultValue.id = id;
             _resultValue.storageBoxId = storageBoxId;
             _resultValue.subaccounts = subaccounts;
             _resultValue.withSelector = withSelector;
