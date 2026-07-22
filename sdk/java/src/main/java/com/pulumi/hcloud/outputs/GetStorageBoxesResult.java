@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStorageBoxesResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private List<GetStorageBoxesStorageBox> storageBoxes;
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
@@ -27,13 +22,6 @@ public final class GetStorageBoxesResult {
     private @Nullable String withSelector;
 
     private GetStorageBoxesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public List<GetStorageBoxesStorageBox> storageBoxes() {
         return this.storageBoxes;
     }
@@ -54,25 +42,15 @@ public final class GetStorageBoxesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetStorageBoxesStorageBox> storageBoxes;
         private @Nullable String withSelector;
         public Builder() {}
         public Builder(GetStorageBoxesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.storageBoxes = defaults.storageBoxes;
     	      this.withSelector = defaults.withSelector;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetStorageBoxesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder storageBoxes(List<GetStorageBoxesStorageBox> storageBoxes) {
             if (storageBoxes == null) {
@@ -92,7 +70,6 @@ public final class GetStorageBoxesResult {
         }
         public GetStorageBoxesResult build() {
             final var _resultValue = new GetStorageBoxesResult();
-            _resultValue.id = id;
             _resultValue.storageBoxes = storageBoxes;
             _resultValue.withSelector = withSelector;
             return _resultValue;

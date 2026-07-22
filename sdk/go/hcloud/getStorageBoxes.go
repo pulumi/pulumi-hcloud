@@ -62,8 +62,6 @@ type GetStorageBoxesArgs struct {
 
 // A collection of values returned by getStorageBoxes.
 type GetStorageBoxesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id           string                      `pulumi:"id"`
 	StorageBoxes []GetStorageBoxesStorageBox `pulumi:"storageBoxes"`
 	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
 	WithSelector *string `pulumi:"withSelector"`
@@ -101,11 +99,6 @@ func (o GetStorageBoxesResultOutput) ToGetStorageBoxesResultOutput() GetStorageB
 
 func (o GetStorageBoxesResultOutput) ToGetStorageBoxesResultOutputWithContext(ctx context.Context) GetStorageBoxesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStorageBoxesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageBoxesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetStorageBoxesResultOutput) StorageBoxes() GetStorageBoxesStorageBoxArrayOutput {

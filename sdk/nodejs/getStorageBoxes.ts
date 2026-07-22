@@ -45,10 +45,6 @@ export interface GetStorageBoxesArgs {
  * A collection of values returned by getStorageBoxes.
  */
 export interface GetStorageBoxesResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly storageBoxes: outputs.GetStorageBoxesStorageBox[];
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)

@@ -85,19 +85,11 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetStorageBoxTypesResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetStorageBoxTypesStorageBoxTypeResult> StorageBoxTypes;
 
         [OutputConstructor]
-        private GetStorageBoxTypesResult(
-            string id,
-
-            ImmutableArray<Outputs.GetStorageBoxTypesStorageBoxTypeResult> storageBoxTypes)
+        private GetStorageBoxTypesResult(ImmutableArray<Outputs.GetStorageBoxTypesStorageBoxTypeResult> storageBoxTypes)
         {
-            Id = id;
             StorageBoxTypes = storageBoxTypes;
         }
     }

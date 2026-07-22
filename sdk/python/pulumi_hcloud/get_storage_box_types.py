@@ -27,21 +27,10 @@ class GetStorageBoxTypesResult:
     """
     A collection of values returned by getStorageBoxTypes.
     """
-    def __init__(__self__, id=None, storage_box_types=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, storage_box_types=None):
         if storage_box_types and not isinstance(storage_box_types, list):
             raise TypeError("Expected argument 'storage_box_types' to be a list")
         pulumi.set(__self__, "storage_box_types", storage_box_types)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="storageBoxTypes")
@@ -55,7 +44,6 @@ class AwaitableGetStorageBoxTypesResult(GetStorageBoxTypesResult):
         if False:
             yield self
         return GetStorageBoxTypesResult(
-            id=self.id,
             storage_box_types=self.storage_box_types)
 
 
@@ -79,7 +67,6 @@ def get_storage_box_types(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     __ret__ = pulumi.runtime.invoke('hcloud:index/getStorageBoxTypes:getStorageBoxTypes', __args__, opts=opts, typ=GetStorageBoxTypesResult).value
 
     return AwaitableGetStorageBoxTypesResult(
-        id=pulumi.get(__ret__, 'id'),
         storage_box_types=pulumi.get(__ret__, 'storage_box_types'))
 def get_storage_box_types_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageBoxTypesResult]:
     """
@@ -100,5 +87,4 @@ def get_storage_box_types_output(opts: Optional[Union[pulumi.InvokeOptions, pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getStorageBoxTypes:getStorageBoxTypes', __args__, opts=opts, typ=GetStorageBoxTypesResult)
     return __ret__.apply(lambda __response__: GetStorageBoxTypesResult(
-        id=pulumi.get(__response__, 'id'),
         storage_box_types=pulumi.get(__response__, 'storage_box_types')))

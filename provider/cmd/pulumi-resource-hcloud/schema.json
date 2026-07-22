@@ -8474,10 +8474,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStorageBoxSnapshots.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "snapshots": {
                         "items": {
                             "$ref": "#/types/hcloud:index/getStorageBoxSnapshotsSnapshot:getStorageBoxSnapshotsSnapshot"
@@ -8495,8 +8491,7 @@
                 },
                 "required": [
                     "snapshots",
-                    "storageBoxId",
-                    "id"
+                    "storageBoxId"
                 ],
                 "type": "object"
             }
@@ -8615,10 +8610,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStorageBoxSubaccounts.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "storageBoxId": {
                         "description": "ID of the Storage Box.\n",
                         "type": "integer"
@@ -8636,8 +8627,7 @@
                 },
                 "required": [
                     "storageBoxId",
-                    "subaccounts",
-                    "id"
+                    "subaccounts"
                 ],
                 "type": "object"
             }
@@ -8720,10 +8710,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStorageBoxTypes.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "storageBoxTypes": {
                         "items": {
                             "$ref": "#/types/hcloud:index/getStorageBoxTypesStorageBoxType:getStorageBoxTypesStorageBoxType"
@@ -8732,8 +8718,7 @@
                     }
                 },
                 "required": [
-                    "storageBoxTypes",
-                    "id"
+                    "storageBoxTypes"
                 ],
                 "type": "object"
             }
@@ -8753,10 +8738,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStorageBoxes.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "storageBoxes": {
                         "items": {
                             "$ref": "#/types/hcloud:index/getStorageBoxesStorageBox:getStorageBoxesStorageBox"
@@ -8769,8 +8750,7 @@
                     }
                 },
                 "required": [
-                    "storageBoxes",
-                    "id"
+                    "storageBoxes"
                 ],
                 "type": "object"
             }

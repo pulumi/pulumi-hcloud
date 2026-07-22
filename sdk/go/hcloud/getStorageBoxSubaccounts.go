@@ -71,8 +71,6 @@ type GetStorageBoxSubaccountsArgs struct {
 
 // A collection of values returned by getStorageBoxSubaccounts.
 type GetStorageBoxSubaccountsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// ID of the Storage Box.
 	StorageBoxId int                                  `pulumi:"storageBoxId"`
 	Subaccounts  []GetStorageBoxSubaccountsSubaccount `pulumi:"subaccounts"`
@@ -114,11 +112,6 @@ func (o GetStorageBoxSubaccountsResultOutput) ToGetStorageBoxSubaccountsResultOu
 
 func (o GetStorageBoxSubaccountsResultOutput) ToGetStorageBoxSubaccountsResultOutputWithContext(ctx context.Context) GetStorageBoxSubaccountsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStorageBoxSubaccountsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageBoxSubaccountsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // ID of the Storage Box.

@@ -55,10 +55,6 @@ export interface GetStorageBoxSubaccountsArgs {
  */
 export interface GetStorageBoxSubaccountsResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * ID of the Storage Box.
      */
     readonly storageBoxId: number;

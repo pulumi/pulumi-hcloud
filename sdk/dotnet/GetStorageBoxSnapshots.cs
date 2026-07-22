@@ -159,10 +159,6 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetStorageBoxSnapshotsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetStorageBoxSnapshotsSnapshotResult> Snapshots;
         /// <summary>
         /// ID of the Storage Box.
@@ -175,15 +171,12 @@ namespace Pulumi.HCloud
 
         [OutputConstructor]
         private GetStorageBoxSnapshotsResult(
-            string id,
-
             ImmutableArray<Outputs.GetStorageBoxSnapshotsSnapshotResult> snapshots,
 
             int storageBoxId,
 
             string? withSelector)
         {
-            Id = id;
             Snapshots = snapshots;
             StorageBoxId = storageBoxId;
             WithSelector = withSelector;

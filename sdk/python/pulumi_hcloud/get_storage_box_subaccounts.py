@@ -27,10 +27,7 @@ class GetStorageBoxSubaccountsResult:
     """
     A collection of values returned by getStorageBoxSubaccounts.
     """
-    def __init__(__self__, id=None, storage_box_id=None, subaccounts=None, with_selector=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, storage_box_id=None, subaccounts=None, with_selector=None):
         if storage_box_id and not isinstance(storage_box_id, int):
             raise TypeError("Expected argument 'storage_box_id' to be a int")
         pulumi.set(__self__, "storage_box_id", storage_box_id)
@@ -40,14 +37,6 @@ class GetStorageBoxSubaccountsResult:
         if with_selector and not isinstance(with_selector, str):
             raise TypeError("Expected argument 'with_selector' to be a str")
         pulumi.set(__self__, "with_selector", with_selector)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="storageBoxId")
@@ -77,7 +66,6 @@ class AwaitableGetStorageBoxSubaccountsResult(GetStorageBoxSubaccountsResult):
         if False:
             yield self
         return GetStorageBoxSubaccountsResult(
-            id=self.id,
             storage_box_id=self.storage_box_id,
             subaccounts=self.subaccounts,
             with_selector=self.with_selector)
@@ -115,7 +103,6 @@ def get_storage_box_subaccounts(storage_box_id: Optional[_builtins.int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts', __args__, opts=opts, typ=GetStorageBoxSubaccountsResult).value
 
     return AwaitableGetStorageBoxSubaccountsResult(
-        id=pulumi.get(__ret__, 'id'),
         storage_box_id=pulumi.get(__ret__, 'storage_box_id'),
         subaccounts=pulumi.get(__ret__, 'subaccounts'),
         with_selector=pulumi.get(__ret__, 'with_selector'))
@@ -150,7 +137,6 @@ def get_storage_box_subaccounts_output(storage_box_id: pulumi.Input[Optional[_bu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getStorageBoxSubaccounts:getStorageBoxSubaccounts', __args__, opts=opts, typ=GetStorageBoxSubaccountsResult)
     return __ret__.apply(lambda __response__: GetStorageBoxSubaccountsResult(
-        id=pulumi.get(__response__, 'id'),
         storage_box_id=pulumi.get(__response__, 'storage_box_id'),
         subaccounts=pulumi.get(__response__, 'subaccounts'),
         with_selector=pulumi.get(__response__, 'with_selector')))
