@@ -33,18 +33,6 @@ namespace Pulumi.HCloud
         /// {
         ///     var all = HCloud.GetDatacenters.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Server&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
-        ///         {
-        ///             Name = $"node{range.Value}",
-        ///             Image = "debian-12",
-        ///             ServerType = "cx23",
-        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Name,
-        ///         }));
-        ///     }
         /// });
         /// ```
         /// </summary>
@@ -73,18 +61,6 @@ namespace Pulumi.HCloud
         /// {
         ///     var all = HCloud.GetDatacenters.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Server&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
-        ///         {
-        ///             Name = $"node{range.Value}",
-        ///             Image = "debian-12",
-        ///             ServerType = "cx23",
-        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Name,
-        ///         }));
-        ///     }
         /// });
         /// ```
         /// </summary>
@@ -113,18 +89,6 @@ namespace Pulumi.HCloud
         /// {
         ///     var all = HCloud.GetDatacenters.Invoke();
         /// 
-        ///     var workers = new List&lt;HCloud.Server&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         workers.Add(new HCloud.Server($"workers-{range.Value}", new()
-        ///         {
-        ///             Name = $"node{range.Value}",
-        ///             Image = "debian-12",
-        ///             ServerType = "cx23",
-        ///             Datacenter = all.Apply(getDatacentersResult =&gt; getDatacentersResult.Datacenters)[range.Value].Name,
-        ///         }));
-        ///     }
         /// });
         /// ```
         /// </summary>

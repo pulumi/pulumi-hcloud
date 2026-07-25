@@ -14,25 +14,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrimaryIpsResult {
-    private String id;
     /**
-     * @return (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
+     * @return The ID of this resource.
      * 
      */
+    private String id;
     private List<GetPrimaryIpsPrimaryIp> primaryIps;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * 
+     */
     private @Nullable String withSelector;
 
     private GetPrimaryIpsResult() {}
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
-     * 
-     */
     public List<GetPrimaryIpsPrimaryIp> primaryIps() {
         return this.primaryIps;
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }

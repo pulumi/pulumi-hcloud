@@ -13,31 +13,18 @@ import (
 
 // Provides details about a Hetzner Cloud Primary IP.
 //
-// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-//
-// Side note:
-//
-// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
-// Currently, Primary IPs can be only attached to servers.
+// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
 //
 // ## Deprecations
 //
 // ### `datacenter` attribute
 //
-// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+// The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 //
-// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-//
-// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 //
 // ## Example Usage
-//
-// # Data Source: PrimaryIp
-//
-// Provides details about a Hetzner Cloud Primary IP.
-// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-//
-// ### Additional Examples
 //
 // ```go
 // package main
@@ -110,38 +97,39 @@ type LookupPrimaryIpArgs struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
 // A collection of values returned by getPrimaryIp.
 type LookupPrimaryIpResult struct {
-	// (int) ID of the assigned resource.
+	// ID of the resource the Primary IP is assigned to.
 	AssigneeId int `pulumi:"assigneeId"`
-	// (string) The type of the assigned resource.
+	// Type of the resource the Primary IP is assigned to.
 	AssigneeType string `pulumi:"assigneeType"`
-	// (bool) Whether auto delete is enabled.
+	// Whether auto delete is enabled.
 	AutoDelete bool `pulumi:"autoDelete"`
-	// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+	// Name of the Datacenter of the Primary IP.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter string `pulumi:"datacenter"`
-	// (bool) Whether delete protection is enabled.
+	// Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
-	// (int) Unique ID of the Primary IP.
+	// ID of the Primary IP.
 	Id *int `pulumi:"id"`
-	// (string) IP Address of the Primary IP.
+	// IP address of the Primary IP.
 	IpAddress *string `pulumi:"ipAddress"`
-	// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+	// IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
 	IpNetwork string `pulumi:"ipNetwork"`
-	// (map) User-defined labels (key-value pairs).
+	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
-	// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+	// Name of the Location of the Primary IP.
 	Location string `pulumi:"location"`
-	// (string) Name of the Primary IP.
+	// Name of the Primary IP.
 	Name *string `pulumi:"name"`
-	// (string) Type of the Primary IP.
-	Type         string  `pulumi:"type"`
+	// Type of the Primary IP (`ipv4` or `ipv6`).
+	Type string `pulumi:"type"`
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector *string `pulumi:"withSelector"`
 }
 
@@ -162,7 +150,7 @@ type LookupPrimaryIpOutputArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Name of the Primary IP.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 	WithSelector pulumi.StringPtrInput `pulumi:"withSelector"`
 }
 
@@ -185,68 +173,69 @@ func (o LookupPrimaryIpResultOutput) ToLookupPrimaryIpResultOutputWithContext(ct
 	return o
 }
 
-// (int) ID of the assigned resource.
+// ID of the resource the Primary IP is assigned to.
 func (o LookupPrimaryIpResultOutput) AssigneeId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) int { return v.AssigneeId }).(pulumi.IntOutput)
 }
 
-// (string) The type of the assigned resource.
+// Type of the resource the Primary IP is assigned to.
 func (o LookupPrimaryIpResultOutput) AssigneeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.AssigneeType }).(pulumi.StringOutput)
 }
 
-// (bool) Whether auto delete is enabled.
+// Whether auto delete is enabled.
 func (o LookupPrimaryIpResultOutput) AutoDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.AutoDelete }).(pulumi.BoolOutput)
 }
 
-// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+// Name of the Datacenter of the Primary IP.
 //
-// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 func (o LookupPrimaryIpResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }
 
-// (bool) Whether delete protection is enabled.
+// Whether delete protection is enabled.
 func (o LookupPrimaryIpResultOutput) DeleteProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
 }
 
-// (int) Unique ID of the Primary IP.
+// ID of the Primary IP.
 func (o LookupPrimaryIpResultOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// (string) IP Address of the Primary IP.
+// IP address of the Primary IP.
 func (o LookupPrimaryIpResultOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+// IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
 func (o LookupPrimaryIpResultOutput) IpNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.IpNetwork }).(pulumi.StringOutput)
 }
 
-// (map) User-defined labels (key-value pairs).
+// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 func (o LookupPrimaryIpResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+// Name of the Location of the Primary IP.
 func (o LookupPrimaryIpResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// (string) Name of the Primary IP.
+// Name of the Primary IP.
 func (o LookupPrimaryIpResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (string) Type of the Primary IP.
+// Type of the Primary IP (`ipv4` or `ipv6`).
 func (o LookupPrimaryIpResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
 func (o LookupPrimaryIpResultOutput) WithSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrimaryIpResult) *string { return v.WithSelector }).(pulumi.StringPtrOutput)
 }

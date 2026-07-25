@@ -86,10 +86,10 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
@@ -97,10 +97,10 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * @return The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     public Optional<Output<String>> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
@@ -446,14 +446,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cloud-Init user data to use during server creation
+     * Cloud-Init user data to use during server creation. This field is limited to 32KiB.
      * 
      */
     @Import(name="userData")
     private @Nullable Output<String> userData;
 
     /**
-     * @return Cloud-Init user data to use during server creation
+     * @return Cloud-Init user data to use during server creation. This field is limited to 32KiB.
      * 
      */
     public Optional<Output<String>> userData() {
@@ -595,10 +595,10 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
         public Builder datacenter(@Nullable Output<String> datacenter) {
             $.datacenter = datacenter;
             return this;
@@ -610,10 +610,10 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
         public Builder datacenter(String datacenter) {
             return datacenter(Output.of(datacenter));
         }
@@ -1132,7 +1132,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData Cloud-Init user data to use during server creation
+         * @param userData Cloud-Init user data to use during server creation. This field is limited to 32KiB.
          * 
          * @return builder
          * 
@@ -1143,7 +1143,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData Cloud-Init user data to use during server creation
+         * @param userData Cloud-Init user data to use during server creation. This field is limited to 32KiB.
          * 
          * @return builder
          * 

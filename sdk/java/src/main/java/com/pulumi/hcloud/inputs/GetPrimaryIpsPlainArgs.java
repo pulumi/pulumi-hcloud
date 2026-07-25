@@ -14,22 +14,30 @@ public final class GetPrimaryIpsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetPrimaryIpsPlainArgs Empty = new GetPrimaryIpsPlainArgs();
 
+    /**
+     * The ID of this resource.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<String> withSelector() {
@@ -61,13 +69,19 @@ public final class GetPrimaryIpsPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetPrimaryIpsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The ID of this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 

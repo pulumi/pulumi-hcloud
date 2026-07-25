@@ -70,7 +70,7 @@ class ServerArgs:
         :param pulumi.Input[_builtins.str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
         :param pulumi.Input[_builtins.bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
-        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
+        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         pulumi.set(__self__, "server_type", server_type)
         if allow_deprecated_images is not None:
@@ -81,8 +81,8 @@ class ServerArgs:
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
         if datacenter is not None:
-            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
-            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+            warnings.warn("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
@@ -159,7 +159,7 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -371,7 +371,7 @@ class ServerArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Cloud-Init user data to use during server creation
+        Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         return pulumi.get(self, "user_data")
 
@@ -444,7 +444,7 @@ class _ServerState:
         :param pulumi.Input[_builtins.bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[_builtins.str] status: (string) The status of the server.
-        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
+        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         if allow_deprecated_images is not None:
             warnings.warn("""Unused attribute, consider removing it from your configuration.""", DeprecationWarning)
@@ -459,8 +459,8 @@ class _ServerState:
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
         if datacenter is not None:
-            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
-            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+            warnings.warn("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
@@ -550,7 +550,7 @@ class _ServerState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -834,7 +834,7 @@ class _ServerState:
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Cloud-Init user data to use during server creation
+        Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         return pulumi.get(self, "user_data")
 
@@ -878,14 +878,10 @@ class Server(pulumi.CustomResource):
 
         ### `datacenter` attribute
 
-        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+        The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
-        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
-        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
-        communicating with the API.
+        See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
         ## Example Usage
 
@@ -1025,7 +1021,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] server_type: Name of the server type this server should be created with.
         :param pulumi.Input[_builtins.bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
-        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
+        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         ...
     @overload
@@ -1040,14 +1036,10 @@ class Server(pulumi.CustomResource):
 
         ### `datacenter` attribute
 
-        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+        The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
-        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
-        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
-        communicating with the API.
+        See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
         ## Example Usage
 
@@ -1309,7 +1301,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] shutdown_before_deletion: Whether to try shutting the server down gracefully before deleting it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ ssh_keys ]`.
         :param pulumi.Input[_builtins.str] status: (string) The status of the server.
-        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation
+        :param pulumi.Input[_builtins.str] user_data: Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1372,7 +1364,7 @@ class Server(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Output[_builtins.str]:
         """
         The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -1564,7 +1556,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Cloud-Init user data to use during server creation
+        Cloud-Init user data to use during server creation. This field is limited to 32KiB.
         """
         return pulumi.get(self, "user_data")
 

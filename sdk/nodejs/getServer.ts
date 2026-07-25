@@ -14,11 +14,10 @@ import * as utilities from "./utilities";
  *
  * ### `datacenter` attribute
  *
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  *
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- *
- * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
  *
@@ -100,7 +99,7 @@ export interface GetServerResult {
     /**
      * (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     readonly datacenter: string;
     /**
@@ -187,11 +186,10 @@ export interface GetServerResult {
  *
  * ### `datacenter` attribute
  *
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  *
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- *
- * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
  *

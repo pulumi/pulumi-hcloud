@@ -7,7 +7,18 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides details about multiple Hetzner Cloud Primary IPs.
+ * Provides a list of Hetzner Cloud Primary IPs.
+ *
+ * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+ *
+ * ## Deprecations
+ *
+ * ### `datacenter` attribute
+ *
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+ *
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
  *
@@ -33,9 +44,12 @@ export function getPrimaryIps(args?: GetPrimaryIpsArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getPrimaryIps.
  */
 export interface GetPrimaryIpsArgs {
+    /**
+     * The ID of this resource.
+     */
     id?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: string;
 }
@@ -44,15 +58,29 @@ export interface GetPrimaryIpsArgs {
  * A collection of values returned by getPrimaryIps.
  */
 export interface GetPrimaryIpsResult {
-    readonly id: string;
     /**
-     * (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
+     * The ID of this resource.
      */
+    readonly id: string;
     readonly primaryIps: outputs.GetPrimaryIpsPrimaryIp[];
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     */
     readonly withSelector?: string;
 }
 /**
- * Provides details about multiple Hetzner Cloud Primary IPs.
+ * Provides a list of Hetzner Cloud Primary IPs.
+ *
+ * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+ *
+ * ## Deprecations
+ *
+ * ### `datacenter` attribute
+ *
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+ *
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
  *
@@ -78,9 +106,12 @@ export function getPrimaryIpsOutput(args?: GetPrimaryIpsOutputArgs, opts?: pulum
  * A collection of arguments for invoking getPrimaryIps.
  */
 export interface GetPrimaryIpsOutputArgs {
+    /**
+     * The ID of this resource.
+     */
     id?: pulumi.Input<string | undefined>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      */
     withSelector?: pulumi.Input<string | undefined>;
 }

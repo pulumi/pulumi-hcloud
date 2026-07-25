@@ -15,22 +15,30 @@ public final class GetPrimaryIpsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPrimaryIpsArgs Empty = new GetPrimaryIpsArgs();
 
+    /**
+     * The ID of this resource.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return The ID of this resource.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     @Import(name="withSelector")
     private @Nullable Output<String> withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
      * 
      */
     public Optional<Output<String>> withSelector() {
@@ -62,17 +70,29 @@ public final class GetPrimaryIpsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPrimaryIpsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The ID of this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The ID of this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 
@@ -83,7 +103,7 @@ public final class GetPrimaryIpsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
          * 
          * @return builder
          * 

@@ -120,7 +120,7 @@ class GetServerResult:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> _builtins.str:
         """
         (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -333,11 +333,10 @@ def get_server(id: Optional[_builtins.int] = None,
 
     ### `datacenter` attribute
 
-    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
 
@@ -410,11 +409,10 @@ def get_server_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None
 
     ### `datacenter` attribute
 
-    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
 

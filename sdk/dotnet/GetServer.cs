@@ -19,11 +19,10 @@ namespace Pulumi.HCloud
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -64,11 +63,10 @@ namespace Pulumi.HCloud
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -109,11 +107,10 @@ namespace Pulumi.HCloud
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 

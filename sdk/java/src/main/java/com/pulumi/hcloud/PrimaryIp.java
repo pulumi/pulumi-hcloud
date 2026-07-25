@@ -25,14 +25,10 @@ import javax.annotation.Nullable;
  * 
  * ### `datacenter` attribute
  * 
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  * 
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- * 
- * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
- * and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
- * the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
- * communicating with the API.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  * 
  * ## Example Usage
  * 
@@ -142,10 +138,10 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
      * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 
