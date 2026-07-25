@@ -16,160 +16,168 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPrimaryIpResult {
     /**
-     * @return (int) ID of the assigned resource.
+     * @return ID of the resource the Primary IP is assigned to.
      * 
      */
     private Integer assigneeId;
     /**
-     * @return (string) The type of the assigned resource.
+     * @return Type of the resource the Primary IP is assigned to.
      * 
      */
     private String assigneeType;
     /**
-     * @return (bool) Whether auto delete is enabled.
+     * @return Whether auto delete is enabled.
      * 
      */
     private Boolean autoDelete;
     /**
-     * @return (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return Name of the Datacenter of the Primary IP.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     private String datacenter;
     /**
-     * @return (bool) Whether delete protection is enabled.
+     * @return Whether delete protection is enabled.
      * 
      */
     private Boolean deleteProtection;
     /**
-     * @return (int) Unique ID of the Primary IP.
+     * @return ID of the Primary IP.
      * 
      */
     private @Nullable Integer id;
     /**
-     * @return (string) IP Address of the Primary IP.
+     * @return IP address of the Primary IP.
      * 
      */
     private @Nullable String ipAddress;
     /**
-     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     private String ipNetwork;
     /**
-     * @return (map) User-defined labels (key-value pairs).
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     private Map<String,String> labels;
     /**
-     * @return (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Name of the Location of the Primary IP.
      * 
      */
     private String location;
     /**
-     * @return (string) Name of the Primary IP.
+     * @return Name of the Primary IP.
      * 
      */
     private @Nullable String name;
     /**
-     * @return (string) Type of the Primary IP.
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     private String type;
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     * 
+     */
     private @Nullable String withSelector;
 
     private GetPrimaryIpResult() {}
     /**
-     * @return (int) ID of the assigned resource.
+     * @return ID of the resource the Primary IP is assigned to.
      * 
      */
     public Integer assigneeId() {
         return this.assigneeId;
     }
     /**
-     * @return (string) The type of the assigned resource.
+     * @return Type of the resource the Primary IP is assigned to.
      * 
      */
     public String assigneeType() {
         return this.assigneeType;
     }
     /**
-     * @return (bool) Whether auto delete is enabled.
+     * @return Whether auto delete is enabled.
      * 
      */
     public Boolean autoDelete() {
         return this.autoDelete;
     }
     /**
-     * @return (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * @return Name of the Datacenter of the Primary IP.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     public String datacenter() {
         return this.datacenter;
     }
     /**
-     * @return (bool) Whether delete protection is enabled.
+     * @return Whether delete protection is enabled.
      * 
      */
     public Boolean deleteProtection() {
         return this.deleteProtection;
     }
     /**
-     * @return (int) Unique ID of the Primary IP.
+     * @return ID of the Primary IP.
      * 
      */
     public Optional<Integer> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return (string) IP Address of the Primary IP.
+     * @return IP address of the Primary IP.
      * 
      */
     public Optional<String> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * @return IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      * 
      */
     public String ipNetwork() {
         return this.ipNetwork;
     }
     /**
-     * @return (map) User-defined labels (key-value pairs).
+     * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
      */
     public Map<String,String> labels() {
         return this.labels;
     }
     /**
-     * @return (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * @return Name of the Location of the Primary IP.
      * 
      */
     public String location() {
         return this.location;
     }
     /**
-     * @return (string) Name of the Primary IP.
+     * @return Name of the Primary IP.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return (string) Type of the Primary IP.
+     * @return Type of the Primary IP (`ipv4` or `ipv6`).
      * 
      */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     * 
+     */
     public Optional<String> withSelector() {
         return Optional.ofNullable(this.withSelector);
     }

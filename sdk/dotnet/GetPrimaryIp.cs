@@ -14,32 +14,18 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about a Hetzner Cloud Primary IP.
         /// 
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// Side note:
-        /// 
-        /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-        /// Currently, Primary IPs can be only attached to servers.
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
         /// 
         /// ## Deprecations
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
-        /// 
-        /// # Data Source: hcloud.PrimaryIp
-        /// 
-        /// Provides details about a Hetzner Cloud Primary IP.
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// 
-        /// ### Additional Examples
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -93,32 +79,18 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about a Hetzner Cloud Primary IP.
         /// 
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// Side note:
-        /// 
-        /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-        /// Currently, Primary IPs can be only attached to servers.
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
         /// 
         /// ## Deprecations
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
-        /// 
-        /// # Data Source: hcloud.PrimaryIp
-        /// 
-        /// Provides details about a Hetzner Cloud Primary IP.
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// 
-        /// ### Additional Examples
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -172,32 +144,18 @@ namespace Pulumi.HCloud
         /// <summary>
         /// Provides details about a Hetzner Cloud Primary IP.
         /// 
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// Side note:
-        /// 
-        /// If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-        /// Currently, Primary IPs can be only attached to servers.
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
         /// 
         /// ## Deprecations
         /// 
         /// ### `Datacenter` attribute
         /// 
-        /// The `Datacenter` attribute is deprecated, use the `Location` attribute instead.
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
         /// 
-        /// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-        /// 
-        /// &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `Datacenter` attribute.
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
-        /// 
-        /// # Data Source: hcloud.PrimaryIp
-        /// 
-        /// Provides details about a Hetzner Cloud Primary IP.
-        /// This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-        /// 
-        /// 
-        /// ### Additional Examples
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -271,7 +229,7 @@ namespace Pulumi.HCloud
         public string? Name { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -303,7 +261,7 @@ namespace Pulumi.HCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -319,53 +277,56 @@ namespace Pulumi.HCloud
     public sealed class GetPrimaryIpResult
     {
         /// <summary>
-        /// (int) ID of the assigned resource.
+        /// ID of the resource the Primary IP is assigned to.
         /// </summary>
         public readonly int AssigneeId;
         /// <summary>
-        /// (string) The type of the assigned resource.
+        /// Type of the resource the Primary IP is assigned to.
         /// </summary>
         public readonly string AssigneeType;
         /// <summary>
-        /// (bool) Whether auto delete is enabled.
+        /// Whether auto delete is enabled.
         /// </summary>
         public readonly bool AutoDelete;
         /// <summary>
-        /// (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        /// Name of the Datacenter of the Primary IP.
         /// </summary>
         public readonly string Datacenter;
         /// <summary>
-        /// (bool) Whether delete protection is enabled.
+        /// Whether delete protection is enabled.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
-        /// (int) Unique ID of the Primary IP.
+        /// ID of the Primary IP.
         /// </summary>
         public readonly int? Id;
         /// <summary>
-        /// (string) IP Address of the Primary IP.
+        /// IP address of the Primary IP.
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `Type` is `Ipv6`)
+        /// IP network of the Primary IP for IPv6 addresses. Only set if `Type` is `Ipv6`.
         /// </summary>
         public readonly string IpNetwork;
         /// <summary>
-        /// (map) User-defined labels (key-value pairs).
+        /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
         /// <summary>
-        /// (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        /// Name of the Location of the Primary IP.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// (string) Name of the Primary IP.
+        /// Name of the Primary IP.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// (string) Type of the Primary IP.
+        /// Type of the Primary IP (`Ipv4` or `Ipv6`).
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        /// </summary>
         public readonly string? WithSelector;
 
         [OutputConstructor]

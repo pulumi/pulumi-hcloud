@@ -18,11 +18,10 @@ import (
 //
 // ### `datacenter` attribute
 //
-// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+// The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 //
-// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-//
-// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 //
 // ## Example Usage
 //
@@ -97,7 +96,7 @@ type LookupServerResult struct {
 	Backups bool `pulumi:"backups"`
 	// (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter string `pulumi:"datacenter"`
 	// (bool) Whether delete protection is enabled.
 	DeleteProtection bool `pulumi:"deleteProtection"`
@@ -198,7 +197,7 @@ func (o LookupServerResultOutput) Backups() pulumi.BoolOutput {
 
 // (string, deprecated) The datacenter name. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 //
-// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 func (o LookupServerResultOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Datacenter }).(pulumi.StringOutput)
 }

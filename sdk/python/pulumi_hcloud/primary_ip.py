@@ -49,8 +49,8 @@ class PrimaryIpArgs:
         if auto_delete is not None:
             pulumi.set(__self__, "auto_delete", auto_delete)
         if datacenter is not None:
-            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
-            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+            warnings.warn("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
@@ -112,7 +112,7 @@ class PrimaryIpArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -208,8 +208,8 @@ class _PrimaryIpState:
         if auto_delete is not None:
             pulumi.set(__self__, "auto_delete", auto_delete)
         if datacenter is not None:
-            warnings.warn("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""", DeprecationWarning)
-            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+            warnings.warn("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""", DeprecationWarning)
+            pulumi.log.warn("""datacenter is deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
         if delete_protection is not None:
@@ -265,7 +265,7 @@ class _PrimaryIpState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
@@ -386,14 +386,10 @@ class PrimaryIp(pulumi.CustomResource):
 
         ### `datacenter` attribute
 
-        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+        The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
-        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
-        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
-        communicating with the API.
+        See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
         ## Example Usage
 
@@ -456,14 +452,10 @@ class PrimaryIp(pulumi.CustomResource):
 
         ### `datacenter` attribute
 
-        The `datacenter` attribute is deprecated, use the `location` attribute instead.
+        The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-        See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-        > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
-        and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
-        the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
-        communicating with the API.
+        See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
         ## Example Usage
 
@@ -628,7 +620,7 @@ class PrimaryIp(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.

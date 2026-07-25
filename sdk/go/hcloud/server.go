@@ -18,14 +18,10 @@ import (
 //
 // ### `datacenter` attribute
 //
-// The `datacenter` attribute is deprecated, use the `location` attribute instead.
+// The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 //
-// See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-//
-// > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
-// and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
-// the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
-// communicating with the API.
+// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 //
 // ## Example Usage
 //
@@ -240,7 +236,7 @@ type Server struct {
 	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter pulumi.StringOutput `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -291,7 +287,7 @@ type Server struct {
 	SshKeys pulumi.StringArrayOutput `pulumi:"sshKeys"`
 	// (string) The status of the server.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Cloud-Init user data to use during server creation
+	// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 }
 
@@ -340,7 +336,7 @@ type serverState struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -391,7 +387,7 @@ type serverState struct {
 	SshKeys []string `pulumi:"sshKeys"`
 	// (string) The status of the server.
 	Status *string `pulumi:"status"`
-	// Cloud-Init user data to use during server creation
+	// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 	UserData *string `pulumi:"userData"`
 }
 
@@ -408,7 +404,7 @@ type ServerState struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -459,7 +455,7 @@ type ServerState struct {
 	SshKeys pulumi.StringArrayInput
 	// (string) The status of the server.
 	Status pulumi.StringPtrInput
-	// Cloud-Init user data to use during server creation
+	// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 	UserData pulumi.StringPtrInput
 }
 
@@ -476,7 +472,7 @@ type serverArgs struct {
 	Backups *bool `pulumi:"backups"`
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter *string `pulumi:"datacenter"`
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -517,7 +513,7 @@ type serverArgs struct {
 	ShutdownBeforeDeletion *bool `pulumi:"shutdownBeforeDeletion"`
 	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
 	SshKeys []string `pulumi:"sshKeys"`
-	// Cloud-Init user data to use during server creation
+	// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 	UserData *string `pulumi:"userData"`
 }
 
@@ -531,7 +527,7 @@ type ServerArgs struct {
 	Backups pulumi.BoolPtrInput
 	// The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 	//
-	// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+	// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 	Datacenter pulumi.StringPtrInput
 	// Enable or disable delete protection (Needs to be the same as `rebuildProtection`). See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
@@ -572,7 +568,7 @@ type ServerArgs struct {
 	ShutdownBeforeDeletion pulumi.BoolPtrInput
 	// SSH key IDs or names which should be injected into the server at creation time. Once the server is created, you can not update the list of SSH Keys. If you do change this, you will be prompted to destroy and recreate the server. You can avoid this by setting lifecycle.ignore_changes to `[ sshKeys ]`.
 	SshKeys pulumi.StringArrayInput
-	// Cloud-Init user data to use during server creation
+	// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 	UserData pulumi.StringPtrInput
 }
 
@@ -684,7 +680,7 @@ func (o ServerOutput) Backups() pulumi.BoolPtrOutput {
 
 // The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
 //
-// Deprecated: The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+// Deprecated: The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
 func (o ServerOutput) Datacenter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Datacenter }).(pulumi.StringOutput)
 }
@@ -804,7 +800,7 @@ func (o ServerOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Cloud-Init user data to use during server creation
+// Cloud-Init user data to use during server creation. This field is limited to 32KiB.
 func (o ServerOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }

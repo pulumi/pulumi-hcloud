@@ -61,14 +61,14 @@ public final class GetPrimaryIpPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     @Import(name="withSelector")
     private @Nullable String withSelector;
 
     /**
-     * @return [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
      */
     public Optional<String> withSelector() {
@@ -136,7 +136,7 @@ public final class GetPrimaryIpPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param withSelector [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+         * @param withSelector Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
          * 
          * @return builder
          * 

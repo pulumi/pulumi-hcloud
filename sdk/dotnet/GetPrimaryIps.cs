@@ -12,7 +12,18 @@ namespace Pulumi.HCloud
     public static class GetPrimaryIps
     {
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Primary IPs.
+        /// Provides a list of Hetzner Cloud Primary IPs.
+        /// 
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
+        /// 
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +47,18 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Primary IPs.
+        /// Provides a list of Hetzner Cloud Primary IPs.
+        /// 
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
+        /// 
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +82,18 @@ namespace Pulumi.HCloud
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryIpsResult>("hcloud:index/getPrimaryIps:getPrimaryIps", args ?? new GetPrimaryIpsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about multiple Hetzner Cloud Primary IPs.
+        /// Provides a list of Hetzner Cloud Primary IPs.
+        /// 
+        /// See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+        /// 
+        /// ## Deprecations
+        /// 
+        /// ### `Datacenter` attribute
+        /// 
+        /// The `Datacenter` attribute is marked for removal since `v1.67.0`, you must use the `Location` attribute instead.
+        /// 
+        /// See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+        /// [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
         /// 
         /// ## Example Usage
         /// 
@@ -87,11 +120,14 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
         [Input("withSelector")]
         public string? WithSelector { get; set; }
@@ -104,11 +140,14 @@ namespace Pulumi.HCloud
 
     public sealed class GetPrimaryIpsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of this resource.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
         /// </summary>
         [Input("withSelector")]
         public Input<string>? WithSelector { get; set; }
@@ -123,11 +162,14 @@ namespace Pulumi.HCloud
     [OutputType]
     public sealed class GetPrimaryIpsResult
     {
-        public readonly string Id;
         /// <summary>
-        /// (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
+        /// The ID of this resource.
         /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetPrimaryIpsPrimaryIpResult> PrimaryIps;
+        /// <summary>
+        /// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        /// </summary>
         public readonly string? WithSelector;
 
         [OutputConstructor]

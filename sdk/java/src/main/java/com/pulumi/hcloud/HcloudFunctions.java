@@ -1086,9 +1086,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1104,16 +1101,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1143,9 +1130,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1161,16 +1145,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1200,9 +1174,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1218,16 +1189,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1257,9 +1218,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1275,16 +1233,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1314,9 +1262,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1332,16 +1277,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1371,9 +1306,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1389,16 +1321,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -1428,9 +1350,6 @@ public final class HcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.hcloud.HcloudFunctions;
-     * import com.pulumi.hcloud.Server;
-     * import com.pulumi.hcloud.ServerArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1446,16 +1365,6 @@ public final class HcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var all = HcloudFunctions.getDatacenters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         for (var i = 0; i < 5; i++) {
-     *             new Server("workers-" + i, ServerArgs.builder()
-     *                 .name(String.format("node%s", range.value()))
-     *                 .image("debian-12")
-     *                 .serverType("cx23")
-     *                 .datacenter(all.datacenters()[range.value()].name())
-     *                 .build());
-     * 
-     *         
-     * }
      *     }
      * }
      * }
@@ -6760,31 +6669,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -6847,31 +6743,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -6934,31 +6817,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -7021,31 +6891,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -7108,31 +6965,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -7195,31 +7039,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -7282,31 +7113,18 @@ public final class HcloudFunctions {
     /**
      * Provides details about a Hetzner Cloud Primary IP.
      * 
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * Side note:
-     * 
-     * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created &amp; attached.
-     * Currently, Primary IPs can be only attached to servers.
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
      * 
      * ## Deprecations
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
-     * 
-     * # Data Source: hcloud.PrimaryIp
-     * 
-     * Provides details about a Hetzner Cloud Primary IP.
-     * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-     * 
-     * ### Additional Examples
      * 
      * <pre>
      * {@code
@@ -7367,7 +7185,18 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invokeAsync("hcloud:index/getPrimaryIp:getPrimaryIp", TypeShape.of(GetPrimaryIpResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7407,7 +7236,18 @@ public final class HcloudFunctions {
         return getPrimaryIps(GetPrimaryIpsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7447,7 +7287,18 @@ public final class HcloudFunctions {
         return getPrimaryIpsPlain(GetPrimaryIpsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7487,7 +7338,18 @@ public final class HcloudFunctions {
         return getPrimaryIps(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7527,7 +7389,18 @@ public final class HcloudFunctions {
         return getPrimaryIpsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7567,7 +7440,18 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7607,7 +7491,18 @@ public final class HcloudFunctions {
         return Deployment.getInstance().invoke("hcloud:index/getPrimaryIps:getPrimaryIps", TypeShape.of(GetPrimaryIpsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about multiple Hetzner Cloud Primary IPs.
+     * Provides a list of Hetzner Cloud Primary IPs.
+     * 
+     * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+     * 
+     * ## Deprecations
+     * 
+     * ### `datacenter` attribute
+     * 
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+     * 
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7654,11 +7549,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7713,11 +7607,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7772,11 +7665,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7831,11 +7723,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7890,11 +7781,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -7949,11 +7839,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 
@@ -8008,11 +7897,10 @@ public final class HcloudFunctions {
      * 
      * ### `datacenter` attribute
      * 
-     * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+     * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
      * 
-     * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-     * 
-     * &gt; Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+     * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+     * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
      * 
      * ## Example Usage
      * 

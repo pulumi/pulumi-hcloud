@@ -71,7 +71,7 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> _builtins.int:
         """
-        (int) ID of the assigned resource.
+        ID of the resource the Primary IP is assigned to.
         """
         return pulumi.get(self, "assignee_id")
 
@@ -79,7 +79,7 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="assigneeType")
     def assignee_type(self) -> _builtins.str:
         """
-        (string) The type of the assigned resource.
+        Type of the resource the Primary IP is assigned to.
         """
         return pulumi.get(self, "assignee_type")
 
@@ -87,16 +87,16 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="autoDelete")
     def auto_delete(self) -> _builtins.bool:
         """
-        (bool) Whether auto delete is enabled.
+        Whether auto delete is enabled.
         """
         return pulumi.get(self, "auto_delete")
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.""")
+    @_utilities.deprecated("""The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.""")
     def datacenter(self) -> _builtins.str:
         """
-        (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+        Name of the Datacenter of the Primary IP.
         """
         return pulumi.get(self, "datacenter")
 
@@ -104,7 +104,7 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> _builtins.bool:
         """
-        (bool) Whether delete protection is enabled.
+        Whether delete protection is enabled.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -112,7 +112,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def id(self) -> Optional[_builtins.int]:
         """
-        (int) Unique ID of the Primary IP.
+        ID of the Primary IP.
         """
         return pulumi.get(self, "id")
 
@@ -120,7 +120,7 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[_builtins.str]:
         """
-        (string) IP Address of the Primary IP.
+        IP address of the Primary IP.
         """
         return pulumi.get(self, "ip_address")
 
@@ -128,7 +128,7 @@ class GetPrimaryIpResult:
     @pulumi.getter(name="ipNetwork")
     def ip_network(self) -> _builtins.str:
         """
-        (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+        IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
         """
         return pulumi.get(self, "ip_network")
 
@@ -136,7 +136,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
         """
-        (map) User-defined labels (key-value pairs).
+        User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         """
         return pulumi.get(self, "labels")
 
@@ -144,7 +144,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+        Name of the Location of the Primary IP.
         """
         return pulumi.get(self, "location")
 
@@ -152,7 +152,7 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        (string) Name of the Primary IP.
+        Name of the Primary IP.
         """
         return pulumi.get(self, "name")
 
@@ -160,13 +160,16 @@ class GetPrimaryIpResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        (string) Type of the Primary IP.
+        Type of the Primary IP (`ipv4` or `ipv6`).
         """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+        """
         return pulumi.get(self, "with_selector")
 
 
@@ -199,31 +202,18 @@ def get_primary_ip(id: Optional[_builtins.int] = None,
     """
     Provides details about a Hetzner Cloud Primary IP.
 
-    This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-
-    Side note:
-
-    If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
-    Currently, Primary IPs can be only attached to servers.
+    See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
 
     ## Deprecations
 
     ### `datacenter` attribute
 
-    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
-
-    # Data Source: PrimaryIp
-
-    Provides details about a Hetzner Cloud Primary IP.
-    This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-
-    ### Additional Examples
 
     ```python
     import pulumi
@@ -250,7 +240,7 @@ def get_primary_ip(id: Optional[_builtins.int] = None,
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id
@@ -282,31 +272,18 @@ def get_primary_ip_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = 
     """
     Provides details about a Hetzner Cloud Primary IP.
 
-    This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-
-    Side note:
-
-    If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
-    Currently, Primary IPs can be only attached to servers.
+    See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
 
     ## Deprecations
 
     ### `datacenter` attribute
 
-    The `datacenter` attribute is deprecated, use the `location` attribute instead.
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
 
-    See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
-
-    > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
-
-    # Data Source: PrimaryIp
-
-    Provides details about a Hetzner Cloud Primary IP.
-    This resource can be useful when you need to determine a Primary IP ID based on the IP address.
-
-    ### Additional Examples
 
     ```python
     import pulumi
@@ -333,7 +310,7 @@ def get_primary_ip_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = 
     :param _builtins.int id: ID of the Primary IP.
     :param _builtins.str ip_address: IP address of the Primary IP.
     :param _builtins.str name: Name of the Primary IP.
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
     """
     __args__ = dict()
     __args__['id'] = id

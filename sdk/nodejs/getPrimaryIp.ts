@@ -7,31 +7,18 @@ import * as utilities from "./utilities";
 /**
  * Provides details about a Hetzner Cloud Primary IP.
  *
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * Side note:
- *
- * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
- * Currently, Primary IPs can be only attached to servers.
+ * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
  *
  * ## Deprecations
  *
  * ### `datacenter` attribute
  *
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  *
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- *
- * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
- *
- * # Data Source: hcloud.PrimaryIp
- *
- * Provides details about a Hetzner Cloud Primary IP.
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * ### Additional Examples
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -89,7 +76,7 @@ export interface GetPrimaryIpArgs {
      */
     name?: string;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: string;
 }
@@ -99,85 +86,75 @@ export interface GetPrimaryIpArgs {
  */
 export interface GetPrimaryIpResult {
     /**
-     * (int) ID of the assigned resource.
+     * ID of the resource the Primary IP is assigned to.
      */
     readonly assigneeId: number;
     /**
-     * (string) The type of the assigned resource.
+     * Type of the resource the Primary IP is assigned to.
      */
     readonly assigneeType: string;
     /**
-     * (bool) Whether auto delete is enabled.
+     * Whether auto delete is enabled.
      */
     readonly autoDelete: boolean;
     /**
-     * (string, deprecated) The datacenter name of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
+     * Name of the Datacenter of the Primary IP.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     readonly datacenter: string;
     /**
-     * (bool) Whether delete protection is enabled.
+     * Whether delete protection is enabled.
      */
     readonly deleteProtection: boolean;
     /**
-     * (int) Unique ID of the Primary IP.
+     * ID of the Primary IP.
      */
     readonly id?: number;
     /**
-     * (string) IP Address of the Primary IP.
+     * IP address of the Primary IP.
      */
     readonly ipAddress?: string;
     /**
-     * (string) IPv6 subnet of the Primary IP for IPv6 addresses. (Only set if `type` is `ipv6`)
+     * IP network of the Primary IP for IPv6 addresses. Only set if `type` is `ipv6`.
      */
     readonly ipNetwork: string;
     /**
-     * (map) User-defined labels (key-value pairs).
+     * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
     readonly labels: {[key: string]: string};
     /**
-     * (string) The location of the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
+     * Name of the Location of the Primary IP.
      */
     readonly location: string;
     /**
-     * (string) Name of the Primary IP.
+     * Name of the Primary IP.
      */
     readonly name?: string;
     /**
-     * (string) Type of the Primary IP.
+     * Type of the Primary IP (`ipv4` or `ipv6`).
      */
     readonly type: string;
+    /**
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
+     */
     readonly withSelector?: string;
 }
 /**
  * Provides details about a Hetzner Cloud Primary IP.
  *
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * Side note:
- *
- * If a server is getting created, it has to have a primary ip. If a server is getting created without defining primary ips, two of them (one ipv4 and one ipv6) getting created & attached.
- * Currently, Primary IPs can be only attached to servers.
+ * See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
  *
  * ## Deprecations
  *
  * ### `datacenter` attribute
  *
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  *
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- *
- * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer returns the `datacenter` attribute.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
- *
- * # Data Source: hcloud.PrimaryIp
- *
- * Provides details about a Hetzner Cloud Primary IP.
- * This resource can be useful when you need to determine a Primary IP ID based on the IP address.
- *
- * ### Additional Examples
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -235,7 +212,7 @@ export interface GetPrimaryIpOutputArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+     * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      */
     withSelector?: pulumi.Input<string | undefined>;
 }

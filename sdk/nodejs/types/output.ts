@@ -500,7 +500,7 @@ export interface GetPrimaryIpsPrimaryIp {
     /**
      * Name of the Datacenter of the Primary IP.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     datacenter: string;
     /**
@@ -691,7 +691,7 @@ export interface GetServersServer {
     backupWindow: string;
     backups: boolean;
     /**
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     datacenter: string;
     deleteProtection: boolean;

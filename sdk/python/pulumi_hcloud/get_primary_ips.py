@@ -41,19 +41,22 @@ class GetPrimaryIpsResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The ID of this resource.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="primaryIps")
     def primary_ips(self) -> Sequence['outputs.GetPrimaryIpsPrimaryIpResult']:
-        """
-        (list) List of all matching primary ips. See `data.hcloud_primary_ip` for schema.
-        """
         return pulumi.get(self, "primary_ips")
 
     @_builtins.property
     @pulumi.getter(name="withSelector")
     def with_selector(self) -> Optional[_builtins.str]:
+        """
+        Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+        """
         return pulumi.get(self, "with_selector")
 
 
@@ -72,7 +75,18 @@ def get_primary_ips(id: Optional[_builtins.str] = None,
                     with_selector: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrimaryIpsResult:
     """
-    Provides details about multiple Hetzner Cloud Primary IPs.
+    Provides a list of Hetzner Cloud Primary IPs.
+
+    See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
 
@@ -84,7 +98,8 @@ def get_primary_ips(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+    :param _builtins.str id: The ID of this resource.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -100,7 +115,18 @@ def get_primary_ips_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] =
                            with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryIpsResult]:
     """
-    Provides details about multiple Hetzner Cloud Primary IPs.
+    Provides a list of Hetzner Cloud Primary IPs.
+
+    See the [Primary IPs API documentation](https://docs.hetzner.cloud/reference/cloud#tag/primary-ips) for more details.
+
+    ## Deprecations
+
+    ### `datacenter` attribute
+
+    The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
+
+    See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+    [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
 
     ## Example Usage
 
@@ -112,7 +138,8 @@ def get_primary_ips_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] =
     ```
 
 
-    :param _builtins.str with_selector: [Label selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
+    :param _builtins.str id: The ID of this resource.
+    :param _builtins.str with_selector: Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector)
     """
     __args__ = dict()
     __args__['id'] = id

@@ -23,15 +23,6 @@ import * as utilities from "./utilities";
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const all = hcloud.getDatacenters({});
- * const workers: hcloud.Server[] = [];
- * for (let range = 0; range < 5; range++) {
- *     workers.push(new hcloud.Server(`workers-${range}`, {
- *         name: `node${range}`,
- *         image: "debian-12",
- *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters)[range].name,
- *     }));
- * }
  * ```
  */
 export function getDatacenters(opts?: pulumi.InvokeOptions): Promise<GetDatacentersResult> {
@@ -79,15 +70,6 @@ export interface GetDatacentersResult {
  * import * as hcloud from "@pulumi/hcloud";
  *
  * const all = hcloud.getDatacenters({});
- * const workers: hcloud.Server[] = [];
- * for (let range = 0; range < 5; range++) {
- *     workers.push(new hcloud.Server(`workers-${range}`, {
- *         name: `node${range}`,
- *         image: "debian-12",
- *         serverType: "cx23",
- *         datacenter: all.then(all => all.datacenters)[range].name,
- *     }));
- * }
  * ```
  */
 export function getDatacentersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatacentersResult> {

@@ -32,10 +32,10 @@ public final class GetPrimaryIpsPrimaryIp {
      * @return Name of the Datacenter of the Primary IP.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     private String datacenter;
     /**
      * @return Whether delete protection is enabled.
@@ -104,10 +104,10 @@ public final class GetPrimaryIpsPrimaryIp {
      * @return Name of the Datacenter of the Primary IP.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     public String datacenter() {
         return this.datacenter;
     }

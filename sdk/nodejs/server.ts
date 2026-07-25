@@ -13,14 +13,10 @@ import * as utilities from "./utilities";
  *
  * ### `datacenter` attribute
  *
- * The `datacenter` attribute is deprecated, use the `location` attribute instead.
+ * The `datacenter` attribute is marked for removal since `v1.67.0`, you must use the `location` attribute instead.
  *
- * See our the [API changelog](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) for more details.
- *
- * > Please upgrade to `v1.58.0+` of the provider to avoid issues once the Hetzner Cloud API no longer accepts
- * and returns the `datacenter` attribute. This version of the provider remains backward compatible by preserving
- * the `datacenter` value in the state and by extracting the `location` name from the `datacenter` attribute when
- * communicating with the API.
+ * See our [deprecation](https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters) and
+ * [removal](https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters) changelog for more details.
  *
  * ## Example Usage
  *
@@ -188,7 +184,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     declare public readonly datacenter: pulumi.Output<string>;
     /**
@@ -285,7 +281,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * Cloud-Init user data to use during server creation
+     * Cloud-Init user data to use during server creation. This field is limited to 32KiB.
      */
     declare public readonly userData: pulumi.Output<string | undefined>;
 
@@ -390,7 +386,7 @@ export interface ServerState {
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     datacenter?: pulumi.Input<string | undefined>;
     /**
@@ -487,7 +483,7 @@ export interface ServerState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Cloud-Init user data to use during server creation
+     * Cloud-Init user data to use during server creation. This field is limited to 32KiB.
      */
     userData?: pulumi.Input<string | undefined>;
 }
@@ -509,7 +505,7 @@ export interface ServerArgs {
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      *
-     * @deprecated The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      */
     datacenter?: pulumi.Input<string | undefined>;
     /**
@@ -586,7 +582,7 @@ export interface ServerArgs {
      */
     sshKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Cloud-Init user data to use during server creation
+     * Cloud-Init user data to use during server creation. This field is limited to 32KiB.
      */
     userData?: pulumi.Input<string | undefined>;
 }

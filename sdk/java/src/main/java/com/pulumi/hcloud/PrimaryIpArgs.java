@@ -68,10 +68,10 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
      * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
@@ -79,10 +79,10 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
      * @return Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
      * @deprecated
-     * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
     public Optional<Output<String>> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
@@ -263,10 +263,10 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
         public Builder datacenter(@Nullable Output<String> datacenter) {
             $.datacenter = datacenter;
             return this;
@@ -278,10 +278,10 @@ public final class PrimaryIpArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters.
+         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is deprecated and will be removed after 1 July 2026. Please use the location attribute instead. See https://docs.hetzner.cloud/changelog#2025-12-16-phasing-out-datacenters. */
+        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
         public Builder datacenter(String datacenter) {
             return datacenter(Output.of(datacenter));
         }
