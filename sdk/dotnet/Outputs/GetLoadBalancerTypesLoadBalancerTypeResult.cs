@@ -14,6 +14,10 @@ namespace Pulumi.HCloud.Outputs
     public sealed class GetLoadBalancerTypesLoadBalancerTypeResult
     {
         /// <summary>
+        /// Date of the Load Balancer Type deprecation announcement.
+        /// </summary>
+        public readonly string DeprecationAnnounced;
+        /// <summary>
         /// Description of the Load Balancer Type.
         /// </summary>
         public readonly string Description;
@@ -21,6 +25,10 @@ namespace Pulumi.HCloud.Outputs
         /// ID of the Load Balancer Type.
         /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Whether the Load Balancer Type is deprecated.
+        /// </summary>
+        public readonly bool IsDeprecated;
         /// <summary>
         /// Maximum number of certificates that can be assigned for the Load Balancer of this type.
         /// </summary>
@@ -41,12 +49,20 @@ namespace Pulumi.HCloud.Outputs
         /// Name of the Load Balancer Type.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+        /// </summary>
+        public readonly string UnavailableAfter;
 
         [OutputConstructor]
         private GetLoadBalancerTypesLoadBalancerTypeResult(
+            string deprecationAnnounced,
+
             string description,
 
             int id,
+
+            bool isDeprecated,
 
             int maxAssignedCertificates,
 
@@ -56,15 +72,20 @@ namespace Pulumi.HCloud.Outputs
 
             int maxTargets,
 
-            string name)
+            string name,
+
+            string unavailableAfter)
         {
+            DeprecationAnnounced = deprecationAnnounced;
             Description = description;
             Id = id;
+            IsDeprecated = isDeprecated;
             MaxAssignedCertificates = maxAssignedCertificates;
             MaxConnections = maxConnections;
             MaxServices = maxServices;
             MaxTargets = maxTargets;
             Name = name;
+            UnavailableAfter = unavailableAfter;
         }
     }
 }

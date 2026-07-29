@@ -56,6 +56,10 @@ export interface GetLoadBalancerTypeArgs {
  */
 export interface GetLoadBalancerTypeResult {
     /**
+     * Date of the Load Balancer Type deprecation announcement.
+     */
+    readonly deprecationAnnounced: string;
+    /**
      * Description of the Load Balancer Type.
      */
     readonly description: string;
@@ -63,6 +67,10 @@ export interface GetLoadBalancerTypeResult {
      * ID of the Load Balancer Type.
      */
     readonly id: number;
+    /**
+     * Whether the Load Balancer Type is deprecated.
+     */
+    readonly isDeprecated: boolean;
     /**
      * Maximum number of certificates that can be assigned for the Load Balancer of this type.
      */
@@ -83,6 +91,10 @@ export interface GetLoadBalancerTypeResult {
      * Name of the Load Balancer Type.
      */
     readonly name: string;
+    /**
+     * Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+     */
+    readonly unavailableAfter: string;
 }
 /**
  * Provides details about a specific Hetzner Cloud Load Balancer Type.

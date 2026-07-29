@@ -2033,29 +2033,46 @@ class GetLoadBalancerTargetResult(dict):
 @pulumi.output_type
 class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
     def __init__(__self__, *,
+                 deprecation_announced: _builtins.str,
                  description: _builtins.str,
                  id: _builtins.int,
+                 is_deprecated: _builtins.bool,
                  max_assigned_certificates: _builtins.int,
                  max_connections: _builtins.int,
                  max_services: _builtins.int,
                  max_targets: _builtins.int,
-                 name: _builtins.str):
+                 name: _builtins.str,
+                 unavailable_after: _builtins.str):
         """
+        :param _builtins.str deprecation_announced: Date of the Load Balancer Type deprecation announcement.
         :param _builtins.str description: Description of the Load Balancer Type.
         :param _builtins.int id: ID of the Load Balancer Type.
+        :param _builtins.bool is_deprecated: Whether the Load Balancer Type is deprecated.
         :param _builtins.int max_assigned_certificates: Maximum number of certificates that can be assigned for the Load Balancer of this type.
         :param _builtins.int max_connections: Maximum number of simultaneous open connections for the Load Balancer of this type.
         :param _builtins.int max_services: Maximum number of services for the Load Balancer of this type.
         :param _builtins.int max_targets: Maximum number of targets for the Load Balancer of this type.
         :param _builtins.str name: Name of the Load Balancer Type.
+        :param _builtins.str unavailable_after: Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
         """
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         pulumi.set(__self__, "max_assigned_certificates", max_assigned_certificates)
         pulumi.set(__self__, "max_connections", max_connections)
         pulumi.set(__self__, "max_services", max_services)
         pulumi.set(__self__, "max_targets", max_targets)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Load Balancer Type deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
 
     @_builtins.property
     @pulumi.getter
@@ -2072,6 +2089,14 @@ class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
         ID of the Load Balancer Type.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Load Balancer Type is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @_builtins.property
     @pulumi.getter(name="maxAssignedCertificates")
@@ -2112,6 +2137,14 @@ class GetLoadBalancerTypesLoadBalancerTypeResult(dict):
         Name of the Load Balancer Type.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
 
 
 @pulumi.output_type

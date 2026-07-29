@@ -5,12 +5,18 @@ package com.pulumi.hcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerTypeResult {
+    /**
+     * @return Date of the Load Balancer Type deprecation announcement.
+     * 
+     */
+    private String deprecationAnnounced;
     /**
      * @return Description of the Load Balancer Type.
      * 
@@ -21,6 +27,11 @@ public final class GetLoadBalancerTypeResult {
      * 
      */
     private Integer id;
+    /**
+     * @return Whether the Load Balancer Type is deprecated.
+     * 
+     */
+    private Boolean isDeprecated;
     /**
      * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
      * 
@@ -46,8 +57,20 @@ public final class GetLoadBalancerTypeResult {
      * 
      */
     private String name;
+    /**
+     * @return Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+     * 
+     */
+    private String unavailableAfter;
 
     private GetLoadBalancerTypeResult() {}
+    /**
+     * @return Date of the Load Balancer Type deprecation announcement.
+     * 
+     */
+    public String deprecationAnnounced() {
+        return this.deprecationAnnounced;
+    }
     /**
      * @return Description of the Load Balancer Type.
      * 
@@ -61,6 +84,13 @@ public final class GetLoadBalancerTypeResult {
      */
     public Integer id() {
         return this.id;
+    }
+    /**
+     * @return Whether the Load Balancer Type is deprecated.
+     * 
+     */
+    public Boolean isDeprecated() {
+        return this.isDeprecated;
     }
     /**
      * @return Maximum number of certificates that can be assigned for the Load Balancer of this type.
@@ -97,6 +127,13 @@ public final class GetLoadBalancerTypeResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+     * 
+     */
+    public String unavailableAfter() {
+        return this.unavailableAfter;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -107,25 +144,39 @@ public final class GetLoadBalancerTypeResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String deprecationAnnounced;
         private String description;
         private Integer id;
+        private Boolean isDeprecated;
         private Integer maxAssignedCertificates;
         private Integer maxConnections;
         private Integer maxServices;
         private Integer maxTargets;
         private String name;
+        private String unavailableAfter;
         public Builder() {}
         public Builder(GetLoadBalancerTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.deprecationAnnounced = defaults.deprecationAnnounced;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.isDeprecated = defaults.isDeprecated;
     	      this.maxAssignedCertificates = defaults.maxAssignedCertificates;
     	      this.maxConnections = defaults.maxConnections;
     	      this.maxServices = defaults.maxServices;
     	      this.maxTargets = defaults.maxTargets;
     	      this.name = defaults.name;
+    	      this.unavailableAfter = defaults.unavailableAfter;
         }
 
+        @CustomType.Setter
+        public Builder deprecationAnnounced(String deprecationAnnounced) {
+            if (deprecationAnnounced == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTypeResult", "deprecationAnnounced");
+            }
+            this.deprecationAnnounced = deprecationAnnounced;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -140,6 +191,14 @@ public final class GetLoadBalancerTypeResult {
               throw new MissingRequiredPropertyException("GetLoadBalancerTypeResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isDeprecated(Boolean isDeprecated) {
+            if (isDeprecated == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTypeResult", "isDeprecated");
+            }
+            this.isDeprecated = isDeprecated;
             return this;
         }
         @CustomType.Setter
@@ -182,15 +241,26 @@ public final class GetLoadBalancerTypeResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder unavailableAfter(String unavailableAfter) {
+            if (unavailableAfter == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerTypeResult", "unavailableAfter");
+            }
+            this.unavailableAfter = unavailableAfter;
+            return this;
+        }
         public GetLoadBalancerTypeResult build() {
             final var _resultValue = new GetLoadBalancerTypeResult();
+            _resultValue.deprecationAnnounced = deprecationAnnounced;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.isDeprecated = isDeprecated;
             _resultValue.maxAssignedCertificates = maxAssignedCertificates;
             _resultValue.maxConnections = maxConnections;
             _resultValue.maxServices = maxServices;
             _resultValue.maxTargets = maxTargets;
             _resultValue.name = name;
+            _resultValue.unavailableAfter = unavailableAfter;
             return _resultValue;
         }
     }

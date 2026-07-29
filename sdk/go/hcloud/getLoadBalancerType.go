@@ -74,10 +74,14 @@ type GetLoadBalancerTypeArgs struct {
 
 // A collection of values returned by getLoadBalancerType.
 type GetLoadBalancerTypeResult struct {
+	// Date of the Load Balancer Type deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// Description of the Load Balancer Type.
 	Description string `pulumi:"description"`
 	// ID of the Load Balancer Type.
 	Id int `pulumi:"id"`
+	// Whether the Load Balancer Type is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
 	// Maximum number of certificates that can be assigned for the Load Balancer of this type.
 	MaxAssignedCertificates int `pulumi:"maxAssignedCertificates"`
 	// Maximum number of simultaneous open connections for the Load Balancer of this type.
@@ -88,6 +92,8 @@ type GetLoadBalancerTypeResult struct {
 	MaxTargets int `pulumi:"maxTargets"`
 	// Name of the Load Balancer Type.
 	Name string `pulumi:"name"`
+	// Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
 func GetLoadBalancerTypeOutput(ctx *pulumi.Context, args GetLoadBalancerTypeOutputArgs, opts ...pulumi.InvokeOption) GetLoadBalancerTypeResultOutput {
@@ -126,6 +132,11 @@ func (o GetLoadBalancerTypeResultOutput) ToGetLoadBalancerTypeResultOutputWithCo
 	return o
 }
 
+// Date of the Load Balancer Type deprecation announcement.
+func (o GetLoadBalancerTypeResultOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
+}
+
 // Description of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.Description }).(pulumi.StringOutput)
@@ -134,6 +145,11 @@ func (o GetLoadBalancerTypeResultOutput) Description() pulumi.StringOutput {
 // ID of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Load Balancer Type is deprecated.
+func (o GetLoadBalancerTypeResultOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypeResult) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
 // Maximum number of certificates that can be assigned for the Load Balancer of this type.
@@ -159,6 +175,11 @@ func (o GetLoadBalancerTypeResultOutput) MaxTargets() pulumi.IntOutput {
 // Name of the Load Balancer Type.
 func (o GetLoadBalancerTypeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+func (o GetLoadBalancerTypeResultOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerTypeResult) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
 
 func init() {
