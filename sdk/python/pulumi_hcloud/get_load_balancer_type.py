@@ -26,13 +26,19 @@ class GetLoadBalancerTypeResult:
     """
     A collection of values returned by getLoadBalancerType.
     """
-    def __init__(__self__, description=None, id=None, max_assigned_certificates=None, max_connections=None, max_services=None, max_targets=None, name=None):
+    def __init__(__self__, deprecation_announced=None, description=None, id=None, is_deprecated=None, max_assigned_certificates=None, max_connections=None, max_services=None, max_targets=None, name=None, unavailable_after=None):
+        if deprecation_announced and not isinstance(deprecation_announced, str):
+            raise TypeError("Expected argument 'deprecation_announced' to be a str")
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, int):
             raise TypeError("Expected argument 'id' to be a int")
         pulumi.set(__self__, "id", id)
+        if is_deprecated and not isinstance(is_deprecated, bool):
+            raise TypeError("Expected argument 'is_deprecated' to be a bool")
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         if max_assigned_certificates and not isinstance(max_assigned_certificates, int):
             raise TypeError("Expected argument 'max_assigned_certificates' to be a int")
         pulumi.set(__self__, "max_assigned_certificates", max_assigned_certificates)
@@ -48,6 +54,17 @@ class GetLoadBalancerTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if unavailable_after and not isinstance(unavailable_after, str):
+            raise TypeError("Expected argument 'unavailable_after' to be a str")
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Load Balancer Type deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
 
     @_builtins.property
     @pulumi.getter
@@ -64,6 +81,14 @@ class GetLoadBalancerTypeResult:
         ID of the Load Balancer Type.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Load Balancer Type is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @_builtins.property
     @pulumi.getter(name="maxAssignedCertificates")
@@ -105,6 +130,14 @@ class GetLoadBalancerTypeResult:
         """
         return pulumi.get(self, "name")
 
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
+
 
 class AwaitableGetLoadBalancerTypeResult(GetLoadBalancerTypeResult):
     # pylint: disable=using-constant-test
@@ -112,13 +145,16 @@ class AwaitableGetLoadBalancerTypeResult(GetLoadBalancerTypeResult):
         if False:
             yield self
         return GetLoadBalancerTypeResult(
+            deprecation_announced=self.deprecation_announced,
             description=self.description,
             id=self.id,
+            is_deprecated=self.is_deprecated,
             max_assigned_certificates=self.max_assigned_certificates,
             max_connections=self.max_connections,
             max_services=self.max_services,
             max_targets=self.max_targets,
-            name=self.name)
+            name=self.name,
+            unavailable_after=self.unavailable_after)
 
 
 def get_load_balancer_type(id: Optional[_builtins.int] = None,
@@ -154,13 +190,16 @@ def get_load_balancer_type(id: Optional[_builtins.int] = None,
     __ret__ = pulumi.runtime.invoke('hcloud:index/getLoadBalancerType:getLoadBalancerType', __args__, opts=opts, typ=GetLoadBalancerTypeResult).value
 
     return AwaitableGetLoadBalancerTypeResult(
+        deprecation_announced=pulumi.get(__ret__, 'deprecation_announced'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
         max_assigned_certificates=pulumi.get(__ret__, 'max_assigned_certificates'),
         max_connections=pulumi.get(__ret__, 'max_connections'),
         max_services=pulumi.get(__ret__, 'max_services'),
         max_targets=pulumi.get(__ret__, 'max_targets'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        unavailable_after=pulumi.get(__ret__, 'unavailable_after'))
 def get_load_balancer_type_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                   name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerTypeResult]:
@@ -193,10 +232,13 @@ def get_load_balancer_type_output(id: pulumi.Input[Optional[Optional[_builtins.i
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('hcloud:index/getLoadBalancerType:getLoadBalancerType', __args__, opts=opts, typ=GetLoadBalancerTypeResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerTypeResult(
+        deprecation_announced=pulumi.get(__response__, 'deprecation_announced'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
         max_assigned_certificates=pulumi.get(__response__, 'max_assigned_certificates'),
         max_connections=pulumi.get(__response__, 'max_connections'),
         max_services=pulumi.get(__response__, 'max_services'),
         max_targets=pulumi.get(__response__, 'max_targets'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        unavailable_after=pulumi.get(__response__, 'unavailable_after')))

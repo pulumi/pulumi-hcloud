@@ -338,6 +338,10 @@ export interface GetLoadBalancerTarget {
 
 export interface GetLoadBalancerTypesLoadBalancerType {
     /**
+     * Date of the Load Balancer Type deprecation announcement.
+     */
+    deprecationAnnounced: string;
+    /**
      * Description of the Load Balancer Type.
      */
     description: string;
@@ -345,6 +349,10 @@ export interface GetLoadBalancerTypesLoadBalancerType {
      * ID of the Load Balancer Type.
      */
     id: number;
+    /**
+     * Whether the Load Balancer Type is deprecated.
+     */
+    isDeprecated: boolean;
     /**
      * Maximum number of certificates that can be assigned for the Load Balancer of this type.
      */
@@ -365,6 +373,10 @@ export interface GetLoadBalancerTypesLoadBalancerType {
      * Name of the Load Balancer Type.
      */
     name: string;
+    /**
+     * Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.
+     */
+    unavailableAfter: string;
 }
 
 export interface GetLoadBalancersLoadBalancer {

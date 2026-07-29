@@ -1134,6 +1134,10 @@
         },
         "hcloud:index/getLoadBalancerTypesLoadBalancerType:getLoadBalancerTypesLoadBalancerType": {
             "properties": {
+                "deprecationAnnounced": {
+                    "type": "string",
+                    "description": "Date of the Load Balancer Type deprecation announcement.\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the Load Balancer Type.\n"
@@ -1141,6 +1145,10 @@
                 "id": {
                     "type": "integer",
                     "description": "ID of the Load Balancer Type.\n"
+                },
+                "isDeprecated": {
+                    "type": "boolean",
+                    "description": "Whether the Load Balancer Type is deprecated.\n"
                 },
                 "maxAssignedCertificates": {
                     "type": "integer",
@@ -1161,17 +1169,24 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the Load Balancer Type.\n"
+                },
+                "unavailableAfter": {
+                    "type": "string",
+                    "description": "Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.\n"
                 }
             },
             "type": "object",
             "required": [
+                "deprecationAnnounced",
                 "description",
                 "id",
+                "isDeprecated",
                 "maxAssignedCertificates",
                 "maxConnections",
                 "maxServices",
                 "maxTargets",
-                "name"
+                "name",
+                "unavailableAfter"
             ],
             "language": {
                 "nodejs": {
@@ -7204,6 +7219,10 @@
             "outputs": {
                 "description": "A collection of values returned by getLoadBalancerType.\n",
                 "properties": {
+                    "deprecationAnnounced": {
+                        "description": "Date of the Load Balancer Type deprecation announcement.\n",
+                        "type": "string"
+                    },
                     "description": {
                         "description": "Description of the Load Balancer Type.\n",
                         "type": "string"
@@ -7211,6 +7230,10 @@
                     "id": {
                         "description": "ID of the Load Balancer Type.\n",
                         "type": "integer"
+                    },
+                    "isDeprecated": {
+                        "description": "Whether the Load Balancer Type is deprecated.\n",
+                        "type": "boolean"
                     },
                     "maxAssignedCertificates": {
                         "description": "Maximum number of certificates that can be assigned for the Load Balancer of this type.\n",
@@ -7231,16 +7254,23 @@
                     "name": {
                         "description": "Name of the Load Balancer Type.\n",
                         "type": "string"
+                    },
+                    "unavailableAfter": {
+                        "description": "Date of the Load Balancer Type removal. After this date, the Load Balancer Type cannot be used anymore.\n",
+                        "type": "string"
                     }
                 },
                 "required": [
+                    "deprecationAnnounced",
                     "description",
                     "id",
+                    "isDeprecated",
                     "maxAssignedCertificates",
                     "maxConnections",
                     "maxServices",
                     "maxTargets",
-                    "name"
+                    "name",
+                    "unavailableAfter"
                 ],
                 "type": "object"
             }
