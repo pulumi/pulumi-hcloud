@@ -23,6 +23,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewStorageBoxSnapshot(ctx, "backup", &hcloud.StorageBoxSnapshotArgs{
-//				StorageBoxId: main.ID(),
+//				StorageBoxId: main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				Description:  pulumi.String("Before Tool XYZ Migration"),
 //				Labels: pulumi.StringMap{
 //					"env": pulumi.String("production"),

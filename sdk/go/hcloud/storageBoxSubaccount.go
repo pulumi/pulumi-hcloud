@@ -23,6 +23,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
@@ -38,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewStorageBoxSubaccount(ctx, "team_badger", &hcloud.StorageBoxSubaccountArgs{
-//				StorageBoxId:  main.ID(),
+//				StorageBoxId:  main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				Name:          pulumi.String("badger"),
 //				HomeDirectory: pulumi.String("teams/badger/"),
 //				Password:      pulumi.String(teamBadgerPassword),

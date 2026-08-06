@@ -27,6 +27,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -49,9 +51,9 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewFirewallAttachment(ctx, "fw_ref", &hcloud.FirewallAttachmentArgs{
-//				FirewallId: basicFirewall.ID(),
+//				FirewallId: basicFirewall.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				ServerIds: pulumi.IntArray{
-//					testServer.ID(),
+//					testServer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {
@@ -69,6 +71,8 @@ import (
 // package main
 //
 // import (
+//
+//	"strconv"
 //
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -95,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewFirewallAttachment(ctx, "fw_ref", &hcloud.FirewallAttachmentArgs{
-//				FirewallId: basicFirewall.ID(),
+//				FirewallId: basicFirewall.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				LabelSelectors: pulumi.StringArray{
 //					pulumi.String("firewall-attachment=test-server"),
 //				},
@@ -128,6 +132,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -148,7 +154,7 @@ import (
 //				Image:                   pulumi.String("ubuntu-24.04"),
 //				IgnoreRemoteFirewallIds: pulumi.Bool(true),
 //				FirewallIds: pulumi.IntArray{
-//					denyAll.ID(),
+//					denyAll.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {
@@ -184,18 +190,18 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewFirewallAttachment(ctx, "deny_all_att", &hcloud.FirewallAttachmentArgs{
-//				FirewallId: denyAll.ID(),
+//				FirewallId: denyAll.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				ServerIds: pulumi.IntArray{
-//					testServer.ID(),
+//					testServer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hcloud.NewFirewallAttachment(ctx, "allow_rules_att", &hcloud.FirewallAttachmentArgs{
-//				FirewallId: allowRules.ID(),
+//				FirewallId: allowRules.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				ServerIds: pulumi.IntArray{
-//					testServer.ID(),
+//					testServer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {

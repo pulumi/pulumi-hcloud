@@ -65,6 +65,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -97,7 +99,7 @@ import (
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
 //						Ipv4Enabled: pulumi.Bool(true),
-//						Ipv4:        primaryIp1.ID(),
+//						Ipv4:        primaryIp1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //						Ipv6Enabled: pulumi.Bool(false),
 //					},
 //				},
@@ -118,6 +120,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -134,7 +138,7 @@ import (
 //			}
 //			networkSubnet, err := hcloud.NewNetworkSubnet(ctx, "network_subnet", &hcloud.NetworkSubnetArgs{
 //				Type:        pulumi.String("cloud"),
-//				NetworkId:   network.ID(),
+//				NetworkId:   network.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				NetworkZone: pulumi.String("eu-central"),
 //				IpRange:     pulumi.String("10.0.1.0/24"),
 //			})
@@ -148,7 +152,7 @@ import (
 //				Location:   pulumi.String("nbg1"),
 //				Networks: hcloud.ServerNetworkTypeArray{
 //					&hcloud.ServerNetworkTypeArgs{
-//						SubnetId: networkSubnet.ID(),
+//						SubnetId: networkSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Ip:       pulumi.String("10.0.1.5"),
 //						AliasIps: pulumi.StringArray{
 //							pulumi.String("10.0.1.6"),

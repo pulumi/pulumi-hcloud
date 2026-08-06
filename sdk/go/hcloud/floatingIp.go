@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,7 +40,7 @@ import (
 //			}
 //			_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
 //				Type:     pulumi.String("ipv4"),
-//				ServerId: node1.ID(),
+//				ServerId: node1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
