@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -46,8 +48,8 @@ import (
 //			}
 //			_, err = hcloud.NewLoadBalancerTarget(ctx, "load_balancer_target", &hcloud.LoadBalancerTargetArgs{
 //				Type:           pulumi.String("server"),
-//				LoadBalancerId: loadBalancer.ID(),
-//				ServerId:       myServer.ID(),
+//				LoadBalancerId: loadBalancer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ServerId:       myServer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

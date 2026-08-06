@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -36,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewNetworkRoute(ctx, "privNet", &hcloud.NetworkRouteArgs{
-//				NetworkId:   mynet.ID(),
+//				NetworkId:   mynet.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				Destination: pulumi.String("10.100.1.0/24"),
 //				Gateway:     pulumi.String("10.0.1.1"),
 //			})

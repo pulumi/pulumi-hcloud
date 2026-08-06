@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -36,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewRdns(ctx, "server1", &hcloud.RdnsArgs{
-//				ServerId:  server1.ID(),
+//				ServerId:  server1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				IpAddress: server1.Ipv4Address,
 //				DnsPtr:    pulumi.String("example.com"),
 //			})
@@ -52,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewRdns(ctx, "primary_ip1", &hcloud.RdnsArgs{
-//				PrimaryIpId: primaryIp1.ID(),
+//				PrimaryIpId: primaryIp1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				IpAddress:   primaryIp1.IpAddress,
 //				DnsPtr:      pulumi.String("example.com"),
 //			})
@@ -68,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewRdns(ctx, "floating_ip1", &hcloud.RdnsArgs{
-//				FloatingIpId: floatingIp1.ID(),
+//				FloatingIpId: floatingIp1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				IpAddress:    floatingIp1.IpAddress,
 //				DnsPtr:       pulumi.String("example.com"),
 //			})
@@ -83,7 +85,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewRdns(ctx, "load_balancer1", &hcloud.RdnsArgs{
-//				LoadBalancerId: loadBalancer1.ID(),
+//				LoadBalancerId: loadBalancer1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				IpAddress:      loadBalancer1.Ipv4,
 //				DnsPtr:         pulumi.String("example.com"),
 //			})

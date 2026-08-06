@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewLoadBalancerService(ctx, "load_balancer_service", &hcloud.LoadBalancerServiceArgs{
-//				LoadBalancerId: loadBalancer.ID(),
+//				LoadBalancerId: loadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Protocol:       pulumi.String("http"),
 //				Http: &hcloud.LoadBalancerServiceHttpArgs{
 //					StickySessions: pulumi.Bool(true),

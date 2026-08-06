@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -39,7 +41,7 @@ import (
 //			_, err = hcloud.NewVolume(ctx, "master", &hcloud.VolumeArgs{
 //				Name:      pulumi.String("volume1"),
 //				Size:      pulumi.Int(50),
-//				ServerId:  node1.ID(),
+//				ServerId:  node1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				Automount: pulumi.Bool(true),
 //				Format:    pulumi.String("ext4"),
 //			})

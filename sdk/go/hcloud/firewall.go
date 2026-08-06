@@ -20,6 +20,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -57,7 +59,7 @@ import (
 //				Image:      pulumi.String("debian-12"),
 //				ServerType: pulumi.String("cx23"),
 //				FirewallIds: pulumi.IntArray{
-//					myfirewall.ID(),
+//					myfirewall.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {

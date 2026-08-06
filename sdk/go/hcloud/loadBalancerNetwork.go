@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -44,7 +46,7 @@ import (
 //				return err
 //			}
 //			subnet, err := hcloud.NewNetworkSubnet(ctx, "subnet", &hcloud.NetworkSubnetArgs{
-//				NetworkId:   network.ID(),
+//				NetworkId:   network.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				Type:        pulumi.String("cloud"),
 //				NetworkZone: pulumi.String("eu-central"),
 //				IpRange:     pulumi.String("10.0.1.0/24"),
@@ -53,8 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewLoadBalancerNetwork(ctx, "attachment", &hcloud.LoadBalancerNetworkArgs{
-//				LoadBalancerId: main.ID(),
-//				SubnetId:       subnet.ID(),
+//				LoadBalancerId: main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				SubnetId:       subnet.ID().ToIDOutput().ToStringOutput(),
 //				Ip:             pulumi.String("10.0.1.5"),
 //			})
 //			if err != nil {
