@@ -53,7 +53,6 @@ import (
 //			var main []*hcloud.FloatingIpAssignment
 //			for index := 0; index < counter; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := hcloud.NewFloatingIpAssignment(ctx, fmt.Sprintf("main-%v", key0), &hcloud.FloatingIpAssignmentArgs{
 //					FloatingIpId: pulumi.Int(ip1.Id),
 //					ServerId:     pulumi.Any(mainHcloudServer.Id),
@@ -120,12 +119,8 @@ type LookupFloatingIpResult struct {
 }
 
 func LookupFloatingIpOutput(ctx *pulumi.Context, args LookupFloatingIpOutputArgs, opts ...pulumi.InvokeOption) LookupFloatingIpResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFloatingIpResultOutput, error) {
-			args := v.(LookupFloatingIpArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getFloatingIp:getFloatingIp", args, LookupFloatingIpResultOutput{}, options).(LookupFloatingIpResultOutput), nil
-		}).(LookupFloatingIpResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getFloatingIp:getFloatingIp", args, LookupFloatingIpResultOutput{}, options).(LookupFloatingIpResultOutput)
 }
 
 // A collection of arguments for invoking getFloatingIp.

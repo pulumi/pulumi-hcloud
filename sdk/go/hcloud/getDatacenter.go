@@ -90,12 +90,8 @@ type GetDatacenterResult struct {
 }
 
 func GetDatacenterOutput(ctx *pulumi.Context, args GetDatacenterOutputArgs, opts ...pulumi.InvokeOption) GetDatacenterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDatacenterResultOutput, error) {
-			args := v.(GetDatacenterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getDatacenter:getDatacenter", args, GetDatacenterResultOutput{}, options).(GetDatacenterResultOutput), nil
-		}).(GetDatacenterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getDatacenter:getDatacenter", args, GetDatacenterResultOutput{}, options).(GetDatacenterResultOutput)
 }
 
 // A collection of arguments for invoking getDatacenter.

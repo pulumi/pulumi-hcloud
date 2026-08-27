@@ -87,12 +87,8 @@ type LookupFirewallResult struct {
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFirewallResultOutput, error) {
-			args := v.(LookupFirewallArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getFirewall:getFirewall", args, LookupFirewallResultOutput{}, options).(LookupFirewallResultOutput), nil
-		}).(LookupFirewallResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getFirewall:getFirewall", args, LookupFirewallResultOutput{}, options).(LookupFirewallResultOutput)
 }
 
 // A collection of arguments for invoking getFirewall.
