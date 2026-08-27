@@ -60,10 +60,8 @@ type GetServerTypesResult struct {
 }
 
 func GetServerTypesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetServerTypesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetServerTypesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("hcloud:index/getServerTypes:getServerTypes", nil, GetServerTypesResultOutput{}, options).(GetServerTypesResultOutput), nil
-	}).(GetServerTypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getServerTypes:getServerTypes", nil, GetServerTypesResultOutput{}, options).(GetServerTypesResultOutput)
 }
 
 // A collection of values returned by getServerTypes.

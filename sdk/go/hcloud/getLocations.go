@@ -79,10 +79,8 @@ type GetLocationsResult struct {
 }
 
 func GetLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLocationsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("hcloud:index/getLocations:getLocations", nil, GetLocationsResultOutput{}, options).(GetLocationsResultOutput), nil
-	}).(GetLocationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getLocations:getLocations", nil, GetLocationsResultOutput{}, options).(GetLocationsResultOutput)
 }
 
 // A collection of values returned by getLocations.

@@ -109,12 +109,8 @@ type LookupZoneRrsetResult struct {
 }
 
 func LookupZoneRrsetOutput(ctx *pulumi.Context, args LookupZoneRrsetOutputArgs, opts ...pulumi.InvokeOption) LookupZoneRrsetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupZoneRrsetResultOutput, error) {
-			args := v.(LookupZoneRrsetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getZoneRrset:getZoneRrset", args, LookupZoneRrsetResultOutput{}, options).(LookupZoneRrsetResultOutput), nil
-		}).(LookupZoneRrsetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getZoneRrset:getZoneRrset", args, LookupZoneRrsetResultOutput{}, options).(LookupZoneRrsetResultOutput)
 }
 
 // A collection of arguments for invoking getZoneRrset.

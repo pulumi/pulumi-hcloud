@@ -115,12 +115,8 @@ type LookupStorageBoxSubaccountResult struct {
 }
 
 func LookupStorageBoxSubaccountOutput(ctx *pulumi.Context, args LookupStorageBoxSubaccountOutputArgs, opts ...pulumi.InvokeOption) LookupStorageBoxSubaccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStorageBoxSubaccountResultOutput, error) {
-			args := v.(LookupStorageBoxSubaccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", args, LookupStorageBoxSubaccountResultOutput{}, options).(LookupStorageBoxSubaccountResultOutput), nil
-		}).(LookupStorageBoxSubaccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getStorageBoxSubaccount:getStorageBoxSubaccount", args, LookupStorageBoxSubaccountResultOutput{}, options).(LookupStorageBoxSubaccountResultOutput)
 }
 
 // A collection of arguments for invoking getStorageBoxSubaccount.

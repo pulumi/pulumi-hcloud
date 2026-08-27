@@ -83,12 +83,8 @@ type GetZoneRrsetsResult struct {
 }
 
 func GetZoneRrsetsOutput(ctx *pulumi.Context, args GetZoneRrsetsOutputArgs, opts ...pulumi.InvokeOption) GetZoneRrsetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetZoneRrsetsResultOutput, error) {
-			args := v.(GetZoneRrsetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getZoneRrsets:getZoneRrsets", args, GetZoneRrsetsResultOutput{}, options).(GetZoneRrsetsResultOutput), nil
-		}).(GetZoneRrsetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getZoneRrsets:getZoneRrsets", args, GetZoneRrsetsResultOutput{}, options).(GetZoneRrsetsResultOutput)
 }
 
 // A collection of arguments for invoking getZoneRrsets.

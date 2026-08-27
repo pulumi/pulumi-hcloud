@@ -77,12 +77,8 @@ type GetPrimaryIpsResult struct {
 }
 
 func GetPrimaryIpsOutput(ctx *pulumi.Context, args GetPrimaryIpsOutputArgs, opts ...pulumi.InvokeOption) GetPrimaryIpsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPrimaryIpsResultOutput, error) {
-			args := v.(GetPrimaryIpsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getPrimaryIps:getPrimaryIps", args, GetPrimaryIpsResultOutput{}, options).(GetPrimaryIpsResultOutput), nil
-		}).(GetPrimaryIpsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getPrimaryIps:getPrimaryIps", args, GetPrimaryIpsResultOutput{}, options).(GetPrimaryIpsResultOutput)
 }
 
 // A collection of arguments for invoking getPrimaryIps.

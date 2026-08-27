@@ -114,12 +114,8 @@ type GetServerTypeResult struct {
 }
 
 func GetServerTypeOutput(ctx *pulumi.Context, args GetServerTypeOutputArgs, opts ...pulumi.InvokeOption) GetServerTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServerTypeResultOutput, error) {
-			args := v.(GetServerTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getServerType:getServerType", args, GetServerTypeResultOutput{}, options).(GetServerTypeResultOutput), nil
-		}).(GetServerTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getServerType:getServerType", args, GetServerTypeResultOutput{}, options).(GetServerTypeResultOutput)
 }
 
 // A collection of arguments for invoking getServerType.

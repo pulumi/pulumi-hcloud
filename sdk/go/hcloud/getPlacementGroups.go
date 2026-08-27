@@ -71,12 +71,8 @@ type GetPlacementGroupsResult struct {
 }
 
 func GetPlacementGroupsOutput(ctx *pulumi.Context, args GetPlacementGroupsOutputArgs, opts ...pulumi.InvokeOption) GetPlacementGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPlacementGroupsResultOutput, error) {
-			args := v.(GetPlacementGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getPlacementGroups:getPlacementGroups", args, GetPlacementGroupsResultOutput{}, options).(GetPlacementGroupsResultOutput), nil
-		}).(GetPlacementGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getPlacementGroups:getPlacementGroups", args, GetPlacementGroupsResultOutput{}, options).(GetPlacementGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getPlacementGroups.

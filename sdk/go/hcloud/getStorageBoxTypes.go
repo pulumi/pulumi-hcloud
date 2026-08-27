@@ -54,10 +54,8 @@ type GetStorageBoxTypesResult struct {
 }
 
 func GetStorageBoxTypesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetStorageBoxTypesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetStorageBoxTypesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", nil, GetStorageBoxTypesResultOutput{}, options).(GetStorageBoxTypesResultOutput), nil
-	}).(GetStorageBoxTypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getStorageBoxTypes:getStorageBoxTypes", nil, GetStorageBoxTypesResultOutput{}, options).(GetStorageBoxTypesResultOutput)
 }
 
 // A collection of values returned by getStorageBoxTypes.

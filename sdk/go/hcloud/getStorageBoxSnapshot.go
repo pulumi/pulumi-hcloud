@@ -59,12 +59,8 @@ type LookupStorageBoxSnapshotResult struct {
 }
 
 func LookupStorageBoxSnapshotOutput(ctx *pulumi.Context, args LookupStorageBoxSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupStorageBoxSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStorageBoxSnapshotResultOutput, error) {
-			args := v.(LookupStorageBoxSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args, LookupStorageBoxSnapshotResultOutput{}, options).(LookupStorageBoxSnapshotResultOutput), nil
-		}).(LookupStorageBoxSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args, LookupStorageBoxSnapshotResultOutput{}, options).(LookupStorageBoxSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getStorageBoxSnapshot.
