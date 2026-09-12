@@ -1573,38 +1573,47 @@ class GetImagesImageResult(dict):
                  architecture: _builtins.str,
                  created: _builtins.str,
                  deprecated: _builtins.str,
+                 deprecation_announced: _builtins.str,
                  description: _builtins.str,
                  id: _builtins.int,
+                 is_deprecated: _builtins.bool,
                  labels: Mapping[str, _builtins.str],
                  name: _builtins.str,
                  os_flavor: _builtins.str,
                  os_version: _builtins.str,
                  rapid_deploy: _builtins.bool,
-                 type: _builtins.str):
+                 type: _builtins.str,
+                 unavailable_after: _builtins.str):
         """
         :param _builtins.str architecture: CPU architecture compatible with the Image.
         :param _builtins.str created: Point in time when the Image was created (in RFC3339 format).
         :param _builtins.str deprecated: Point in time when the Image was marked as deprecated (in RFC3339 format).
+        :param _builtins.str deprecation_announced: Date of the Image deprecation announcement.
         :param _builtins.str description: Description of the Image.
         :param _builtins.int id: ID of the Image.
+        :param _builtins.bool is_deprecated: Whether the Image is deprecated.
         :param Mapping[str, _builtins.str] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param _builtins.str name: Name of the Image, only present when the type is `system`.
         :param _builtins.str os_flavor: Flavor of the operating system contained in the Image.
         :param _builtins.str os_version: Version of the operating system contained in the Image.
         :param _builtins.bool rapid_deploy: Whether the Image is optimized for a rapid deployment.
         :param _builtins.str type: Type of the Image, for example `system`, `backup` or `snapshot`.
+        :param _builtins.str unavailable_after: Date of the Image removal. After this date, the Image cannot be used anymore.
         """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "deprecated", deprecated)
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "os_flavor", os_flavor)
         pulumi.set(__self__, "os_version", os_version)
         pulumi.set(__self__, "rapid_deploy", rapid_deploy)
         pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
 
     @_builtins.property
     @pulumi.getter
@@ -1624,11 +1633,20 @@ class GetImagesImageResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute is deprecated, use deprecation_announced instead.""")
     def deprecated(self) -> _builtins.str:
         """
         Point in time when the Image was marked as deprecated (in RFC3339 format).
         """
         return pulumi.get(self, "deprecated")
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Image deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
 
     @_builtins.property
     @pulumi.getter
@@ -1645,6 +1663,14 @@ class GetImagesImageResult(dict):
         ID of the Image.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Image is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @_builtins.property
     @pulumi.getter
@@ -1693,6 +1719,14 @@ class GetImagesImageResult(dict):
         Type of the Image, for example `system`, `backup` or `snapshot`.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Image removal. After this date, the Image cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
 
 
 @pulumi.output_type

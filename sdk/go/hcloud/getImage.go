@@ -108,13 +108,19 @@ type GetImageResult struct {
 	// Point in time when the Image was created (in RFC3339 format).
 	Created string `pulumi:"created"`
 	// Point in time when the Image was marked as deprecated (in RFC3339 format).
+	//
+	// Deprecated: This attribute is deprecated, use deprecationAnnounced instead.
 	Deprecated string `pulumi:"deprecated"`
+	// Date of the Image deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// Description of the Image.
 	Description string `pulumi:"description"`
 	// ID of the Image.
 	Id *int `pulumi:"id"`
 	// Include deprecated images.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
+	// Whether the Image is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Sort results by created date, and return the most recent result.
@@ -133,6 +139,8 @@ type GetImageResult struct {
 	Selector *string `pulumi:"selector"`
 	// Type of the Image, for example `system`, `backup` or `snapshot`.
 	Type string `pulumi:"type"`
+	// Date of the Image removal. After this date, the Image cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
 	// Filter results by architecture, for example `x86` (default) or `arm`.
 	WithArchitecture *string `pulumi:"withArchitecture"`
 	// Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/hetzner#label-selector).
@@ -198,8 +206,15 @@ func (o GetImageResultOutput) Created() pulumi.StringOutput {
 }
 
 // Point in time when the Image was marked as deprecated (in RFC3339 format).
+//
+// Deprecated: This attribute is deprecated, use deprecationAnnounced instead.
 func (o GetImageResultOutput) Deprecated() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Deprecated }).(pulumi.StringOutput)
+}
+
+// Date of the Image deprecation announcement.
+func (o GetImageResultOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
 
 // Description of the Image.
@@ -215,6 +230,11 @@ func (o GetImageResultOutput) Id() pulumi.IntPtrOutput {
 // Include deprecated images.
 func (o GetImageResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the Image is deprecated.
+func (o GetImageResultOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageResult) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
 // User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -257,6 +277,11 @@ func (o GetImageResultOutput) Selector() pulumi.StringPtrOutput {
 // Type of the Image, for example `system`, `backup` or `snapshot`.
 func (o GetImageResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Date of the Image removal. After this date, the Image cannot be used anymore.
+func (o GetImageResultOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
 
 // Filter results by architecture, for example `x86` (default) or `arm`.

@@ -104,8 +104,14 @@ export interface GetImageResult {
     readonly created: string;
     /**
      * Point in time when the Image was marked as deprecated (in RFC3339 format).
+     *
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      */
     readonly deprecated: string;
+    /**
+     * Date of the Image deprecation announcement.
+     */
+    readonly deprecationAnnounced: string;
     /**
      * Description of the Image.
      */
@@ -118,6 +124,10 @@ export interface GetImageResult {
      * Include deprecated images.
      */
     readonly includeDeprecated?: boolean;
+    /**
+     * Whether the Image is deprecated.
+     */
+    readonly isDeprecated: boolean;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
@@ -152,6 +162,10 @@ export interface GetImageResult {
      * Type of the Image, for example `system`, `backup` or `snapshot`.
      */
     readonly type: string;
+    /**
+     * Date of the Image removal. After this date, the Image cannot be used anymore.
+     */
+    readonly unavailableAfter: string;
     /**
      * Filter results by architecture, for example `x86` (default) or `arm`.
      */

@@ -307,6 +307,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Deprecated;
         /// <summary>
+        /// Date of the Image deprecation announcement.
+        /// </summary>
+        public readonly string DeprecationAnnounced;
+        /// <summary>
         /// Description of the Image.
         /// </summary>
         public readonly string Description;
@@ -318,6 +322,10 @@ namespace Pulumi.HCloud
         /// Include deprecated images.
         /// </summary>
         public readonly bool? IncludeDeprecated;
+        /// <summary>
+        /// Whether the Image is deprecated.
+        /// </summary>
+        public readonly bool IsDeprecated;
         /// <summary>
         /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
@@ -351,6 +359,10 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Date of the Image removal. After this date, the Image cannot be used anymore.
+        /// </summary>
+        public readonly string UnavailableAfter;
+        /// <summary>
         /// Filter results by architecture, for example `X86` (default) or `Arm`.
         /// </summary>
         public readonly string? WithArchitecture;
@@ -371,11 +383,15 @@ namespace Pulumi.HCloud
 
             string deprecated,
 
+            string deprecationAnnounced,
+
             string description,
 
             int? id,
 
             bool? includeDeprecated,
+
+            bool isDeprecated,
 
             ImmutableDictionary<string, string> labels,
 
@@ -393,6 +409,8 @@ namespace Pulumi.HCloud
 
             string type,
 
+            string unavailableAfter,
+
             string? withArchitecture,
 
             string? withSelector,
@@ -402,9 +420,11 @@ namespace Pulumi.HCloud
             Architecture = architecture;
             Created = created;
             Deprecated = deprecated;
+            DeprecationAnnounced = deprecationAnnounced;
             Description = description;
             Id = id;
             IncludeDeprecated = includeDeprecated;
+            IsDeprecated = isDeprecated;
             Labels = labels;
             MostRecent = mostRecent;
             Name = name;
@@ -413,6 +433,7 @@ namespace Pulumi.HCloud
             RapidDeploy = rapidDeploy;
             Selector = selector;
             Type = type;
+            UnavailableAfter = unavailableAfter;
             WithArchitecture = withArchitecture;
             WithSelector = withSelector;
             WithStatuses = withStatuses;

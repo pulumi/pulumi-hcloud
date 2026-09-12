@@ -177,8 +177,14 @@ export interface GetImagesImage {
     created: string;
     /**
      * Point in time when the Image was marked as deprecated (in RFC3339 format).
+     *
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      */
     deprecated: string;
+    /**
+     * Date of the Image deprecation announcement.
+     */
+    deprecationAnnounced: string;
     /**
      * Description of the Image.
      */
@@ -187,6 +193,10 @@ export interface GetImagesImage {
      * ID of the Image.
      */
     id: number;
+    /**
+     * Whether the Image is deprecated.
+     */
+    isDeprecated: boolean;
     /**
      * User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      */
@@ -211,6 +221,10 @@ export interface GetImagesImage {
      * Type of the Image, for example `system`, `backup` or `snapshot`.
      */
     type: string;
+    /**
+     * Date of the Image removal. After this date, the Image cannot be used anymore.
+     */
+    unavailableAfter: string;
 }
 
 export interface GetLoadBalancerAlgorithm {
