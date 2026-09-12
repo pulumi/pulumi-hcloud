@@ -26,7 +26,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, architecture=None, created=None, deprecated=None, description=None, id=None, include_deprecated=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, with_architecture=None, with_selector=None, with_statuses=None):
+    def __init__(__self__, architecture=None, created=None, deprecated=None, deprecation_announced=None, description=None, id=None, include_deprecated=None, is_deprecated=None, labels=None, most_recent=None, name=None, os_flavor=None, os_version=None, rapid_deploy=None, selector=None, type=None, unavailable_after=None, with_architecture=None, with_selector=None, with_statuses=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -36,6 +36,9 @@ class GetImageResult:
         if deprecated and not isinstance(deprecated, str):
             raise TypeError("Expected argument 'deprecated' to be a str")
         pulumi.set(__self__, "deprecated", deprecated)
+        if deprecation_announced and not isinstance(deprecation_announced, str):
+            raise TypeError("Expected argument 'deprecation_announced' to be a str")
+        pulumi.set(__self__, "deprecation_announced", deprecation_announced)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +48,9 @@ class GetImageResult:
         if include_deprecated and not isinstance(include_deprecated, bool):
             raise TypeError("Expected argument 'include_deprecated' to be a bool")
         pulumi.set(__self__, "include_deprecated", include_deprecated)
+        if is_deprecated and not isinstance(is_deprecated, bool):
+            raise TypeError("Expected argument 'is_deprecated' to be a bool")
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
@@ -69,6 +75,9 @@ class GetImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if unavailable_after and not isinstance(unavailable_after, str):
+            raise TypeError("Expected argument 'unavailable_after' to be a str")
+        pulumi.set(__self__, "unavailable_after", unavailable_after)
         if with_architecture and not isinstance(with_architecture, str):
             raise TypeError("Expected argument 'with_architecture' to be a str")
         pulumi.set(__self__, "with_architecture", with_architecture)
@@ -97,11 +106,20 @@ class GetImageResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute is deprecated, use deprecation_announced instead.""")
     def deprecated(self) -> _builtins.str:
         """
         Point in time when the Image was marked as deprecated (in RFC3339 format).
         """
         return pulumi.get(self, "deprecated")
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationAnnounced")
+    def deprecation_announced(self) -> _builtins.str:
+        """
+        Date of the Image deprecation announcement.
+        """
+        return pulumi.get(self, "deprecation_announced")
 
     @_builtins.property
     @pulumi.getter
@@ -126,6 +144,14 @@ class GetImageResult:
         Include deprecated images.
         """
         return pulumi.get(self, "include_deprecated")
+
+    @_builtins.property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> _builtins.bool:
+        """
+        Whether the Image is deprecated.
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @_builtins.property
     @pulumi.getter
@@ -193,6 +219,14 @@ class GetImageResult:
         return pulumi.get(self, "type")
 
     @_builtins.property
+    @pulumi.getter(name="unavailableAfter")
+    def unavailable_after(self) -> _builtins.str:
+        """
+        Date of the Image removal. After this date, the Image cannot be used anymore.
+        """
+        return pulumi.get(self, "unavailable_after")
+
+    @_builtins.property
     @pulumi.getter(name="withArchitecture")
     def with_architecture(self) -> Optional[_builtins.str]:
         """
@@ -226,9 +260,11 @@ class AwaitableGetImageResult(GetImageResult):
             architecture=self.architecture,
             created=self.created,
             deprecated=self.deprecated,
+            deprecation_announced=self.deprecation_announced,
             description=self.description,
             id=self.id,
             include_deprecated=self.include_deprecated,
+            is_deprecated=self.is_deprecated,
             labels=self.labels,
             most_recent=self.most_recent,
             name=self.name,
@@ -237,6 +273,7 @@ class AwaitableGetImageResult(GetImageResult):
             rapid_deploy=self.rapid_deploy,
             selector=self.selector,
             type=self.type,
+            unavailable_after=self.unavailable_after,
             with_architecture=self.with_architecture,
             with_selector=self.with_selector,
             with_statuses=self.with_statuses)
@@ -300,9 +337,11 @@ def get_image(id: Optional[_builtins.int] = None,
         architecture=pulumi.get(__ret__, 'architecture'),
         created=pulumi.get(__ret__, 'created'),
         deprecated=pulumi.get(__ret__, 'deprecated'),
+        deprecation_announced=pulumi.get(__ret__, 'deprecation_announced'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
+        is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
         labels=pulumi.get(__ret__, 'labels'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
@@ -311,6 +350,7 @@ def get_image(id: Optional[_builtins.int] = None,
         rapid_deploy=pulumi.get(__ret__, 'rapid_deploy'),
         selector=pulumi.get(__ret__, 'selector'),
         type=pulumi.get(__ret__, 'type'),
+        unavailable_after=pulumi.get(__ret__, 'unavailable_after'),
         with_architecture=pulumi.get(__ret__, 'with_architecture'),
         with_selector=pulumi.get(__ret__, 'with_selector'),
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
@@ -371,9 +411,11 @@ def get_image_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
         architecture=pulumi.get(__response__, 'architecture'),
         created=pulumi.get(__response__, 'created'),
         deprecated=pulumi.get(__response__, 'deprecated'),
+        deprecation_announced=pulumi.get(__response__, 'deprecation_announced'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
         labels=pulumi.get(__response__, 'labels'),
         most_recent=pulumi.get(__response__, 'most_recent'),
         name=pulumi.get(__response__, 'name'),
@@ -382,6 +424,7 @@ def get_image_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
         rapid_deploy=pulumi.get(__response__, 'rapid_deploy'),
         selector=pulumi.get(__response__, 'selector'),
         type=pulumi.get(__response__, 'type'),
+        unavailable_after=pulumi.get(__response__, 'unavailable_after'),
         with_architecture=pulumi.get(__response__, 'with_architecture'),
         with_selector=pulumi.get(__response__, 'with_selector'),
         with_statuses=pulumi.get(__response__, 'with_statuses')))

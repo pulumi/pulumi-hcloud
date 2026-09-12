@@ -3508,11 +3508,17 @@ type GetImagesImage struct {
 	// Point in time when the Image was created (in RFC3339 format).
 	Created string `pulumi:"created"`
 	// Point in time when the Image was marked as deprecated (in RFC3339 format).
+	//
+	// Deprecated: This attribute is deprecated, use deprecationAnnounced instead.
 	Deprecated string `pulumi:"deprecated"`
+	// Date of the Image deprecation announcement.
+	DeprecationAnnounced string `pulumi:"deprecationAnnounced"`
 	// Description of the Image.
 	Description string `pulumi:"description"`
 	// ID of the Image.
 	Id int `pulumi:"id"`
+	// Whether the Image is deprecated.
+	IsDeprecated bool `pulumi:"isDeprecated"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the Image, only present when the type is `system`.
@@ -3525,6 +3531,8 @@ type GetImagesImage struct {
 	RapidDeploy bool `pulumi:"rapidDeploy"`
 	// Type of the Image, for example `system`, `backup` or `snapshot`.
 	Type string `pulumi:"type"`
+	// Date of the Image removal. After this date, the Image cannot be used anymore.
+	UnavailableAfter string `pulumi:"unavailableAfter"`
 }
 
 // GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
@@ -3544,11 +3552,17 @@ type GetImagesImageArgs struct {
 	// Point in time when the Image was created (in RFC3339 format).
 	Created pulumi.StringInput `pulumi:"created"`
 	// Point in time when the Image was marked as deprecated (in RFC3339 format).
+	//
+	// Deprecated: This attribute is deprecated, use deprecationAnnounced instead.
 	Deprecated pulumi.StringInput `pulumi:"deprecated"`
+	// Date of the Image deprecation announcement.
+	DeprecationAnnounced pulumi.StringInput `pulumi:"deprecationAnnounced"`
 	// Description of the Image.
 	Description pulumi.StringInput `pulumi:"description"`
 	// ID of the Image.
 	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the Image is deprecated.
+	IsDeprecated pulumi.BoolInput `pulumi:"isDeprecated"`
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the Image, only present when the type is `system`.
@@ -3561,6 +3575,8 @@ type GetImagesImageArgs struct {
 	RapidDeploy pulumi.BoolInput `pulumi:"rapidDeploy"`
 	// Type of the Image, for example `system`, `backup` or `snapshot`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Date of the Image removal. After this date, the Image cannot be used anymore.
+	UnavailableAfter pulumi.StringInput `pulumi:"unavailableAfter"`
 }
 
 func (GetImagesImageArgs) ElementType() reflect.Type {
@@ -3625,8 +3641,15 @@ func (o GetImagesImageOutput) Created() pulumi.StringOutput {
 }
 
 // Point in time when the Image was marked as deprecated (in RFC3339 format).
+//
+// Deprecated: This attribute is deprecated, use deprecationAnnounced instead.
 func (o GetImagesImageOutput) Deprecated() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Deprecated }).(pulumi.StringOutput)
+}
+
+// Date of the Image deprecation announcement.
+func (o GetImagesImageOutput) DeprecationAnnounced() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.DeprecationAnnounced }).(pulumi.StringOutput)
 }
 
 // Description of the Image.
@@ -3637,6 +3660,11 @@ func (o GetImagesImageOutput) Description() pulumi.StringOutput {
 // ID of the Image.
 func (o GetImagesImageOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImagesImage) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Whether the Image is deprecated.
+func (o GetImagesImageOutput) IsDeprecated() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImagesImage) bool { return v.IsDeprecated }).(pulumi.BoolOutput)
 }
 
 // User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -3667,6 +3695,11 @@ func (o GetImagesImageOutput) RapidDeploy() pulumi.BoolOutput {
 // Type of the Image, for example `system`, `backup` or `snapshot`.
 func (o GetImagesImageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImagesImage) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Date of the Image removal. After this date, the Image cannot be used anymore.
+func (o GetImagesImageOutput) UnavailableAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.UnavailableAfter }).(pulumi.StringOutput)
 }
 
 type GetImagesImageArrayOutput struct{ *pulumi.OutputState }

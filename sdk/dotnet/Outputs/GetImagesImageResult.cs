@@ -26,6 +26,10 @@ namespace Pulumi.HCloud.Outputs
         /// </summary>
         public readonly string Deprecated;
         /// <summary>
+        /// Date of the Image deprecation announcement.
+        /// </summary>
+        public readonly string DeprecationAnnounced;
+        /// <summary>
         /// Description of the Image.
         /// </summary>
         public readonly string Description;
@@ -33,6 +37,10 @@ namespace Pulumi.HCloud.Outputs
         /// ID of the Image.
         /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Whether the Image is deprecated.
+        /// </summary>
+        public readonly bool IsDeprecated;
         /// <summary>
         /// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         /// </summary>
@@ -57,6 +65,10 @@ namespace Pulumi.HCloud.Outputs
         /// Type of the Image, for example `System`, `Backup` or `Snapshot`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Date of the Image removal. After this date, the Image cannot be used anymore.
+        /// </summary>
+        public readonly string UnavailableAfter;
 
         [OutputConstructor]
         private GetImagesImageResult(
@@ -66,9 +78,13 @@ namespace Pulumi.HCloud.Outputs
 
             string deprecated,
 
+            string deprecationAnnounced,
+
             string description,
 
             int id,
+
+            bool isDeprecated,
 
             ImmutableDictionary<string, string> labels,
 
@@ -80,19 +96,24 @@ namespace Pulumi.HCloud.Outputs
 
             bool rapidDeploy,
 
-            string type)
+            string type,
+
+            string unavailableAfter)
         {
             Architecture = architecture;
             Created = created;
             Deprecated = deprecated;
+            DeprecationAnnounced = deprecationAnnounced;
             Description = description;
             Id = id;
+            IsDeprecated = isDeprecated;
             Labels = labels;
             Name = name;
             OsFlavor = osFlavor;
             OsVersion = osVersion;
             RapidDeploy = rapidDeploy;
             Type = type;
+            UnavailableAfter = unavailableAfter;
         }
     }
 }

@@ -29,8 +29,17 @@ public final class GetImageResult {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
+     * @deprecated
+     * This attribute is deprecated, use deprecationAnnounced instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
     private String deprecated;
+    /**
+     * @return Date of the Image deprecation announcement.
+     * 
+     */
+    private String deprecationAnnounced;
     /**
      * @return Description of the Image.
      * 
@@ -46,6 +55,11 @@ public final class GetImageResult {
      * 
      */
     private @Nullable Boolean includeDeprecated;
+    /**
+     * @return Whether the Image is deprecated.
+     * 
+     */
+    private Boolean isDeprecated;
     /**
      * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
@@ -91,6 +105,11 @@ public final class GetImageResult {
      */
     private String type;
     /**
+     * @return Date of the Image removal. After this date, the Image cannot be used anymore.
+     * 
+     */
+    private String unavailableAfter;
+    /**
      * @return Filter results by architecture, for example `x86` (default) or `arm`.
      * 
      */
@@ -124,9 +143,20 @@ public final class GetImageResult {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
+     * @deprecated
+     * This attribute is deprecated, use deprecationAnnounced instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
     public String deprecated() {
         return this.deprecated;
+    }
+    /**
+     * @return Date of the Image deprecation announcement.
+     * 
+     */
+    public String deprecationAnnounced() {
+        return this.deprecationAnnounced;
     }
     /**
      * @return Description of the Image.
@@ -148,6 +178,13 @@ public final class GetImageResult {
      */
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
+    }
+    /**
+     * @return Whether the Image is deprecated.
+     * 
+     */
+    public Boolean isDeprecated() {
+        return this.isDeprecated;
     }
     /**
      * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -210,6 +247,13 @@ public final class GetImageResult {
         return this.type;
     }
     /**
+     * @return Date of the Image removal. After this date, the Image cannot be used anymore.
+     * 
+     */
+    public String unavailableAfter() {
+        return this.unavailableAfter;
+    }
+    /**
      * @return Filter results by architecture, for example `x86` (default) or `arm`.
      * 
      */
@@ -243,9 +287,11 @@ public final class GetImageResult {
         private String architecture;
         private String created;
         private String deprecated;
+        private String deprecationAnnounced;
         private String description;
         private @Nullable Integer id;
         private @Nullable Boolean includeDeprecated;
+        private Boolean isDeprecated;
         private Map<String,String> labels;
         private @Nullable Boolean mostRecent;
         private @Nullable String name;
@@ -254,6 +300,7 @@ public final class GetImageResult {
         private Boolean rapidDeploy;
         private @Nullable String selector;
         private String type;
+        private String unavailableAfter;
         private @Nullable String withArchitecture;
         private @Nullable String withSelector;
         private @Nullable List<String> withStatuses;
@@ -263,9 +310,11 @@ public final class GetImageResult {
     	      this.architecture = defaults.architecture;
     	      this.created = defaults.created;
     	      this.deprecated = defaults.deprecated;
+    	      this.deprecationAnnounced = defaults.deprecationAnnounced;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.includeDeprecated = defaults.includeDeprecated;
+    	      this.isDeprecated = defaults.isDeprecated;
     	      this.labels = defaults.labels;
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
@@ -274,6 +323,7 @@ public final class GetImageResult {
     	      this.rapidDeploy = defaults.rapidDeploy;
     	      this.selector = defaults.selector;
     	      this.type = defaults.type;
+    	      this.unavailableAfter = defaults.unavailableAfter;
     	      this.withArchitecture = defaults.withArchitecture;
     	      this.withSelector = defaults.withSelector;
     	      this.withStatuses = defaults.withStatuses;
@@ -304,6 +354,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder deprecationAnnounced(String deprecationAnnounced) {
+            if (deprecationAnnounced == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "deprecationAnnounced");
+            }
+            this.deprecationAnnounced = deprecationAnnounced;
+            return this;
+        }
+        @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "description");
@@ -321,6 +379,14 @@ public final class GetImageResult {
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
 
             this.includeDeprecated = includeDeprecated;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isDeprecated(Boolean isDeprecated) {
+            if (isDeprecated == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "isDeprecated");
+            }
+            this.isDeprecated = isDeprecated;
             return this;
         }
         @CustomType.Setter
@@ -382,6 +448,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder unavailableAfter(String unavailableAfter) {
+            if (unavailableAfter == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "unavailableAfter");
+            }
+            this.unavailableAfter = unavailableAfter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder withArchitecture(@Nullable String withArchitecture) {
 
             this.withArchitecture = withArchitecture;
@@ -407,9 +481,11 @@ public final class GetImageResult {
             _resultValue.architecture = architecture;
             _resultValue.created = created;
             _resultValue.deprecated = deprecated;
+            _resultValue.deprecationAnnounced = deprecationAnnounced;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.includeDeprecated = includeDeprecated;
+            _resultValue.isDeprecated = isDeprecated;
             _resultValue.labels = labels;
             _resultValue.mostRecent = mostRecent;
             _resultValue.name = name;
@@ -418,6 +494,7 @@ public final class GetImageResult {
             _resultValue.rapidDeploy = rapidDeploy;
             _resultValue.selector = selector;
             _resultValue.type = type;
+            _resultValue.unavailableAfter = unavailableAfter;
             _resultValue.withArchitecture = withArchitecture;
             _resultValue.withSelector = withSelector;
             _resultValue.withStatuses = withStatuses;

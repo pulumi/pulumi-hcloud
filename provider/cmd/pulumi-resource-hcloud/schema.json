@@ -853,7 +853,12 @@
                 },
                 "deprecated": {
                     "type": "string",
-                    "description": "Point in time when the Image was marked as deprecated (in RFC3339 format).\n"
+                    "description": "Point in time when the Image was marked as deprecated (in RFC3339 format).\n",
+                    "deprecationMessage": "This attribute is deprecated, use\u003cspan pulumi-lang-nodejs=\" deprecationAnnounced \" pulumi-lang-dotnet=\" DeprecationAnnounced \" pulumi-lang-go=\" deprecationAnnounced \" pulumi-lang-python=\" deprecation_announced \" pulumi-lang-yaml=\" deprecationAnnounced \" pulumi-lang-java=\" deprecationAnnounced \" pulumi-lang-hcl=\" deprecation_announced \"\u003e deprecationAnnounced \u003c/span\u003einstead."
+                },
+                "deprecationAnnounced": {
+                    "type": "string",
+                    "description": "Date of the Image deprecation announcement.\n"
                 },
                 "description": {
                     "type": "string",
@@ -862,6 +867,10 @@
                 "id": {
                     "type": "integer",
                     "description": "ID of the Image.\n"
+                },
+                "isDeprecated": {
+                    "type": "boolean",
+                    "description": "Whether the Image is deprecated.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -889,6 +898,10 @@
                 "type": {
                     "type": "string",
                     "description": "Type of the Image, for example \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`backup`\" pulumi-lang-dotnet=\"`Backup`\" pulumi-lang-go=\"`backup`\" pulumi-lang-python=\"`backup`\" pulumi-lang-yaml=\"`backup`\" pulumi-lang-java=\"`backup`\" pulumi-lang-hcl=\"`backup`\"\u003e`backup`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`snapshot`\" pulumi-lang-dotnet=\"`Snapshot`\" pulumi-lang-go=\"`snapshot`\" pulumi-lang-python=\"`snapshot`\" pulumi-lang-yaml=\"`snapshot`\" pulumi-lang-java=\"`snapshot`\" pulumi-lang-hcl=\"`snapshot`\"\u003e`snapshot`\u003c/span\u003e.\n"
+                },
+                "unavailableAfter": {
+                    "type": "string",
+                    "description": "Date of the Image removal. After this date, the Image cannot be used anymore.\n"
                 }
             },
             "type": "object",
@@ -896,14 +909,17 @@
                 "architecture",
                 "created",
                 "deprecated",
+                "deprecationAnnounced",
                 "description",
                 "id",
+                "isDeprecated",
                 "labels",
                 "name",
                 "osFlavor",
                 "osVersion",
                 "rapidDeploy",
-                "type"
+                "type",
+                "unavailableAfter"
             ],
             "language": {
                 "nodejs": {
@@ -6926,7 +6942,12 @@
                         "type": "string"
                     },
                     "deprecated": {
+                        "deprecationMessage": "This attribute is deprecated, use\u003cspan pulumi-lang-nodejs=\" deprecationAnnounced \" pulumi-lang-dotnet=\" DeprecationAnnounced \" pulumi-lang-go=\" deprecationAnnounced \" pulumi-lang-python=\" deprecation_announced \" pulumi-lang-yaml=\" deprecationAnnounced \" pulumi-lang-java=\" deprecationAnnounced \" pulumi-lang-hcl=\" deprecation_announced \"\u003e deprecationAnnounced \u003c/span\u003einstead.",
                         "description": "Point in time when the Image was marked as deprecated (in RFC3339 format).\n",
+                        "type": "string"
+                    },
+                    "deprecationAnnounced": {
+                        "description": "Date of the Image deprecation announcement.\n",
                         "type": "string"
                     },
                     "description": {
@@ -6939,6 +6960,10 @@
                     },
                     "includeDeprecated": {
                         "description": "Include deprecated images.\n",
+                        "type": "boolean"
+                    },
+                    "isDeprecated": {
+                        "description": "Whether the Image is deprecated.\n",
                         "type": "boolean"
                     },
                     "labels": {
@@ -6977,6 +7002,10 @@
                         "description": "Type of the Image, for example \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`backup`\" pulumi-lang-dotnet=\"`Backup`\" pulumi-lang-go=\"`backup`\" pulumi-lang-python=\"`backup`\" pulumi-lang-yaml=\"`backup`\" pulumi-lang-java=\"`backup`\" pulumi-lang-hcl=\"`backup`\"\u003e`backup`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`snapshot`\" pulumi-lang-dotnet=\"`Snapshot`\" pulumi-lang-go=\"`snapshot`\" pulumi-lang-python=\"`snapshot`\" pulumi-lang-yaml=\"`snapshot`\" pulumi-lang-java=\"`snapshot`\" pulumi-lang-hcl=\"`snapshot`\"\u003e`snapshot`\u003c/span\u003e.\n",
                         "type": "string"
                     },
+                    "unavailableAfter": {
+                        "description": "Date of the Image removal. After this date, the Image cannot be used anymore.\n",
+                        "type": "string"
+                    },
                     "withArchitecture": {
                         "description": "Filter results by architecture, for example \u003cspan pulumi-lang-nodejs=\"`x86`\" pulumi-lang-dotnet=\"`X86`\" pulumi-lang-go=\"`x86`\" pulumi-lang-python=\"`x86`\" pulumi-lang-yaml=\"`x86`\" pulumi-lang-java=\"`x86`\" pulumi-lang-hcl=\"`x86`\"\u003e`x86`\u003c/span\u003e (default) or \u003cspan pulumi-lang-nodejs=\"`arm`\" pulumi-lang-dotnet=\"`Arm`\" pulumi-lang-go=\"`arm`\" pulumi-lang-python=\"`arm`\" pulumi-lang-yaml=\"`arm`\" pulumi-lang-java=\"`arm`\" pulumi-lang-hcl=\"`arm`\"\u003e`arm`\u003c/span\u003e.\n",
                         "type": "string"
@@ -6997,12 +7026,15 @@
                     "architecture",
                     "created",
                     "deprecated",
+                    "deprecationAnnounced",
                     "description",
+                    "isDeprecated",
                     "labels",
                     "osFlavor",
                     "osVersion",
                     "rapidDeploy",
-                    "type"
+                    "type",
+                    "unavailableAfter"
                 ],
                 "type": "object"
             }

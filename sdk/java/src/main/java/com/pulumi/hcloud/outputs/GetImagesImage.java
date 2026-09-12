@@ -26,8 +26,17 @@ public final class GetImagesImage {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
+     * @deprecated
+     * This attribute is deprecated, use deprecationAnnounced instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
     private String deprecated;
+    /**
+     * @return Date of the Image deprecation announcement.
+     * 
+     */
+    private String deprecationAnnounced;
     /**
      * @return Description of the Image.
      * 
@@ -38,6 +47,11 @@ public final class GetImagesImage {
      * 
      */
     private Integer id;
+    /**
+     * @return Whether the Image is deprecated.
+     * 
+     */
+    private Boolean isDeprecated;
     /**
      * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
      * 
@@ -68,6 +82,11 @@ public final class GetImagesImage {
      * 
      */
     private String type;
+    /**
+     * @return Date of the Image removal. After this date, the Image cannot be used anymore.
+     * 
+     */
+    private String unavailableAfter;
 
     private GetImagesImage() {}
     /**
@@ -87,9 +106,20 @@ public final class GetImagesImage {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
+     * @deprecated
+     * This attribute is deprecated, use deprecationAnnounced instead.
+     * 
      */
+    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
     public String deprecated() {
         return this.deprecated;
+    }
+    /**
+     * @return Date of the Image deprecation announcement.
+     * 
+     */
+    public String deprecationAnnounced() {
+        return this.deprecationAnnounced;
     }
     /**
      * @return Description of the Image.
@@ -104,6 +134,13 @@ public final class GetImagesImage {
      */
     public Integer id() {
         return this.id;
+    }
+    /**
+     * @return Whether the Image is deprecated.
+     * 
+     */
+    public Boolean isDeprecated() {
+        return this.isDeprecated;
     }
     /**
      * @return User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
@@ -147,6 +184,13 @@ public final class GetImagesImage {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Date of the Image removal. After this date, the Image cannot be used anymore.
+     * 
+     */
+    public String unavailableAfter() {
+        return this.unavailableAfter;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -160,28 +204,34 @@ public final class GetImagesImage {
         private String architecture;
         private String created;
         private String deprecated;
+        private String deprecationAnnounced;
         private String description;
         private Integer id;
+        private Boolean isDeprecated;
         private Map<String,String> labels;
         private String name;
         private String osFlavor;
         private String osVersion;
         private Boolean rapidDeploy;
         private String type;
+        private String unavailableAfter;
         public Builder() {}
         public Builder(GetImagesImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
     	      this.created = defaults.created;
     	      this.deprecated = defaults.deprecated;
+    	      this.deprecationAnnounced = defaults.deprecationAnnounced;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.isDeprecated = defaults.isDeprecated;
     	      this.labels = defaults.labels;
     	      this.name = defaults.name;
     	      this.osFlavor = defaults.osFlavor;
     	      this.osVersion = defaults.osVersion;
     	      this.rapidDeploy = defaults.rapidDeploy;
     	      this.type = defaults.type;
+    	      this.unavailableAfter = defaults.unavailableAfter;
         }
 
         @CustomType.Setter
@@ -209,6 +259,14 @@ public final class GetImagesImage {
             return this;
         }
         @CustomType.Setter
+        public Builder deprecationAnnounced(String deprecationAnnounced) {
+            if (deprecationAnnounced == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "deprecationAnnounced");
+            }
+            this.deprecationAnnounced = deprecationAnnounced;
+            return this;
+        }
+        @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
               throw new MissingRequiredPropertyException("GetImagesImage", "description");
@@ -222,6 +280,14 @@ public final class GetImagesImage {
               throw new MissingRequiredPropertyException("GetImagesImage", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isDeprecated(Boolean isDeprecated) {
+            if (isDeprecated == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "isDeprecated");
+            }
+            this.isDeprecated = isDeprecated;
             return this;
         }
         @CustomType.Setter
@@ -272,19 +338,30 @@ public final class GetImagesImage {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
+        public Builder unavailableAfter(String unavailableAfter) {
+            if (unavailableAfter == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "unavailableAfter");
+            }
+            this.unavailableAfter = unavailableAfter;
+            return this;
+        }
         public GetImagesImage build() {
             final var _resultValue = new GetImagesImage();
             _resultValue.architecture = architecture;
             _resultValue.created = created;
             _resultValue.deprecated = deprecated;
+            _resultValue.deprecationAnnounced = deprecationAnnounced;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.isDeprecated = isDeprecated;
             _resultValue.labels = labels;
             _resultValue.name = name;
             _resultValue.osFlavor = osFlavor;
             _resultValue.osVersion = osVersion;
             _resultValue.rapidDeploy = rapidDeploy;
             _resultValue.type = type;
+            _resultValue.unavailableAfter = unavailableAfter;
             return _resultValue;
         }
     }
