@@ -861,9 +861,9 @@ class Server(pulumi.CustomResource):
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]]] = None,
                  placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
-                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]]] = None,
                  rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  rescue: pulumi.Input[Optional[_builtins.str]] = None,
                  server_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1012,9 +1012,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[_builtins.int] placement_group_id: Placement Group ID the server added to on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[_builtins.bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[_builtins.str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`
@@ -1179,9 +1179,9 @@ class Server(pulumi.CustomResource):
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]]] = None,
                  placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
-                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+                 public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]]] = None,
                  rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  rescue: pulumi.Input[Optional[_builtins.str]] = None,
                  server_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1252,10 +1252,10 @@ class Server(pulumi.CustomResource):
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]]] = None,
             placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
             primary_disk_size: pulumi.Input[Optional[_builtins.int]] = None,
-            public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]]] = None,
+            public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]]] = None,
             rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             rescue: pulumi.Input[Optional[_builtins.str]] = None,
             server_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1290,10 +1290,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] location: The location name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the server to create (must be unique per project and a valid hostname as per RFC 1123).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]] networks: Network the server should be attached to on creation. (Can be specified multiple times)
         :param pulumi.Input[_builtins.int] placement_group_id: Placement Group ID the server added to on creation.
         :param pulumi.Input[_builtins.int] primary_disk_size: (int) The size of the primary disk in GB.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]] public_nets: In this block you can either enable / disable ipv4 and ipv6 or link existing primary IPs (checkout the examples).
                If this block is not defined, two primary (ipv4 & ipv6) ips getting auto generated.
         :param pulumi.Input[_builtins.bool] rebuild_protection: Enable or disable rebuild protection (Needs to be the same as `delete_protection`).
         :param pulumi.Input[_builtins.str] rescue: Enable and boot in to the specified rescue system. This enables simple installation of custom operating systems. `linux64` or `linux32`

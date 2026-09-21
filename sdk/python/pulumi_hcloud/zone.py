@@ -269,7 +269,7 @@ class Zone(pulumi.CustomResource):
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict', 'outputs.ZonePrimaryNameserver']]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -296,7 +296,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] mode: Mode of the Zone.
         :param pulumi.Input[_builtins.str] name: Name of the Zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]] primary_nameservers: Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict', 'outputs.ZonePrimaryNameserver']]]] primary_nameservers: Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
         :param pulumi.Input[_builtins.int] ttl: Default Time To Live (TTL) of the Zone.
         """
         ...
@@ -342,7 +342,7 @@ class Zone(pulumi.CustomResource):
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+                 primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict', 'outputs.ZonePrimaryNameserver']]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -373,12 +373,12 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authoritative_nameservers: pulumi.Input[Optional[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict']]] = None,
+            authoritative_nameservers: pulumi.Input[Optional[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict', 'outputs.ZoneAuthoritativeNameservers']]] = None,
             delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]]] = None,
+            primary_nameservers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict', 'outputs.ZonePrimaryNameserver']]]]] = None,
             registrar: pulumi.Input[Optional[_builtins.str]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None) -> 'Zone':
         """
@@ -388,12 +388,12 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict']] authoritative_nameservers: Authoritative nameservers of the Zone.
+        :param pulumi.Input[Union['ZoneAuthoritativeNameserversArgs', 'ZoneAuthoritativeNameserversArgsDict', 'outputs.ZoneAuthoritativeNameservers']] authoritative_nameservers: Authoritative nameservers of the Zone.
         :param pulumi.Input[_builtins.bool] delete_protection: Whether delete protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] mode: Mode of the Zone.
         :param pulumi.Input[_builtins.str] name: Name of the Zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict']]]] primary_nameservers: Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZonePrimaryNameserverArgs', 'ZonePrimaryNameserverArgsDict', 'outputs.ZonePrimaryNameserver']]]] primary_nameservers: Primary nameservers of the Zone. Forbidden when mode is primary and required when mode is secondary.
         :param pulumi.Input[_builtins.str] registrar: Registrar of the Zone.
         :param pulumi.Input[_builtins.int] ttl: Default Time To Live (TTL) of the Zone.
         """

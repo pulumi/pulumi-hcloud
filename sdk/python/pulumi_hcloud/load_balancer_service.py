@@ -265,8 +265,8 @@ class LoadBalancerService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']]] = None,
+                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']]] = None,
                  listen_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,8 +345,8 @@ class LoadBalancerService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
-        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']] health_check: Health Check configuration when `protocol` is `http` or `https`.
-        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']] http: HTTP configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']] health_check: Health Check configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']] http: HTTP configuration when `protocol` is `http` or `https`.
         :param pulumi.Input[_builtins.int] listen_port: Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[_builtins.str] load_balancer_id: Id of the load balancer this service belongs to.
         :param pulumi.Input[_builtins.str] protocol: Protocol of the service. `http`, `https` or `tcp`
@@ -444,8 +444,8 @@ class LoadBalancerService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']]] = None,
+                 http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']]] = None,
                  listen_port: pulumi.Input[Optional[_builtins.int]] = None,
                  load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -481,8 +481,8 @@ class LoadBalancerService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_port: pulumi.Input[Optional[_builtins.int]] = None,
-            health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']]] = None,
-            http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']]] = None,
+            http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']]] = None,
             listen_port: pulumi.Input[Optional[_builtins.int]] = None,
             load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None,
@@ -495,8 +495,8 @@ class LoadBalancerService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] destination_port: Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
-        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict']] health_check: Health Check configuration when `protocol` is `http` or `https`.
-        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict']] http: HTTP configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']] health_check: Health Check configuration when `protocol` is `http` or `https`.
+        :param pulumi.Input[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']] http: HTTP configuration when `protocol` is `http` or `https`.
         :param pulumi.Input[_builtins.int] listen_port: Port the service listen on, required if protocol is `tcp`. Can be everything between `1` and `65535`. Must be unique per Load Balancer.
         :param pulumi.Input[_builtins.str] load_balancer_id: Id of the load balancer this service belongs to.
         :param pulumi.Input[_builtins.str] protocol: Protocol of the service. `http`, `https` or `tcp`

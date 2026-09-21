@@ -266,7 +266,7 @@ class ZoneRrset(pulumi.CustomResource):
                  change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict']]]]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict', 'outputs.ZoneRrsetRecord']]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -310,7 +310,7 @@ class ZoneRrset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] change_protection: Whether change protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Zone RRSet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict']]]] records: Records of the Zone RRSet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict', 'outputs.ZoneRrsetRecord']]]] records: Records of the Zone RRSet.
         :param pulumi.Input[_builtins.int] ttl: Time To Live (TTL) of the Zone RRSet.
         :param pulumi.Input[_builtins.str] type: Type of the Zone RRSet.
         :param pulumi.Input[_builtins.str] zone: ID or Name of the parent Zone.
@@ -373,7 +373,7 @@ class ZoneRrset(pulumi.CustomResource):
                  change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict']]]]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict', 'outputs.ZoneRrsetRecord']]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -412,7 +412,7 @@ class ZoneRrset(pulumi.CustomResource):
             change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict']]]]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict', 'outputs.ZoneRrsetRecord']]]]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZoneRrset':
@@ -426,7 +426,7 @@ class ZoneRrset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] change_protection: Whether change protection is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Zone RRSet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict']]]] records: Records of the Zone RRSet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZoneRrsetRecordArgs', 'ZoneRrsetRecordArgsDict', 'outputs.ZoneRrsetRecord']]]] records: Records of the Zone RRSet.
         :param pulumi.Input[_builtins.int] ttl: Time To Live (TTL) of the Zone RRSet.
         :param pulumi.Input[_builtins.str] type: Type of the Zone RRSet.
         :param pulumi.Input[_builtins.str] zone: ID or Name of the parent Zone.
