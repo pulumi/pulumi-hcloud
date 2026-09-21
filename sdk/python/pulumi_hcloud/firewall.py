@@ -170,10 +170,10 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]]] = None,
                  __props__=None):
         """
         Provides a Hetzner Cloud Firewall to represent a Firewall in the Hetzner Cloud.
@@ -223,10 +223,10 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]] apply_tos: Resources the firewall should be assigned to
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]] apply_tos: Resources the firewall should be assigned to
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]] rules: Configuration of a Rule from this Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]] rules: Configuration of a Rule from this Firewall.
         """
         ...
     @overload
@@ -295,10 +295,10 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+                 apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,10 +322,10 @@ class Firewall(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]]] = None,
+            apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]]] = None) -> 'Firewall':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]]] = None) -> 'Firewall':
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -333,10 +333,10 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict']]]] apply_tos: Resources the firewall should be assigned to
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]] apply_tos: Resources the firewall should be assigned to
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] name: Name of the Firewall.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict']]]] rules: Configuration of a Rule from this Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]] rules: Configuration of a Rule from this Firewall.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

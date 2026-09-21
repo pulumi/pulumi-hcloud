@@ -375,13 +375,13 @@ class StorageBox(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']]] = None,
+                 access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict', 'outputs.StorageBoxAccessSettings']]] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']]] = None,
+                 snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict', 'outputs.StorageBoxSnapshotPlan']]] = None,
                  ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_box_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -441,13 +441,13 @@ class StorageBox(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']] access_settings: Access settings of the Storage Box.
+        :param pulumi.Input[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict', 'outputs.StorageBoxAccessSettings']] access_settings: Access settings of the Storage Box.
         :param pulumi.Input[_builtins.bool] delete_protection: Prevent the Storage Box from being accidentally deleted outside of Terraform.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] location: Name of the Location.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
-        :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']] snapshot_plan: Details of the active snapshot plan.
+        :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict', 'outputs.StorageBoxSnapshotPlan']] snapshot_plan: Details of the active snapshot plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
         """
@@ -526,13 +526,13 @@ class StorageBox(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']]] = None,
+                 access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict', 'outputs.StorageBoxAccessSettings']]] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']]] = None,
+                 snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict', 'outputs.StorageBoxSnapshotPlan']]] = None,
                  ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_box_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -574,14 +574,14 @@ class StorageBox(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']]] = None,
+            access_settings: pulumi.Input[Optional[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict', 'outputs.StorageBoxAccessSettings']]] = None,
             delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             server: pulumi.Input[Optional[_builtins.str]] = None,
-            snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']]] = None,
+            snapshot_plan: pulumi.Input[Optional[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict', 'outputs.StorageBoxSnapshotPlan']]] = None,
             ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             storage_box_type: pulumi.Input[Optional[_builtins.str]] = None,
             system: pulumi.Input[Optional[_builtins.str]] = None,
@@ -593,14 +593,14 @@ class StorageBox(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict']] access_settings: Access settings of the Storage Box.
+        :param pulumi.Input[Union['StorageBoxAccessSettingsArgs', 'StorageBoxAccessSettingsArgsDict', 'outputs.StorageBoxAccessSettings']] access_settings: Access settings of the Storage Box.
         :param pulumi.Input[_builtins.bool] delete_protection: Prevent the Storage Box from being accidentally deleted outside of Terraform.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
         :param pulumi.Input[_builtins.str] location: Name of the Location.
         :param pulumi.Input[_builtins.str] name: Name of the Storage Box.
         :param pulumi.Input[_builtins.str] password: Password of the Storage Box. For more details, see the [Storage Boxes password policy](https://docs.hetzner.cloud/reference/hetzner#storage-boxes-password-policy).
         :param pulumi.Input[_builtins.str] server: FQDN of the Storage Box.
-        :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict']] snapshot_plan: Details of the active snapshot plan.
+        :param pulumi.Input[Union['StorageBoxSnapshotPlanArgs', 'StorageBoxSnapshotPlanArgsDict', 'outputs.StorageBoxSnapshotPlan']] snapshot_plan: Details of the active snapshot plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_keys: SSH public keys in OpenSSH format to inject into the Storage Box. It is not possible to update the SSH Keys through the API, so changing this attribute forces a replace of the Storage Box.
         :param pulumi.Input[_builtins.str] storage_box_type: Name of the Storage Box Type.
         :param pulumi.Input[_builtins.str] system: Host system of the Storage Box.

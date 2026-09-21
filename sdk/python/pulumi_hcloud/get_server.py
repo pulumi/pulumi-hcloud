@@ -319,7 +319,7 @@ class AwaitableGetServerResult(GetServerResult):
 
 def get_server(id: Optional[_builtins.int] = None,
                name: Optional[_builtins.str] = None,
-               networks: Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]] = None,
+               networks: Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict', 'outputs.GetServerNetworkResult']]] = None,
                placement_group_id: Optional[_builtins.int] = None,
                selector: Optional[_builtins.str] = None,
                with_selector: Optional[_builtins.str] = None,
@@ -352,7 +352,7 @@ def get_server(id: Optional[_builtins.int] = None,
 
     :param _builtins.int id: ID of the server.
     :param _builtins.str name: Name of the server.
-    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
+    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict', 'outputs.GetServerNetworkResult']] networks: (map) Private Network the server is attached to.
     :param _builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
     :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
@@ -395,7 +395,7 @@ def get_server(id: Optional[_builtins.int] = None,
         with_statuses=pulumi.get(__ret__, 'with_statuses'))
 def get_server_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      networks: pulumi.Input[Optional[Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']]]]] = None,
+                      networks: pulumi.Input[Optional[Optional[Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict', 'outputs.GetServerNetworkResult']]]]] = None,
                       placement_group_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                       selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       with_selector: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -428,7 +428,7 @@ def get_server_output(id: pulumi.Input[Optional[Optional[_builtins.int]]] = None
 
     :param _builtins.int id: ID of the server.
     :param _builtins.str name: Name of the server.
-    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict']] networks: (map) Private Network the server is attached to.
+    :param Sequence[Union['GetServerNetworkArgs', 'GetServerNetworkArgsDict', 'outputs.GetServerNetworkResult']] networks: (map) Private Network the server is attached to.
     :param _builtins.int placement_group_id: (Optional, string) Placement Group ID the server is assigned to.
     :param _builtins.str with_selector: Label Selector. For more information about possible values, visit the [Hetzner Cloud Documentation](https://docs.hetzner.cloud/reference/cloud#label-selector).
     :param Sequence[_builtins.str] with_statuses: List only servers with the specified status, could contain `initializing`, `starting`, `running`, `stopping`, `off`, `deleting`, `rebuilding`, `migrating`, `unknown`.
