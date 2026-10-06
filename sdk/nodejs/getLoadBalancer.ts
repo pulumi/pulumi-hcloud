@@ -75,9 +75,17 @@ export interface GetLoadBalancerResult {
      */
     readonly ipv4: string;
     /**
+     * (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+     */
+    readonly ipv4Id: number;
+    /**
      * (string) IPv4 Address of the Load Balancer.
      */
     readonly ipv6: string;
+    /**
+     * (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+     */
+    readonly ipv6Id: number;
     /**
      * (map) User-defined labels (key-value pairs) .
      */

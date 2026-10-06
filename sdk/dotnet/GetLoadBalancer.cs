@@ -188,9 +188,17 @@ namespace Pulumi.HCloud
         /// </summary>
         public readonly string Ipv4;
         /// <summary>
+        /// (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+        /// </summary>
+        public readonly int Ipv4Id;
+        /// <summary>
         /// (string) IPv4 Address of the Load Balancer.
         /// </summary>
         public readonly string Ipv6;
+        /// <summary>
+        /// (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+        /// </summary>
+        public readonly int Ipv6Id;
         /// <summary>
         /// (map) User-defined labels (key-value pairs) .
         /// </summary>
@@ -236,7 +244,11 @@ namespace Pulumi.HCloud
 
             string ipv4,
 
+            int ipv4Id,
+
             string ipv6,
+
+            int ipv6Id,
 
             ImmutableDictionary<string, string> labels,
 
@@ -262,7 +274,9 @@ namespace Pulumi.HCloud
             DeleteProtection = deleteProtection;
             Id = id;
             Ipv4 = ipv4;
+            Ipv4Id = ipv4Id;
             Ipv6 = ipv6;
+            Ipv6Id = ipv6Id;
             Labels = labels;
             LoadBalancerType = loadBalancerType;
             Location = location;

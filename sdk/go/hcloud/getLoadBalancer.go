@@ -80,8 +80,12 @@ type LookupLoadBalancerResult struct {
 	Id int `pulumi:"id"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 string `pulumi:"ipv4"`
+	// (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+	Ipv4Id int `pulumi:"ipv4Id"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv6 string `pulumi:"ipv6"`
+	// (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+	Ipv6Id int `pulumi:"ipv6Id"`
 	// (map) User-defined labels (key-value pairs) .
 	Labels map[string]string `pulumi:"labels"`
 	// (string) Name of the Type of the Load Balancer.
@@ -156,9 +160,19 @@ func (o LookupLoadBalancerResultOutput) Ipv4() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Ipv4 }).(pulumi.StringOutput)
 }
 
+// (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Ipv4Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.Ipv4Id }).(pulumi.IntOutput)
+}
+
 // (string) IPv4 Address of the Load Balancer.
 func (o LookupLoadBalancerResultOutput) Ipv6() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Ipv6 }).(pulumi.StringOutput)
+}
+
+// (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+func (o LookupLoadBalancerResultOutput) Ipv6Id() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.Ipv6Id }).(pulumi.IntOutput)
 }
 
 // (map) User-defined labels (key-value pairs) .

@@ -28,6 +28,7 @@ from .get_load_balancers import *
 from .get_location import *
 from .get_locations import *
 from .get_network import *
+from .get_network_members import *
 from .get_networks import *
 from .get_placement_group import *
 from .get_placement_groups import *

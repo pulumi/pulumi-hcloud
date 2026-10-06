@@ -36,6 +36,8 @@ import com.pulumi.hcloud.inputs.GetLoadBalancersPlainArgs;
 import com.pulumi.hcloud.inputs.GetLocationArgs;
 import com.pulumi.hcloud.inputs.GetLocationPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworkArgs;
+import com.pulumi.hcloud.inputs.GetNetworkMembersArgs;
+import com.pulumi.hcloud.inputs.GetNetworkMembersPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworkPlainArgs;
 import com.pulumi.hcloud.inputs.GetNetworksArgs;
 import com.pulumi.hcloud.inputs.GetNetworksPlainArgs;
@@ -103,6 +105,7 @@ import com.pulumi.hcloud.outputs.GetLoadBalancerTypesResult;
 import com.pulumi.hcloud.outputs.GetLoadBalancersResult;
 import com.pulumi.hcloud.outputs.GetLocationResult;
 import com.pulumi.hcloud.outputs.GetLocationsResult;
+import com.pulumi.hcloud.outputs.GetNetworkMembersResult;
 import com.pulumi.hcloud.outputs.GetNetworkResult;
 import com.pulumi.hcloud.outputs.GetNetworksResult;
 import com.pulumi.hcloud.outputs.GetPlacementGroupResult;
@@ -5769,6 +5772,61 @@ public final class HcloudFunctions {
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("hcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Network Members.
+     * 
+     * See the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetNetworkMembersResult> getNetworkMembers(GetNetworkMembersArgs args) {
+        return getNetworkMembers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Network Members.
+     * 
+     * See the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetNetworkMembersResult> getNetworkMembersPlain(GetNetworkMembersPlainArgs args) {
+        return getNetworkMembersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of Hetzner Cloud Network Members.
+     * 
+     * See the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetNetworkMembersResult> getNetworkMembers(GetNetworkMembersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getNetworkMembers:getNetworkMembers", TypeShape.of(GetNetworkMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Network Members.
+     * 
+     * See the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetNetworkMembersResult> getNetworkMembers(GetNetworkMembersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("hcloud:index/getNetworkMembers:getNetworkMembers", TypeShape.of(GetNetworkMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of Hetzner Cloud Network Members.
+     * 
+     * See the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetNetworkMembersResult> getNetworkMembersPlain(GetNetworkMembersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("hcloud:index/getNetworkMembers:getNetworkMembers", TypeShape.of(GetNetworkMembersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about multiple Hetzner Cloud Networks.

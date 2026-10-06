@@ -17,7 +17,9 @@ namespace Pulumi.HCloud.Outputs
         public readonly bool DeleteProtection;
         public readonly int Id;
         public readonly string Ipv4;
+        public readonly int Ipv4Id;
         public readonly string Ipv6;
+        public readonly int Ipv6Id;
         public readonly ImmutableDictionary<string, string> Labels;
         public readonly string LoadBalancerType;
         public readonly string Location;
@@ -38,7 +40,11 @@ namespace Pulumi.HCloud.Outputs
 
             string ipv4,
 
+            int ipv4Id,
+
             string ipv6,
+
+            int ipv6Id,
 
             ImmutableDictionary<string, string> labels,
 
@@ -62,7 +68,9 @@ namespace Pulumi.HCloud.Outputs
             DeleteProtection = deleteProtection;
             Id = id;
             Ipv4 = ipv4;
+            Ipv4Id = ipv4Id;
             Ipv6 = ipv6;
+            Ipv6Id = ipv6Id;
             Labels = labels;
             LoadBalancerType = loadBalancerType;
             Location = location;

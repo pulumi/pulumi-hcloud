@@ -76,8 +76,12 @@ type LoadBalancer struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringOutput `pulumi:"ipv4"`
+	// ID of the Primary IPv4 for the Load Balancer.
+	Ipv4Id pulumi.IntOutput `pulumi:"ipv4Id"`
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringOutput `pulumi:"ipv6"`
+	// ID of the Primary IPv6 for the Load Balancer.
+	Ipv6Id pulumi.IntOutput `pulumi:"ipv6Id"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Type of the Load Balancer.
@@ -135,8 +139,12 @@ type loadBalancerState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 *string `pulumi:"ipv4"`
+	// ID of the Primary IPv4 for the Load Balancer.
+	Ipv4Id *int `pulumi:"ipv4Id"`
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 *string `pulumi:"ipv6"`
+	// ID of the Primary IPv6 for the Load Balancer.
+	Ipv6Id *int `pulumi:"ipv6Id"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
@@ -162,8 +170,12 @@ type LoadBalancerState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// (string) IPv4 Address of the Load Balancer.
 	Ipv4 pulumi.StringPtrInput
+	// ID of the Primary IPv4 for the Load Balancer.
+	Ipv4Id pulumi.IntPtrInput
 	// (string) IPv6 Address of the Load Balancer.
 	Ipv6 pulumi.StringPtrInput
+	// ID of the Primary IPv6 for the Load Balancer.
+	Ipv6Id pulumi.IntPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
@@ -191,6 +203,10 @@ type loadBalancerArgs struct {
 	Algorithm *LoadBalancerAlgorithm `pulumi:"algorithm"`
 	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
+	// ID of the Primary IPv4 for the Load Balancer.
+	Ipv4Id *int `pulumi:"ipv4Id"`
+	// ID of the Primary IPv6 for the Load Balancer.
+	Ipv6Id *int `pulumi:"ipv6Id"`
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`
 	// Type of the Load Balancer.
@@ -211,6 +227,10 @@ type LoadBalancerArgs struct {
 	Algorithm LoadBalancerAlgorithmPtrInput
 	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection pulumi.BoolPtrInput
+	// ID of the Primary IPv4 for the Load Balancer.
+	Ipv4Id pulumi.IntPtrInput
+	// ID of the Primary IPv6 for the Load Balancer.
+	Ipv6Id pulumi.IntPtrInput
 	// User-defined labels (key-value pairs) should be created with.
 	Labels pulumi.StringMapInput
 	// Type of the Load Balancer.
@@ -327,9 +347,19 @@ func (o LoadBalancerOutput) Ipv4() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Ipv4 }).(pulumi.StringOutput)
 }
 
+// ID of the Primary IPv4 for the Load Balancer.
+func (o LoadBalancerOutput) Ipv4Id() pulumi.IntOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.IntOutput { return v.Ipv4Id }).(pulumi.IntOutput)
+}
+
 // (string) IPv6 Address of the Load Balancer.
 func (o LoadBalancerOutput) Ipv6() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Ipv6 }).(pulumi.StringOutput)
+}
+
+// ID of the Primary IPv6 for the Load Balancer.
+func (o LoadBalancerOutput) Ipv6Id() pulumi.IntOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.IntOutput { return v.Ipv6Id }).(pulumi.IntOutput)
 }
 
 // User-defined labels (key-value pairs) should be created with.

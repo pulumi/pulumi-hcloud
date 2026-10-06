@@ -541,6 +541,31 @@
                 "current": "hcloud:index/getNetwork:getNetwork",
                 "majorVersion": 1
             },
+            "hcloud_network_members": {
+                "current": "hcloud:index/getNetworkMembers:getNetworkMembers",
+                "majorVersion": 1,
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "alias_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "with_status": {
+                        "maxItemsOne": false
+                    },
+                    "with_subnet": {
+                        "maxItemsOne": false
+                    },
+                    "with_type": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "hcloud_networks": {
                 "current": "hcloud:index/getNetworks:getNetworks",
                 "majorVersion": 1,
@@ -925,6 +950,7 @@
             "hcloud:index/getLocation:getLocation": 1,
             "hcloud:index/getLocations:getLocations": 1,
             "hcloud:index/getNetwork:getNetwork": 0,
+            "hcloud:index/getNetworkMembers:getNetworkMembers": 1,
             "hcloud:index/getNetworks:getNetworks": 0,
             "hcloud:index/getPlacementGroup:getPlacementGroup": 0,
             "hcloud:index/getPlacementGroups:getPlacementGroups": 0,

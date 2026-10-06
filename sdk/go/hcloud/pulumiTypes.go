@@ -4673,7 +4673,9 @@ type GetLoadBalancersLoadBalancer struct {
 	DeleteProtection bool                                    `pulumi:"deleteProtection"`
 	Id               int                                     `pulumi:"id"`
 	Ipv4             string                                  `pulumi:"ipv4"`
+	Ipv4Id           int                                     `pulumi:"ipv4Id"`
 	Ipv6             string                                  `pulumi:"ipv6"`
+	Ipv6Id           int                                     `pulumi:"ipv6Id"`
 	Labels           map[string]string                       `pulumi:"labels"`
 	LoadBalancerType string                                  `pulumi:"loadBalancerType"`
 	Location         string                                  `pulumi:"location"`
@@ -4701,7 +4703,9 @@ type GetLoadBalancersLoadBalancerArgs struct {
 	DeleteProtection pulumi.BoolInput                                `pulumi:"deleteProtection"`
 	Id               pulumi.IntInput                                 `pulumi:"id"`
 	Ipv4             pulumi.StringInput                              `pulumi:"ipv4"`
+	Ipv4Id           pulumi.IntInput                                 `pulumi:"ipv4Id"`
 	Ipv6             pulumi.StringInput                              `pulumi:"ipv6"`
+	Ipv6Id           pulumi.IntInput                                 `pulumi:"ipv6Id"`
 	Labels           pulumi.StringMapInput                           `pulumi:"labels"`
 	LoadBalancerType pulumi.StringInput                              `pulumi:"loadBalancerType"`
 	Location         pulumi.StringInput                              `pulumi:"location"`
@@ -4780,8 +4784,16 @@ func (o GetLoadBalancersLoadBalancerOutput) Ipv4() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) string { return v.Ipv4 }).(pulumi.StringOutput)
 }
 
+func (o GetLoadBalancersLoadBalancerOutput) Ipv4Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) int { return v.Ipv4Id }).(pulumi.IntOutput)
+}
+
 func (o GetLoadBalancersLoadBalancerOutput) Ipv6() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) string { return v.Ipv6 }).(pulumi.StringOutput)
+}
+
+func (o GetLoadBalancersLoadBalancerOutput) Ipv6Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancersLoadBalancer) int { return v.Ipv6Id }).(pulumi.IntOutput)
 }
 
 func (o GetLoadBalancersLoadBalancerOutput) Labels() pulumi.StringMapOutput {
@@ -5692,6 +5704,148 @@ func (o GetLocationsLocationArrayOutput) Index(i pulumi.IntInput) GetLocationsLo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationsLocation {
 		return vs[0].([]GetLocationsLocation)[vs[1].(int)]
 	}).(GetLocationsLocationOutput)
+}
+
+type GetNetworkMembersMember struct {
+	// Additional IP addresses of the Resource within the Network.
+	AliasIps []string `pulumi:"aliasIps"`
+	// ID of the Resource attached to the Network.
+	Id int `pulumi:"id"`
+	// IP address of the Resource within the Network.
+	Ip string `pulumi:"ip"`
+	// Status of the Resource within the Network.
+	Status string `pulumi:"status"`
+	// IP range of the subnet the Resource is attached to.
+	Subnet string `pulumi:"subnet"`
+	// Type of the Resource attached to the Network.
+	Type string `pulumi:"type"`
+}
+
+// GetNetworkMembersMemberInput is an input type that accepts GetNetworkMembersMemberArgs and GetNetworkMembersMemberOutput values.
+// You can construct a concrete instance of `GetNetworkMembersMemberInput` via:
+//
+//	GetNetworkMembersMemberArgs{...}
+type GetNetworkMembersMemberInput interface {
+	pulumi.Input
+
+	ToGetNetworkMembersMemberOutput() GetNetworkMembersMemberOutput
+	ToGetNetworkMembersMemberOutputWithContext(context.Context) GetNetworkMembersMemberOutput
+}
+
+type GetNetworkMembersMemberArgs struct {
+	// Additional IP addresses of the Resource within the Network.
+	AliasIps pulumi.StringArrayInput `pulumi:"aliasIps"`
+	// ID of the Resource attached to the Network.
+	Id pulumi.IntInput `pulumi:"id"`
+	// IP address of the Resource within the Network.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// Status of the Resource within the Network.
+	Status pulumi.StringInput `pulumi:"status"`
+	// IP range of the subnet the Resource is attached to.
+	Subnet pulumi.StringInput `pulumi:"subnet"`
+	// Type of the Resource attached to the Network.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetNetworkMembersMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkMembersMember)(nil)).Elem()
+}
+
+func (i GetNetworkMembersMemberArgs) ToGetNetworkMembersMemberOutput() GetNetworkMembersMemberOutput {
+	return i.ToGetNetworkMembersMemberOutputWithContext(context.Background())
+}
+
+func (i GetNetworkMembersMemberArgs) ToGetNetworkMembersMemberOutputWithContext(ctx context.Context) GetNetworkMembersMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkMembersMemberOutput)
+}
+
+// GetNetworkMembersMemberArrayInput is an input type that accepts GetNetworkMembersMemberArray and GetNetworkMembersMemberArrayOutput values.
+// You can construct a concrete instance of `GetNetworkMembersMemberArrayInput` via:
+//
+//	GetNetworkMembersMemberArray{ GetNetworkMembersMemberArgs{...} }
+type GetNetworkMembersMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkMembersMemberArrayOutput() GetNetworkMembersMemberArrayOutput
+	ToGetNetworkMembersMemberArrayOutputWithContext(context.Context) GetNetworkMembersMemberArrayOutput
+}
+
+type GetNetworkMembersMemberArray []GetNetworkMembersMemberInput
+
+func (GetNetworkMembersMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkMembersMember)(nil)).Elem()
+}
+
+func (i GetNetworkMembersMemberArray) ToGetNetworkMembersMemberArrayOutput() GetNetworkMembersMemberArrayOutput {
+	return i.ToGetNetworkMembersMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkMembersMemberArray) ToGetNetworkMembersMemberArrayOutputWithContext(ctx context.Context) GetNetworkMembersMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkMembersMemberArrayOutput)
+}
+
+type GetNetworkMembersMemberOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkMembersMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkMembersMember)(nil)).Elem()
+}
+
+func (o GetNetworkMembersMemberOutput) ToGetNetworkMembersMemberOutput() GetNetworkMembersMemberOutput {
+	return o
+}
+
+func (o GetNetworkMembersMemberOutput) ToGetNetworkMembersMemberOutputWithContext(ctx context.Context) GetNetworkMembersMemberOutput {
+	return o
+}
+
+// Additional IP addresses of the Resource within the Network.
+func (o GetNetworkMembersMemberOutput) AliasIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) []string { return v.AliasIps }).(pulumi.StringArrayOutput)
+}
+
+// ID of the Resource attached to the Network.
+func (o GetNetworkMembersMemberOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// IP address of the Resource within the Network.
+func (o GetNetworkMembersMemberOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// Status of the Resource within the Network.
+func (o GetNetworkMembersMemberOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// IP range of the subnet the Resource is attached to.
+func (o GetNetworkMembersMemberOutput) Subnet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) string { return v.Subnet }).(pulumi.StringOutput)
+}
+
+// Type of the Resource attached to the Network.
+func (o GetNetworkMembersMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkMembersMember) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetNetworkMembersMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkMembersMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkMembersMember)(nil)).Elem()
+}
+
+func (o GetNetworkMembersMemberArrayOutput) ToGetNetworkMembersMemberArrayOutput() GetNetworkMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetNetworkMembersMemberArrayOutput) ToGetNetworkMembersMemberArrayOutputWithContext(ctx context.Context) GetNetworkMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetNetworkMembersMemberArrayOutput) Index(i pulumi.IntInput) GetNetworkMembersMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkMembersMember {
+		return vs[0].([]GetNetworkMembersMember)[vs[1].(int)]
+	}).(GetNetworkMembersMemberOutput)
 }
 
 type GetNetworksNetwork struct {
@@ -9715,6 +9869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancersLoadBalancerTargetArrayInput)(nil)).Elem(), GetLoadBalancersLoadBalancerTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationInput)(nil)).Elem(), GetLocationsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationsLocationArrayInput)(nil)).Elem(), GetLocationsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkMembersMemberInput)(nil)).Elem(), GetNetworkMembersMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkMembersMemberArrayInput)(nil)).Elem(), GetNetworkMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkInput)(nil)).Elem(), GetNetworksNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksNetworkArrayInput)(nil)).Elem(), GetNetworksNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPlacementGroupsPlacementGroupInput)(nil)).Elem(), GetPlacementGroupsPlacementGroupArgs{})
@@ -9845,6 +10001,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLoadBalancersLoadBalancerTargetArrayOutput{})
 	pulumi.RegisterOutputType(GetLocationsLocationOutput{})
 	pulumi.RegisterOutputType(GetLocationsLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkMembersMemberOutput{})
+	pulumi.RegisterOutputType(GetNetworkMembersMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkOutput{})
 	pulumi.RegisterOutputType(GetNetworksNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetPlacementGroupsPlacementGroupOutput{})

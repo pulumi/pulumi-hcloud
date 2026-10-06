@@ -398,7 +398,9 @@ export interface GetLoadBalancersLoadBalancer {
     deleteProtection: boolean;
     id: number;
     ipv4: string;
+    ipv4Id: number;
     ipv6: string;
+    ipv6Id: number;
     labels: {[key: string]: string};
     loadBalancerType: string;
     location: string;
@@ -488,6 +490,33 @@ export interface GetLocationsLocation {
      * Name of the Network Zone this Location resides in.
      */
     networkZone: string;
+}
+
+export interface GetNetworkMembersMember {
+    /**
+     * Additional IP addresses of the Resource within the Network.
+     */
+    aliasIps: string[];
+    /**
+     * ID of the Resource attached to the Network.
+     */
+    id: number;
+    /**
+     * IP address of the Resource within the Network.
+     */
+    ip: string;
+    /**
+     * Status of the Resource within the Network.
+     */
+    status: string;
+    /**
+     * IP range of the subnet the Resource is attached to.
+     */
+    subnet: string;
+    /**
+     * Type of the Resource attached to the Network.
+     */
+    type: string;
 }
 
 export interface GetNetworksNetwork {

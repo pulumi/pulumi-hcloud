@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.hcloud.inputs.LoadBalancerAlgorithmArgs;
 import com.pulumi.hcloud.inputs.LoadBalancerTargetArgs;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,36 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> deleteProtection() {
         return Optional.ofNullable(this.deleteProtection);
+    }
+
+    /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    @Import(name="ipv4Id")
+    private @Nullable Output<Integer> ipv4Id;
+
+    /**
+     * @return ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    public Optional<Output<Integer>> ipv4Id() {
+        return Optional.ofNullable(this.ipv4Id);
+    }
+
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    @Import(name="ipv6Id")
+    private @Nullable Output<Integer> ipv6Id;
+
+    /**
+     * @return ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    public Optional<Output<Integer>> ipv6Id() {
+        return Optional.ofNullable(this.ipv6Id);
     }
 
     /**
@@ -150,6 +181,8 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     private LoadBalancerArgs(LoadBalancerArgs $) {
         this.algorithm = $.algorithm;
         this.deleteProtection = $.deleteProtection;
+        this.ipv4Id = $.ipv4Id;
+        this.ipv6Id = $.ipv6Id;
         this.labels = $.labels;
         this.loadBalancerType = $.loadBalancerType;
         this.location = $.location;
@@ -216,6 +249,48 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deleteProtection(Boolean deleteProtection) {
             return deleteProtection(Output.of(deleteProtection));
+        }
+
+        /**
+         * @param ipv4Id ID of the Primary IPv4 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Id(@Nullable Output<Integer> ipv4Id) {
+            $.ipv4Id = ipv4Id;
+            return this;
+        }
+
+        /**
+         * @param ipv4Id ID of the Primary IPv4 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Id(Integer ipv4Id) {
+            return ipv4Id(Output.of(ipv4Id));
+        }
+
+        /**
+         * @param ipv6Id ID of the Primary IPv6 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Id(@Nullable Output<Integer> ipv6Id) {
+            $.ipv6Id = ipv6Id;
+            return this;
+        }
+
+        /**
+         * @param ipv6Id ID of the Primary IPv6 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Id(Integer ipv6Id) {
+            return ipv6Id(Output.of(ipv6Id));
         }
 
         /**

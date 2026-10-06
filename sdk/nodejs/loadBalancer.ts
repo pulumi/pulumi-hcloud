@@ -81,9 +81,17 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ipv4: pulumi.Output<string>;
     /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     */
+    declare public readonly ipv4Id: pulumi.Output<number>;
+    /**
      * (string) IPv6 Address of the Load Balancer.
      */
     declare public /*out*/ readonly ipv6: pulumi.Output<string>;
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     */
+    declare public readonly ipv6Id: pulumi.Output<number>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
@@ -133,7 +141,9 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["algorithm"] = state?.algorithm;
             resourceInputs["deleteProtection"] = state?.deleteProtection;
             resourceInputs["ipv4"] = state?.ipv4;
+            resourceInputs["ipv4Id"] = state?.ipv4Id;
             resourceInputs["ipv6"] = state?.ipv6;
+            resourceInputs["ipv6Id"] = state?.ipv6Id;
             resourceInputs["labels"] = state?.labels;
             resourceInputs["loadBalancerType"] = state?.loadBalancerType;
             resourceInputs["location"] = state?.location;
@@ -149,6 +159,8 @@ export class LoadBalancer extends pulumi.CustomResource {
             }
             resourceInputs["algorithm"] = args?.algorithm;
             resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["ipv4Id"] = args?.ipv4Id;
+            resourceInputs["ipv6Id"] = args?.ipv6Id;
             resourceInputs["labels"] = args?.labels;
             resourceInputs["loadBalancerType"] = args?.loadBalancerType;
             resourceInputs["location"] = args?.location;
@@ -182,9 +194,17 @@ export interface LoadBalancerState {
      */
     ipv4?: pulumi.Input<string | undefined>;
     /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     */
+    ipv4Id?: pulumi.Input<number | undefined>;
+    /**
      * (string) IPv6 Address of the Load Balancer.
      */
     ipv6?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     */
+    ipv6Id?: pulumi.Input<number | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */
@@ -231,6 +251,14 @@ export interface LoadBalancerArgs {
      * Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
      */
     deleteProtection?: pulumi.Input<boolean | undefined>;
+    /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     */
+    ipv4Id?: pulumi.Input<number | undefined>;
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     */
+    ipv6Id?: pulumi.Input<number | undefined>;
     /**
      * User-defined labels (key-value pairs) should be created with.
      */

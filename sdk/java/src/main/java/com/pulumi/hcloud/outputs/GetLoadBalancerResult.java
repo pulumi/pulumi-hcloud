@@ -40,10 +40,20 @@ public final class GetLoadBalancerResult {
      */
     private String ipv4;
     /**
+     * @return (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+     * 
+     */
+    private Integer ipv4Id;
+    /**
      * @return (string) IPv4 Address of the Load Balancer.
      * 
      */
     private String ipv6;
+    /**
+     * @return (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+     * 
+     */
+    private Integer ipv6Id;
     /**
      * @return (map) User-defined labels (key-value pairs) .
      * 
@@ -117,11 +127,25 @@ public final class GetLoadBalancerResult {
         return this.ipv4;
     }
     /**
+     * @return (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+     * 
+     */
+    public Integer ipv4Id() {
+        return this.ipv4Id;
+    }
+    /**
      * @return (string) IPv4 Address of the Load Balancer.
      * 
      */
     public String ipv6() {
         return this.ipv6;
+    }
+    /**
+     * @return (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+     * 
+     */
+    public Integer ipv6Id() {
+        return this.ipv6Id;
     }
     /**
      * @return (map) User-defined labels (key-value pairs) .
@@ -199,7 +223,9 @@ public final class GetLoadBalancerResult {
         private Boolean deleteProtection;
         private Integer id;
         private String ipv4;
+        private Integer ipv4Id;
         private String ipv6;
+        private Integer ipv6Id;
         private Map<String,String> labels;
         private String loadBalancerType;
         private String location;
@@ -217,7 +243,9 @@ public final class GetLoadBalancerResult {
     	      this.deleteProtection = defaults.deleteProtection;
     	      this.id = defaults.id;
     	      this.ipv4 = defaults.ipv4;
+    	      this.ipv4Id = defaults.ipv4Id;
     	      this.ipv6 = defaults.ipv6;
+    	      this.ipv6Id = defaults.ipv6Id;
     	      this.labels = defaults.labels;
     	      this.loadBalancerType = defaults.loadBalancerType;
     	      this.location = defaults.location;
@@ -266,11 +294,27 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv4Id(Integer ipv4Id) {
+            if (ipv4Id == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "ipv4Id");
+            }
+            this.ipv4Id = ipv4Id;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipv6(String ipv6) {
             if (ipv6 == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "ipv6");
             }
             this.ipv6 = ipv6;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6Id(Integer ipv6Id) {
+            if (ipv6Id == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "ipv6Id");
+            }
+            this.ipv6Id = ipv6Id;
             return this;
         }
         @CustomType.Setter
@@ -361,7 +405,9 @@ public final class GetLoadBalancerResult {
             _resultValue.deleteProtection = deleteProtection;
             _resultValue.id = id;
             _resultValue.ipv4 = ipv4;
+            _resultValue.ipv4Id = ipv4Id;
             _resultValue.ipv6 = ipv6;
+            _resultValue.ipv6Id = ipv6Id;
             _resultValue.labels = labels;
             _resultValue.loadBalancerType = loadBalancerType;
             _resultValue.location = location;
