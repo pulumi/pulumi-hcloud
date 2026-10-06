@@ -1227,8 +1227,14 @@
                 "ipv4": {
                     "type": "string"
                 },
+                "ipv4Id": {
+                    "type": "integer"
+                },
                 "ipv6": {
                     "type": "string"
+                },
+                "ipv6Id": {
+                    "type": "integer"
                 },
                 "labels": {
                     "type": "object",
@@ -1273,7 +1279,9 @@
                 "deleteProtection",
                 "id",
                 "ipv4",
+                "ipv4Id",
                 "ipv6",
+                "ipv6Id",
                 "labels",
                 "loadBalancerType",
                 "location",
@@ -1529,6 +1537,51 @@
                 "longitude",
                 "name",
                 "networkZone"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "hcloud:index/getNetworkMembersMember:getNetworkMembersMember": {
+            "properties": {
+                "aliasIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Additional IP addresses of the Resource within the Network.\n"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "ID of the Resource attached to the Network.\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP address of the Resource within the Network.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the Resource within the Network.\n"
+                },
+                "subnet": {
+                    "type": "string",
+                    "description": "IP range of the subnet the Resource is attached to.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the Resource attached to the Network.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aliasIps",
+                "id",
+                "ip",
+                "status",
+                "subnet",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -3467,9 +3520,17 @@
                     "type": "string",
                     "description": "(string) IPv4 Address of the Load Balancer.\n"
                 },
+                "ipv4Id": {
+                    "type": "integer",
+                    "description": "ID of the Primary IPv4 for the Load Balancer.\n"
+                },
                 "ipv6": {
                     "type": "string",
                     "description": "(string) IPv6 Address of the Load Balancer.\n"
+                },
+                "ipv6Id": {
+                    "type": "integer",
+                    "description": "ID of the Primary IPv6 for the Load Balancer.\n"
                 },
                 "labels": {
                     "type": "object",
@@ -3513,7 +3574,9 @@
             "required": [
                 "algorithm",
                 "ipv4",
+                "ipv4Id",
                 "ipv6",
+                "ipv6Id",
                 "labels",
                 "loadBalancerType",
                 "location",
@@ -3531,6 +3594,16 @@
                 "deleteProtection": {
                     "type": "boolean",
                     "description": "Enable or disable delete protection. See \"Delete Protection\" in the Provider Docs for details.\n"
+                },
+                "ipv4Id": {
+                    "type": "integer",
+                    "description": "ID of the Primary IPv4 for the Load Balancer.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ipv6Id": {
+                    "type": "integer",
+                    "description": "ID of the Primary IPv6 for the Load Balancer.\n",
+                    "willReplaceOnChanges": true
                 },
                 "labels": {
                     "type": "object",
@@ -3583,9 +3656,19 @@
                         "type": "string",
                         "description": "(string) IPv4 Address of the Load Balancer.\n"
                     },
+                    "ipv4Id": {
+                        "type": "integer",
+                        "description": "ID of the Primary IPv4 for the Load Balancer.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "ipv6": {
                         "type": "string",
                         "description": "(string) IPv6 Address of the Load Balancer.\n"
+                    },
+                    "ipv6Id": {
+                        "type": "integer",
+                        "description": "ID of the Primary IPv6 for the Load Balancer.\n",
+                        "willReplaceOnChanges": true
                     },
                     "labels": {
                         "type": "object",
@@ -7162,9 +7245,17 @@
                         "description": "(string) IPv4 Address of the Load Balancer.\n",
                         "type": "string"
                     },
+                    "ipv4Id": {
+                        "description": "(Optional, string) ID of the Primary IPv4 of the Load Balancer.\n",
+                        "type": "integer"
+                    },
                     "ipv6": {
                         "description": "(string) IPv4 Address of the Load Balancer.\n",
                         "type": "string"
+                    },
+                    "ipv6Id": {
+                        "description": "(Optional, string) ID of the Primary IPv6 of the Load Balancer.\n",
+                        "type": "integer"
                     },
                     "labels": {
                         "additionalProperties": {
@@ -7219,7 +7310,9 @@
                     "deleteProtection",
                     "id",
                     "ipv4",
+                    "ipv4Id",
                     "ipv6",
+                    "ipv6Id",
                     "labels",
                     "loadBalancerType",
                     "location",
@@ -7555,6 +7648,84 @@
                     "ipRange",
                     "labels",
                     "name"
+                ],
+                "type": "object"
+            }
+        },
+        "hcloud:index/getNetworkMembers:getNetworkMembers": {
+            "description": "Provides a list of Hetzner Cloud Network Members.\n\nSee the [Networks API documentation](https://docs.hetzner.cloud/reference/cloud#tag/networks) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as hcloud from \"@pulumi/hcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst byType = hcloud.getNetworkMembers({\n    networkId: Number(example.id),\n    withTypes: [\n        \"load_balancer\",\n        \"server\",\n    ],\n});\nconst byStatus = hcloud.getNetworkMembers({\n    networkId: Number(example.id),\n    withStatuses: [\n        \"ok\",\n        \"attaching\",\n        \"detaching\",\n        \"updating\",\n        \"error\",\n    ],\n});\nconst bySubnet = hcloud.getNetworkMembers({\n    networkId: Number(example.id),\n    withSubnets: [\"10.0.1.0/24\"],\n});\nconst all = hcloud.getNetworkMembers({\n    networkId: Number(example.id),\n});\n// A list of all IPs in the network\nconst networkIps = Promise.all([all, std.concat({\n    input: [\n        [m.ip],\n        m.aliasIps,\n    ],\n})]).then(([all, invoke]) =\u003e std.flatten({\n    input: .map(m =\u003e (invoke.result)),\n})).then(invoke =\u003e invoke.result);\n```\n```python\nimport pulumi\nimport pulumi_hcloud as hcloud\nimport pulumi_std as std\n\nby_type = hcloud.get_network_members(network_id=int(example[\"id\"]),\n    with_types=[\n        \"load_balancer\",\n        \"server\",\n    ])\nby_status = hcloud.get_network_members(network_id=int(example[\"id\"]),\n    with_statuses=[\n        \"ok\",\n        \"attaching\",\n        \"detaching\",\n        \"updating\",\n        \"error\",\n    ])\nby_subnet = hcloud.get_network_members(network_id=int(example[\"id\"]),\n    with_subnets=[\"10.0.1.0/24\"])\nall = hcloud.get_network_members(network_id=int(example[\"id\"]))\n# A list of all IPs in the network\nnetwork_ips = std.flatten(input=[std.concat(input=[\n    [m.ip],\n    m.alias_ips,\n]).result for m in all.members]).result\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing HCloud = Pulumi.HCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byType = HCloud.GetNetworkMembers.Invoke(new()\n    {\n        NetworkId = example.Id,\n        WithTypes = new[]\n        {\n            \"load_balancer\",\n            \"server\",\n        },\n    });\n\n    var byStatus = HCloud.GetNetworkMembers.Invoke(new()\n    {\n        NetworkId = example.Id,\n        WithStatuses = new[]\n        {\n            \"ok\",\n            \"attaching\",\n            \"detaching\",\n            \"updating\",\n            \"error\",\n        },\n    });\n\n    var bySubnet = HCloud.GetNetworkMembers.Invoke(new()\n    {\n        NetworkId = example.Id,\n        WithSubnets = new[]\n        {\n            \"10.0.1.0/24\",\n        },\n    });\n\n    var all = HCloud.GetNetworkMembers.Invoke(new()\n    {\n        NetworkId = example.Id,\n    });\n\n    // A list of all IPs in the network\n    var networkIps = Output.Tuple(all, Std.Concat.Invoke(new()\n    {\n        Input = new[]\n        {\n            new[]\n            {\n                m.Ip,\n            },\n            m.AliasIps,\n        },\n    })).Apply(values =\u003e\n    {\n        var all = values.Item1;\n        var invoke = values.Item2;\n        return Std.Flatten.Invoke(new()\n        {\n            Input = .Select(m =\u003e \n            {\n                return invoke.Result;\n            }).ToList(),\n        });\n    }).Apply(invoke =\u003e invoke.Result);\n\n});\n```\n```hcl\npulumi {\n  required_providers {\n    hcloud = {\n      source = \"pulumi/hcloud\"\n    }\n    std = {\n      source = \"pulumi/std\"\n    }\n  }\n}\n\ndata \"hcloud_getnetworkmembers\" \"byType\" {\n  network_id = example.id\n  with_types = [\"load_balancer\", \"server\"]\n}\ndata \"hcloud_getnetworkmembers\" \"byStatus\" {\n  network_id    = example.id\n  with_statuses = [\"ok\", \"attaching\", \"detaching\", \"updating\", \"error\"]\n}\ndata \"hcloud_getnetworkmembers\" \"bySubnet\" {\n  network_id   = example.id\n  with_subnets = [\"10.0.1.0/24\"]\n}\ndata \"hcloud_getnetworkmembers\" \"all\" {\n  network_id = example.id\n}\ndata \"std_concat\" \"invoke_4\" {\n  for_each = toset(data.hcloud_getnetworkmembers.all.members)\n  input    = [[each.value.ip], each.value.aliasIps]\n}\n\n// A list of all IPs in the network\nlocals {\n  networkIps = flatten([for m in data.hcloud_getnetworkmembers.all.members : data.std_concat.invoke_4[m].result])\n}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetworkMembers.\n",
+                "properties": {
+                    "networkId": {
+                        "type": "integer",
+                        "description": "ID the Network to list the members of.\n"
+                    },
+                    "withStatuses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Filter members by status. May be used multiple times.\n"
+                    },
+                    "withSubnets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Filter members by subnet. May be used multiple times.\n"
+                    },
+                    "withTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Filter members by type. May be used multiple times.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "networkId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNetworkMembers.\n",
+                "properties": {
+                    "members": {
+                        "items": {
+                            "$ref": "#/types/hcloud:index/getNetworkMembersMember:getNetworkMembersMember"
+                        },
+                        "type": "array"
+                    },
+                    "networkId": {
+                        "description": "ID the Network to list the members of.\n",
+                        "type": "integer"
+                    },
+                    "withStatuses": {
+                        "description": "Filter members by status. May be used multiple times.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "withSubnets": {
+                        "description": "Filter members by subnet. May be used multiple times.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "withTypes": {
+                        "description": "Filter members by type. May be used multiple times.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "members",
+                    "networkId"
                 ],
                 "type": "object"
             }
