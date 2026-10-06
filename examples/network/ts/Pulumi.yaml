@@ -1,3 +1,0 @@
-name: network-ts
-runtime: nodejs
-description: A minimal TypeScript Pulumi program

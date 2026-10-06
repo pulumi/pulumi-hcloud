@@ -1,3 +1,0 @@
-name: hcloud
-description: A Pulumi resource provider for hcloud.
-language: nodejs
