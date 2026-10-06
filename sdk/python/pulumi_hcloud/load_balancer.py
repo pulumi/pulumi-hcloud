@@ -24,6 +24,8 @@ class LoadBalancerArgs:
                  load_balancer_type: pulumi.Input[_builtins.str],
                  algorithm: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,6 +37,8 @@ class LoadBalancerArgs:
         :param pulumi.Input[_builtins.str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
+        :param pulumi.Input[_builtins.int] ipv4_id: ID of the Primary IPv4 for the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv6_id: ID of the Primary IPv6 for the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
         :param pulumi.Input[_builtins.str] name: Name of the Load Balancer.
@@ -45,6 +49,10 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "algorithm", algorithm)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
+        if ipv4_id is not None:
+            pulumi.set(__self__, "ipv4_id", ipv4_id)
+        if ipv6_id is not None:
+            pulumi.set(__self__, "ipv6_id", ipv6_id)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if location is not None:
@@ -94,6 +102,30 @@ class LoadBalancerArgs:
     @delete_protection.setter
     def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Id")
+    def ipv4_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        ID of the Primary IPv4 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4_id")
+
+    @ipv4_id.setter
+    def ipv4_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ipv4_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Id")
+    def ipv6_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        ID of the Primary IPv6 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6_id")
+
+    @ipv6_id.setter
+    def ipv6_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ipv6_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,7 +192,9 @@ class _LoadBalancerState:
                  algorithm: pulumi.Input[Optional['LoadBalancerAlgorithmArgs']] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
                  ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -175,7 +209,9 @@ class _LoadBalancerState:
         :param pulumi.Input['LoadBalancerAlgorithmArgs'] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.str] ipv4: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv4_id: ID of the Primary IPv4 for the Load Balancer.
         :param pulumi.Input[_builtins.str] ipv6: (string) IPv6 Address of the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv6_id: ID of the Primary IPv6 for the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[_builtins.str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
@@ -190,8 +226,12 @@ class _LoadBalancerState:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if ipv4 is not None:
             pulumi.set(__self__, "ipv4", ipv4)
+        if ipv4_id is not None:
+            pulumi.set(__self__, "ipv4_id", ipv4_id)
         if ipv6 is not None:
             pulumi.set(__self__, "ipv6", ipv6)
+        if ipv6_id is not None:
+            pulumi.set(__self__, "ipv6_id", ipv6_id)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if load_balancer_type is not None:
@@ -249,6 +289,18 @@ class _LoadBalancerState:
         pulumi.set(self, "ipv4", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipv4Id")
+    def ipv4_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        ID of the Primary IPv4 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4_id")
+
+    @ipv4_id.setter
+    def ipv4_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ipv4_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -259,6 +311,18 @@ class _LoadBalancerState:
     @ipv6.setter
     def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Id")
+    def ipv6_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        ID of the Primary IPv6 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6_id")
+
+    @ipv6_id.setter
+    def ipv6_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ipv6_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -363,6 +427,8 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']]] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -406,6 +472,8 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
+        :param pulumi.Input[_builtins.int] ipv4_id: ID of the Primary IPv4 for the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv6_id: ID of the Primary IPv6 for the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[_builtins.str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
@@ -467,6 +535,8 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']]] = None,
                  delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
                  labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -484,6 +554,8 @@ class LoadBalancer(pulumi.CustomResource):
 
             __props__.__dict__["algorithm"] = algorithm
             __props__.__dict__["delete_protection"] = delete_protection
+            __props__.__dict__["ipv4_id"] = ipv4_id
+            __props__.__dict__["ipv6_id"] = ipv6_id
             __props__.__dict__["labels"] = labels
             if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
@@ -509,7 +581,9 @@ class LoadBalancer(pulumi.CustomResource):
             algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']]] = None,
             delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
             ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
             labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -528,7 +602,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']] algorithm: Configuration of the algorithm the Load Balancer use.
         :param pulumi.Input[_builtins.bool] delete_protection: Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
         :param pulumi.Input[_builtins.str] ipv4: (string) IPv4 Address of the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv4_id: ID of the Primary IPv4 for the Load Balancer.
         :param pulumi.Input[_builtins.str] ipv6: (string) IPv6 Address of the Load Balancer.
+        :param pulumi.Input[_builtins.int] ipv6_id: ID of the Primary IPv6 for the Load Balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: User-defined labels (key-value pairs) should be created with.
         :param pulumi.Input[_builtins.str] load_balancer_type: Type of the Load Balancer.
         :param pulumi.Input[_builtins.str] location: The location name of the Load Balancer. Require when no network_zone is set. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-locations-are-there) for more details about locations.
@@ -544,7 +620,9 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["algorithm"] = algorithm
         __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["ipv4"] = ipv4
+        __props__.__dict__["ipv4_id"] = ipv4_id
         __props__.__dict__["ipv6"] = ipv6
+        __props__.__dict__["ipv6_id"] = ipv6_id
         __props__.__dict__["labels"] = labels
         __props__.__dict__["load_balancer_type"] = load_balancer_type
         __props__.__dict__["location"] = location
@@ -580,12 +658,28 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "ipv4")
 
     @_builtins.property
+    @pulumi.getter(name="ipv4Id")
+    def ipv4_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the Primary IPv4 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4_id")
+
+    @_builtins.property
     @pulumi.getter
     def ipv6(self) -> pulumi.Output[_builtins.str]:
         """
         (string) IPv6 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Id")
+    def ipv6_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        ID of the Primary IPv6 for the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6_id")
 
     @_builtins.property
     @pulumi.getter

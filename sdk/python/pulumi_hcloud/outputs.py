@@ -55,6 +55,7 @@ __all__ = [
     'GetLoadBalancersLoadBalancerServiceHttpResult',
     'GetLoadBalancersLoadBalancerTargetResult',
     'GetLocationsLocationResult',
+    'GetNetworkMembersMemberResult',
     'GetNetworksNetworkResult',
     'GetPlacementGroupsPlacementGroupResult',
     'GetPrimaryIpsPrimaryIpResult',
@@ -2188,7 +2189,9 @@ class GetLoadBalancersLoadBalancerResult(dict):
                  delete_protection: _builtins.bool,
                  id: _builtins.int,
                  ipv4: _builtins.str,
+                 ipv4_id: _builtins.int,
                  ipv6: _builtins.str,
+                 ipv6_id: _builtins.int,
                  labels: Mapping[str, _builtins.str],
                  load_balancer_type: _builtins.str,
                  location: _builtins.str,
@@ -2202,7 +2205,9 @@ class GetLoadBalancersLoadBalancerResult(dict):
         pulumi.set(__self__, "delete_protection", delete_protection)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ipv4", ipv4)
+        pulumi.set(__self__, "ipv4_id", ipv4_id)
         pulumi.set(__self__, "ipv6", ipv6)
+        pulumi.set(__self__, "ipv6_id", ipv6_id)
         pulumi.set(__self__, "labels", labels)
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         pulumi.set(__self__, "location", location)
@@ -2235,9 +2240,19 @@ class GetLoadBalancersLoadBalancerResult(dict):
         return pulumi.get(self, "ipv4")
 
     @_builtins.property
+    @pulumi.getter(name="ipv4Id")
+    def ipv4_id(self) -> _builtins.int:
+        return pulumi.get(self, "ipv4_id")
+
+    @_builtins.property
     @pulumi.getter
     def ipv6(self) -> _builtins.str:
         return pulumi.get(self, "ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Id")
+    def ipv6_id(self) -> _builtins.int:
+        return pulumi.get(self, "ipv6_id")
 
     @_builtins.property
     @pulumi.getter
@@ -2597,6 +2612,79 @@ class GetLocationsLocationResult(dict):
         Name of the Network Zone this Location resides in.
         """
         return pulumi.get(self, "network_zone")
+
+
+@pulumi.output_type
+class GetNetworkMembersMemberResult(dict):
+    def __init__(__self__, *,
+                 alias_ips: Sequence[_builtins.str],
+                 id: _builtins.int,
+                 ip: _builtins.str,
+                 status: _builtins.str,
+                 subnet: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] alias_ips: Additional IP addresses of the Resource within the Network.
+        :param _builtins.int id: ID of the Resource attached to the Network.
+        :param _builtins.str ip: IP address of the Resource within the Network.
+        :param _builtins.str status: Status of the Resource within the Network.
+        :param _builtins.str subnet: IP range of the subnet the Resource is attached to.
+        :param _builtins.str type: Type of the Resource attached to the Network.
+        """
+        pulumi.set(__self__, "alias_ips", alias_ips)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "subnet", subnet)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasIps")
+    def alias_ips(self) -> Sequence[_builtins.str]:
+        """
+        Additional IP addresses of the Resource within the Network.
+        """
+        return pulumi.get(self, "alias_ips")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        ID of the Resource attached to the Network.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def ip(self) -> _builtins.str:
+        """
+        IP address of the Resource within the Network.
+        """
+        return pulumi.get(self, "ip")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the Resource within the Network.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> _builtins.str:
+        """
+        IP range of the subnet the Resource is attached to.
+        """
+        return pulumi.get(self, "subnet")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of the Resource attached to the Network.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

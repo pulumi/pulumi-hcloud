@@ -128,6 +128,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.ipv4;
     }
     /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    @Export(name="ipv4Id", refs={Integer.class}, tree="[0]")
+    private Output<Integer> ipv4Id;
+
+    /**
+     * @return ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    public Output<Integer> ipv4Id() {
+        return this.ipv4Id;
+    }
+    /**
      * (string) IPv6 Address of the Load Balancer.
      * 
      */
@@ -140,6 +154,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> ipv6() {
         return this.ipv6;
+    }
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    @Export(name="ipv6Id", refs={Integer.class}, tree="[0]")
+    private Output<Integer> ipv6Id;
+
+    /**
+     * @return ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    public Output<Integer> ipv6Id() {
+        return this.ipv6Id;
     }
     /**
      * User-defined labels (key-value pairs) should be created with.

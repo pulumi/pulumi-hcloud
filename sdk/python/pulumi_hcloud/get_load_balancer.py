@@ -27,7 +27,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, algorithms=None, delete_protection=None, id=None, ipv4=None, ipv6=None, labels=None, load_balancer_type=None, location=None, name=None, network_id=None, network_ip=None, network_zone=None, services=None, targets=None, with_selector=None):
+    def __init__(__self__, algorithms=None, delete_protection=None, id=None, ipv4=None, ipv4_id=None, ipv6=None, ipv6_id=None, labels=None, load_balancer_type=None, location=None, name=None, network_id=None, network_ip=None, network_zone=None, services=None, targets=None, with_selector=None):
         if algorithms and not isinstance(algorithms, list):
             raise TypeError("Expected argument 'algorithms' to be a list")
         pulumi.set(__self__, "algorithms", algorithms)
@@ -40,9 +40,15 @@ class GetLoadBalancerResult:
         if ipv4 and not isinstance(ipv4, str):
             raise TypeError("Expected argument 'ipv4' to be a str")
         pulumi.set(__self__, "ipv4", ipv4)
+        if ipv4_id and not isinstance(ipv4_id, int):
+            raise TypeError("Expected argument 'ipv4_id' to be a int")
+        pulumi.set(__self__, "ipv4_id", ipv4_id)
         if ipv6 and not isinstance(ipv6, str):
             raise TypeError("Expected argument 'ipv6' to be a str")
         pulumi.set(__self__, "ipv6", ipv6)
+        if ipv6_id and not isinstance(ipv6_id, int):
+            raise TypeError("Expected argument 'ipv6_id' to be a int")
+        pulumi.set(__self__, "ipv6_id", ipv6_id)
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
@@ -107,12 +113,28 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "ipv4")
 
     @_builtins.property
+    @pulumi.getter(name="ipv4Id")
+    def ipv4_id(self) -> _builtins.int:
+        """
+        (Optional, string) ID of the Primary IPv4 of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv4_id")
+
+    @_builtins.property
     @pulumi.getter
     def ipv6(self) -> _builtins.str:
         """
         (string) IPv4 Address of the Load Balancer.
         """
         return pulumi.get(self, "ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Id")
+    def ipv6_id(self) -> _builtins.int:
+        """
+        (Optional, string) ID of the Primary IPv6 of the Load Balancer.
+        """
+        return pulumi.get(self, "ipv6_id")
 
     @_builtins.property
     @pulumi.getter
@@ -199,7 +221,9 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             delete_protection=self.delete_protection,
             id=self.id,
             ipv4=self.ipv4,
+            ipv4_id=self.ipv4_id,
             ipv6=self.ipv6,
+            ipv6_id=self.ipv6_id,
             labels=self.labels,
             load_balancer_type=self.load_balancer_type,
             location=self.location,
@@ -247,7 +271,9 @@ def get_load_balancer(id: Optional[_builtins.int] = None,
         delete_protection=pulumi.get(__ret__, 'delete_protection'),
         id=pulumi.get(__ret__, 'id'),
         ipv4=pulumi.get(__ret__, 'ipv4'),
+        ipv4_id=pulumi.get(__ret__, 'ipv4_id'),
         ipv6=pulumi.get(__ret__, 'ipv6'),
+        ipv6_id=pulumi.get(__ret__, 'ipv6_id'),
         labels=pulumi.get(__ret__, 'labels'),
         load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
         location=pulumi.get(__ret__, 'location'),
@@ -292,7 +318,9 @@ def get_load_balancer_output(id: pulumi.Input[Optional[Optional[_builtins.int]]]
         delete_protection=pulumi.get(__response__, 'delete_protection'),
         id=pulumi.get(__response__, 'id'),
         ipv4=pulumi.get(__response__, 'ipv4'),
+        ipv4_id=pulumi.get(__response__, 'ipv4_id'),
         ipv6=pulumi.get(__response__, 'ipv6'),
+        ipv6_id=pulumi.get(__response__, 'ipv6_id'),
         labels=pulumi.get(__response__, 'labels'),
         load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
         location=pulumi.get(__response__, 'location'),

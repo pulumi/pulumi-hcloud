@@ -67,6 +67,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    @Import(name="ipv4Id")
+    private @Nullable Output<Integer> ipv4Id;
+
+    /**
+     * @return ID of the Primary IPv4 for the Load Balancer.
+     * 
+     */
+    public Optional<Output<Integer>> ipv4Id() {
+        return Optional.ofNullable(this.ipv4Id);
+    }
+
+    /**
      * (string) IPv6 Address of the Load Balancer.
      * 
      */
@@ -79,6 +94,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> ipv6() {
         return Optional.ofNullable(this.ipv6);
+    }
+
+    /**
+     * ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    @Import(name="ipv6Id")
+    private @Nullable Output<Integer> ipv6Id;
+
+    /**
+     * @return ID of the Primary IPv6 for the Load Balancer.
+     * 
+     */
+    public Optional<Output<Integer>> ipv6Id() {
+        return Optional.ofNullable(this.ipv6Id);
     }
 
     /**
@@ -211,7 +241,9 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.algorithm = $.algorithm;
         this.deleteProtection = $.deleteProtection;
         this.ipv4 = $.ipv4;
+        this.ipv4Id = $.ipv4Id;
         this.ipv6 = $.ipv6;
+        this.ipv6Id = $.ipv6Id;
         this.labels = $.labels;
         this.loadBalancerType = $.loadBalancerType;
         this.location = $.location;
@@ -304,6 +336,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipv4Id ID of the Primary IPv4 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Id(@Nullable Output<Integer> ipv4Id) {
+            $.ipv4Id = ipv4Id;
+            return this;
+        }
+
+        /**
+         * @param ipv4Id ID of the Primary IPv4 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4Id(Integer ipv4Id) {
+            return ipv4Id(Output.of(ipv4Id));
+        }
+
+        /**
          * @param ipv6 (string) IPv6 Address of the Load Balancer.
          * 
          * @return builder
@@ -322,6 +375,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipv6(String ipv6) {
             return ipv6(Output.of(ipv6));
+        }
+
+        /**
+         * @param ipv6Id ID of the Primary IPv6 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Id(@Nullable Output<Integer> ipv6Id) {
+            $.ipv6Id = ipv6Id;
+            return this;
+        }
+
+        /**
+         * @param ipv6Id ID of the Primary IPv6 for the Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6Id(Integer ipv6Id) {
+            return ipv6Id(Output.of(ipv6Id));
         }
 
         /**

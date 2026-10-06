@@ -76,10 +76,22 @@ namespace Pulumi.HCloud
         public Output<string> Ipv4 { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the Primary IPv4 for the Load Balancer.
+        /// </summary>
+        [Output("ipv4Id")]
+        public Output<int> Ipv4Id { get; private set; } = null!;
+
+        /// <summary>
         /// (string) IPv6 Address of the Load Balancer.
         /// </summary>
         [Output("ipv6")]
         public Output<string> Ipv6 { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the Primary IPv6 for the Load Balancer.
+        /// </summary>
+        [Output("ipv6Id")]
+        public Output<int> Ipv6Id { get; private set; } = null!;
 
         /// <summary>
         /// User-defined labels (key-value pairs) should be created with.
@@ -184,6 +196,18 @@ namespace Pulumi.HCloud
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
+        /// <summary>
+        /// ID of the Primary IPv4 for the Load Balancer.
+        /// </summary>
+        [Input("ipv4Id")]
+        public Input<int>? Ipv4Id { get; set; }
+
+        /// <summary>
+        /// ID of the Primary IPv6 for the Load Balancer.
+        /// </summary>
+        [Input("ipv6Id")]
+        public Input<int>? Ipv6Id { get; set; }
+
         [Input("labels")]
         private InputMap<string>? _labels;
 
@@ -256,10 +280,22 @@ namespace Pulumi.HCloud
         public Input<string>? Ipv4 { get; set; }
 
         /// <summary>
+        /// ID of the Primary IPv4 for the Load Balancer.
+        /// </summary>
+        [Input("ipv4Id")]
+        public Input<int>? Ipv4Id { get; set; }
+
+        /// <summary>
         /// (string) IPv6 Address of the Load Balancer.
         /// </summary>
         [Input("ipv6")]
         public Input<string>? Ipv6 { get; set; }
+
+        /// <summary>
+        /// ID of the Primary IPv6 for the Load Balancer.
+        /// </summary>
+        [Input("ipv6Id")]
+        public Input<int>? Ipv6Id { get; set; }
 
         [Input("labels")]
         private InputMap<string>? _labels;

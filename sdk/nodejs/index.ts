@@ -115,6 +115,11 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNetworkMembersArgs, GetNetworkMembersResult, GetNetworkMembersOutputArgs } from "./getNetworkMembers";
+export const getNetworkMembers: typeof import("./getNetworkMembers").getNetworkMembers = null as any;
+export const getNetworkMembersOutput: typeof import("./getNetworkMembers").getNetworkMembersOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkMembers","getNetworkMembersOutput"], () => require("./getNetworkMembers"));
+
 export { GetNetworksArgs, GetNetworksResult, GetNetworksOutputArgs } from "./getNetworks";
 export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
 export const getNetworksOutput: typeof import("./getNetworks").getNetworksOutput = null as any;

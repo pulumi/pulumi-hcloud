@@ -43,6 +43,7 @@
         "getLocation.ts",
         "getLocations.ts",
         "getNetwork.ts",
+        "getNetworkMembers.ts",
         "getNetworks.ts",
         "getPlacementGroup.ts",
         "getPlacementGroups.ts",
