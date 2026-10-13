@@ -119,12 +119,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tlsTermination = new LoadBalancerService(&#34;tlsTermination&#34;, LoadBalancerServiceArgs.builder()
- *             .loadBalancerId(loadBalancer.id())
+ *             .loadBalancerId(loadBalancer.get(&#34;id&#34;))
  *             .protocol(&#34;https&#34;)
  *             .listenPort(443)
  *             .destinationPort(80)
  *             .http(LoadBalancerServiceHttpArgs.builder()
- *                 .certificates(cert.id())
+ *                 .certificates(cert.get(&#34;id&#34;))
  *                 .build())
  *             .build());
  *     

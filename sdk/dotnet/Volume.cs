@@ -33,7 +33,7 @@ namespace Pulumi.HCloud
     ///     {
     ///         Name = "volume1",
     ///         Size = 50,
-    ///         ServerId = node1.Id,
+    ///         ServerId = node1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Automount = true,
     ///         Format = "ext4",
     ///     });

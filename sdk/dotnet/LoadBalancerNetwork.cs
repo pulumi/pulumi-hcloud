@@ -37,7 +37,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var subnet = new HCloud.NetworkSubnet("subnet", new()
     ///     {
-    ///         NetworkId = network.Id,
+    ///         NetworkId = network.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Type = "cloud",
     ///         NetworkZone = "eu-central",
     ///         IpRange = "10.0.1.0/24",
@@ -45,7 +45,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var attachment = new HCloud.LoadBalancerNetwork("attachment", new()
     ///     {
-    ///         LoadBalancerId = main.Id,
+    ///         LoadBalancerId = main.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         SubnetId = subnet.Id,
     ///         Ip = "10.0.1.5",
     ///     });

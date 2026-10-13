@@ -112,12 +112,12 @@ def get_network_members(network_id: Optional[_builtins.int] = None,
     import pulumi_hcloud as hcloud
     import pulumi_std as std
 
-    by_type = hcloud.get_network_members(network_id=int(example["id"]),
+    by_type = hcloud.get_network_members(network_id=example["id"],
         with_types=[
             "load_balancer",
             "server",
         ])
-    by_status = hcloud.get_network_members(network_id=int(example["id"]),
+    by_status = hcloud.get_network_members(network_id=example["id"],
         with_statuses=[
             "ok",
             "attaching",
@@ -125,9 +125,9 @@ def get_network_members(network_id: Optional[_builtins.int] = None,
             "updating",
             "error",
         ])
-    by_subnet = hcloud.get_network_members(network_id=int(example["id"]),
+    by_subnet = hcloud.get_network_members(network_id=example["id"],
         with_subnets=["10.0.1.0/24"])
-    all = hcloud.get_network_members(network_id=int(example["id"]))
+    all = hcloud.get_network_members(network_id=example["id"])
     # A list of all IPs in the network
     network_ips = std.flatten(input=[std.concat(input=[
         [m.ip],
@@ -172,12 +172,12 @@ def get_network_members_output(network_id: pulumi.Input[Optional[_builtins.int]]
     import pulumi_hcloud as hcloud
     import pulumi_std as std
 
-    by_type = hcloud.get_network_members(network_id=int(example["id"]),
+    by_type = hcloud.get_network_members(network_id=example["id"],
         with_types=[
             "load_balancer",
             "server",
         ])
-    by_status = hcloud.get_network_members(network_id=int(example["id"]),
+    by_status = hcloud.get_network_members(network_id=example["id"],
         with_statuses=[
             "ok",
             "attaching",
@@ -185,9 +185,9 @@ def get_network_members_output(network_id: pulumi.Input[Optional[_builtins.int]]
             "updating",
             "error",
         ])
-    by_subnet = hcloud.get_network_members(network_id=int(example["id"]),
+    by_subnet = hcloud.get_network_members(network_id=example["id"],
         with_subnets=["10.0.1.0/24"])
-    all = hcloud.get_network_members(network_id=int(example["id"]))
+    all = hcloud.get_network_members(network_id=example["id"])
     # A list of all IPs in the network
     network_ips = std.flatten(input=[std.concat(input=[
         [m.ip],

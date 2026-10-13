@@ -2001,7 +2001,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2065,7 +2065,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2129,7 +2129,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2193,7 +2193,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2257,7 +2257,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2321,7 +2321,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2385,7 +2385,7 @@ public final class HcloudFunctions {
      *         for (var i = 0; i < counter; i++) {
      *             new FloatingIpAssignment("main-" + i, FloatingIpAssignmentArgs.builder()
      *                 .floatingIpId(ip1.id())
-     *                 .serverId(mainHcloudServer.id())
+     *                 .serverId(mainHcloudServer.get("id"))
      *                 .build());
      * 
      *         
@@ -2732,7 +2732,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -2797,7 +2797,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -2862,7 +2862,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -2927,7 +2927,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -2992,7 +2992,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -3057,7 +3057,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -3122,7 +3122,7 @@ public final class HcloudFunctions {
      *             .build());
      * 
      *         var main = new Server("main", ServerArgs.builder()
-     *             .image(byName.id())
+     *             .image(byName.get("id"))
      *             .build());
      * 
      *     }
@@ -5104,7 +5104,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5156,7 +5156,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5208,7 +5208,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5260,7 +5260,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5312,7 +5312,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5364,7 +5364,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -5416,7 +5416,7 @@ public final class HcloudFunctions {
      *                 .name(String.format("node%s", range.value()))
      *                 .image("debian-12")
      *                 .serverType("cx23")
-     *                 .location(all.locations()[range.value()].name())
+     *                 .location(all.locations()[range.value()].get("name"))
      *                 .build());
      * 
      *         
@@ -6785,7 +6785,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -6859,7 +6859,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -6933,7 +6933,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -7007,7 +7007,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -7081,7 +7081,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -7155,7 +7155,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -7229,7 +7229,7 @@ public final class HcloudFunctions {
      *             .location("fsn1")
      *             .labels(Map.of("test", "tessst1"))
      *             .publicNets(ServerPublicNetArgs.builder()
-     *                 .ipv4(ip1HcloudPrimaryIp.id())
+     *                 .ipv4(ip1HcloudPrimaryIp.get("id"))
      *                 .build())
      *             .build());
      * 
@@ -10169,7 +10169,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10218,7 +10218,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10267,7 +10267,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10316,7 +10316,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10365,7 +10365,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSnapshots(GetStorageBoxSnapshotsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10414,7 +10414,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10474,7 +10474,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10534,7 +10534,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10594,7 +10594,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10654,7 +10654,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var byId = HcloudFunctions.getStorageBoxSubaccount(GetStorageBoxSubaccountArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .id(2)
@@ -10714,7 +10714,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10763,7 +10763,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10812,7 +10812,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10861,7 +10861,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());
@@ -10910,7 +10910,7 @@ public final class HcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var storageBoxId = config.require("storageBoxId");
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
      *         final var all = HcloudFunctions.getStorageBoxSubaccounts(GetStorageBoxSubaccountsArgs.builder()
      *             .storageBoxId(storageBoxId)
      *             .build());

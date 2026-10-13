@@ -56,7 +56,7 @@ namespace Pulumi.HCloud
     ///         {
     ///             new HCloud.Inputs.ServerPublicNetArgs
     ///             {
-    ///                 Ipv4 = main.Id,
+    ///                 Ipv4 = main.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///             },
     ///         },
     ///     });

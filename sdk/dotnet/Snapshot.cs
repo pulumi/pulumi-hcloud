@@ -31,7 +31,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var my_snapshot = new HCloud.Snapshot("my-snapshot", new()
     ///     {
-    ///         ServerId = node1.Id,
+    ///         ServerId = node1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

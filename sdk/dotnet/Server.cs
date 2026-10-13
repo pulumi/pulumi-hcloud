@@ -89,7 +89,7 @@ namespace Pulumi.HCloud
     ///             new HCloud.Inputs.ServerPublicNetArgs
     ///             {
     ///                 Ipv4Enabled = true,
-    ///                 Ipv4 = primaryIp1.Id,
+    ///                 Ipv4 = primaryIp1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///                 Ipv6Enabled = false,
     ///             },
     ///         },
@@ -117,7 +117,7 @@ namespace Pulumi.HCloud
     ///     var networkSubnet = new HCloud.NetworkSubnet("network_subnet", new()
     ///     {
     ///         Type = "cloud",
-    ///         NetworkId = network.Id,
+    ///         NetworkId = network.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         NetworkZone = "eu-central",
     ///         IpRange = "10.0.1.0/24",
     ///     });
@@ -167,7 +167,7 @@ namespace Pulumi.HCloud
     ///     var fromSnapshot = new HCloud.Server("from_snapshot", new()
     ///     {
     ///         Name = "from-snapshot",
-    ///         Image = packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id),
+    ///         Image = Output.Create(packerSnapshot.Apply(getImageResult =&gt; getImageResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
     ///         ServerType = "cx23",
     ///         PublicNets = new[]
     ///         {

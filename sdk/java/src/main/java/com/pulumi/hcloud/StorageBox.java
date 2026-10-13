@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .location("hel1")
  *             .password(storageBoxPassword)
  *             .sshKeys(            
- *                 myKey.publicKey(),
+ *                 myKey.get("publicKey"),
  *                 StdFunctions.file(FileArgs.builder()
  *                     .input("~/.ssh/id_ed25519.pub")
  *                     .build()).result())

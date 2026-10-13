@@ -42,10 +42,10 @@ namespace Pulumi.HCloud
     /// 
     ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
     ///     {
-    ///         FirewallId = basicFirewall.Id,
+    ///         FirewallId = basicFirewall.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         ServerIds = new[]
     ///         {
-    ///             testServer.Id,
+    ///             testServer.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///     });
     /// 
@@ -80,7 +80,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var fwRef = new HCloud.FirewallAttachment("fw_ref", new()
     ///     {
-    ///         FirewallId = basicFirewall.Id,
+    ///         FirewallId = basicFirewall.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         LabelSelectors = new[]
     ///         {
     ///             "firewall-attachment=test-server",
@@ -126,7 +126,7 @@ namespace Pulumi.HCloud
     ///         IgnoreRemoteFirewallIds = true,
     ///         FirewallIds = new[]
     ///         {
-    ///             denyAll.Id,
+    ///             denyAll.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///     });
     /// 
@@ -162,19 +162,19 @@ namespace Pulumi.HCloud
     /// 
     ///     var denyAllAtt = new HCloud.FirewallAttachment("deny_all_att", new()
     ///     {
-    ///         FirewallId = denyAll.Id,
+    ///         FirewallId = denyAll.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         ServerIds = new[]
     ///         {
-    ///             testServer.Id,
+    ///             testServer.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///     });
     /// 
     ///     var allowRulesAtt = new HCloud.FirewallAttachment("allow_rules_att", new()
     ///     {
-    ///         FirewallId = allowRules.Id,
+    ///         FirewallId = allowRules.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         ServerIds = new[]
     ///         {
-    ///             testServer.Id,
+    ///             testServer.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///     });
     /// 

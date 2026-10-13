@@ -58,7 +58,7 @@ namespace Pulumi.HCloud
     ///         ServerType = "cx23",
     ///         FirewallIds = new[]
     ///         {
-    ///             myfirewall.Id,
+    ///             myfirewall.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///     });
     /// 

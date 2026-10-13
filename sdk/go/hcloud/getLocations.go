@@ -43,7 +43,7 @@ import (
 //					Name:       pulumi.Sprintf("node%v", val0),
 //					Image:      pulumi.String("debian-12"),
 //					ServerType: pulumi.String("cx23"),
-//					Location:   all.Locations[val0].Name,
+//					Location:   all.Locations[val0].Name.(pulumi.String),
 //				})
 //				if err != nil {
 //					return err
