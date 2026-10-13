@@ -32,7 +32,7 @@ namespace Pulumi.HCloud
     ///     var master = new HCloud.FloatingIp("master", new()
     ///     {
     ///         Type = "ipv4",
-    ///         ServerId = node1.Id,
+    ///         ServerId = node1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

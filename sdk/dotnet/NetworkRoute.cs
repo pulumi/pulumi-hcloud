@@ -30,7 +30,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var privNet = new HCloud.NetworkRoute("privNet", new()
     ///     {
-    ///         NetworkId = mynet.Id,
+    ///         NetworkId = mynet.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Destination = "10.100.1.0/24",
     ///         Gateway = "10.0.1.1",
     ///     });

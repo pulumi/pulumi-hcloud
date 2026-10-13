@@ -30,7 +30,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var foonet = new HCloud.NetworkSubnet("foonet", new()
     ///     {
-    ///         NetworkId = mynet.Id,
+    ///         NetworkId = mynet.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Type = "cloud",
     ///         NetworkZone = "eu-central",
     ///         IpRange = "10.0.1.0/24",

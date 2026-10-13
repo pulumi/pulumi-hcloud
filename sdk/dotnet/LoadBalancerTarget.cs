@@ -39,8 +39,8 @@ namespace Pulumi.HCloud
     ///     var loadBalancerTarget = new HCloud.LoadBalancerTarget("load_balancer_target", new()
     ///     {
     ///         Type = "server",
-    ///         LoadBalancerId = loadBalancer.Id,
-    ///         ServerId = myServer.Id,
+    ///         LoadBalancerId = loadBalancer.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
+    ///         ServerId = myServer.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

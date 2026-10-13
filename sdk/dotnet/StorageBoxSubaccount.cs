@@ -30,7 +30,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var teamBadger = new HCloud.StorageBoxSubaccount("team_badger", new()
     ///     {
-    ///         StorageBoxId = main.Id,
+    ///         StorageBoxId = main.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Name = "badger",
     ///         HomeDirectory = "teams/badger/",
     ///         Password = teamBadgerPassword,

@@ -50,9 +50,9 @@ namespace Pulumi.HCloud
         ///     {
         ///         SshKeys = new[]
         ///         {
-        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             Output.Create(byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///     });
         /// 
@@ -101,9 +101,9 @@ namespace Pulumi.HCloud
         ///     {
         ///         SshKeys = new[]
         ///         {
-        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             Output.Create(byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///     });
         /// 
@@ -152,9 +152,9 @@ namespace Pulumi.HCloud
         ///     {
         ///         SshKeys = new[]
         ///         {
-        ///             byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
-        ///             byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id),
+        ///             Output.Create(byId.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byName.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+        ///             Output.Create(byFingerprint.Apply(getSshKeyResult =&gt; getSshKeyResult.Id)).Apply(x =&gt; x.ToString(System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///     });
         /// 

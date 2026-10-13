@@ -30,7 +30,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var server1Rdns = new HCloud.Rdns("server1", new()
     ///     {
-    ///         ServerId = server1.Id,
+    ///         ServerId = server1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         IpAddress = server1.Ipv4Address,
     ///         DnsPtr = "example.com",
     ///     });
@@ -44,7 +44,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var primaryIp1Rdns = new HCloud.Rdns("primary_ip1", new()
     ///     {
-    ///         PrimaryIpId = primaryIp1.Id,
+    ///         PrimaryIpId = primaryIp1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         IpAddress = primaryIp1.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
@@ -58,7 +58,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var floatingIp1Rdns = new HCloud.Rdns("floating_ip1", new()
     ///     {
-    ///         FloatingIpId = floatingIp1.Id,
+    ///         FloatingIpId = floatingIp1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         IpAddress = floatingIp1.IpAddress,
     ///         DnsPtr = "example.com",
     ///     });
@@ -71,7 +71,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var loadBalancer1Rdns = new HCloud.Rdns("load_balancer1", new()
     ///     {
-    ///         LoadBalancerId = loadBalancer1.Id,
+    ///         LoadBalancerId = loadBalancer1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         IpAddress = loadBalancer1.Ipv4,
     ///         DnsPtr = "example.com",
     ///     });

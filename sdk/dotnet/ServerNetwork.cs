@@ -37,7 +37,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var subnet1 = new HCloud.NetworkSubnet("subnet1", new()
     ///     {
-    ///         NetworkId = network.Id,
+    ///         NetworkId = network.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Type = "cloud",
     ///         NetworkZone = "eu-central",
     ///         IpRange = "10.0.1.0/24",
@@ -45,7 +45,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var node1Subnet1 = new HCloud.ServerNetwork("node1_subnet1", new()
     ///     {
-    ///         ServerId = node1.Id,
+    ///         ServerId = node1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         SubnetId = subnet1.Id,
     ///         Ip = "10.0.1.5",
     ///         AliasIps = new[]

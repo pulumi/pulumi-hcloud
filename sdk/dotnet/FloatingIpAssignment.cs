@@ -38,8 +38,8 @@ namespace Pulumi.HCloud
     /// 
     ///     var main = new HCloud.FloatingIpAssignment("main", new()
     ///     {
-    ///         FloatingIpId = master.Id,
-    ///         ServerId = node1.Id,
+    ///         FloatingIpId = master.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
+    ///         ServerId = node1.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

@@ -19,14 +19,14 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const byType = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withTypes: [
  *         "load_balancer",
  *         "server",
  *     ],
  * });
  * const byStatus = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withStatuses: [
  *         "ok",
  *         "attaching",
@@ -36,11 +36,11 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * const bySubnet = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withSubnets: ["10.0.1.0/24"],
  * });
  * const all = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  * });
  * // A list of all IPs in the network
  * const networkIps = Promise.all([all, std.concat({
@@ -120,14 +120,14 @@ export interface GetNetworkMembersResult {
  * import * as std from "@pulumi/std";
  *
  * const byType = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withTypes: [
  *         "load_balancer",
  *         "server",
  *     ],
  * });
  * const byStatus = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withStatuses: [
  *         "ok",
  *         "attaching",
@@ -137,11 +137,11 @@ export interface GetNetworkMembersResult {
  *     ],
  * });
  * const bySubnet = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  *     withSubnets: ["10.0.1.0/24"],
  * });
  * const all = hcloud.getNetworkMembers({
- *     networkId: Number(example.id),
+ *     networkId: example.id,
  * });
  * // A list of all IPs in the network
  * const networkIps = Promise.all([all, std.concat({

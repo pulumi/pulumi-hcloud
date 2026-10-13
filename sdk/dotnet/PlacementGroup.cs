@@ -37,7 +37,7 @@ namespace Pulumi.HCloud
     ///         Name = "node1",
     ///         Image = "debian-12",
     ///         ServerType = "cx23",
-    ///         PlacementGroupId = my_placement_group.Id,
+    ///         PlacementGroupId = my_placement_group.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

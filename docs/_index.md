@@ -167,7 +167,7 @@ public class App {
 
     public static void stack(Context ctx) {
         final var config = ctx.config();
-        final var hcloudToken = config.require("hcloudToken");
+        final var hcloudToken = config.requireObject("hcloudToken", com.pulumi.core.TypeShape.map(String.class, Object.class));
     }
 }
 ```
@@ -178,6 +178,7 @@ public class App {
 # Set the variable value in *.tfvars file
 # or using the -var="hcloud_token=..." CLI option
 variable "hcloudToken" {
+  type = any
 }
 ```
 

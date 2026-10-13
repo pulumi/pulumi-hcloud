@@ -28,7 +28,7 @@ namespace Pulumi.HCloud
     /// 
     ///     var backup = new HCloud.StorageBoxSnapshot("backup", new()
     ///     {
-    ///         StorageBoxId = main.Id,
+    ///         StorageBoxId = main.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         Description = "Before Tool XYZ Migration",
     ///         Labels = 
     ///         {
