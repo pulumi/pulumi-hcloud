@@ -911,7 +911,6 @@ class Server(pulumi.CustomResource):
             name="primary_ip_test",
             location="hel1",
             type="ipv4",
-            assignee_type="server",
             auto_delete=True,
             labels={
                 "hallo": "welt",
@@ -1069,7 +1068,6 @@ class Server(pulumi.CustomResource):
             name="primary_ip_test",
             location="hel1",
             type="ipv4",
-            assignee_type="server",
             auto_delete=True,
             labels={
                 "hallo": "welt",
