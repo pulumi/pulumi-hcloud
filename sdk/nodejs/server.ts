@@ -47,7 +47,6 @@ import * as utilities from "./utilities";
  *     name: "primary_ip_test",
  *     location: "hel1",
  *     type: "ipv4",
- *     assigneeType: "server",
  *     autoDelete: true,
  *     labels: {
  *         hallo: "welt",

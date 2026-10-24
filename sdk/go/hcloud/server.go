@@ -76,11 +76,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ## Server creation with one linked primary ip (ipv4)
 //			primaryIp1, err := hcloud.NewPrimaryIp(ctx, "primary_ip_1", &hcloud.PrimaryIpArgs{
-//				Name:         pulumi.String("primary_ip_test"),
-//				Location:     pulumi.String("hel1"),
-//				Type:         pulumi.String("ipv4"),
-//				AssigneeType: pulumi.String("server"),
-//				AutoDelete:   pulumi.Bool(true),
+//				Name:       pulumi.String("primary_ip_test"),
+//				Location:   pulumi.String("hel1"),
+//				Type:       pulumi.String("ipv4"),
+//				AutoDelete: pulumi.Bool(true),
 //				Labels: pulumi.StringMap{
 //					"hallo": pulumi.String("welt"),
 //				},

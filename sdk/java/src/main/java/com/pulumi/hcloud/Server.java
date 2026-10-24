@@ -105,7 +105,6 @@ import javax.annotation.Nullable;
  *             .name("primary_ip_test")
  *             .location("hel1")
  *             .type("ipv4")
- *             .assigneeType("server")
  *             .autoDelete(true)
  *             .labels(Map.of("hallo", "welt"))
  *             .build());

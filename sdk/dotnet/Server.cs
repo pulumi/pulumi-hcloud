@@ -66,7 +66,6 @@ namespace Pulumi.HCloud
     ///         Name = "primary_ip_test",
     ///         Location = "hel1",
     ///         Type = "ipv4",
-    ///         AssigneeType = "server",
     ///         AutoDelete = true,
     ///         Labels = 
     ///         {
