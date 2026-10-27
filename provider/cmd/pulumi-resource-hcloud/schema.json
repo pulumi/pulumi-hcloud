@@ -491,7 +491,8 @@
                 },
                 "tsigKey": {
                     "type": "string",
-                    "description": "Transaction signature (TSIG) key\n"
+                    "description": "Transaction signature (TSIG) key\n",
+                    "secret": true
                 }
             },
             "type": "object",
@@ -2729,7 +2730,8 @@
                 },
                 "tsigKey": {
                     "type": "string",
-                    "description": "Transaction signature (TSIG) key\n"
+                    "description": "Transaction signature (TSIG) key\n",
+                    "secret": true
                 }
             },
             "type": "object",
@@ -2946,7 +2948,8 @@
                 },
                 "tsigKey": {
                     "type": "string",
-                    "description": "Transaction signature (TSIG) key\n"
+                    "description": "Transaction signature (TSIG) key\n",
+                    "secret": true
                 }
             },
             "type": "object",

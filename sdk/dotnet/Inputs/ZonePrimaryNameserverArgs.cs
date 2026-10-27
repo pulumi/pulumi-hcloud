@@ -30,11 +30,21 @@ namespace Pulumi.HCloud.Inputs
         [Input("tsigAlgorithm")]
         public Input<string>? TsigAlgorithm { get; set; }
 
+        [Input("tsigKey")]
+        private Input<string>? _tsigKey;
+
         /// <summary>
         /// Transaction signature (TSIG) key
         /// </summary>
-        [Input("tsigKey")]
-        public Input<string>? TsigKey { get; set; }
+        public Input<string>? TsigKey
+        {
+            get => _tsigKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tsigKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ZonePrimaryNameserverArgs()
         {
