@@ -5,7 +5,7 @@ go 1.26.10
 replace github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 
 require (
-	github.com/hetznercloud/terraform-provider-hcloud v1.70.1
+	github.com/hetznercloud/terraform-provider-hcloud v1.70.2
 	github.com/pulumi/providertest v0.7.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.141.0
 	github.com/pulumi/pulumi/sdk/v3 v3.268.0
