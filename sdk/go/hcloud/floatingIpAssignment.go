@@ -47,8 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewFloatingIpAssignment(ctx, "main", &hcloud.FloatingIpAssignmentArgs{
-//				FloatingIpId: master.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
-//				ServerId:     node1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				FloatingIpId: master.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
+//				ServerId:     node1.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

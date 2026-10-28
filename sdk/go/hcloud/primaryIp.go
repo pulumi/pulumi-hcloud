@@ -61,7 +61,7 @@ import (
 //				Location:   pulumi.String("fsn1"),
 //				PublicNets: hcloud.ServerPublicNetArray{
 //					&hcloud.ServerPublicNetArgs{
-//						Ipv4: main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//						Ipv4: main.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //					},
 //				},
 //			})

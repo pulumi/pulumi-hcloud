@@ -12,6 +12,26 @@ import * as utilities from "./utilities";
  * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const config = new pulumi.Config();
+ * const storageBoxId = config.requireObject<any>("storageBoxId");
+ * const byId = hcloud.getStorageBoxSnapshot({
+ *     storageBoxId: storageBoxId,
+ *     id: 2,
+ * });
+ * const byName = hcloud.getStorageBoxSnapshot({
+ *     storageBoxId: storageBoxId,
+ *     name: "2025-02-12T11-35-19",
+ * });
+ * const byLabelSelector = hcloud.getStorageBox({
+ *     storageBoxId: storageBoxId,
+ *     withSelector: "env=production",
+ * });
+ * ```
  */
 export function getStorageBoxSnapshot(args: GetStorageBoxSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageBoxSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,6 +108,26 @@ export interface GetStorageBoxSnapshotResult {
  * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as hcloud from "@pulumi/hcloud";
+ *
+ * const config = new pulumi.Config();
+ * const storageBoxId = config.requireObject<any>("storageBoxId");
+ * const byId = hcloud.getStorageBoxSnapshot({
+ *     storageBoxId: storageBoxId,
+ *     id: 2,
+ * });
+ * const byName = hcloud.getStorageBoxSnapshot({
+ *     storageBoxId: storageBoxId,
+ *     name: "2025-02-12T11-35-19",
+ * });
+ * const byLabelSelector = hcloud.getStorageBox({
+ *     storageBoxId: storageBoxId,
+ *     withSelector: "env=production",
+ * });
+ * ```
  */
 export function getStorageBoxSnapshotOutput(args: GetStorageBoxSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageBoxSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

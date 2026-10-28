@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewStorageBoxSubaccount(ctx, "team_badger", &hcloud.StorageBoxSubaccountArgs{
-//				StorageBoxId:  main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				StorageBoxId:  main.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //				Name:          pulumi.String("badger"),
 //				HomeDirectory: pulumi.String("teams/badger/"),
 //				Password:      pulumi.String(teamBadgerPassword),

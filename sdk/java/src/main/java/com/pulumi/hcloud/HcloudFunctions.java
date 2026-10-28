@@ -10091,6 +10091,51 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var byId = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("2025-02-12T11-35-19")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args) {
         return getStorageBoxSnapshot(args, InvokeOptions.Empty);
@@ -10101,6 +10146,51 @@ public final class HcloudFunctions {
      * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var byId = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("2025-02-12T11-35-19")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetStorageBoxSnapshotResult> getStorageBoxSnapshotPlain(GetStorageBoxSnapshotPlainArgs args) {
@@ -10113,6 +10203,51 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var byId = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("2025-02-12T11-35-19")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
@@ -10124,6 +10259,51 @@ public final class HcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var byId = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("2025-02-12T11-35-19")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetStorageBoxSnapshotResult> getStorageBoxSnapshot(GetStorageBoxSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", TypeShape.of(GetStorageBoxSnapshotResult.class), args, Utilities.withVersion(options));
@@ -10134,6 +10314,51 @@ public final class HcloudFunctions {
      * See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.hcloud.HcloudFunctions;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxSnapshotArgs;
+     * import com.pulumi.hcloud.inputs.GetStorageBoxArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var storageBoxId = config.requireObject("storageBoxId", com.pulumi.core.TypeShape.map(String.class, Object.class));
+     *         final var byId = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .id(2)
+     *             .build());
+     * 
+     *         final var byName = HcloudFunctions.getStorageBoxSnapshot(GetStorageBoxSnapshotArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .name("2025-02-12T11-35-19")
+     *             .build());
+     * 
+     *         final var byLabelSelector = HcloudFunctions.getStorageBox(GetStorageBoxArgs.builder()
+     *             .storageBoxId(storageBoxId)
+     *             .withSelector("env=production")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetStorageBoxSnapshotResult> getStorageBoxSnapshotPlain(GetStorageBoxSnapshotPlainArgs args, InvokeOptions options) {

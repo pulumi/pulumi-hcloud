@@ -40,7 +40,7 @@ import (
 //			}
 //			_, err = hcloud.NewFloatingIp(ctx, "master", &hcloud.FloatingIpArgs{
 //				Type:     pulumi.String("ipv4"),
-//				ServerId: node1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ServerId: node1.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

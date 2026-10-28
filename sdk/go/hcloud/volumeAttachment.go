@@ -47,8 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewVolumeAttachment(ctx, "main", &hcloud.VolumeAttachmentArgs{
-//				VolumeId:  master.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
-//				ServerId:  node1.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				VolumeId:  master.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
+//				ServerId:  node1.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //				Automount: pulumi.Bool(true),
 //			})
 //			if err != nil {

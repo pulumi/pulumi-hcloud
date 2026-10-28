@@ -16,6 +16,49 @@ import (
 // See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-hcloud/sdk/go/hcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			var storageBoxId interface{}
+//			cfg.RequireObject("storageBoxId", &storageBoxId)
+//			_, err := hcloud.GetStorageBoxSnapshot(ctx, &hcloud.LookupStorageBoxSnapshotArgs{
+//				StorageBoxId: storageBoxId,
+//				Id:           pulumi.IntRef(2),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetStorageBoxSnapshot(ctx, &hcloud.LookupStorageBoxSnapshotArgs{
+//				StorageBoxId: storageBoxId,
+//				Name:         pulumi.StringRef("2025-02-12T11-35-19"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hcloud.GetStorageBox(ctx, &hcloud.LookupStorageBoxArgs{
+//				StorageBoxId: storageBoxId,
+//				WithSelector: pulumi.StringRef("env=production"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupStorageBoxSnapshot(ctx *pulumi.Context, args *LookupStorageBoxSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupStorageBoxSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStorageBoxSnapshotResult

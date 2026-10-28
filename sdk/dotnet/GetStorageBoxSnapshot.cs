@@ -17,6 +17,37 @@ namespace Pulumi.HCloud
         /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
+        ///     var byId = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Id = 2,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "2025-02-12T11-35-19",
+        ///     });
+        /// 
+        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         WithSelector = "env=production",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetStorageBoxSnapshotResult> InvokeAsync(GetStorageBoxSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageBoxSnapshotResult>("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args ?? new GetStorageBoxSnapshotArgs(), options.WithDefaults());
@@ -27,6 +58,37 @@ namespace Pulumi.HCloud
         /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
+        ///     var byId = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Id = 2,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "2025-02-12T11-35-19",
+        ///     });
+        /// 
+        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         WithSelector = "env=production",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetStorageBoxSnapshotResult> Invoke(GetStorageBoxSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxSnapshotResult>("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args ?? new GetStorageBoxSnapshotInvokeArgs(), options.WithDefaults());
@@ -37,6 +99,37 @@ namespace Pulumi.HCloud
         /// See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using HCloud = Pulumi.HCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var storageBoxId = config.RequireObject&lt;dynamic&gt;("storageBoxId");
+        ///     var byId = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Id = 2,
+        ///     });
+        /// 
+        ///     var byName = HCloud.GetStorageBoxSnapshot.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         Name = "2025-02-12T11-35-19",
+        ///     });
+        /// 
+        ///     var byLabelSelector = HCloud.GetStorageBox.Invoke(new()
+        ///     {
+        ///         StorageBoxId = storageBoxId,
+        ///         WithSelector = "env=production",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetStorageBoxSnapshotResult> Invoke(GetStorageBoxSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageBoxSnapshotResult>("hcloud:index/getStorageBoxSnapshot:getStorageBoxSnapshot", args ?? new GetStorageBoxSnapshotInvokeArgs(), options.WithDefaults());
