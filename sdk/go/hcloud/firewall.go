@@ -59,7 +59,7 @@ import (
 //				Image:      pulumi.String("debian-12"),
 //				ServerType: pulumi.String("cx23"),
 //				FirewallIds: pulumi.IntArray{
-//					myfirewall.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//					myfirewall.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //				},
 //			})
 //			if err != nil {

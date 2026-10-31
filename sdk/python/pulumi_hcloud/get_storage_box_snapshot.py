@@ -146,6 +146,20 @@ def get_storage_box_snapshot(id: Optional[_builtins.int] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    config = pulumi.Config()
+    storage_box_id = config.require_object("storageBoxId")
+    by_id = hcloud.get_storage_box_snapshot(storage_box_id=storage_box_id,
+        id=2)
+    by_name = hcloud.get_storage_box_snapshot(storage_box_id=storage_box_id,
+        name="2025-02-12T11-35-19")
+    by_label_selector = hcloud.get_storage_box(storage_box_id=storage_box_id,
+        with_selector="env=production")
+    ```
+
 
     :param _builtins.int id: ID of the Storage Box Snapshot.
     :param _builtins.str name: Name of the Storage Box Snapshot.
@@ -180,6 +194,20 @@ def get_storage_box_snapshot_output(id: pulumi.Input[Optional[Optional[_builtins
     See the [Storage Box Snapshots API documentation](https://docs.hetzner.cloud/reference/hetzner#storage-box-snapshots) for more details.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_hcloud as hcloud
+
+    config = pulumi.Config()
+    storage_box_id = config.require_object("storageBoxId")
+    by_id = hcloud.get_storage_box_snapshot(storage_box_id=storage_box_id,
+        id=2)
+    by_name = hcloud.get_storage_box_snapshot(storage_box_id=storage_box_id,
+        name="2025-02-12T11-35-19")
+    by_label_selector = hcloud.get_storage_box(storage_box_id=storage_box_id,
+        with_selector="env=production")
+    ```
 
 
     :param _builtins.int id: ID of the Storage Box Snapshot.

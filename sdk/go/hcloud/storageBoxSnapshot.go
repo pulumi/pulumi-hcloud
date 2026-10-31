@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = hcloud.NewStorageBoxSnapshot(ctx, "backup", &hcloud.StorageBoxSnapshotArgs{
-//				StorageBoxId: main.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				StorageBoxId: main.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //				Description:  pulumi.String("Before Tool XYZ Migration"),
 //				Labels: pulumi.StringMap{
 //					"env": pulumi.String("production"),

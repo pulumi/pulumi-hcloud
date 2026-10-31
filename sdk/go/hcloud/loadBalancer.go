@@ -48,8 +48,8 @@ import (
 //			}
 //			_, err = hcloud.NewLoadBalancerTarget(ctx, "load_balancer_target", &hcloud.LoadBalancerTargetArgs{
 //				Type:           pulumi.String("server"),
-//				LoadBalancerId: loadBalancer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
-//				ServerId:       myServer.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				LoadBalancerId: loadBalancer.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
+//				ServerId:       myServer.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
