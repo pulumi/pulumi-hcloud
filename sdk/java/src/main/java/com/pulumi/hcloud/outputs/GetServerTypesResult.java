@@ -13,11 +13,10 @@ import java.util.Objects;
 @CustomType
 public final class GetServerTypesResult {
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     private List<String> descriptions;
     /**
      * @return The ID of this resource.
@@ -25,28 +24,25 @@ public final class GetServerTypesResult {
      */
     private String id;
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     private List<String> names;
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     private List<String> serverTypeIds;
     private List<GetServerTypesServerType> serverTypes;
 
     private GetServerTypesResult() {}
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     public List<String> descriptions() {
         return this.descriptions;
     }
@@ -58,20 +54,18 @@ public final class GetServerTypesResult {
         return this.id;
     }
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     public List<String> names() {
         return this.names;
     }
     /**
-     * @deprecated
-     * Use serverTypes list instead
+     * @deprecated Use serverTypes list instead
      * 
      */
-    @Deprecated /* Use serverTypes list instead */
+    @Deprecated
     public List<String> serverTypeIds() {
         return this.serverTypeIds;
     }

@@ -39,11 +39,10 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type deprecation announcement.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     private String deprecationAnnounced;
     /**
      * @return Description of the Server Type.
@@ -61,20 +60,18 @@ public final class GetServerTypeResult {
      */
     private @Nullable Integer id;
     /**
-     * @deprecated
-     * The field is deprecated and will always report 0 after 2024-08-05.
+     * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
      * 
      */
-    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
+    @Deprecated
     private Integer includedTraffic;
     /**
      * @return Whether the Server Type is deprecated.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     private Boolean isDeprecated;
     /**
      * @return List of supported Locations for this Server Type.
@@ -99,11 +96,10 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     private String unavailableAfter;
 
     private GetServerTypeResult() {}
@@ -138,11 +134,10 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type deprecation announcement.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     public String deprecationAnnounced() {
         return this.deprecationAnnounced;
     }
@@ -168,22 +163,20 @@ public final class GetServerTypeResult {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @deprecated
-     * The field is deprecated and will always report 0 after 2024-08-05.
+     * @deprecated The field is deprecated and will always report 0 after 2024-08-05.
      * 
      */
-    @Deprecated /* The field is deprecated and will always report 0 after 2024-08-05. */
+    @Deprecated
     public Integer includedTraffic() {
         return this.includedTraffic;
     }
     /**
      * @return Whether the Server Type is deprecated.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     public Boolean isDeprecated() {
         return this.isDeprecated;
     }
@@ -218,11 +211,10 @@ public final class GetServerTypeResult {
     /**
      * @return Date of the Server Type removal. After this date, the Server Type cannot be used anymore.
      * 
-     * @deprecated
-     * The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
+     * @deprecated The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead.
      * 
      */
-    @Deprecated /* The field is deprecated and will gradually be phased out starting 2025-09-24. Use the deprecation in the locations list instead. */
+    @Deprecated
     public String unavailableAfter() {
         return this.unavailableAfter;
     }

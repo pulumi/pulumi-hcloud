@@ -515,6 +515,26 @@ class LoadBalancerService(pulumi.CustomResource):
         __props__.__dict__["proxyprotocol"] = proxyprotocol
         return LoadBalancerService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerServiceHealthCheckArgs', 'LoadBalancerServiceHealthCheckArgsDict', 'outputs.LoadBalancerServiceHealthCheck']]] = None,
+            http: pulumi.Input[Optional[Union['LoadBalancerServiceHttpArgs', 'LoadBalancerServiceHttpArgsDict', 'outputs.LoadBalancerServiceHttp']]] = None,
+            listen_port: pulumi.Input[Optional[_builtins.int]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyprotocol: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["destinationPort"] = destination_port
+        __props__["healthCheck"] = health_check
+        __props__["http"] = http
+        __props__["listenPort"] = listen_port
+        __props__["loadBalancerId"] = load_balancer_id
+        __props__["protocol"] = protocol
+        __props__["proxyprotocol"] = proxyprotocol
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/loadBalancerService:LoadBalancerService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> pulumi.Output[_builtins.int]:

@@ -122,6 +122,12 @@ func (ZoneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneState)(nil)).Elem()
 }
 
+// ZoneExists checks whether an existing Zone resource with the given ID exists.
+func ZoneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/zone:Zone", id, state, "", opts...)
+}
+
 type zoneArgs struct {
 	// Whether delete protection is enabled.
 	DeleteProtection *bool `pulumi:"deleteProtection"`

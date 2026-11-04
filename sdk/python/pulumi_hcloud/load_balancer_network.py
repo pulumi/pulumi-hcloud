@@ -366,6 +366,22 @@ class LoadBalancerNetwork(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         return LoadBalancerNetwork(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enable_public_interface: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enablePublicInterface"] = enable_public_interface
+        __props__["ip"] = ip
+        __props__["loadBalancerId"] = load_balancer_id
+        __props__["networkId"] = network_id
+        __props__["subnetId"] = subnet_id
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/loadBalancerNetwork:LoadBalancerNetwork', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enablePublicInterface")
     def enable_public_interface(self) -> pulumi.Output[_builtins.bool]:

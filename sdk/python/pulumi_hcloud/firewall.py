@@ -348,6 +348,20 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["rules"] = rules
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apply_tos: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallApplyToArgs', 'FirewallApplyToArgsDict', 'outputs.FirewallApplyTo']]]]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallRuleArgs', 'FirewallRuleArgsDict', 'outputs.FirewallRule']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applyTos"] = apply_tos
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["rules"] = rules
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/firewall:Firewall', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applyTos")
     def apply_tos(self) -> pulumi.Output[Sequence['outputs.FirewallApplyTo']]:

@@ -152,6 +152,12 @@ func (LoadBalancerNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerNetworkState)(nil)).Elem()
 }
 
+// LoadBalancerNetworkExists checks whether an existing LoadBalancerNetwork resource with the given ID exists.
+func LoadBalancerNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/loadBalancerNetwork:LoadBalancerNetwork", id, state, "", opts...)
+}
+
 type loadBalancerNetworkArgs struct {
 	// Wether the Load Balancer public interface is enabled. Default is `true`.
 	EnablePublicInterface *bool `pulumi:"enablePublicInterface"`

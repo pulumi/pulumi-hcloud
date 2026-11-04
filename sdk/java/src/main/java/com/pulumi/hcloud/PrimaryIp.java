@@ -137,11 +137,10 @@ public class PrimaryIp extends com.pulumi.resources.CustomResource {
     /**
      * Name of the Datacenter for the Primary IP. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
-     * @deprecated
-     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+    @Deprecated
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 

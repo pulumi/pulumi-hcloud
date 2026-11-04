@@ -130,6 +130,12 @@ func (NetworkRouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkRouteState)(nil)).Elem()
 }
 
+// NetworkRouteExists checks whether an existing NetworkRoute resource with the given ID exists.
+func NetworkRouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkRouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/networkRoute:NetworkRoute", id, state, "", opts...)
+}
+
 type networkRouteArgs struct {
 	// Destination network or host of this route. Must be a subnet of the ipRange of the Network. Must not overlap with an existing ipRange in any subnets or with any destinations in other routes or with the first ip of the networks ipRange or with 172.31.1.1.
 	Destination string `pulumi:"destination"`

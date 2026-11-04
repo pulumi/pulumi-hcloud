@@ -594,6 +594,34 @@ class PrimaryIp(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return PrimaryIp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignee_id: pulumi.Input[Optional[_builtins.int]] = None,
+            assignee_type: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_network: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assigneeId"] = assignee_id
+        __props__["assigneeType"] = assignee_type
+        __props__["autoDelete"] = auto_delete
+        __props__["datacenter"] = datacenter
+        __props__["deleteProtection"] = delete_protection
+        __props__["ipAddress"] = ip_address
+        __props__["ipNetwork"] = ip_network
+        __props__["labels"] = labels
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/primaryIp:PrimaryIp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assigneeId")
     def assignee_id(self) -> pulumi.Output[_builtins.int]:

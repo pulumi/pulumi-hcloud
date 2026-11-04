@@ -146,6 +146,12 @@ func (FirewallState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallState)(nil)).Elem()
 }
 
+// FirewallExists checks whether an existing Firewall resource with the given ID exists.
+func FirewallExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/firewall:Firewall", id, state, "", opts...)
+}
+
 type firewallArgs struct {
 	// Resources the firewall should be assigned to
 	ApplyTos []FirewallApplyTo `pulumi:"applyTos"`

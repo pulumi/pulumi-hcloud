@@ -13,11 +13,10 @@ import java.util.Objects;
 @CustomType
 public final class GetLocationsResult {
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     private List<String> descriptions;
     /**
      * @return The ID of this resource.
@@ -25,28 +24,25 @@ public final class GetLocationsResult {
      */
     private String id;
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     private List<String> locationIds;
     private List<GetLocationsLocation> locations;
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     private List<String> names;
 
     private GetLocationsResult() {}
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     public List<String> descriptions() {
         return this.descriptions;
     }
@@ -58,11 +54,10 @@ public final class GetLocationsResult {
         return this.id;
     }
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     public List<String> locationIds() {
         return this.locationIds;
     }
@@ -70,11 +65,10 @@ public final class GetLocationsResult {
         return this.locations;
     }
     /**
-     * @deprecated
-     * Use locations list instead
+     * @deprecated Use locations list instead
      * 
      */
-    @Deprecated /* Use locations list instead */
+    @Deprecated
     public List<String> names() {
         return this.names;
     }

@@ -81,22 +81,20 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     public Optional<Output<String>> selector() {
         return Optional.ofNullable(this.selector);
     }
@@ -266,11 +264,10 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use the withSelector property instead.
+         * @deprecated Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the withSelector property instead. */
+        @Deprecated
         public Builder selector(@Nullable Output<String> selector) {
             $.selector = selector;
             return this;
@@ -281,11 +278,10 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use the withSelector property instead.
+         * @deprecated Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the withSelector property instead. */
+        @Deprecated
         public Builder selector(String selector) {
             return selector(Output.of(selector));
         }

@@ -80,22 +80,20 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     @Import(name="selector")
     private @Nullable String selector;
 
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }
@@ -225,11 +223,10 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use the withSelector property instead.
+         * @deprecated Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the withSelector property instead. */
+        @Deprecated
         public Builder selector(@Nullable String selector) {
             $.selector = selector;
             return this;

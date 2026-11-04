@@ -370,6 +370,24 @@ class NetworkSubnet(pulumi.CustomResource):
         __props__.__dict__["vswitch_id"] = vswitch_id
         return NetworkSubnet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            gateway: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_range: pulumi.Input[Optional[_builtins.str]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vswitch_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["gateway"] = gateway
+        __props__["ipRange"] = ip_range
+        __props__["networkId"] = network_id
+        __props__["networkZone"] = network_zone
+        __props__["type"] = type
+        __props__["vswitchId"] = vswitch_id
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/networkSubnet:NetworkSubnet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def gateway(self) -> pulumi.Output[_builtins.str]:

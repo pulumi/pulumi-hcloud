@@ -138,6 +138,12 @@ func (UploadedCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadedCertificateState)(nil)).Elem()
 }
 
+// UploadedCertificateExists checks whether an existing UploadedCertificate resource with the given ID exists.
+func UploadedCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UploadedCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/uploadedCertificate:UploadedCertificate", id, state, "", opts...)
+}
+
 type uploadedCertificateArgs struct {
 	// PEM encoded TLS certificate.
 	Certificate string `pulumi:"certificate"`

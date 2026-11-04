@@ -314,6 +314,22 @@ class StorageBoxSnapshot(pulumi.CustomResource):
         __props__.__dict__["storage_box_id"] = storage_box_id
         return StorageBoxSnapshot(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_box_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["isAutomatic"] = is_automatic
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["storageBoxId"] = storage_box_id
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/storageBoxSnapshot:StorageBoxSnapshot', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

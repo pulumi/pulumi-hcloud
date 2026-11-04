@@ -29,11 +29,10 @@ public final class GetImageResult {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
-     * @deprecated
-     * This attribute is deprecated, use deprecationAnnounced instead.
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
+    @Deprecated
     private String deprecated;
     /**
      * @return Date of the Image deprecation announcement.
@@ -93,11 +92,10 @@ public final class GetImageResult {
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     private @Nullable String selector;
     /**
      * @return Type of the Image, for example `system`, `backup` or `snapshot`.
@@ -143,11 +141,10 @@ public final class GetImageResult {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
-     * @deprecated
-     * This attribute is deprecated, use deprecationAnnounced instead.
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
+    @Deprecated
     public String deprecated() {
         return this.deprecated;
     }
@@ -231,11 +228,10 @@ public final class GetImageResult {
     /**
      * @return Filter results using a [Label Selector](https://docs.hetzner.cloud/reference/cloud#label-selector).
      * 
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }

@@ -136,6 +136,12 @@ func (StorageBoxSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageBoxSnapshotState)(nil)).Elem()
 }
 
+// StorageBoxSnapshotExists checks whether an existing StorageBoxSnapshot resource with the given ID exists.
+func StorageBoxSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageBoxSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/storageBoxSnapshot:StorageBoxSnapshot", id, state, "", opts...)
+}
+
 type storageBoxSnapshotArgs struct {
 	// Description of the Storage Box Snapshot.
 	Description *string `pulumi:"description"`

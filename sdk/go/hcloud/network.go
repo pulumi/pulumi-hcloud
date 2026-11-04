@@ -125,6 +125,12 @@ func (NetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkState)(nil)).Elem()
 }
 
+// NetworkExists checks whether an existing Network resource with the given ID exists.
+func NetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/network:Network", id, state, "", opts...)
+}
+
 type networkArgs struct {
 	// Enable or disable delete protection. See "Delete Protection" in the Provider Docs for details.
 	DeleteProtection *bool `pulumi:"deleteProtection"`

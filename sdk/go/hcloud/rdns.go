@@ -215,6 +215,12 @@ func (RdnsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rdnsState)(nil)).Elem()
 }
 
+// RdnsExists checks whether an existing Rdns resource with the given ID exists.
+func RdnsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RdnsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/rdns:Rdns", id, state, "", opts...)
+}
+
 type rdnsArgs struct {
 	// Domain name `ipAddress` should point to.
 	DnsPtr string `pulumi:"dnsPtr"`

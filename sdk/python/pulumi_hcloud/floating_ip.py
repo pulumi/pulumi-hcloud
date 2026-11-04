@@ -466,6 +466,30 @@ class FloatingIp(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return FloatingIp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            home_location: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_network: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deleteProtection"] = delete_protection
+        __props__["description"] = description
+        __props__["homeLocation"] = home_location
+        __props__["ipAddress"] = ip_address
+        __props__["ipNetwork"] = ip_network
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["serverId"] = server_id
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/floatingIp:FloatingIp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -18,11 +18,10 @@ public final class GetDatacenterResult {
     /**
      * @return List of currently available Server Types in the Datacenter.
      * 
-     * @deprecated
-     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead. */
+    @Deprecated
     private List<Integer> availableServerTypeIds;
     /**
      * @return Description of the Datacenter.
@@ -47,22 +46,20 @@ public final class GetDatacenterResult {
     /**
      * @return List of supported Server Types in the Datacenter.
      * 
-     * @deprecated
-     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead. */
+    @Deprecated
     private List<Integer> supportedServerTypeIds;
 
     private GetDatacenterResult() {}
     /**
      * @return List of currently available Server Types in the Datacenter.
      * 
-     * @deprecated
-     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[].available instead. */
+    @Deprecated
     public List<Integer> availableServerTypeIds() {
         return this.availableServerTypeIds;
     }
@@ -97,11 +94,10 @@ public final class GetDatacenterResult {
     /**
      * @return List of supported Server Types in the Datacenter.
      * 
-     * @deprecated
-     * This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
+     * @deprecated This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be dropped after 2026-10-01. Use hcloud_server_types[].locations[] instead. */
+    @Deprecated
     public List<Integer> supportedServerTypeIds() {
         return this.supportedServerTypeIds;
     }

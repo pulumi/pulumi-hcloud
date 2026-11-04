@@ -294,6 +294,12 @@ func (FirewallAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallAttachmentState)(nil)).Elem()
 }
 
+// FirewallAttachmentExists checks whether an existing FirewallAttachment resource with the given ID exists.
+func FirewallAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/firewallAttachment:FirewallAttachment", id, state, "", opts...)
+}
+
 type firewallAttachmentArgs struct {
 	// ID of the firewall the resources
 	// should be attached to.

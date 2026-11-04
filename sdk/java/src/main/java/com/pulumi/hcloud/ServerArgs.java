@@ -25,22 +25,20 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Unused attribute, consider removing it from your configuration.
      * 
-     * @deprecated
-     * Unused attribute, consider removing it from your configuration.
+     * @deprecated Unused attribute, consider removing it from your configuration.
      * 
      */
-    @Deprecated /* Unused attribute, consider removing it from your configuration. */
+    @Deprecated
     @Import(name="allowDeprecatedImages")
     private @Nullable Output<Boolean> allowDeprecatedImages;
 
     /**
      * @return Unused attribute, consider removing it from your configuration.
      * 
-     * @deprecated
-     * Unused attribute, consider removing it from your configuration.
+     * @deprecated Unused attribute, consider removing it from your configuration.
      * 
      */
-    @Deprecated /* Unused attribute, consider removing it from your configuration. */
+    @Deprecated
     public Optional<Output<Boolean>> allowDeprecatedImages() {
         return Optional.ofNullable(this.allowDeprecatedImages);
     }
@@ -63,22 +61,20 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
-     * @deprecated
-     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+    @Deprecated
     @Import(name="datacenter")
     private @Nullable Output<String> datacenter;
 
     /**
      * @return The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
-     * @deprecated
-     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+    @Deprecated
     public Optional<Output<String>> datacenter() {
         return Optional.ofNullable(this.datacenter);
     }
@@ -412,11 +408,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Unused attribute, consider removing it from your configuration.
+         * @deprecated Unused attribute, consider removing it from your configuration.
          * 
          */
-        @Deprecated /* Unused attribute, consider removing it from your configuration. */
+        @Deprecated
         public Builder allowDeprecatedImages(@Nullable Output<Boolean> allowDeprecatedImages) {
             $.allowDeprecatedImages = allowDeprecatedImages;
             return this;
@@ -427,11 +422,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Unused attribute, consider removing it from your configuration.
+         * @deprecated Unused attribute, consider removing it from your configuration.
          * 
          */
-        @Deprecated /* Unused attribute, consider removing it from your configuration. */
+        @Deprecated
         public Builder allowDeprecatedImages(Boolean allowDeprecatedImages) {
             return allowDeprecatedImages(Output.of(allowDeprecatedImages));
         }
@@ -462,11 +456,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+         * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+        @Deprecated
         public Builder datacenter(@Nullable Output<String> datacenter) {
             $.datacenter = datacenter;
             return this;
@@ -477,11 +470,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+         * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
          * 
          */
-        @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+        @Deprecated
         public Builder datacenter(String datacenter) {
             return datacenter(Output.of(datacenter));
         }

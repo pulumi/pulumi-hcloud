@@ -26,11 +26,10 @@ public final class GetImagesImage {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
-     * @deprecated
-     * This attribute is deprecated, use deprecationAnnounced instead.
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
+    @Deprecated
     private String deprecated;
     /**
      * @return Date of the Image deprecation announcement.
@@ -106,11 +105,10 @@ public final class GetImagesImage {
     /**
      * @return Point in time when the Image was marked as deprecated (in RFC3339 format).
      * 
-     * @deprecated
-     * This attribute is deprecated, use deprecationAnnounced instead.
+     * @deprecated This attribute is deprecated, use deprecationAnnounced instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated, use deprecationAnnounced instead. */
+    @Deprecated
     public String deprecated() {
         return this.deprecated;
     }
