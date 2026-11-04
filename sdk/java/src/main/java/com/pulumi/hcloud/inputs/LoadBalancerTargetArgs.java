@@ -41,20 +41,18 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
+     * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
+    @Deprecated
     @Import(name="usePrivateIp")
     private @Nullable Output<Boolean> usePrivateIp;
 
     /**
-     * @deprecated
-     * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
+     * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
      * 
      */
-    @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
+    @Deprecated
     public Optional<Output<Boolean>> usePrivateIp() {
         return Optional.ofNullable(this.usePrivateIp);
     }
@@ -118,11 +116,10 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
+         * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
          * 
          */
-        @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
+        @Deprecated
         public Builder usePrivateIp(@Nullable Output<Boolean> usePrivateIp) {
             $.usePrivateIp = usePrivateIp;
             return this;
@@ -131,11 +128,10 @@ public final class LoadBalancerTargetArgs extends com.pulumi.resources.ResourceA
         /**
          * @return builder
          * 
-         * @deprecated
-         * Does not work. Use the hcloud.LoadBalancerTarget resource instead.
+         * @deprecated Does not work. Use the hcloud.LoadBalancerTarget resource instead.
          * 
          */
-        @Deprecated /* Does not work. Use the hcloud.LoadBalancerTarget resource instead. */
+        @Deprecated
         public Builder usePrivateIp(Boolean usePrivateIp) {
             return usePrivateIp(Output.of(usePrivateIp));
         }

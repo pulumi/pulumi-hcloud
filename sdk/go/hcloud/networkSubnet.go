@@ -149,6 +149,12 @@ func (NetworkSubnetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSubnetState)(nil)).Elem()
 }
 
+// NetworkSubnetExists checks whether an existing NetworkSubnet resource with the given ID exists.
+func NetworkSubnetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkSubnetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/networkSubnet:NetworkSubnet", id, state, "", opts...)
+}
+
 type networkSubnetArgs struct {
 	// Range to allocate IPs from. Must be a subnet of the ipRange of the Network and must not overlap with any other subnets or with any destinations in routes.
 	IpRange string `pulumi:"ipRange"`

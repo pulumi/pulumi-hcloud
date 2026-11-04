@@ -106,6 +106,12 @@ func (ZoneRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneRecordState)(nil)).Elem()
 }
 
+// ZoneRecordExists checks whether an existing ZoneRecord resource with the given ID exists.
+func ZoneRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/zoneRecord:ZoneRecord", id, state, "", opts...)
+}
+
 type zoneRecordArgs struct {
 	// Comment of the Zone Record.
 	Comment *string `pulumi:"comment"`

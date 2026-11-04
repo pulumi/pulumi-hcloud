@@ -221,6 +221,12 @@ func (StorageBoxState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageBoxState)(nil)).Elem()
 }
 
+// StorageBoxExists checks whether an existing StorageBox resource with the given ID exists.
+func StorageBoxExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageBoxState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/storageBox:StorageBox", id, state, "", opts...)
+}
+
 type storageBoxArgs struct {
 	// Access settings of the Storage Box.
 	AccessSettings *StorageBoxAccessSettings `pulumi:"accessSettings"`

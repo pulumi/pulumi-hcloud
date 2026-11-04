@@ -633,6 +633,40 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["targets"] = targets
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            algorithm: pulumi.Input[Optional[Union['LoadBalancerAlgorithmArgs', 'LoadBalancerAlgorithmArgsDict', 'outputs.LoadBalancerAlgorithm']]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_id: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_id: pulumi.Input[Optional[_builtins.int]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_id: pulumi.Input[Optional[_builtins.int]] = None,
+            network_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            network_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerTargetArgs', 'LoadBalancerTargetArgsDict', 'outputs.LoadBalancerTarget']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["algorithm"] = algorithm
+        __props__["deleteProtection"] = delete_protection
+        __props__["ipv4"] = ipv4
+        __props__["ipv4Id"] = ipv4_id
+        __props__["ipv6"] = ipv6
+        __props__["ipv6Id"] = ipv6_id
+        __props__["labels"] = labels
+        __props__["loadBalancerType"] = load_balancer_type
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networkId"] = network_id
+        __props__["networkIp"] = network_ip
+        __props__["networkZone"] = network_zone
+        __props__["targets"] = targets
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/loadBalancer:LoadBalancer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def algorithm(self) -> pulumi.Output['outputs.LoadBalancerAlgorithm']:

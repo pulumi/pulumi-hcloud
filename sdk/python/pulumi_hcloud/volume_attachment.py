@@ -281,6 +281,18 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__.__dict__["volume_id"] = volume_id
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automount: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automount"] = automount
+        __props__["serverId"] = server_id
+        __props__["volumeId"] = volume_id
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/volumeAttachment:VolumeAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def automount(self) -> pulumi.Output[_builtins.bool]:

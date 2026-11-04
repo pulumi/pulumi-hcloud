@@ -183,6 +183,12 @@ func (LoadBalancerTargetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerTargetState)(nil)).Elem()
 }
 
+// LoadBalancerTargetExists checks whether an existing LoadBalancerTarget resource with the given ID exists.
+func LoadBalancerTargetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerTargetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/loadBalancerTarget:LoadBalancerTarget", id, state, "", opts...)
+}
+
 type loadBalancerTargetArgs struct {
 	// IP address for an IP Target. Required if
 	// `type` is `ip`.

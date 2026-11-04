@@ -161,6 +161,12 @@ func (ServerNetworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverNetworkState)(nil)).Elem()
 }
 
+// ServerNetworkExists checks whether an existing ServerNetwork resource with the given ID exists.
+func ServerNetworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerNetworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/serverNetwork:ServerNetwork", id, state, "", opts...)
+}
+
 type serverNetworkArgs struct {
 	// Additional IPs to assign to the Server.
 	AliasIps []string `pulumi:"aliasIps"`

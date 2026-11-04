@@ -217,20 +217,18 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      * 
      */
-    @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+    @Deprecated
     @Import(name="targets")
     private @Nullable Output<List<LoadBalancerTargetArgs>> targets;
 
     /**
-     * @deprecated
-     * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      * 
      */
-    @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+    @Deprecated
     public Optional<Output<List<LoadBalancerTargetArgs>>> targets() {
         return Optional.ofNullable(this.targets);
     }
@@ -548,11 +546,10 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+         * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
          * 
          */
-        @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+        @Deprecated
         public Builder targets(@Nullable Output<List<LoadBalancerTargetArgs>> targets) {
             $.targets = targets;
             return this;
@@ -561,11 +558,10 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+         * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
          * 
          */
-        @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+        @Deprecated
         public Builder targets(List<LoadBalancerTargetArgs> targets) {
             return targets(Output.of(targets));
         }
@@ -573,11 +569,10 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+         * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
          * 
          */
-        @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+        @Deprecated
         public Builder targets(LoadBalancerTargetArgs... targets) {
             return targets(List.of(targets));
         }

@@ -200,6 +200,12 @@ func (PrimaryIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*primaryIpState)(nil)).Elem()
 }
 
+// PrimaryIpExists checks whether an existing PrimaryIp resource with the given ID exists.
+func PrimaryIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrimaryIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/primaryIp:PrimaryIp", id, state, "", opts...)
+}
+
 type primaryIpArgs struct {
 	// ID of the resource the Primary IP should be assigned to.
 	AssigneeId *int `pulumi:"assigneeId"`

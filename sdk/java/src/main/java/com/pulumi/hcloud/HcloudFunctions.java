@@ -13982,7 +13982,7 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<Void> idna(String domain, InvokeOptions options) {
-        return Deployment.getInstance().invoke("hcloud:index/idna:idna", TypeShape.of(Void.class), IdnaArgs.builder().domain(domain).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("hcloud:index/idna:idna", TypeShape.of(Void.class), IdnaPlainArgs.builder().domain(domain).build(), Utilities.withVersion(options));
     }
     /**
      * Converts a Internationalized Domain Name (IDN) to ASCII using Punycode.
@@ -13996,7 +13996,7 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<Void> idna(String domain, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("hcloud:index/idna:idna", TypeShape.of(Void.class), IdnaArgs.builder().domain(domain).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("hcloud:index/idna:idna", TypeShape.of(Void.class), IdnaPlainArgs.builder().domain(domain).build(), Utilities.withVersion(options));
     }
     /**
      * Converts a Internationalized Domain Name (IDN) to ASCII using Punycode.
@@ -14043,7 +14043,7 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<Void> txtRecord(String record, InvokeOptions options) {
-        return Deployment.getInstance().invoke("hcloud:index/txtRecord:txtRecord", TypeShape.of(Void.class), TxtRecordArgs.builder().record(record).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("hcloud:index/txtRecord:txtRecord", TypeShape.of(Void.class), TxtRecordPlainArgs.builder().record(record).build(), Utilities.withVersion(options));
     }
     /**
      * Format a TXT record by splitting it in quoted strings of 255 characters.
@@ -14054,7 +14054,7 @@ public final class HcloudFunctions {
      * 
      */
     public static Output<Void> txtRecord(String record, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("hcloud:index/txtRecord:txtRecord", TypeShape.of(Void.class), TxtRecordArgs.builder().record(record).build(), Utilities.withVersion(options));
+        return Deployment.getInstance().invoke("hcloud:index/txtRecord:txtRecord", TypeShape.of(Void.class), TxtRecordPlainArgs.builder().record(record).build(), Utilities.withVersion(options));
     }
     /**
      * Format a TXT record by splitting it in quoted strings of 255 characters.

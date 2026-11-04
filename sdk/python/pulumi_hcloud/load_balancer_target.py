@@ -458,6 +458,24 @@ class LoadBalancerTarget(pulumi.CustomResource):
         __props__.__dict__["use_private_ip"] = use_private_ip
         return LoadBalancerTarget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            label_selector: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_private_ip: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ip"] = ip
+        __props__["labelSelector"] = label_selector
+        __props__["loadBalancerId"] = load_balancer_id
+        __props__["serverId"] = server_id
+        __props__["type"] = type
+        __props__["usePrivateIp"] = use_private_ip
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/loadBalancerTarget:LoadBalancerTarget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def ip(self) -> pulumi.Output[Optional[_builtins.str]]:

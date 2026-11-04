@@ -184,6 +184,12 @@ func (StorageBoxSubaccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageBoxSubaccountState)(nil)).Elem()
 }
 
+// StorageBoxSubaccountExists checks whether an existing StorageBoxSubaccount resource with the given ID exists.
+func StorageBoxSubaccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageBoxSubaccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/storageBoxSubaccount:StorageBoxSubaccount", id, state, "", opts...)
+}
+
 type storageBoxSubaccountArgs struct {
 	// Access settings for the Subaccount.
 	AccessSettings *StorageBoxSubaccountAccessSettings `pulumi:"accessSettings"`

@@ -130,6 +130,12 @@ func (PlacementGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupState)(nil)).Elem()
 }
 
+// PlacementGroupExists checks whether an existing PlacementGroup resource with the given ID exists.
+func PlacementGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PlacementGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/placementGroup:PlacementGroup", id, state, "", opts...)
+}
+
 type placementGroupArgs struct {
 	// User-defined labels (key-value pairs) should be created with.
 	Labels map[string]string `pulumi:"labels"`

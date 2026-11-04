@@ -255,11 +255,10 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Unused attribute, consider removing it from your configuration.
      * 
-     * @deprecated
-     * Unused attribute, consider removing it from your configuration.
+     * @deprecated Unused attribute, consider removing it from your configuration.
      * 
      */
-    @Deprecated /* Unused attribute, consider removing it from your configuration. */
+    @Deprecated
     @Export(name="allowDeprecatedImages", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowDeprecatedImages;
 
@@ -273,11 +272,10 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * (string) The backup window of the server, if enabled.
      * 
-     * @deprecated
-     * You should remove this property from your terraform configuration.
+     * @deprecated You should remove this property from your terraform configuration.
      * 
      */
-    @Deprecated /* You should remove this property from your terraform configuration. */
+    @Deprecated
     @Export(name="backupWindow", refs={String.class}, tree="[0]")
     private Output<String> backupWindow;
 
@@ -305,11 +303,10 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * The datacenter name to create the server in. See the [Hetzner Docs](https://docs.hetzner.com/cloud/general/locations/#what-datacenters-are-there) for more details about datacenters.
      * 
-     * @deprecated
-     * The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
+     * @deprecated The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters.
      * 
      */
-    @Deprecated /* The datacenter attribute is marked for removal, you must use the location attribute instead. See https://docs.hetzner.cloud/changelog#2026-07-01-removing-datacenters. */
+    @Deprecated
     @Export(name="datacenter", refs={String.class}, tree="[0]")
     private Output<String> datacenter;
 

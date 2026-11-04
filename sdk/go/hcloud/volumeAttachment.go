@@ -135,6 +135,12 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeAttachmentState)(nil)).Elem()
 }
 
+// VolumeAttachmentExists checks whether an existing VolumeAttachment resource with the given ID exists.
+func VolumeAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/volumeAttachment:VolumeAttachment", id, state, "", opts...)
+}
+
 type volumeAttachmentArgs struct {
 	// Automount the volume upon attaching it.
 	Automount *bool `pulumi:"automount"`

@@ -478,6 +478,24 @@ class Rdns(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         return Rdns(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_ptr: pulumi.Input[Optional[_builtins.str]] = None,
+            floating_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancer_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_ip_id: pulumi.Input[Optional[_builtins.int]] = None,
+            server_id: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnsPtr"] = dns_ptr
+        __props__["floatingIpId"] = floating_ip_id
+        __props__["ipAddress"] = ip_address
+        __props__["loadBalancerId"] = load_balancer_id
+        __props__["primaryIpId"] = primary_ip_id
+        __props__["serverId"] = server_id
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/rdns:Rdns', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnsPtr")
     def dns_ptr(self) -> pulumi.Output[_builtins.str]:

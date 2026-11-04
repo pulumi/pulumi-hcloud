@@ -138,6 +138,12 @@ func (ZoneRrsetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneRrsetState)(nil)).Elem()
 }
 
+// ZoneRrsetExists checks whether an existing ZoneRrset resource with the given ID exists.
+func ZoneRrsetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneRrsetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/zoneRrset:ZoneRrset", id, state, "", opts...)
+}
+
 type zoneRrsetArgs struct {
 	// Whether change protection is enabled.
 	ChangeProtection *bool `pulumi:"changeProtection"`

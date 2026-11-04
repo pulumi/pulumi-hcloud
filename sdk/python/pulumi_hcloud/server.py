@@ -1334,6 +1334,66 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["user_data"] = user_data
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_deprecated_images: pulumi.Input[Optional[_builtins.bool]] = None,
+            backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            firewall_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            ignore_remote_firewall_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+            image: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_network: pulumi.Input[Optional[_builtins.str]] = None,
+            iso: pulumi.Input[Optional[_builtins.str]] = None,
+            keep_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerNetworkArgs', 'ServerNetworkArgsDict', 'outputs.ServerNetwork']]]]] = None,
+            placement_group_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            public_nets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerPublicNetArgs', 'ServerPublicNetArgsDict', 'outputs.ServerPublicNet']]]]] = None,
+            rebuild_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            rescue: pulumi.Input[Optional[_builtins.str]] = None,
+            server_type: pulumi.Input[Optional[_builtins.str]] = None,
+            shutdown_before_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            ssh_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowDeprecatedImages"] = allow_deprecated_images
+        __props__["backupWindow"] = backup_window
+        __props__["backups"] = backups
+        __props__["datacenter"] = datacenter
+        __props__["deleteProtection"] = delete_protection
+        __props__["firewallIds"] = firewall_ids
+        __props__["ignoreRemoteFirewallIds"] = ignore_remote_firewall_ids
+        __props__["image"] = image
+        __props__["ipv4Address"] = ipv4_address
+        __props__["ipv6Address"] = ipv6_address
+        __props__["ipv6Network"] = ipv6_network
+        __props__["iso"] = iso
+        __props__["keepDisk"] = keep_disk
+        __props__["labels"] = labels
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["networks"] = networks
+        __props__["placementGroupId"] = placement_group_id
+        __props__["primaryDiskSize"] = primary_disk_size
+        __props__["publicNets"] = public_nets
+        __props__["rebuildProtection"] = rebuild_protection
+        __props__["rescue"] = rescue
+        __props__["serverType"] = server_type
+        __props__["shutdownBeforeDeletion"] = shutdown_before_deletion
+        __props__["sshKeys"] = ssh_keys
+        __props__["status"] = status
+        __props__["userData"] = user_data
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/server:Server', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowDeprecatedImages")
     @_utilities.deprecated("""Unused attribute, consider removing it from your configuration.""")

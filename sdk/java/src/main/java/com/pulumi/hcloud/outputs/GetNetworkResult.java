@@ -37,11 +37,10 @@ public final class GetNetworkResult {
     private String ipRange;
     private Map<String,String> labels;
     /**
-     * @deprecated
-     * This attribute has no purpose.
+     * @deprecated This attribute has no purpose.
      * 
      */
-    @Deprecated /* This attribute has no purpose. */
+    @Deprecated
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the Network.
@@ -83,11 +82,10 @@ public final class GetNetworkResult {
         return this.labels;
     }
     /**
-     * @deprecated
-     * This attribute has no purpose.
+     * @deprecated This attribute has no purpose.
      * 
      */
-    @Deprecated /* This attribute has no purpose. */
+    @Deprecated
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }

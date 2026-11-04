@@ -56,11 +56,10 @@ public final class GetFloatingIpResult {
      */
     private @Nullable String name;
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     private @Nullable String selector;
     /**
      * @return (int) Server to assign the Floating IP is assigned to.
@@ -132,11 +131,10 @@ public final class GetFloatingIpResult {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     public Optional<String> selector() {
         return Optional.ofNullable(this.selector);
     }

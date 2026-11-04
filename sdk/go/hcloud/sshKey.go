@@ -126,6 +126,12 @@ func (SshKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshKeyState)(nil)).Elem()
 }
 
+// SshKeyExists checks whether an existing SshKey resource with the given ID exists.
+func SshKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/sshKey:SshKey", id, state, "", opts...)
+}
+
 type sshKeyArgs struct {
 	// User-defined [labels](https://docs.hetzner.cloud/reference/cloud#labels) (key-value pairs) for the resource.
 	Labels map[string]string `pulumi:"labels"`

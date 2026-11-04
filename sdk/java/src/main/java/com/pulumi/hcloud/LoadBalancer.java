@@ -268,11 +268,10 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.networkZone;
     }
     /**
-     * @deprecated
-     * Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
+     * @deprecated Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets.
      * 
      */
-    @Deprecated /* Use hcloud.LoadBalancerTarget resource instead. This allows the full control over the selected targets. */
+    @Deprecated
     @Export(name="targets", refs={List.class,LoadBalancerTarget.class}, tree="[0,1]")
     private Output<List<LoadBalancerTarget>> targets;
 

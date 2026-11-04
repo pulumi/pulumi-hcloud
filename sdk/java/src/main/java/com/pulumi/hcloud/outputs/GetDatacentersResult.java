@@ -13,19 +13,17 @@ import java.util.Objects;
 @CustomType
 public final class GetDatacentersResult {
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     private List<String> datacenterIds;
     private List<GetDatacentersDatacenter> datacenters;
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     private List<String> descriptions;
     /**
      * @return The ID of this resource.
@@ -33,20 +31,18 @@ public final class GetDatacentersResult {
      */
     private String id;
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     private List<String> names;
 
     private GetDatacentersResult() {}
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     public List<String> datacenterIds() {
         return this.datacenterIds;
     }
@@ -54,11 +50,10 @@ public final class GetDatacentersResult {
         return this.datacenters;
     }
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     public List<String> descriptions() {
         return this.descriptions;
     }
@@ -70,11 +65,10 @@ public final class GetDatacentersResult {
         return this.id;
     }
     /**
-     * @deprecated
-     * Use datacenters list instead
+     * @deprecated Use datacenters list instead
      * 
      */
-    @Deprecated /* Use datacenters list instead */
+    @Deprecated
     public List<String> names() {
         return this.names;
     }

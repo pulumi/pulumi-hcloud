@@ -125,6 +125,12 @@ func (ManagedCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedCertificateState)(nil)).Elem()
 }
 
+// ManagedCertificateExists checks whether an existing ManagedCertificate resource with the given ID exists.
+func ManagedCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/managedCertificate:ManagedCertificate", id, state, "", opts...)
+}
+
 type managedCertificateArgs struct {
 	// Domain names for which a certificate
 	// should be obtained.

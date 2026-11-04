@@ -62,20 +62,18 @@ public final class GetFloatingIpArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @deprecated
-     * Please use the withSelector property instead.
+     * @deprecated Please use the withSelector property instead.
      * 
      */
-    @Deprecated /* Please use the withSelector property instead. */
+    @Deprecated
     public Optional<Output<String>> selector() {
         return Optional.ofNullable(this.selector);
     }
@@ -189,11 +187,10 @@ public final class GetFloatingIpArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Please use the withSelector property instead.
+         * @deprecated Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the withSelector property instead. */
+        @Deprecated
         public Builder selector(@Nullable Output<String> selector) {
             $.selector = selector;
             return this;
@@ -202,11 +199,10 @@ public final class GetFloatingIpArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @return builder
          * 
-         * @deprecated
-         * Please use the withSelector property instead.
+         * @deprecated Please use the withSelector property instead.
          * 
          */
-        @Deprecated /* Please use the withSelector property instead. */
+        @Deprecated
         public Builder selector(String selector) {
             return selector(Output.of(selector));
         }

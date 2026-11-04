@@ -403,6 +403,32 @@ class UploadedCertificate(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return UploadedCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_valid_after: pulumi.Input[Optional[_builtins.str]] = None,
+            not_valid_before: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certificate"] = certificate
+        __props__["created"] = created
+        __props__["domainNames"] = domain_names
+        __props__["fingerprint"] = fingerprint
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["notValidAfter"] = not_valid_after
+        __props__["notValidBefore"] = not_valid_before
+        __props__["privateKey"] = private_key
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'hcloud:index/uploadedCertificate:UploadedCertificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def certificate(self) -> pulumi.Output[_builtins.str]:

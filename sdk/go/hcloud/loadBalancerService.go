@@ -211,6 +211,12 @@ func (LoadBalancerServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerServiceState)(nil)).Elem()
 }
 
+// LoadBalancerServiceExists checks whether an existing LoadBalancerService resource with the given ID exists.
+func LoadBalancerServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancerServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("hcloud:index/loadBalancerService:LoadBalancerService", id, state, "", opts...)
+}
+
 type loadBalancerServiceArgs struct {
 	// Port the service connects to the targets on, required if protocol is `tcp`. Can be everything between `1` and `65535`.
 	DestinationPort *int `pulumi:"destinationPort"`
